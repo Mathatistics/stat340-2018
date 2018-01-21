@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Applied Methods in Statistics</title>
+  <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  <meta name="github-repo" content="therimalaya/stat340" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  
+  <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  
+
+<meta name="author" content="Thore Egeland">
+
+
+<meta name="date" content="2018-01-01">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Applied Methods in Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path=""><a href="#practical-information"><i class="fa fa-check"></i>Practical Information</a></li>
+<li class="divider"></li>
+<li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
+<li><a name="title" href="javascript:void(0)"><b>Assistent Teachers:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/raju.rimal" target="blank">Raju Rimal</a></li></ul></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applied Methods in Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Applied Methods in Statistics</h1>
+<h4 class="author"><em>Thore Egeland</em></h4>
+<h4 class="date"><em>2018</em></h4>
+</div>
+<div id="practical-information" class="section level1">
+<h1>Practical Information</h1>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Topics</th>
+<th align="left">Exercises</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">R and R Studio</td>
+<td align="left">Exercise 1</td>
+</tr>
+<tr class="even">
+<td align="left">Regression Analysis</td>
+<td align="left">Exercise 2, Exercise 3</td>
+</tr>
+<tr class="odd">
+<td align="left">Analysis of Variance</td>
+<td align="left">Exercise 4, Exercise 5</td>
+</tr>
+<tr class="even">
+<td align="left">Multivariate Statistics</td>
+<td align="left">Exercise 6, Exercise 7</td>
+</tr>
+<tr class="odd">
+<td align="left">Generalized Linear Model</td>
+<td align="left">Exercise 8 &amp; 9, Exercise 10</td>
+</tr>
+<tr class="even">
+<td align="left">Mixed Effect Models</td>
+<td align="left">Exercise 11, Exercise 12</td>
+</tr>
+</tbody>
+</table>
+<div id="reference-books" class="section level3">
+<h3>Reference Books</h3>
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-6 pull-right">
+<figure>
+<img src="images/Book1Cover.jpg" width="300"/>
+</figure>
+</div>
+<div class="col-xs-6 pull-left">
+<figure>
+<img src="images/Book2Cover.jpg" width="268"/>
+</figure>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+<script>
+ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
+  showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
+  hideAns_btn = '<a class="hideAns-btn btn pull-right js-toolbar-action" style="display:none;">Hide Answers</a>';
+  
+  // Adding Extra Menus in Navigation
+  
+  // Adding button on before each answer:::
+  $(".ans").before(ans_btn_html);
+  $('.btn-ans').each(function(){
+    $(this).next('.ans').andSelf().wrapAll('<div class="wrap-ans"/>');
+  });
+  $('.btn-ans').click(function(){
+    $(this).siblings('.ans').toggle(400);
+  });
+  
+if ($(".ans").length > 0){
+    $('.book-header').prepend(showAns_btn, hideAns_btn);
+    $('.showAns-btn').show();
+    $('.showAns-btn').click(function(){
+      $('.btn-ans').hide(400);
+      $('.ans').show(400);
+      $('.hideAns-btn').show();
+      $(this).hide();
+      $('.hideAns-btn').click(function(){
+        $('.btn-ans').show(400);
+        $('.ans').hide(400);
+        $('.showAns-btn').show();
+        $(this).hide();
+      });
+    });
+  }
+
+var chap = "week-two"
+if(window.location.href.indexOf(chap) != -1){
+  var now = new Date();
+  var release = new Date("August 21, 2016");
+  if(now < release){
+    $(".ans, .btn-ans, .showAns-btn, .hideAns-btn").hide()
+  }
+}
+
+$('.ans p:has(img)').css('text-align', 'center');
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82812028-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

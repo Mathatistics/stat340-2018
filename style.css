@@ -1,0 +1,25 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+.title, .author, .date{
+  text-align: center;
+  font-style: normal;
+  padding-bottom: -50pt;
+}
+.ans{
+  display:none;
+  padding-left: 10pt;
+  background-color:#EDEDED;
+  padding:10pt;
+}
