@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Applied Methods in Statistics</title>
+  <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  <meta name="github-repo" content="mathatistics/stat340-2018-source" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  
+  <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  
+
+<meta name="author" content="Thore Egeland and Raju Rimal">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="exercise-5-exploring-the-data.html">
+<link rel="next" href="exercise-7-graphics.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Applied Methods in Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Practical Information</a><ul>
+<li class="chapter" data-level="" data-path="lecture-and-exercise-plan.html"><a href="lecture-and-exercise-plan.html"><i class="fa fa-check"></i>Lecture and Exercise Plan</a></li>
+<li class="chapter" data-level="" data-path="reference-books.html"><a href="reference-books.html"><i class="fa fa-check"></i>Reference Books</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="exercise-1-create-new-project.html"><a href="exercise-1-create-new-project.html"><i class="fa fa-check"></i>Exercise 1: Create New Project</a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html"><i class="fa fa-check"></i>Exercise 2: Importing data in R</a><ul>
+<li><a href="exercise-2-importing-data-in-r.html#import-txt-or-csv">Import <code>txt</code> or <code>csv</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#import-microsoft-excel-spreadsheet"><i class="fa fa-check"></i>Import Microsoft Excel spreadsheet</a></li>
+<li><a href="exercise-2-importing-data-in-r.html#load-rdata-rda-or-rds">Load <code>rdata</code>, <code>rda</code> or <code>rds</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#reading-data-from-clipboard-pasting-copied-data-into-an-r-object"><i class="fa fa-check"></i>Reading data from clipboard (“pasting” copied data into an R object)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-3-exporting-data-to-a-file.html"><a href="exercise-3-exporting-data-to-a-file.html"><i class="fa fa-check"></i>Exercise 3: Exporting data to a file</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html"><i class="fa fa-check"></i>Exercise 4: Data Structure in R</a><ul>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#vector"><i class="fa fa-check"></i>Vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#list"><i class="fa fa-check"></i>List</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#data-frame"><i class="fa fa-check"></i>Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html"><i class="fa fa-check"></i>Exercise 5: Exploring the data</a><ul>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#structure-of-an-r-object"><i class="fa fa-check"></i>Structure of an R-object</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#accessing-elements-from-r-objects"><i class="fa fa-check"></i>Accessing elements from R-objects</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#view-data-in-rstudio"><i class="fa fa-check"></i>View Data in RStudio</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#summary-of-data"><i class="fa fa-check"></i>Summary of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#dimension-of-data"><i class="fa fa-check"></i>Dimension of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#lets-practice"><i class="fa fa-check"></i>Lets Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html"><i class="fa fa-check"></i>Exercise 6: Subsets of data and logical operators</a><ul>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#logical-vector-and-index-vector"><i class="fa fa-check"></i>Logical vector and index vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#subsetting-data-frame"><i class="fa fa-check"></i>Subsetting data frame</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#exercise-1"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html"><i class="fa fa-check"></i>Exercise 7: Graphics</a><ul>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html#spice-up-the-plot"><i class="fa fa-check"></i>Spice up the plot</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
+<li><a name="title" href="javascript:void(0)"><b>Assistent Teachers:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/raju.rimal" target="blank">Raju Rimal</a></li></ul></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applied Methods in Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exercise-6-subsets-of-data-and-logical-operators" class="section level2">
+<h2>Exercise 6: Subsets of data and logical operators</h2>
+<div id="logical-vector-and-index-vector" class="section level3">
+<h3>Logical vector and index vector</h3>
+<p>A lot of times we want to get a subset of data filtering rows or columns of a dataframe. For which we can perform logical test and get <code>TRUE</code> or <code>FALSE</code> as result. This vector of logical can then be used to subset the observations from a dataframe.</p>
+<p>For example, Lets extract observation from <code>bodydata</code> with Weight greater than 80. You might be wondering why following code does not work,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">isHeavy &lt;-<span class="st"> </span>Weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span></code></pre></div>
+<pre><code>Error in eval(expr, envir, enclos): object &#39;Weight&#39; not found</code></pre>
+<p>But remember that, the variable <code>Weight</code> is a part of <code>bodydata</code>. We have to extract <code>Weight</code> from the <code>bodydata</code> first. In R, <code>with</code> and <code>within</code> function helps you in this respect. In the following code, <code>with</code> function goes inside <code>bodydata</code> and execute the expression <code>Weight &gt; 80</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">isHeavy &lt;-<span class="st"> </span><span class="kw">with</span>(bodydata, Weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span>)</code></pre></div>
+<p>Here the logical vector <code>isHeavy</code> is computed by performing a logical operation on <code>Weight</code> variable within <code>bodydata</code>. The same operation can be done as,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">isHeavy &lt;-<span class="st"> </span>bodydata<span class="op">$</span>Weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span></code></pre></div>
+<p><strong>Take a look at this variable, what is it?</strong> :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(isHeavy)</code></pre></div>
+<pre><code>[1] FALSE  TRUE FALSE FALSE FALSE  TRUE</code></pre>
+<p>Yes, it is a vector of <code>TRUE</code> and <code>FALSE</code> with same length as <code>Weight</code>. Here the condition has compared each element of <code>Weight</code> results <code>TRUE</code> if it is greater than 80 and <code>FALSE</code> if it is less than 80.</p>
+<dl>
+<dt><strong>Identify the elements</strong></dt>
+<dd><p>We can identify which observations that are heavy by the <code>which()</code> function</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">HeavyId &lt;-<span class="st"> </span><span class="kw">which</span>(isHeavy)</code></pre></div>
+<p>This will return a vector of row index for the observations that are heavy, i.e. greater than 80. So how many are heavy? To find the size of a vector we can use <code>length</code> function.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(HeavyId)</code></pre></div>
+<pre><code>[1] 94</code></pre>
+<p>Here, 94 observations have Weight larger than 80.</p>
+</dd>
+</dl>
+<div id="exercise" class="section level4">
+<h4>Exercise</h4>
+<ol style="list-style-type: decimal">
+<li><p>Identify who are taller than 180 and save this logical vector as an object called <code>isTall</code>.</p>
+<p><details class="answer"> <summary><em>Answer</em></summary></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">isTall &lt;-<span class="st"> </span><span class="kw">with</span>(bodydata, Height <span class="op">&gt;</span><span class="st"> </span><span class="dv">180</span>) </code></pre></div>
+<p></details></p></li>
+<li><p>How many observations have height taller than 180?</p>
+<p><details class="answer"> <summary><em>Answer</em></summary></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TallId &lt;-<span class="st"> </span><span class="kw">which</span>(isTall)
+<span class="kw">length</span>(TallId)</code></pre></div>
+<pre><code>[1] 76</code></pre>
+<p></details></p></li>
+<li><p>How many observations are both tall and heavy? Here, you can use <code>length</code> function as above to find how many person are taller than 180.</p>
+<p><details class="answer"> <summary><em>Answer</em></summary></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">isBoth &lt;-<span class="st"> </span>isHeavy <span class="op">*</span><span class="st"> </span>isTall</code></pre></div>
+<dl>
+<dt><strong>How is this computation done?</strong></dt>
+<dd>Here <code>isHeavy</code> and <code>isTall</code> contains <code>TRUE</code> and <code>FALSE</code>. The multiplication of logical operator results a logical vector with <code>TRUE</code> only if both the vectors are <code>TRUE</code> else <code>FALSE</code>.
+</dd>
+</dl>
+<p><strong>Alternatively</strong> :</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">isBoth &lt;-<span class="st"> </span><span class="kw">which</span>(isHeavy <span class="op">&amp;</span><span class="st"> </span>isTall)</code></pre></div>
+<p>The <code>&amp;</code> operator result <code>TRUE</code> if both <code>isHeavy</code> and <code>isTall</code> are <code>TRUE</code> else, <code>FALSE</code> which is same as previous. </details></p></li>
+</ol>
+</div>
+</div>
+<div id="subsetting-data-frame" class="section level3">
+<h3>Subsetting data frame</h3>
+<div id="example-1" class="section level4">
+<h4>Example 1</h4>
+<p>Lets create a subset of the data called <code>bodydataTallAndHeavy</code> containing only the observations for tall and heavy persons as defined by isBoth.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bodydataTallAndHeavy &lt;-<span class="st"> </span>bodydata[isBoth, ]</code></pre></div>
+<p>For other logical tests see help file <code>?Comparison</code></p>
+</div>
+<div id="example-2" class="section level4">
+<h4>Example 2</h4>
+<p>Lets create a random subset of 50 observations. For this we first sample 50 row index randomly from all rows in <code>bodydata</code>. The <code>sample</code> function is used for the purpose. In the following code, <code>nrow(bodydata)</code> return the number of rows in <code>bodydata</code>. The <code>sample</code> function takes two argument <code>x</code> which can be a vector or a integer and <code>size</code> which is the size of the sample to be drawn.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">idx &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">nrow</span>(bodydata), <span class="dt">size =</span> <span class="dv">50</span>)</code></pre></div>
+<p>Here, 50 rows are sampled from the total number of rows and the index of the selected rows are saved on vector <code>idx</code>.</p>
+<p>Using this vector we can select the observations in <code>bodydata</code> to create a new data set called <code>bodydataRandom</code> as,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bodydataRandom &lt;-<span class="st"> </span>bodydata[idx, ]</code></pre></div>
+<p>Here is the first five rows of <code>bodydataRandom</code> dataset.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(bodydataRandom, <span class="dt">n =</span> <span class="dv">5</span>)</code></pre></div>
+<pre><code>    Weight Height Age Circumference
+169   96.8  177.8  29          98.5
+192   86.4  175.3  23          84.2
+166   95.9  193.0  22          89.1
+440   53.9  162.6  37          58.0
+464   52.7  167.6  27          63.8</code></pre>
+</div>
+</div>
+<div id="exercise-1" class="section level3">
+<h3>Exercise</h3>
+<p>Create a subset of dataset <code>bodydata</code> including the observation with <code>Age</code> larger an 55 and <code>Circumference</code> larger than 80. Save this dataset named <code>subdata</code>.</p>
+<p><details class="answer"> <summary><em>Answer</em></summary></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">idx &lt;-<span class="st"> </span><span class="kw">with</span>(bodydata, Age <span class="op">&gt;</span><span class="st"> </span><span class="dv">55</span> <span class="op">&amp;</span><span class="st"> </span>Circumference <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span>)
+subdata &lt;-<span class="st"> </span>bodydata[idx, ]
+subdata</code></pre></div>
+<pre><code>    Weight Height Age Circumference
+136   76.4  185.4  62          94.8
+189   73.6  175.3  60          90.5
+207   66.8  167.6  62          81.5
+231   80.0  174.0  65          98.6</code></pre>
+<p></details></p>
+<p>For those who are interested in playing more with data, have a look at <a href="http://r4ds.had.co.nz/transform.html" class="uri">http://r4ds.had.co.nz/transform.html</a></p>
+
+</div>
+</div>
+<script>
+ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
+  showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
+  hideAns_btn = '<a class="hideAns-btn btn pull-right js-toolbar-action" style="display:none;">Hide Answers</a>';
+  
+  // Adding Extra Menus in Navigation
+  
+  // Adding button on before each answer:::
+  $(".ans").before(ans_btn_html);
+  $('.btn-ans').each(function(){
+    $(this).next('.ans').andSelf().wrapAll('<div class="wrap-ans"/>');
+  });
+  $('.btn-ans').click(function(){
+    $(this).siblings('.ans').toggle(400);
+  });
+  
+if ($(".ans").length > 0){
+    $('.book-header').prepend(showAns_btn, hideAns_btn);
+    $('.showAns-btn').show();
+    $('.showAns-btn').click(function(){
+      $('.btn-ans').hide(400);
+      $('.ans').show(400);
+      $('.hideAns-btn').show();
+      $(this).hide();
+      $('.hideAns-btn').click(function(){
+        $('.btn-ans').show(400);
+        $('.ans').hide(400);
+        $('.showAns-btn').show();
+        $(this).hide();
+      });
+    });
+  }
+
+var chap = "week-two"
+if(window.location.href.indexOf(chap) != -1){
+  var now = new Date();
+  var release = new Date("August 21, 2016");
+  if(now < release){
+    $(".ans, .btn-ans, .showAns-btn, .hideAns-btn").hide()
+  }
+}
+
+$('.ans p:has(img)').css('text-align', 'center');
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82812028-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exercise-5-exploring-the-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercise-7-graphics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["STAT340-2018.pdf"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
