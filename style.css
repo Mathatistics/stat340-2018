@@ -1,3 +1,22 @@
+#book{
+    display: grid;
+    justify-content: space-between;
+    grid-gap: 10px;
+    grid-auto-flow: column;
+}
+#book > img{
+    height: 500px;
+}
+#project-screenshot{
+    display: grid;
+    justify-content: space-between;
+    justify-items: flex-end;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 1fr;
+}
+#project-screenshot > img:first-child{
+    width: 60%
+}
 p.caption {
   color: #777;
   margin-top: 10px;
