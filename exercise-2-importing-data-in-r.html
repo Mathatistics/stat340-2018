@@ -168,7 +168,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="import-txt-or-csv" class="section level3">
 <h3>Import <code>txt</code> or <code>csv</code></h3>
 <p>Base R-package has <code>read.table</code> and <code>read.csv</code> for importing a text or comma separated file (csv) files. Download <code>bodydata.txt</code> and to import it in R as,</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bodydata &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;_data/bodydata.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">dec =</span> <span class="st">&quot;,&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bodydata &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;_data/bodydata.txt&quot;</span>, <span class="dt">header =</span> <span class="ot">TRUE</span>)</code></pre></div>
 <p>Here the argument <code>header</code> is <code>TRUE</code> if the data has header in its first row. The argument <code>sep</code> takes <code>\t</code>, <code>,</code> or <code>;</code> based on if the columns in the text data are tab-separated, comma-separated or separated by semi-colons. If the decimal values in the data are represented by <code>,</code>, the <code>dec</code> argument takes the value <code>,</code>. For further help see: <code>?read.table</code></p>
 <div class="figure"><span id="fig:import-text-gif"></span>
 <img src="gif/Import-Text.gif" alt="Import text data" width="100%" />
