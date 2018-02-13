@@ -148,6 +148,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html#spice-up-the-plot"><i class="fa fa-check"></i>Spice up the plot</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i>Regression Analysis</a><ul>
+<li class="chapter" data-level="" data-path="least-sqaures-app.html"><a href="least-sqaures-app.html"><i class="fa fa-check"></i>Least Sqaures App</a></li>
+<li class="chapter" data-level="" data-path="dataset-birth.html"><a href="dataset-birth.html"><i class="fa fa-check"></i>Dataset: birth</a><ul>
+<li><a href="dataset-birth.html#overview-of-data"><i class="fa fa-edit"></i> Overview of data</a></li>
+<li><a href="dataset-birth.html#linear-regression"><i class="fa fa-book"></i> Linear Regression</a></li>
+<li><a href="dataset-birth.html#regression-with-categories"><i class="fa fa-book"></i> Regression with categories</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataset-bodydata.html"><a href="dataset-bodydata.html"><i class="fa fa-check"></i>Dataset: bodydata</a><ul>
+<li><a href="dataset-bodydata.html#training-samples"><i class="fa fa-book"></i> Training Samples</a></li>
+<li><a href="dataset-bodydata.html#fitting-model"><i class="fa fa-edit"></i> Fitting Model</a></li>
+<li><a href="dataset-bodydata.html#understanding-the-fitted-model"><i class="fa fa-edit"></i> Understanding the fitted Model</a></li>
+<li><a href="dataset-bodydata.html#multiple-linear-regression-and-prediction"><i class="fa fa-edit"></i> Multiple Linear Regression and Prediction</a></li>
+<li><a href="dataset-bodydata.html#extra-on-r-squared"><i class="fa fa-book"></i> Extra on R-squared</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html"><i class="fa fa-check"></i>Dataset: mtcars</a><ul>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-1-model-fitting"><i class="fa fa-check"></i>Ex-1: Model Fitting</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-2-indicator-variable"><i class="fa fa-check"></i>Ex-2: Indicator variable</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-3-comparing-models---partial-f-test"><i class="fa fa-check"></i>Ex-3: Comparing models - Partial F-test</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-4-influential-measurements"><i class="fa fa-check"></i>Ex-4: Influential measurements</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-5-model-selection"><i class="fa fa-check"></i>Ex-5: Model selection</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-6-model-validation"><i class="fa fa-check"></i>Ex-6: Model validation</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
 <li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
@@ -182,7 +205,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <!-- </div> -->
 <script>
-ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
+  ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
   showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
   hideAns_btn = '<a class="hideAns-btn btn pull-right js-toolbar-action" style="display:none;">Hide Answers</a>';
   
@@ -283,6 +306,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

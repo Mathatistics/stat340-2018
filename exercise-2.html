@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Applied Methods in Statistics</title>
+  <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  <meta name="github-repo" content="mathatistics/stat340-2018-source" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  
+  <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  
+
+<meta name="author" content="Thore Egeland and Raju Rimal">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="bodydata.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113782065-1');
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Applied Methods in Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Practical Information</a><ul>
+<li class="chapter" data-level="" data-path="lecture-and-exercise-plan.html"><a href="lecture-and-exercise-plan.html"><i class="fa fa-check"></i>Lecture and Exercise Plan</a></li>
+<li class="chapter" data-level="" data-path="reference-books.html"><a href="reference-books.html"><i class="fa fa-check"></i>Reference Books</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="exercise-1-create-new-project.html"><a href="exercise-1-create-new-project.html"><i class="fa fa-check"></i>Exercise 1: Create New Project</a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html"><i class="fa fa-check"></i>Exercise 2: Importing data in R</a><ul>
+<li><a href="exercise-2-importing-data-in-r.html#import-txt-or-csv">Import <code>txt</code> or <code>csv</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#import-microsoft-excel-spreadsheet"><i class="fa fa-check"></i>Import Microsoft Excel spreadsheet</a></li>
+<li><a href="exercise-2-importing-data-in-r.html#load-rdata-rda-or-rds">Load <code>rdata</code>, <code>rda</code> or <code>rds</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#reading-data-from-clipboard-pasting-copied-data-into-an-r-object"><i class="fa fa-check"></i>Reading data from clipboard (“pasting” copied data into an R object)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-3-exporting-data-to-a-file.html"><a href="exercise-3-exporting-data-to-a-file.html"><i class="fa fa-check"></i>Exercise 3: Exporting data to a file</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html"><i class="fa fa-check"></i>Exercise 4: Data Structure in R</a><ul>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#vector"><i class="fa fa-check"></i>Vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#list"><i class="fa fa-check"></i>List</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#data-frame"><i class="fa fa-check"></i>Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html"><i class="fa fa-check"></i>Exercise 5: Exploring the data</a><ul>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#structure-of-an-r-object"><i class="fa fa-check"></i>Structure of an R-object</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#accessing-elements-from-r-objects"><i class="fa fa-check"></i>Accessing elements from R-objects</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#view-data-in-rstudio"><i class="fa fa-check"></i>View Data in RStudio</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#summary-of-data"><i class="fa fa-check"></i>Summary of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#dimension-of-data"><i class="fa fa-check"></i>Dimension of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#lets-practice"><i class="fa fa-check"></i>Lets Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html"><i class="fa fa-check"></i>Exercise 6: Subsets of data and logical operators</a><ul>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#logical-vector-and-index-vector"><i class="fa fa-check"></i>Logical vector and index vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#subsetting-data-frame"><i class="fa fa-check"></i>Subsetting data frame</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#exercise-1"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html"><i class="fa fa-check"></i>Exercise 7: Graphics</a><ul>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html#spice-up-the-plot"><i class="fa fa-check"></i>Spice up the plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i>Regression Analysis</a><ul>
+<li class="chapter" data-level="" data-path="least-sqaures-app.html"><a href="least-sqaures-app.html"><i class="fa fa-check"></i>Least Sqaures App</a></li>
+<li class="chapter" data-level="" data-path="birth-dataset.html"><a href="birth-dataset.html"><i class="fa fa-check"></i>Birth Dataset</a><ul>
+<li><a href="birth-dataset.html#overview-of-data"><i class="fa fa-edit"></i> Overview of data</a></li>
+<li><a href="birth-dataset.html#linear-regression"><i class="fa fa-book"></i> Linear Regression</a></li>
+<li><a href="birth-dataset.html#regression-with-categories"><i class="fa fa-book"></i> Regression with categories</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bodydata.html"><a href="bodydata.html"><i class="fa fa-check"></i>Bodydata</a><ul>
+<li><a href="bodydata.html#training-samples"><i class="fa fa-book"></i> Training Samples</a></li>
+<li><a href="bodydata.html#fitting-model"><i class="fa fa-edit"></i> Fitting Model</a></li>
+<li><a href="bodydata.html#understanding-the-fitted-model"><i class="fa fa-edit"></i> Understanding the fitted Model</a></li>
+<li><a href="bodydata.html#multiple-linear-regression-and-prediction"><i class="fa fa-edit"></i> Multiple Linear Regression and Prediction</a></li>
+<li><a href="bodydata.html#extra-on-r-squared"><i class="fa fa-book"></i> Extra on R-squared</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i>Exercise 2</a><ul>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-1-the-mtcars-data-from-the-datasets-package"><i class="fa fa-check"></i>Ex-1: The mtcars data from the datasets package</a></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-2-indicator-variable"><i class="fa fa-check"></i>Ex-2: Indicator variable</a></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-3-comparing-models---partial-f-test"><i class="fa fa-check"></i>Ex-3: Comparing models - Partial F-test</a></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-4-influential-measurements"><i class="fa fa-check"></i>Ex-4: Influential measurements</a></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-5-model-selection"><i class="fa fa-check"></i>Ex-5: Model selection</a></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-6-model-validation"><i class="fa fa-check"></i>Ex-6: Model validation</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
+<li><a name="title" href="javascript:void(0)"><b>Assistent Teachers:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/raju.rimal" target="blank">Raju Rimal</a></li></ul></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applied Methods in Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exercise-2" class="section level2">
+<h2>Exercise 2</h2>
+<div id="ex-1-the-mtcars-data-from-the-datasets-package" class="section level3">
+<h3>Ex-1: The mtcars data from the datasets package</h3>
+<p>We will use an old data set from 1974 on gasoline consumption for various cars which is part of the <code>datasets</code> package in R. Load the mtcars.rdata file (first download from Fronter).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(mtcars)</code></pre></div>
+<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<p>As you can see there are multiple variables. If you have the datasets package you may look at the help file for the data by:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?datasets<span class="op">::</span>mtcars</code></pre></div>
+<ul>
+<li>Fit a multiple linear regression model with mpg (Miles/Gallon) as response variable and <code>wt</code> (Weight) and <code>cyl</code> (Number of cylinders) as predictors. Call the model object “<code>cars1</code>”.</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars1 &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>cyl <span class="op">+</span><span class="st"> </span>wt, <span class="dt">data =</span> mtcars)</code></pre></div>
+</div>
+<ul>
+<li>Check the model assumptions by residual analysis.</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co">#This creates a layout for plots, one row and two columns</span>
+<span class="kw">plot</span>(cars1, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co">#Only the two first residual plots</span></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-97-1.png" width="672" /></p>
+</div>
+<ul>
+<li>Give a summary of the results and compute the ANOVA-table.</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(cars1)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = mpg ~ cyl + wt, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.2893 -1.5512 -0.4684  1.5743  6.1004 
+
+Coefficients:
+            Estimate Std. Error t value             Pr(&gt;|t|)    
+(Intercept)  39.6863     1.7150  23.141 &lt; 0.0000000000000002 ***
+cyl          -1.5078     0.4147  -3.636             0.001064 ** 
+wt           -3.1910     0.7569  -4.216             0.000222 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+s: 2.568 on 29 degrees of freedom
+Multiple R-squared: 0.8302,
+Adjusted R-squared: 0.8185 
+F-statistic: 70.91 on 2 and 29 DF,  p-value: 0.000000000006809 </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(cars1)</code></pre></div>
+<pre><code>Analysis of Variance Table
+
+Response: mpg
+          Df Sum Sq Mean Sq F value            Pr(&gt;F)    
+cyl        1 817.71  817.71 124.044 0.000000000005424 ***
+wt         1 117.16  117.16  17.773          0.000222 ***
+Residuals 29 191.17    6.59                              
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<ul>
+<li>Give a short report on the results.</li>
+</ul>
+<div class="ans">
+<p>Both <code>cyl</code> and <code>wt</code> appears to be highly significant predictors for <code>mpg</code>. The estimated effects are negative implying that the mileage decreases as both weight and cylinder numbers increase, which is a reasonable result. The <span class="math inline">\(R^2\)</span> is 0.83, hence, about 83% of the variability in mileage is explained by the linear relationship with <code>cyl</code> and <code>wt</code>. The residual plot of fitted values versus residuals gives an indication of a non-linear relationship, which may be a result of non-linear dependencies or missing explanatory variable(s). The normal probability plot is more or less OK.</p>
+</div>
+</div>
+<div id="ex-2-indicator-variable" class="section level3">
+<h3>Ex-2: Indicator variable</h3>
+<ul>
+<li>The <code>am</code> variable is an indicator variable for transmission system of the cars, 0=automatic, 1=manual. Run the following model in RStudio:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars2 &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>cyl <span class="op">+</span><span class="st"> </span>wt<span class="op">*</span>am, <span class="dt">data =</span> mtcars)</code></pre></div>
+<p>Write up the assumed model which has been run here. Also write up the estimated models for automatic and manual transmission, respectively.</p>
+<div class="ans">
+<p>The model is:</p>
+<p><span class="math display">\[y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \beta_3 x_3 + \beta_4 x_2\cdot x_3 + \epsilon\]</span></p>
+<p>where <span class="math inline">\(y\)</span>=<code>mpg</code>, <span class="math inline">\(x_1\)</span>=<code>cyl</code>, <span class="math inline">\(x_2\)</span>=<code>wt</code>, <span class="math inline">\(x_3\)</span>=<code>am</code> and <span class="math inline">\(\epsilon \sim N(0, \sigma^2)\)</span>. The fitted model from RStudio is:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(cars2)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = mpg ~ cyl + wt * am, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.4621 -1.4913 -0.7879  1.3959  5.3499 
+
+Coefficients:
+            Estimate Std. Error t value         Pr(&gt;|t|)    
+(Intercept)  34.2830     2.7965  12.259 0.00000000000152 ***
+cyl          -1.1814     0.3803  -3.106          0.00442 ** 
+wt           -2.3689     0.8244  -2.874          0.00782 ** 
+am           11.9385     3.8453   3.105          0.00444 ** 
+wt:am        -4.1974     1.3115  -3.200          0.00350 ** 
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+s: 2.265 on 27 degrees of freedom
+Multiple R-squared: 0.877,
+Adjusted R-squared: 0.8588 
+F-statistic: 48.13 on 4 and 27 DF,  p-value: 0.000000000006643 </code></pre>
+<p>For automatic transmission (<code>am</code>=<span class="math inline">\(x_3\)</span>=0) we have the estimated model:</p>
+<p><span class="math display">\[\hat{y} = 34.28 - 1.18x_1 - 2.37x_2\]</span></p>
+<p>For manual transmission (<code>am</code>=<span class="math inline">\(x_3\)</span>=1) we have <span class="math display">\[\hat{y} = 34.28 - 1.18x_1 - 2.37x_2 + 11.94\cdot 1 - 4.20x_2\cdot 1\]</span> <span class="math display">\[= 46.22 - 1.18x_1 - 6.57x_2\]</span></p>
+<p>We observe that the negative effect of weight on mileage is larger for manual transmission than for automatic.</p>
+</div>
+</div>
+<div id="ex-3-comparing-models---partial-f-test" class="section level3">
+<h3>Ex-3: Comparing models - Partial F-test</h3>
+<ul>
+<li>From the p-values we observe that transmission gives a significant addition to the intercept and to the effect of weight, respectively. These p-values correspond to testing each effect GIVEN that all other variables are included in the model. Sometimes we would rather like to test several effects jointly. For instance, should we add both transmission (<code>am</code>) AND the interaction betwen transmission and weight (<code>wt:am</code>) to the model? This is a joint test of the significance of transmission in the model. To accomplish this we may compare the fits of <code>cars2</code> (a full model) with <code>cars1</code> (a reduced model) since the difference between these models are exactly the transmission effects. This is called a partial F-test (Fisher test) were we test whether the SSE has decreased significantly as we go from the reduced model to the full model. The partial F-test may be run in RStudio by:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(cars1, cars2)</code></pre></div>
+<pre><code>Analysis of Variance Table
+
+Model 1: mpg ~ cyl + wt
+Model 2: mpg ~ cyl + wt * am
+  Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)  
+1     29 191.17                             
+2     27 138.51  2    52.666 5.1333 0.0129 *
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>From the output we see that the test statistic is an F-statistic. Is there a significant effect of transmission do you think?</p>
+<div class="ans">
+<p>A lengthy answer: We are here really testing the hypotheses:</p>
+<p><span class="math display">\[H_0: \beta_3 = \beta_4 = 0\]</span> versus the alternative that at least one of them is different from zero.</p>
+<p>We reject the null-hypothesis at test-level <span class="math inline">\(\alpha\)</span> if</p>
+<p><span class="math display">\[F = \frac{(SSE_\text{red.mod}-SSE_\text{full.mod})/r}{MSE_\text{full.mod}}\]</span> is larger than <span class="math inline">\(F_{\alpha, r, n-p}\)</span>, where <span class="math inline">\(r\)</span> is the difference in the degrees of freedom for SSE for the two models (here <span class="math inline">\(r=2\)</span>), and <span class="math inline">\(n-p\)</span> are the degrees of freedom for SSE of the full model (here <span class="math inline">\(n-p=27\)</span>).</p>
+<p>From the output we have (note RSS = SSE): <span class="math display">\[F = \frac{(191.17 - 138.51)/2}{138.51/27} = 5.13\]</span></p>
+<p>We reject at level <span class="math inline">\(\alpha=0.05\)</span> if this observed F is larger than <span class="math inline">\(F_{0.05, 2, 27}\)</span>. At this point we could look this up in a Fisher-table, or alternatively compute this quantile of the Fisher distribution by:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qf</span>(<span class="fl">0.05</span>, <span class="dv">2</span>, <span class="dv">27</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>[1] 3.354131</code></pre>
+<p>See <code>?FDist</code> for help-file for the Fisher distribution.</p>
+<p>We reject the null-hypothesis.</p>
+<p>Alternatively we reject since the p-value from the output is smaller than 0.05.</p>
+</div>
+<ul>
+<li>Perform a residual analysis of the <code>cars2</code> model.</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) 
+<span class="kw">plot</span>(cars2, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) </code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p>The linearity has improved, but maybe there is an increasing variance with increasing fitted value (estimated mileage). The normality looks good.</p>
+</div>
+</div>
+<div id="ex-4-influential-measurements" class="section level3">
+<h3>Ex-4: Influential measurements</h3>
+<ul>
+<li>Use the <code>influence.measures()</code> function to compute the Cook’s distances and the leverage (hat) values for all observations accoring to the <code>cars2</code> model. Are there any influential observations according to these measures?</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(<span class="kw">influence.measures</span>(cars2))</code></pre></div>
+<pre><code>Potentially influential observations of
+     lm(formula = mpg ~ cyl + wt * am, data = mtcars) :
+
+                    dfb.1_ dfb.cyl dfb.wt dfb.am dfb.wt:m dffit cov.r  
+Lincoln Continental  0.38   0.16   -0.52  -0.28   0.23    -0.59  1.57_*
+Fiat 128             0.10  -0.31    0.17   0.25  -0.15     0.91  0.36_*
+Ford Pantera L       0.01  -0.02    0.01   0.01  -0.02    -0.04  1.61_*
+Maserati Bora       -0.03   0.09   -0.05  -0.35   0.49     0.73  1.64_*
+                    cook.d hat  
+Lincoln Continental  0.07   0.33
+Fiat 128             0.13   0.10
+Ford Pantera L       0.00   0.25
+Maserati Bora        0.11   0.38</code></pre>
+<p>Four observations are flagged by R, but none according to Cook’s distance or leverage (hat).</p>
+</div>
+</div>
+<div id="ex-5-model-selection" class="section level3">
+<h3>Ex-5: Model selection</h3>
+<ul>
+<li>Fit a third multiple linear regression model with mpg (Miles/Gallon) as response variable and <code>cyl</code>, <code>disp</code>, <code>hp</code>, <code>drat</code>, <code>wt</code> and <code>qsec</code> as predictor variables. Call the model object “<code>cars3</code>”. Report a summary of the analysis.</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars3 &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>cyl <span class="op">+</span><span class="st"> </span>disp <span class="op">+</span><span class="st"> </span>hp <span class="op">+</span><span class="st"> </span>drat <span class="op">+</span><span class="st"> </span>wt <span class="op">+</span><span class="st"> </span>qsec, <span class="dt">data =</span> mtcars)
+<span class="kw">summary</span>(cars3)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = mpg ~ cyl + disp + hp + drat + wt + qsec, data = mtcars)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.9682 -1.5795 -0.4353  1.1662  5.5272 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept) 26.30736   14.62994   1.798  0.08424 . 
+cyl         -0.81856    0.81156  -1.009  0.32282   
+disp         0.01320    0.01204   1.097  0.28307   
+hp          -0.01793    0.01551  -1.156  0.25846   
+drat         1.32041    1.47948   0.892  0.38065   
+wt          -4.19083    1.25791  -3.332  0.00269 **
+qsec         0.40146    0.51658   0.777  0.44436   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+s: 2.557 on 25 degrees of freedom
+Multiple R-squared: 0.8548,
+Adjusted R-squared:  0.82 
+F-statistic: 24.53 on 6 and 25 DF,  p-value: 0.00000000245 </code></pre>
+<p>Apparently only wt is significant, but having many variables in a model may lead to inflated Std. Errors of the estimates due to correlation between predictors, and problems finding truly significant variables.</p>
+</div>
+<ul>
+<li>We would like to check various sub-models of this model by combining different variables. Install and load the ‘<code>mixlm</code>’ package. The package contains a function called <code>best.subsets()</code> which can help us find a good model.</li>
+</ul>
+<p>Run</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">best.subsets</span>(cars3)</code></pre></div>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">best.subsets</span>(cars3)</code></pre></div>
+<pre><code>         cyl disp hp drat wt qsec      RSS        R2     R2adj        Cp
+1  ( 1 )                   *      278.3219 0.7528328 0.7445939 14.562907
+1  ( 2 )   *                      308.3342 0.7261800 0.7170527 19.152594
+1  ( 3 )        *                 317.1587 0.7183433 0.7089548 20.502090
+1  ( 4 )           *              447.6743 0.6024373 0.5891853 40.461438
+1  ( 5 )                *         603.5667 0.4639952 0.4461283 64.301580
+2  ( 1 )   *               *      191.1720 0.8302274 0.8185189  3.235333
+2  ( 2 )           *       *      195.0478 0.8267855 0.8148396  3.828045
+2  ( 3 )                   *    * 195.4636 0.8264161 0.8144448  3.891644
+2  ( 4 )        *          *      246.6825 0.7809306 0.7658223 11.724387
+2  ( 5 )                *  *      269.2413 0.7608970 0.7444071 15.174232
+3  ( 1 )   *       *       *      176.6205 0.8431500 0.8263446  3.010026
+3  ( 2 )   *               *    * 180.6046 0.8396119 0.8224275  3.619295
+3  ( 3 )                *  *    * 183.5216 0.8370214 0.8195594  4.065383
+3  ( 4 )           *    *  *      183.6819 0.8368791 0.8194018  4.089899
+3  ( 5 )           *       *    * 186.0593 0.8347678 0.8170643  4.453469
+4  ( 1 )   *    *  *       *      170.4444 0.8486348 0.8262103  4.065526
+4  ( 2 )           *    *  *    * 174.1035 0.8453853 0.8224794  4.625103
+4  ( 3 )   *       *    *  *      174.3752 0.8451439 0.8222023  4.666661
+4  ( 4 )   *       *       *    * 175.2195 0.8443942 0.8213415  4.795768
+4  ( 5 )   *    *          *    * 175.6684 0.8439955 0.8208838  4.864420
+5  ( 1 )   *    *  *    *  *      167.4261 0.8513152 0.8227219  5.603955
+5  ( 2 )   *    *  *       *    * 168.6853 0.8501969 0.8213886  5.796524
+5  ( 3 )        *  *    *  *    * 170.1291 0.8489147 0.8198599  6.017318
+5  ( 4 )   *       *    *  *    * 171.3467 0.8478334 0.8185706  6.203520
+5  ( 5 )   *    *       *  *    * 172.2208 0.8470572 0.8176451  6.337198
+6  ( 1 )   *    *  *    *  *    * 163.4768 0.8548224 0.8199798  7.000000</code></pre>
+</div>
+<p>The function reports by default the 5 best models for each model size (number of predictors). The model size is given in the first column. Column two is the rank within model size, then comes a column for each variable with a star indicating that a given variable is part of the model. Finally comes the residual sum of squares (RSS or SSE), <span class="math inline">\(R^2\)</span>, <span class="math inline">\(R^2\)</span>-adjusted and finally a diagnostic called Mallow’s Cp. Which sub-model would you say is the best fitting model according to the <span class="math inline">\(R^2\)</span>-adjusted?</p>
+<div class="ans">
+<p>A couple of models are quite similar, but the largest <span class="math inline">\(R^2\)</span>-adjusted is obtained with a model with predictors <code>cyl</code>, <code>hp</code> and <code>wt</code>. This is also a quite simple model with few predictors. We should always strive for simple models and choose the simpler model in cases where the fit appears to be more or less equal for several models.</p>
+</div>
+</div>
+<div id="ex-6-model-validation" class="section level3">
+<h3>Ex-6: Model validation</h3>
+<p>On Fronter you find a file called “<code>CV.R</code>” containing two functions <code>CV()</code> and <code>Kfold()</code>. Download this file and open it in RStudio and press the “source” button up to the right in the script window. This will run the file and create these functions.</p>
+<p>A fitted model should ideally be validated on a test set of new and un-touched data. We could predict the new samples using our best choice model and evaluate the prediction performance. If the model predicts well, we probably have a good model!</p>
+<p>If we don’t have a test set, we may perform Cross-validation. The most common version is the Leave-One-Out Cross-validation where we successively remove one observation from the data and fit the model to the remaining observations. The fitted model is used to predict the left out observation. After fitting a model, the left out observation is put back, and another is left out. In ttoal we then fit <span class="math inline">\(n\)</span> models, and perform <span class="math inline">\(n\)</span> predictions.</p>
+<ul>
+<li>Use the <code>CV()</code> function to perform a Leave-One-Out CV using the <code>cars2</code> model fit by:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">res &lt;-<span class="st"> </span><span class="kw">CV</span>(cars2)</code></pre></div>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(res)</code></pre></div>
+<pre><code>$pred
+ [1] 22.02465 20.14940 26.64983 19.41364 16.40368 19.06674 16.61396
+ [8] 21.29786 21.89094 19.03386 19.14117 15.09325 15.87195 15.93892
+[15] 13.12962 12.75906 11.08191 26.47037 31.03522 28.65971 24.50916
+[22] 16.61597 16.90330 15.94565 15.42444 29.00620 27.60453 31.99763
+[29] 16.00725 21.09180 12.31828 23.71533
+
+$msep
+[1] 6.088405
+
+$r.squared.pred
+[1] 0.8282658</code></pre>
+</div>
+<p>The <code>CV()</code> returns a list with three elements, the predictions, the Mean Square Error of Prediction and and <span class="math inline">\(R^2\)</span>-predicted.</p>
+<p>*Make a plot of the observed mpg versus the cross-validation predictions.</p>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(mtcars<span class="op">$</span>mpg, res<span class="op">$</span>pred, <span class="dt">xlab =</span> <span class="st">&quot;Observed&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Predicted&quot;</span>)</code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
+</div>
+<ul>
+<li>Is the best model from the previous exercise, identified by the <code>best.subsets()</code>, a better model in terms of prediction error (MSEP)? The MSEP is defined by:</li>
+</ul>
+<p><span class="math display">\[\text{MSEP} = \frac{1}{n}\sum_{i=1}^{n}\left(y_i - \hat{y}_{(i)}\right)^2\]</span></p>
+<p>where <span class="math inline">\(\hat{y}_{(i)}\)</span> is the prediction of <span class="math inline">\(y_i\)</span> using a model where observation <span class="math inline">\(i\)</span> was left out from the model estimation. A small value implies better prediction.</p>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars4 &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>cyl <span class="op">+</span><span class="st"> </span>hp <span class="op">+</span><span class="st"> </span>wt, <span class="dt">data =</span> mtcars)
+<span class="kw">CV</span>(cars4)</code></pre></div>
+<pre><code>$pred
+ [1] 22.96794 22.07539 26.25638 20.90993 16.97878 20.41187 15.65251
+ [8] 23.64555 23.38461 20.02785 20.09677 14.96997 16.05497 16.07208
+[15] 11.01924 10.08662  8.73892 26.32479 28.71190 27.34888 25.82503
+[22] 17.69247 18.08644 14.79267 15.57424 27.70402 26.61982 27.72238
+[29] 16.57704 21.28440 12.89349 24.61230
+
+$msep
+[1] 7.189898
+
+$r.squared.pred
+[1] 0.7972019</code></pre>
+<p>No, this model does not predict better than cars2.</p>
+</div>
+<ul>
+<li>Leave-One-out CV is known to have large uncertainty, and using a K-fold CV is an alternative. Then the data are divided into K subsets (folds) of approximately equal sizes, and a leave-one-fold-out CV is performed instead. A K=10 is often recommended. Here, since n=32 a K=8 is better, since this gives subsets of equal sizes. Create K=8 random folds by</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myfolds &lt;-<span class="st"> </span><span class="kw">Kfold</span>(<span class="dt">n =</span> <span class="dv">32</span>, <span class="dt">K =</span> <span class="dv">8</span>, <span class="dt">random =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(myfolds)</code></pre></div>
+<pre><code>[[1]]
+[1] 11 22 14 10
+
+[[2]]
+[1]  8  6  4 21
+
+[[3]]
+[1] 17 25  9 16
+
+[[4]]
+[1] 29 26  5  3
+
+[[5]]
+[1]  1 24 19 30
+
+[[6]]
+[1] 32 15 28 31
+
+[[7]]
+[1]  2 27 20 23
+
+[[8]]
+[1] 13 18  7 12</code></pre>
+<p>Since the folds are sampled randomly, we get r different folds each time we run <code>Kfold()</code>.</p>
+</div>
+<p>As you see, myfolds is a list of 8 random subsets of observation numbers.</p>
+<p>Re-run the validation of cars2 by</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">CV</span>(cars2, <span class="dt">folds =</span> myfolds)</code></pre></div>
+<pre><code>$pred
+ [1] 22.27053 20.08943 26.96290 19.46344 16.23783 18.84980 16.55208
+ [8] 21.69562 21.88502 19.23336 19.23336 15.25603 16.13734 16.12464
+[15] 13.21458 10.77692 11.00258 26.45393 31.20857 28.76698 23.51149
+[22] 16.77591 16.84913 15.98576 15.28733 29.43170 26.89460 32.35720
+[29] 15.98236 21.25588 12.27157 23.24905
+
+$msep
+[1] 5.826322
+
+$r.squared.pred
+[1] 0.8368866</code></pre>
+<p>Note that the result now will vary if you repeat the creation of random K-folds for the cross-validation. Try to make a new myfolds and run the CV again.</p>
+
+</div>
+</div>
+<!-- </div> -->
+<script>
+ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
+  showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
+  hideAns_btn = '<a class="hideAns-btn btn pull-right js-toolbar-action" style="display:none;">Hide Answers</a>';
+  
+  // Adding Extra Menus in Navigation
+  
+  // Adding button on before each answer:::
+  $(".ans").before(ans_btn_html);
+  $('.btn-ans').each(function(){
+    $(this).next('.ans').andSelf().wrapAll('<div class="wrap-ans"/>');
+  });
+  $('.btn-ans').click(function(){
+    $(this).siblings('.ans').toggle(400);
+  });
+  
+if ($(".ans").length > 0){
+    $('.book-header').prepend(showAns_btn, hideAns_btn);
+    $('.showAns-btn').show();
+    $('.showAns-btn').click(function(){
+      $('.btn-ans').hide(400);
+      $('.ans').show(400);
+      $('.hideAns-btn').show();
+      $(this).hide();
+      $('.hideAns-btn').click(function(){
+        $('.btn-ans').show(400);
+        $('.ans').hide(400);
+        $('.showAns-btn').show();
+        $(this).hide();
+      });
+    });
+  }
+
+var chap = "week-two"
+if(window.location.href.indexOf(chap) != -1){
+  var now = new Date();
+  var release = new Date("August 21, 2016");
+  if(now < release){
+    $(".ans, .btn-ans, .showAns-btn, .hideAns-btn").hide()
+  }
+}
+
+$('.ans p:has(img)').css('text-align', 'center');
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82812028-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="bodydata.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["STAT340-2018.pdf", "STAT340-2018.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

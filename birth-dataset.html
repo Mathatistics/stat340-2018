@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Applied Methods in Statistics</title>
+  <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  <meta name="github-repo" content="mathatistics/stat340-2018-source" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  
+  <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  
+
+<meta name="author" content="Thore Egeland and Raju Rimal">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="least-sqaures-app.html">
+<link rel="next" href="bodydata.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113782065-1');
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Applied Methods in Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Practical Information</a><ul>
+<li class="chapter" data-level="" data-path="lecture-and-exercise-plan.html"><a href="lecture-and-exercise-plan.html"><i class="fa fa-check"></i>Lecture and Exercise Plan</a></li>
+<li class="chapter" data-level="" data-path="reference-books.html"><a href="reference-books.html"><i class="fa fa-check"></i>Reference Books</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="exercise-1-create-new-project.html"><a href="exercise-1-create-new-project.html"><i class="fa fa-check"></i>Exercise 1: Create New Project</a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html"><i class="fa fa-check"></i>Exercise 2: Importing data in R</a><ul>
+<li><a href="exercise-2-importing-data-in-r.html#import-txt-or-csv">Import <code>txt</code> or <code>csv</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#import-microsoft-excel-spreadsheet"><i class="fa fa-check"></i>Import Microsoft Excel spreadsheet</a></li>
+<li><a href="exercise-2-importing-data-in-r.html#load-rdata-rda-or-rds">Load <code>rdata</code>, <code>rda</code> or <code>rds</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#reading-data-from-clipboard-pasting-copied-data-into-an-r-object"><i class="fa fa-check"></i>Reading data from clipboard (“pasting” copied data into an R object)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-3-exporting-data-to-a-file.html"><a href="exercise-3-exporting-data-to-a-file.html"><i class="fa fa-check"></i>Exercise 3: Exporting data to a file</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html"><i class="fa fa-check"></i>Exercise 4: Data Structure in R</a><ul>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#vector"><i class="fa fa-check"></i>Vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#list"><i class="fa fa-check"></i>List</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#data-frame"><i class="fa fa-check"></i>Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html"><i class="fa fa-check"></i>Exercise 5: Exploring the data</a><ul>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#structure-of-an-r-object"><i class="fa fa-check"></i>Structure of an R-object</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#accessing-elements-from-r-objects"><i class="fa fa-check"></i>Accessing elements from R-objects</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#view-data-in-rstudio"><i class="fa fa-check"></i>View Data in RStudio</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#summary-of-data"><i class="fa fa-check"></i>Summary of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#dimension-of-data"><i class="fa fa-check"></i>Dimension of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#lets-practice"><i class="fa fa-check"></i>Lets Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html"><i class="fa fa-check"></i>Exercise 6: Subsets of data and logical operators</a><ul>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#logical-vector-and-index-vector"><i class="fa fa-check"></i>Logical vector and index vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#subsetting-data-frame"><i class="fa fa-check"></i>Subsetting data frame</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#exercise-1"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html"><i class="fa fa-check"></i>Exercise 7: Graphics</a><ul>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html#spice-up-the-plot"><i class="fa fa-check"></i>Spice up the plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i>Regression Analysis</a><ul>
+<li class="chapter" data-level="" data-path="least-sqaures-app.html"><a href="least-sqaures-app.html"><i class="fa fa-check"></i>Least Sqaures App</a></li>
+<li class="chapter" data-level="" data-path="birth-dataset.html"><a href="birth-dataset.html"><i class="fa fa-check"></i>Birth Dataset</a><ul>
+<li><a href="birth-dataset.html#overview-of-data"><i class="fa fa-edit"></i> Overview of data</a></li>
+<li><a href="birth-dataset.html#linear-regression"><i class="fa fa-book"></i> Linear Regression</a></li>
+<li><a href="birth-dataset.html#regression-with-categories"><i class="fa fa-book"></i> Regression with categories</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bodydata.html"><a href="bodydata.html"><i class="fa fa-check"></i>Bodydata</a><ul>
+<li><a href="bodydata.html#training-samples"><i class="fa fa-book"></i> Training Samples</a></li>
+<li><a href="bodydata.html#fitting-model"><i class="fa fa-edit"></i> Fitting Model</a></li>
+<li><a href="bodydata.html#understanding-the-fitted-model"><i class="fa fa-edit"></i> Understanding the fitted Model</a></li>
+<li><a href="bodydata.html#multiple-linear-regression-and-prediction"><i class="fa fa-edit"></i> Multiple Linear Regression and Prediction</a></li>
+<li><a href="bodydata.html#extra-on-r-squared"><i class="fa fa-book"></i> Extra on R-squared</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html"><i class="fa fa-check"></i>Exercise 2</a><ul>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-1-the-mtcars-data-from-the-datasets-package"><i class="fa fa-check"></i>Ex-1: The mtcars data from the datasets package</a></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-2-indicator-variable"><i class="fa fa-check"></i>Ex-2: Indicator variable</a></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-3-comparing-models---partial-f-test"><i class="fa fa-check"></i>Ex-3: Comparing models - Partial F-test</a></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-4-influential-measurements"><i class="fa fa-check"></i>Ex-4: Influential measurements</a></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-5-model-selection"><i class="fa fa-check"></i>Ex-5: Model selection</a></li>
+<li class="chapter" data-level="" data-path="exercise-2.html"><a href="exercise-2.html#ex-6-model-validation"><i class="fa fa-check"></i>Ex-6: Model validation</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
+<li><a name="title" href="javascript:void(0)"><b>Assistent Teachers:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/raju.rimal" target="blank">Raju Rimal</a></li></ul></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applied Methods in Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="birth-dataset" class="section level2">
+<h2>Birth Dataset</h2>
+<p>The dataset <code>birth</code> records 189 birth weights from Massachusetts, USA, and some additional variables. The variables are,</p>
+<table>
+<thead>
+<tr class="header">
+<th>Var</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>LOW</code></td>
+<td>Equals <code>YES</code> if birth weight is below 2500g and <code>NO</code> otherwise.</td>
+</tr>
+<tr class="even">
+<td><code>AGE</code></td>
+<td>Age of the mother in years.</td>
+</tr>
+<tr class="odd">
+<td><code>LWT</code></td>
+<td>Weight in pounds of mother.</td>
+</tr>
+<tr class="even">
+<td><code>SMK</code></td>
+<td><code>YES</code> if mother smokes and <code>NO</code> otherwise.</td>
+</tr>
+<tr class="odd">
+<td><code>BWT</code></td>
+<td>Birth weight in g (RESPONSE).</td>
+</tr>
+</tbody>
+</table>
+<p>The data appears in fronter as <code>birth.rdata</code>. Download the data into your STAT340 course folder and load the data set in RStudio.</p>
+<div id="overview-of-data" class="section level3">
+<h3><i class="fa fa-edit"></i> Overview of data</h3>
+<p><strong>Take a look at the top 10 rows of the data using the <code>head()</code> function</strong></p>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(birth)</code></pre></div>
+<pre><code>  LOW AGE LWT SMK  BWT
+1 YES  28 120 YES  709
+2 YES  29 130  NO 1021
+3 YES  34 187 YES 1135
+4 YES  25 105  NO 1330
+5 YES  25  85  NO 1474
+6 YES  27 150  NO 1588</code></pre>
+</div>
+<p><strong>Use the <code>summary()</code> function to get a short summary of the variables.</strong></p>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(birth)</code></pre></div>
+<pre><code>  LOW           AGE             LWT         SMK           BWT      
+ NO :130   Min.   :14.00   Min.   : 80.0   NO :115   Min.   : 709  
+ YES: 59   1st Qu.:19.00   1st Qu.:110.0   YES: 74   1st Qu.:2414  
+           Median :23.00   Median :121.0             Median :2977  
+           Mean   :23.24   Mean   :129.8             Mean   :2945  
+           3rd Qu.:26.00   3rd Qu.:140.0             3rd Qu.:3475  
+           Max.   :45.00   Max.   :250.0             Max.   :4990  </code></pre>
+</div>
+<p><strong>What is the proportion of smoking mothers in the data set?</strong></p>
+<div class="ans">
+<p>The proportion of smoking mother is 0.39</p>
+</div>
+<p><strong>What is the average age of a mother giving birth?</strong></p>
+<div class="ans">
+<p>The average age of mother giving birth is 23.2 years.</p>
+</div>
+<p><strong>What is the average birth weight of children from non-smoking and smoking mothers?</strong></p>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tapply</span>(birth<span class="op">$</span>BWT, <span class="dt">INDEX =</span> birth<span class="op">$</span>SMK, <span class="dt">FUN =</span> mean)</code></pre></div>
+<pre><code>      NO      YES 
+3054.957 2773.243 </code></pre>
+<p>The function returns the mean birth weight for children of non-smoking and smoking mothers.</p>
+</div>
+<p><strong>What is the standard deviation of birth weight of children from non-smoking and smoking mothers?</strong></p>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tapply</span>(birth<span class="op">$</span>BWT, <span class="dt">INDEX =</span> birth<span class="op">$</span>SMK, <span class="dt">FUN =</span> sd)</code></pre></div>
+<pre><code>      NO      YES 
+752.4090 660.0752 </code></pre>
+<p>The <code>sd()</code> function computes the sample standard deviation of a vector of observations.</p>
+</div>
+</div>
+<div id="linear-regression" class="section level3">
+<h3><i class="fa fa-book"></i> Linear Regression</h3>
+<p>Run a simple linear regression model with BWT as response and LWT as predictor, like this,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">birth1 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT, <span class="dt">data =</span> birth)
+<span class="kw">summary</span>(birth1)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = BWT ~ LWT, data = birth)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2192.18  -503.63    -3.91   508.25  2075.53 
+
+Coefficients:
+            Estimate Std. Error t value            Pr(&gt;|t|)    
+(Intercept) 2369.672    228.431  10.374 &lt;0.0000000000000002 ***
+LWT            4.429      1.713   2.586              0.0105 *  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+s: 718.2 on 187 degrees of freedom
+Multiple R-squared: 0.03452,
+Adjusted R-squared: 0.02935 
+F-statistic: 6.686 on 1 and 187 DF,  p-value: 0.01048 </code></pre>
+<p>Here, the regression model is,</p>
+<p><span class="math display">\[\text{BWT} = \beta_0 + \beta_1 \text{LWT} + \epsilon\]</span></p>
+<p>where <span class="math inline">\(\epsilon \sim N(0, \sigma^2)\)</span></p>
+<div id="test-the-significance-of-lwt-on-bwt-with-a-5-test-level-and-at-a-1-level" class="section level4">
+<h4><i class="fa fa-edit"></i> Test the significance of LWT on BWT with a 5% test level and at a 1% level</h4>
+<p><strong>What is the hypothesis you are testing?</strong></p>
+<div class="ans">
+<p>The hypothesis for testing the significance of LWT on BWT is, <span class="math display">\[ H_0: \beta_1 = 0 \text{ vs } H_1: \beta_1 \ne 0\]</span></p>
+</div>
+<strong>What is the conclusion?</strong>
+<div class="ans">
+<p>The <span class="math inline">\(p\)</span>-value corresponding to <span class="math inline">\(\beta_1\)</span> is less than 0.05 but greater than 0.01. So, at 5% test level, LWT is significant while at 1% test level, it is not significant.</p>
+</div>
+<strong>Find the R-squared. Do you think the model fits the data well?</strong>
+<div class="ans">
+<p>The r-squared (<span class="math inline">\(R^2\)</span>) for the model is 0.03, this shows that only 3% of variation present in birth weight (BWT) is explained by weight of mother (LWD). Here, the model fits the data poorely.</p>
+</div>
+</div>
+<div id="scatter-plot" class="section level4">
+<h4><i class="fa fa-edit"></i> Scatter Plot</h4>
+<p><strong>Make a scatter plot of LWT vs BWT</strong> (<em>Use the <code>plot()</code> function of LWT on the horizontal axis and BWT on the vertical axis. You may add the fitted linear model to your plot afterwards by applying the <code>abline()</code> function.</em>)</p>
+<div class="ans">
+<p>The scatter plot of LWT and BWT is,</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x =</span> birth<span class="op">$</span>LWT, <span class="dt">y =</span> birth<span class="op">$</span>BWT)
+<span class="kw">abline</span>(birth1)</code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+</div>
+<strong>Make a comment to the plot in light of the output of your analyses.</strong>
+<div class="ans">
+<ul>
+<li>The intercept for the regression line is 2369.67 and the slope is 4.43.</li>
+<li>The data-points are scattered around the regression line where BWT vary most</li>
+<li>Since the data-points are scattered much, the model could only explain small variation present in BWT with LWT.</li>
+</ul>
+</div>
+</div>
+<div id="confidence-intervals" class="section level4">
+<h4><i class="fa fa-edit"></i> Confidence Intervals</h4>
+<strong>Find 95% confidence intervals for the regression coefficients of the <code>birth1</code> model</strong>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(birth1)</code></pre></div>
+<pre><code>                  2.5 %    97.5 %
+(Intercept) 1919.039836 2820.3043
+LWT            1.049927    7.8086</code></pre>
+</div>
+<strong>Also find 99% confidence intervals</strong>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(birth1, <span class="dt">level =</span> <span class="fl">0.99</span>)</code></pre></div>
+<pre><code>                    0.5 %      99.5 %
+(Intercept) 1775.20974036 2964.134385
+LWT           -0.02866992    8.887197</code></pre>
+</div>
+<strong>Comment on the intervals</strong>
+<div class="ans">
+<ul>
+<li>It is 95% certain that the interval (1.05, 7.809) covers the true <span class="math inline">\(\beta_1\)</span>. Similary, it is 99% certain that the interval (-0.029, 8.887) covers the true <span class="math inline">\(\beta_1\)</span>.</li>
+<li>The 99% confidence is larger than 95% confidence. In other words, being more certain about the true value needs larger confidence interval.</li>
+<li>Moreover, the 95% does not include zero while 99% interval includes zero. This is equivalent with the result that <span class="math inline">\(\beta_1\)</span> cofficient is significant at a 5% test level, but not significant at a 1% test level.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="regression-with-categories" class="section level3">
+<h3><i class="fa fa-book"></i> Regression with categories</h3>
+<p>Here we will fit a separate regression for smoking and non-smoking groups. You can identify the observation numbers of the smokers by:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">smokeYes &lt;-<span class="st"> </span><span class="kw">which</span>(birth<span class="op">$</span>SMK <span class="op">==</span><span class="st"> &quot;YES&quot;</span>)</code></pre></div>
+Fit the same model as <code>birth1</code>, but separate models for non-smokers and smokers, and call the models <code>birth2</code> and <code>birth3</code>. (Hint: select observations by the subset argument in the <code>lm</code>-function using the <code>smokeYes</code> variable.)
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">birth2 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT, <span class="dt">data =</span> birth, <span class="dt">subset =</span> <span class="op">-</span>smokeYes)
+birth3 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT, <span class="dt">data =</span> birth, <span class="dt">subset =</span> smokeYes)</code></pre></div>
+</div>
+<div id="interpreate-these-models" class="section level5">
+<h5><i class="fa fa-edit"></i> Interpreate these models</h5>
+<strong>Make a scatter plot of LWT vs BWT and add two fitted lines form the model fitted above.</strong>(<em>Use the <code>abline()</code> function to add the two fitted lines to the same plot, but use <font color = "red">“red”</font> and <font color = "blue">“blue”</font> as colors.</em>)
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x =</span> birth<span class="op">$</span>LWT, <span class="dt">y =</span> birth<span class="op">$</span>BWT)
+<span class="kw">abline</span>(birth2, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)
+<span class="kw">abline</span>(birth3, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
+</div>
+<strong>Comment on the plot</strong>
+<div class="ans">
+<p>Fitted lines for both non-smokers and smokers seems very similar, but it is difficult to tell whether they are significantly different. We will later se how we can model both mother-groups simultaneously and be able to test this difference.</p>
+</div>
+<p><strong>Is LWT significant at a 5% level on BWT for the smokers?</strong></p>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(birth3)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = BWT ~ LWT, data = birth, subset = smokeYes)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2040.25  -416.25    33.92   472.18  1488.75 
+
+Coefficients:
+            Estimate Std. Error t value        Pr(&gt;|t|)    
+(Intercept) 2395.373    301.474   7.946 0.0000000000194 ***
+LWT            2.949      2.276   1.296           0.199    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+s: 657 on 72 degrees of freedom
+Multiple R-squared: 0.02279,
+Adjusted R-squared: 0.009213 
+F-statistic: 1.679 on 1 and 72 DF,  p-value: 0.1992 </code></pre>
+<p>The hypothesis for testing the significance of LWT is, <span class="math display">\[H_0: \beta_1 = 0 \text{ vs } H_1: \beta_1 \ne 0\]</span> From the summary of model <code>birth3</code> above, p-value corresponding to LWT is higher than 0.05 and we fail to reject <span class="math inline">\(H_0\)</span>, which suggests that LWT is not significant for smokers group. In other words, LWT does not have any linear relationship with BWT at 95% confidence level for smokers group.</p>
+</div>
+<p>Assume a model with both LWT and AGE as predictors for BWT using all observations.</p>
+</div>
+<div id="write-up-the-model-and-the-model-assumptions." class="section level5">
+<h5><i class="fa fa-edit"></i> Write up the model and the model assumptions.</h5>
+<div class="ans">
+<p><span class="math display">\[\text{BWT} = \beta_0 + \beta_1 \text{LWT} + \beta_2 \text{AGE} + \epsilon\]</span></p>
+<p><strong>Assumptions:</strong></p>
+<p>The error term <span class="math inline">\(\epsilon\)</span> follows <span class="math inline">\(N(0, \sigma^2) \; iid\)</span>, i.e error terms are independently normally distributed with mean 0 and constant variance <span class="math inline">\(\sigma^2\)</span>.</p>
+</div>
+</div>
+<div id="what-is-the-interpretation-of-the-regression-coefficients" class="section level5">
+<h5><i class="fa fa-edit"></i> What is the interpretation of the regression coefficients?</h5>
+<div class="ans">
+<ul>
+<li><span class="math inline">\(\beta_1\)</span> gives the expected amount of change in BWT for unit change in LWT when AGE is held constant, i.e. if LWT increases by 1 pound, BWT will increase by <span class="math inline">\(\beta_1\)</span> grams for people of the same AGE.</li>
+<li><span class="math inline">\(\beta_2\)</span> gives the expected amount of change in BWT (in grams) if AGE increase by 1 year and LWT is held constant.</li>
+</ul>
+</div>
+</div>
+<div id="fit-the-model-in-rstudio-call-it-birth4-and-comment-on-the-results." class="section level5">
+<h5><i class="fa fa-edit"></i> Fit the model in RStudio, call it <code>birth4</code> and comment on the results.</h5>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">birth4 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT <span class="op">+</span><span class="st"> </span>AGE, <span class="dt">data =</span> birth)
+<span class="kw">summary</span>(birth4)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = BWT ~ LWT + AGE, data = birth)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2232.84  -500.50    32.13   520.32  1899.26 
+
+Coefficients:
+            Estimate Std. Error t value         Pr(&gt;|t|)    
+(Intercept) 2215.760    299.238   7.405 0.00000000000443 ***
+LWT            4.179      1.743   2.397           0.0175 *  
+AGE            8.021     10.060   0.797           0.4263    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+s: 718.9 on 186 degrees of freedom
+Multiple R-squared: 0.03781,
+Adjusted R-squared: 0.02746 
+F-statistic: 3.654 on 2 and 186 DF,  p-value: 0.02776 </code></pre>
+<p>The summary output shows that LWT is significant at 5% level of significance but not at 1%. AGE has very high p-value and thus is not significant, i.e. there is not any linear relationship of AGE with BWT. The explained variation is still very low with an <span class="math inline">\(R^2=0.038\)</span>.</p>
+</div>
+</div>
+<div id="optional" class="section level4">
+<h4><i class="fa fa-pencil-square"></i> Optional:</h4>
+<p>Look at the presentation file Regression.Rmd from lecture 2 and produce for the <code>birth4-model</code> a similar 3D-plot as on page 15. You may need to install the R-packages: <code>rgl</code>, <code>nlme</code>, <code>mgcv</code> and <code>car</code> first. Use the figure to get an understanding of the effects of LWT and AGE on BWT.</p>
+<div id="a-3d-plot" class="section level5">
+<h5>A 3D plot</h5>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(scatterplot3d)
+<span class="kw">with</span>(birth, {
+  <span class="co"># Start Plot</span>
+  plot3d &lt;-<span class="st"> </span><span class="kw">scatterplot3d</span>(LWT, AGE, BWT, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">highlight.3d =</span> <span class="ot">TRUE</span>, 
+                          <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex.symbols =</span> <span class="fl">0.5</span>, 
+                          <span class="dt">main =</span> <span class="st">&quot;Residuals and fitted plane for model: birth4&quot;</span>,
+                          <span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">box =</span> <span class="ot">FALSE</span>)
+  <span class="co"># Add fitted plane for model birth4</span>
+  plot3d<span class="op">$</span><span class="kw">plane3d</span>(birth4, <span class="dt">col =</span> <span class="st">&quot;grey50&quot;</span>, <span class="dt">lty.box =</span> <span class="st">&quot;solid&quot;</span>, <span class="dt">polygon_args =</span> <span class="kw">list</span>(<span class="dt">bg =</span> <span class="st">&quot;lightgrey&quot;</span>))
+  <span class="co"># True Values</span>
+  true &lt;-<span class="st"> </span>plot3d<span class="op">$</span><span class="kw">xyz.convert</span>(LWT, AGE, BWT)
+  <span class="co"># Predicted Values</span>
+  fitted &lt;-<span class="st"> </span>plot3d<span class="op">$</span><span class="kw">xyz.convert</span>(LWT, AGE, <span class="kw">fitted</span>(birth4))
+  <span class="co"># Is the residuals negative?</span>
+  neg_res &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(<span class="kw">resid</span>(birth4) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
+  <span class="co"># Add segment for the residuals</span>
+  <span class="kw">segments</span>(true<span class="op">$</span>x, true<span class="op">$</span>y, fitted<span class="op">$</span>x, fitted<span class="op">$</span>y, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>)[neg_res])
+})</code></pre></div>
+<div class="figure">
+<img src="images/scatter3d.png" alt="Scatter3D" />
+<p class="caption">Scatter3D</p>
+</div>
+<h5 id="an-interactive-3d-plot">An interactive 3D plot</h5>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
+<span class="kw">scatter3d</span>(BWT <span class="op">~</span><span class="st"> </span>LWT <span class="op">+</span><span class="st"> </span>AGE, <span class="dt">data =</span> birth, <span class="dt">axis.ticks =</span> <span class="ot">TRUE</span>, <span class="dt">revolutions =</span> <span class="dv">1</span>)</code></pre></div>
+<p><strong>For grouped: Smoking vs Non-Smoking:</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">car<span class="op">::</span><span class="kw">scatter3d</span>(BWT <span class="op">~</span><span class="st"> </span>LWT <span class="op">+</span><span class="st"> </span>AGE, <span class="dt">data =</span> birth, <span class="dt">axis.ticks =</span> <span class="ot">TRUE</span>, 
+               <span class="dt">revolutions =</span> <span class="dv">1</span>, <span class="dt">groups =</span> birth<span class="op">$</span>SMK)</code></pre></div>
+</div>
+</div>
+<div id="interpretation" class="section level5">
+<h5>Interpretation</h5>
+<strong>What is the interpretation of the estimated regression coefficients for LWT and AGE in this model?</strong>
+<div class="ans">
+<p>From the summary output of <code>birth4</code> model, the <span class="math inline">\(\beta\)</span> coefficient for LWT is 4.179 and AGE is 8.021. This shows that, if weight of mother (LWT) increases by 1 pound, the birth weight (BWT) is estimated to increase by 4.179 grams if AGE is held constant. Similary, if the age of a mother (AGE) increases by 1 year, the birth weight (BWT) is estimated to increase by 8.021 grams, if LWT is held constant. The regression coefficients are therefore equal to the slopes of the gridlines of the surface in the figure.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
+  showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
+  hideAns_btn = '<a class="hideAns-btn btn pull-right js-toolbar-action" style="display:none;">Hide Answers</a>';
+  
+  // Adding Extra Menus in Navigation
+  
+  // Adding button on before each answer:::
+  $(".ans").before(ans_btn_html);
+  $('.btn-ans').each(function(){
+    $(this).next('.ans').andSelf().wrapAll('<div class="wrap-ans"/>');
+  });
+  $('.btn-ans').click(function(){
+    $(this).siblings('.ans').toggle(400);
+  });
+  
+if ($(".ans").length > 0){
+    $('.book-header').prepend(showAns_btn, hideAns_btn);
+    $('.showAns-btn').show();
+    $('.showAns-btn').click(function(){
+      $('.btn-ans').hide(400);
+      $('.ans').show(400);
+      $('.hideAns-btn').show();
+      $(this).hide();
+      $('.hideAns-btn').click(function(){
+        $('.btn-ans').show(400);
+        $('.ans').hide(400);
+        $('.showAns-btn').show();
+        $(this).hide();
+      });
+    });
+  }
+
+var chap = "week-two"
+if(window.location.href.indexOf(chap) != -1){
+  var now = new Date();
+  var release = new Date("August 21, 2016");
+  if(now < release){
+    $(".ans, .btn-ans, .showAns-btn, .hideAns-btn").hide()
+  }
+}
+
+$('.ans p:has(img)').css('text-align', 'center');
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82812028-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="least-sqaures-app.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bodydata.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["STAT340-2018.pdf", "STAT340-2018.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -42,3 +42,16 @@ pre code {
   background-color:#EDEDED;
   padding:10pt;
 }
+a.btn-ans span{
+  color: #0c5a4d!important;
+  font-family: monospace;
+}
+.wrap-ans{
+  margin-left: 10px;
+}
+section ul {
+  padding-left: 15px!important;
+  list-style: none;
+  border-left: 5px solid #117d6b;
+  background-color: #7aa77a12!important;
+}
