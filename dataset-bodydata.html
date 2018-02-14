@@ -223,20 +223,20 @@ Call:
 lm(formula = Weight ~ Height, data = bodytrain)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--11.5160  -2.5964   0.0261   2.9141  11.7454 
+    Min      1Q  Median      3Q     Max 
+-11.516  -2.596   0.026   2.914  11.745 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept) -38.2310    38.3605  -0.997  0.33216   
-Height        0.6386     0.2123   3.007  0.00757 **
+(Intercept)  -38.231     38.360   -1.00   0.3322   
+Height         0.639      0.212    3.01   0.0076 **
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-s: 5.839 on 18 degrees of freedom
-Multiple R-squared: 0.3344,
-Adjusted R-squared: 0.2974 
-F-statistic: 9.043 on 1 and 18 DF,  p-value: 0.007566 </code></pre>
+s: 5.84 on 18 degrees of freedom
+Multiple R-squared: 0.334,
+Adjusted R-squared: 0.297 
+F-statistic: 9.04 on 1 and 18 DF,  p-value: 0.00757 </code></pre>
 <p>Here, at 5% test level, Height is significant (p-value for Height is less than 0.05). The summary result for <code>model2</code> is,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(model2)</code></pre></div>
 <pre><code>
@@ -244,20 +244,20 @@ Call:
 lm(formula = Weight ~ Age, data = bodytrain)
 
 Residuals:
-     Min       1Q   Median       3Q      Max 
--15.0839  -3.9176   0.8978   4.2513  12.4386 
+    Min      1Q  Median      3Q     Max 
+-15.084  -3.918   0.898   4.251  12.439 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  80.7448    14.5625   5.545 0.000029 ***
-Age          -0.1592     0.6253  -0.255    0.802    
+(Intercept)   80.745     14.563    5.54 0.000029 ***
+Age           -0.159      0.625   -0.25      0.8    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-s: 7.144 on 18 degrees of freedom
-Multiple R-squared: 0.003587,
-Adjusted R-squared: -0.05177 
-F-statistic: 0.06481 on 1 and 18 DF,  p-value: 0.8019 </code></pre>
+s: 7.14 on 18 degrees of freedom
+Multiple R-squared: 0.00359,
+Adjusted R-squared: -0.0518 
+F-statistic: 0.0648 on 1 and 18 DF,  p-value: 0.802 </code></pre>
 <p>Here, at 5% test level, Age is not significant (p-value for age is greater than 0.05). Finally, the summary result for <code>model3</code> is,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(model3)</code></pre></div>
 <pre><code>
@@ -270,15 +270,15 @@ Residuals:
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)     3.6737    17.1036   0.215 0.832343    
-Circumference   0.9137     0.2125   4.300 0.000431 ***
+(Intercept)      3.674     17.104    0.21  0.83234    
+Circumference    0.914      0.212    4.30  0.00043 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-s: 5.027 on 18 degrees of freedom
-Multiple R-squared: 0.5067,
-Adjusted R-squared: 0.4793 
-F-statistic: 18.49 on 1 and 18 DF,  p-value: 0.0004311 </code></pre>
+s: 5.03 on 18 degrees of freedom
+Multiple R-squared: 0.507,
+Adjusted R-squared: 0.479 
+F-statistic: 18.5 on 1 and 18 DF,  p-value: 0.000431 </code></pre>
 <p>Here, at 5% test level, Circumference is significant (p-value for circumference is less than 0.05).</p>
 </div>
 <ul>
@@ -291,11 +291,11 @@ F-statistic: 18.49 on 1 and 18 DF,  p-value: 0.0004311 </code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cormat &lt;-<span class="st"> </span><span class="kw">cor</span>(bodytrain)</code></pre></div>
 <p>You can square the correlations by:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cormat <span class="op">^</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>                   Weight      Height            Age  Circumference
-Weight        1.000000000 0.334400375 0.003587475482 0.506712708016
-Height        0.334400375 1.000000000 0.001672757208 0.061161161867
-Age           0.003587475 0.001672757 1.000000000000 0.000004216559
-Circumference 0.506712708 0.061161162 0.000004216559 1.000000000000</code></pre>
+<pre><code>               Weight  Height        Age Circumference
+Weight        1.00000 0.33440 0.00358748    0.50671271
+Height        0.33440 1.00000 0.00167276    0.06116116
+Age           0.00359 0.00167 1.00000000    0.00000422
+Circumference 0.50671 0.06116 0.00000422    1.00000000</code></pre>
 <ul>
 <li>Compare the squared correlations under the <code>Weight</code> column with the R-squared values from the three models.</li>
 </ul>
@@ -309,7 +309,7 @@ Circumference 0.506712708 0.061161162 0.000004216559 1.000000000000</code></pre>
 <div class="ans">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cors &lt;-<span class="st"> </span><span class="kw">cor</span>(bodytrain[ , <span class="dv">1</span>], model1<span class="op">$</span>fitted.values)
 cors <span class="op">^</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>[1] 0.3344004</code></pre>
+<pre><code>[1] 0.334</code></pre>
 </div>
 <ul>
 <li>Compare with the R-squared of <code>model1</code></li>
@@ -326,9 +326,9 @@ cors <span class="op">^</span><span class="st"> </span><span class="dv">2</span>
 <pre><code>Analysis of Variance Table
 
 Response: Weight
-          Df Sum Sq Mean Sq F value   Pr(&gt;F)   
-Height     1 308.31 308.313  9.0433 0.007566 **
-Residuals 18 613.67  34.093                    
+          Df Sum Sq Mean Sq F value Pr(&gt;F)   
+Height     1    308   308.3    9.04 0.0076 **
+Residuals 18    614    34.1                  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(model2)</code></pre></div>
@@ -336,15 +336,15 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 
 Response: Weight
           Df Sum Sq Mean Sq F value Pr(&gt;F)
-Age        1   3.31   3.308  0.0648 0.8019
-Residuals 18 918.68  51.038               </code></pre>
+Age        1      3     3.3    0.06    0.8
+Residuals 18    919    51.0               </code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(model3)</code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: Weight
-              Df Sum Sq Mean Sq F value    Pr(&gt;F)    
-Circumference  1 467.18  467.18   18.49 0.0004311 ***
-Residuals     18 454.80   25.27                      
+              Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+Circumference  1    467     467    18.5 0.00043 ***
+Residuals     18    455      25                    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
@@ -368,21 +368,21 @@ Call:
 lm(formula = Weight ~ Height + Circumference, data = bodytrain)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--5.3189 -3.5363 -0.7817  2.8028  6.3974 
+   Min     1Q Median     3Q    Max 
+-5.319 -3.536 -0.782  2.803  6.397 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   -70.8202    28.4518  -2.489 0.023464 *  
-Height          0.4731     0.1566   3.021 0.007698 ** 
-Circumference   0.7777     0.1820   4.273 0.000515 ***
+(Intercept)    -70.820     28.452   -2.49  0.02346 *  
+Height           0.473      0.157    3.02  0.00770 ** 
+Circumference    0.778      0.182    4.27  0.00051 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-s: 4.172 on 17 degrees of freedom
+s: 4.17 on 17 degrees of freedom
 Multiple R-squared: 0.679,
-Adjusted R-squared: 0.6413 
-F-statistic: 17.98 on 2 and 17 DF,  p-value: 0.0000638 </code></pre>
+Adjusted R-squared: 0.641 
+F-statistic:   18 on 2 and 17 DF,  p-value: 0.0000638 </code></pre>
 </div>
 <ul>
 <li>Get test observations for prediction: (<em>Make a test data set called bodytest containing observations <code>21:40</code> (Hint: Check how we made <code>bodytrain</code> above)</em>)</li>
@@ -401,13 +401,13 @@ F-statistic: 17.98 on 2 and 17 DF,  p-value: 0.0000638 </code></pre>
 </ul>
 <div class="ans">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(bodytest[ , <span class="dv">1</span>], pred)</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-87-1.png" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-87-1.svg" width="672" /></p>
 </div>
 <ul>
 <li>Compute the squared correlation between the actually observed Weights and the predicted weights.</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(pred, bodytest[ , <span class="dv">1</span>]) <span class="op">^</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
-<pre><code>[1] 0.7137211</code></pre>
+<pre><code>[1] 0.714</code></pre>
 <p>What you get here is a so-called “prediction R-squared” of this model.</p>
 <ul>
 <li>Compare with the R-squared of <code>model4</code></li>
@@ -429,22 +429,22 @@ Call:
 lm(formula = Weight ~ Height + Circumference + Age, data = bodytrain)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--5.4088 -3.3900 -0.9123  3.0403  6.9827 
+   Min     1Q Median     3Q    Max 
+-5.409 -3.390 -0.912  3.040  6.983 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   -66.5785    30.0098  -2.219 0.041330 *  
-Height          0.4768     0.1600   2.981 0.008831 ** 
-Circumference   0.7769     0.1858   4.181 0.000706 ***
-Age            -0.2094     0.3731  -0.561 0.582352    
+(Intercept)    -66.579     30.010   -2.22  0.04133 *  
+Height           0.477      0.160    2.98  0.00883 ** 
+Circumference    0.777      0.186    4.18  0.00071 ***
+Age             -0.209      0.373   -0.56  0.58235    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-s: 4.259 on 16 degrees of freedom
-Multiple R-squared: 0.6852,
-Adjusted R-squared: 0.6262 
-F-statistic: 11.61 on 3 and 16 DF,  p-value: 0.0002729 </code></pre>
+s: 4.26 on 16 degrees of freedom
+Multiple R-squared: 0.685,
+Adjusted R-squared: 0.626 
+F-statistic: 11.6 on 3 and 16 DF,  p-value: 0.000273 </code></pre>
 <ul>
 <li>Lets add some randomly generated junk from a normal distribution</li>
 </ul>
@@ -461,24 +461,24 @@ lm(formula = Weight ~ Height + Circumference + Age + Junk1 +
 
 Residuals:
    Min     1Q Median     3Q    Max 
--4.899 -2.936 -1.176  2.956  6.472 
+ -4.90  -2.94  -1.18   2.96   6.47 
 
 Coefficients:
-               Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)   -45.21104   34.42108  -1.313  0.21173   
-Height          0.37156    0.18504   2.008  0.06589 . 
-Circumference   0.77853    0.23841   3.265  0.00614 **
-Age            -0.32771    0.41016  -0.799  0.43866   
-Junk1          -0.15687    0.13940  -1.125  0.28080   
-Junk2           0.16415    0.13669   1.201  0.25122   
-Junk3          -0.07714    0.13614  -0.567  0.58065   
+              Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)   -45.2110    34.4211   -1.31   0.2117   
+Height          0.3716     0.1850    2.01   0.0659 . 
+Circumference   0.7785     0.2384    3.27   0.0061 **
+Age            -0.3277     0.4102   -0.80   0.4387   
+Junk1          -0.1569     0.1394   -1.13   0.2808   
+Junk2           0.1641     0.1367    1.20   0.2512   
+Junk3          -0.0771     0.1361   -0.57   0.5807   
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-s: 4.344 on 13 degrees of freedom
+s: 4.34 on 13 degrees of freedom
 Multiple R-squared: 0.734,
-Adjusted R-squared: 0.6112 
-F-statistic: 5.978 on 6 and 13 DF,  p-value: 0.003455 </code></pre>
+Adjusted R-squared: 0.611 
+F-statistic: 5.98 on 6 and 13 DF,  p-value: 0.00346 </code></pre>
 <div id="exercises" class="section level5">
 <h5><i class="fa fa-edit"></i> Exercises</h5>
 <ul>
@@ -504,27 +504,27 @@ lm(formula = Weight ~ Height + Circumference + Age + Junk1 +
 
 Residuals:
    Min     1Q Median     3Q    Max 
--4.471 -2.067  1.039  1.923  4.337 
+ -4.47  -2.07   1.04   1.92   4.34 
 
 Coefficients:
-               Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)   -94.53920   34.61011  -2.732  0.02114 * 
-Height          0.61173    0.19013   3.217  0.00922 **
-Circumference   0.78183    0.20054   3.899  0.00297 **
-Age            -0.07007    0.34876  -0.201  0.84480   
-Junk1           0.08223    0.16526   0.498  0.62955   
-Junk2          -0.02088    0.14686  -0.142  0.88975   
-Junk3           0.04883    0.13228   0.369  0.71971   
-Junk4          -0.29641    0.11810  -2.510  0.03092 * 
-Junk5           0.16262    0.12798   1.271  0.23263   
-Junk6          -0.04694    0.08255  -0.569  0.58216   
+              Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)   -94.5392    34.6101   -2.73   0.0211 * 
+Height          0.6117     0.1901    3.22   0.0092 **
+Circumference   0.7818     0.2005    3.90   0.0030 **
+Age            -0.0701     0.3488   -0.20   0.8448   
+Junk1           0.0822     0.1653    0.50   0.6295   
+Junk2          -0.0209     0.1469   -0.14   0.8897   
+Junk3           0.0488     0.1323    0.37   0.7197   
+Junk4          -0.2964     0.1181   -2.51   0.0309 * 
+Junk5           0.1626     0.1280    1.27   0.2326   
+Junk6          -0.0469     0.0826   -0.57   0.5822   
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-s: 3.552 on 10 degrees of freedom
-Multiple R-squared: 0.8632,
-Adjusted R-squared:  0.74 
-F-statistic:  7.01 on 9 and 10 DF,  p-value: 0.002688 </code></pre>
+s: 3.55 on 10 degrees of freedom
+Multiple R-squared: 0.863,
+Adjusted R-squared: 0.74 
+F-statistic: 7.01 on 9 and 10 DF,  p-value: 0.00269 </code></pre>
 </div>
 <ul>
 <li>Observe the R-squared values (<em>What is the lesson to be learned here?</em>)</li>

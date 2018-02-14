@@ -198,13 +198,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>Dataset: mtcars</h2>
 <p>We will use an old data set from 1974 on gasoline consumption for various cars which is part of the <code>datasets</code> package in R.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(mtcars)</code></pre></div>
-<pre><code>                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
-Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<pre><code>                   mpg cyl disp  hp drat   wt qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.62 16.5  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.88 17.0  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.32 18.6  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.21 19.4  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.44 17.0  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.46 20.2  1  0    3    1</code></pre>
 <p>As you can see there are multiple variables. If you have the datasets package you may look at the help file for the data by:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?datasets<span class="op">::</span>mtcars</code></pre></div>
 <div id="ex-1-model-fitting" class="section level3">
@@ -221,7 +221,7 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre
 <div class="ans">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co">#This creates a layout for plots, one row and two columns</span>
 <span class="kw">plot</span>(cars1, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co">#Only the two first residual plots</span></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-96-1.png" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-96-1.svg" width="672" /></p>
 </div>
 <ul>
 <li>Give a summary of the results and compute the ANOVA-table.</li>
@@ -233,29 +233,29 @@ Call:
 lm(formula = mpg ~ cyl + wt, data = mtcars)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--4.2893 -1.5512 -0.4684  1.5743  6.1004 
+   Min     1Q Median     3Q    Max 
+-4.289 -1.551 -0.468  1.574  6.100 
 
 Coefficients:
-            Estimate Std. Error t value             Pr(&gt;|t|)    
-(Intercept)  39.6863     1.7150  23.141 &lt; 0.0000000000000002 ***
-cyl          -1.5078     0.4147  -3.636             0.001064 ** 
-wt           -3.1910     0.7569  -4.216             0.000222 ***
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   39.686      1.715   23.14  &lt; 2e-16 ***
+cyl           -1.508      0.415   -3.64  0.00106 ** 
+wt            -3.191      0.757   -4.22  0.00022 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-s: 2.568 on 29 degrees of freedom
-Multiple R-squared: 0.8302,
-Adjusted R-squared: 0.8185 
-F-statistic: 70.91 on 2 and 29 DF,  p-value: 0.000000000006809 </code></pre>
+s: 2.57 on 29 degrees of freedom
+Multiple R-squared: 0.83,
+Adjusted R-squared: 0.819 
+F-statistic: 70.9 on 2 and 29 DF,  p-value: 0.00000000000681 </code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(cars1)</code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: mpg
-          Df Sum Sq Mean Sq F value            Pr(&gt;F)    
-cyl        1 817.71  817.71 124.044 0.000000000005424 ***
-wt         1 117.16  117.16  17.773          0.000222 ***
-Residuals 29 191.17    6.59                              
+          Df Sum Sq Mean Sq F value          Pr(&gt;F)    
+cyl        1    818     818   124.0 0.0000000000054 ***
+wt         1    117     117    17.8         0.00022 ***
+Residuals 29    191       7                            
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
@@ -284,23 +284,23 @@ Call:
 lm(formula = mpg ~ cyl + wt * am, data = mtcars)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--3.4621 -1.4913 -0.7879  1.3959  5.3499 
+   Min     1Q Median     3Q    Max 
+-3.462 -1.491 -0.788  1.396  5.350 
 
 Coefficients:
-            Estimate Std. Error t value         Pr(&gt;|t|)    
-(Intercept)  34.2830     2.7965  12.259 0.00000000000152 ***
-cyl          -1.1814     0.3803  -3.106          0.00442 ** 
-wt           -2.3689     0.8244  -2.874          0.00782 ** 
-am           11.9385     3.8453   3.105          0.00444 ** 
-wt:am        -4.1974     1.3115  -3.200          0.00350 ** 
+            Estimate Std. Error t value        Pr(&gt;|t|)    
+(Intercept)   34.283      2.796   12.26 0.0000000000015 ***
+cyl           -1.181      0.380   -3.11          0.0044 ** 
+wt            -2.369      0.824   -2.87          0.0078 ** 
+am            11.939      3.845    3.10          0.0044 ** 
+wt:am         -4.197      1.312   -3.20          0.0035 ** 
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-s: 2.265 on 27 degrees of freedom
+s: 2.26 on 27 degrees of freedom
 Multiple R-squared: 0.877,
-Adjusted R-squared: 0.8588 
-F-statistic: 48.13 on 4 and 27 DF,  p-value: 0.000000000006643 </code></pre>
+Adjusted R-squared: 0.859 
+F-statistic: 48.1 on 4 and 27 DF,  p-value: 0.00000000000664 </code></pre>
 <p>For automatic transmission (<code>am</code>=<span class="math inline">\(x_3\)</span>=0) we have the estimated model:</p>
 <p><span class="math display">\[\hat{y} = 34.28 - 1.18x_1 - 2.37x_2\]</span></p>
 <p>For manual transmission (<code>am</code>=<span class="math inline">\(x_3\)</span>=1) we have <span class="math display">\[\hat{y} = 34.28 - 1.18x_1 - 2.37x_2 + 11.94\cdot 1 - 4.20x_2\cdot 1\]</span> <span class="math display">\[= 46.22 - 1.18x_1 - 6.57x_2\]</span></p>
@@ -315,9 +315,9 @@ F-statistic: 48.13 on 4 and 27 DF,  p-value: 0.000000000006643 </code></pre>
 
 Model 1: mpg ~ cyl + wt
 Model 2: mpg ~ cyl + wt * am
-  Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)  
-1     29 191.17                             
-2     27 138.51  2    52.666 5.1333 0.0129 *
+  Res.Df RSS Df Sum of Sq    F Pr(&gt;F)  
+1     29 191                           
+2     27 138  2      52.7 5.13  0.013 *
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <ul>
@@ -332,7 +332,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p>From the output we have (note RSS = SSE): <span class="math display">\[F = \frac{(191.17 - 138.51)/2}{138.51/27} = 5.13\]</span></p>
 <p>We reject at level <span class="math inline">\(\alpha=0.05\)</span> if this observed F is larger than <span class="math inline">\(F_{0.05, 2, 27}\)</span>. At this point we could look this up in a Fisher-table, or alternatively compute this quantile of the Fisher distribution by:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qf</span>(<span class="fl">0.05</span>, <span class="dv">2</span>, <span class="dv">27</span>, <span class="dt">lower.tail =</span> <span class="ot">FALSE</span>)</code></pre></div>
-<pre><code>[1] 3.354131</code></pre>
+<pre><code>[1] 3.35</code></pre>
 <p>See <code>?FDist</code> for help-file for the Fisher distribution.</p>
 <p>We reject the null-hypothesis.</p>
 <p><strong>Alternatively</strong> we reject since the p-value from the output is smaller than 0.05.</p>
@@ -343,7 +343,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div class="ans">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) 
 <span class="kw">plot</span>(cars2, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) </code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-102-1.svg" width="672" /></p>
 <p>The linearity has improved, but maybe there is an increasing variance with increasing fitted value (estimated mileage). The normality looks good.</p>
 </div>
 </div>
@@ -383,57 +383,57 @@ Call:
 lm(formula = mpg ~ cyl + disp + hp + drat + wt + qsec, data = mtcars)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--3.9682 -1.5795 -0.4353  1.1662  5.5272 
+   Min     1Q Median     3Q    Max 
+-3.968 -1.580 -0.435  1.166  5.527 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept) 26.30736   14.62994   1.798  0.08424 . 
-cyl         -0.81856    0.81156  -1.009  0.32282   
-disp         0.01320    0.01204   1.097  0.28307   
-hp          -0.01793    0.01551  -1.156  0.25846   
-drat         1.32041    1.47948   0.892  0.38065   
-wt          -4.19083    1.25791  -3.332  0.00269 **
-qsec         0.40146    0.51658   0.777  0.44436   
+(Intercept)  26.3074    14.6299    1.80   0.0842 . 
+cyl          -0.8186     0.8116   -1.01   0.3228   
+disp          0.0132     0.0120    1.10   0.2831   
+hp           -0.0179     0.0155   -1.16   0.2585   
+drat          1.3204     1.4795    0.89   0.3806   
+wt           -4.1908     1.2579   -3.33   0.0027 **
+qsec          0.4015     0.5166    0.78   0.4444   
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-s: 2.557 on 25 degrees of freedom
-Multiple R-squared: 0.8548,
-Adjusted R-squared:  0.82 
-F-statistic: 24.53 on 6 and 25 DF,  p-value: 0.00000000245 </code></pre>
+s: 2.56 on 25 degrees of freedom
+Multiple R-squared: 0.855,
+Adjusted R-squared: 0.82 
+F-statistic: 24.5 on 6 and 25 DF,  p-value: 0.00000000245 </code></pre>
 <p>Apparently only wt is significant, but having many variables in a model may lead to inflated Std. Errors of the estimates due to correlation between predictors, and problems finding truly significant variables.</p>
 </div>
 <p>We would like to check various sub-models of this model by combining different variables. Install and load the ‘<code>mixlm</code>’ package. The package contains a function called <code>best.subsets()</code> which can help us find a good model.</p>
 <p><details class="answer"> <summary><em>Best Subset Output:</em></summary></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">best.subsets</span>(cars3)</code></pre></div>
-<pre><code>         cyl disp hp drat wt qsec      RSS        R2     R2adj        Cp
-1  ( 1 )                   *      278.3219 0.7528328 0.7445939 14.562907
-1  ( 2 )   *                      308.3342 0.7261800 0.7170527 19.152594
-1  ( 3 )        *                 317.1587 0.7183433 0.7089548 20.502090
-1  ( 4 )           *              447.6743 0.6024373 0.5891853 40.461438
-1  ( 5 )                *         603.5667 0.4639952 0.4461283 64.301580
-2  ( 1 )   *               *      191.1720 0.8302274 0.8185189  3.235333
-2  ( 2 )           *       *      195.0478 0.8267855 0.8148396  3.828045
-2  ( 3 )                   *    * 195.4636 0.8264161 0.8144448  3.891644
-2  ( 4 )        *          *      246.6825 0.7809306 0.7658223 11.724387
-2  ( 5 )                *  *      269.2413 0.7608970 0.7444071 15.174232
-3  ( 1 )   *       *       *      176.6205 0.8431500 0.8263446  3.010026
-3  ( 2 )   *               *    * 180.6046 0.8396119 0.8224275  3.619295
-3  ( 3 )                *  *    * 183.5216 0.8370214 0.8195594  4.065383
-3  ( 4 )           *    *  *      183.6819 0.8368791 0.8194018  4.089899
-3  ( 5 )           *       *    * 186.0593 0.8347678 0.8170643  4.453469
-4  ( 1 )   *    *  *       *      170.4444 0.8486348 0.8262103  4.065526
-4  ( 2 )           *    *  *    * 174.1035 0.8453853 0.8224794  4.625103
-4  ( 3 )   *       *    *  *      174.3752 0.8451439 0.8222023  4.666661
-4  ( 4 )   *       *       *    * 175.2195 0.8443942 0.8213415  4.795768
-4  ( 5 )   *    *          *    * 175.6684 0.8439955 0.8208838  4.864420
-5  ( 1 )   *    *  *    *  *      167.4261 0.8513152 0.8227219  5.603955
-5  ( 2 )   *    *  *       *    * 168.6853 0.8501969 0.8213886  5.796524
-5  ( 3 )        *  *    *  *    * 170.1291 0.8489147 0.8198599  6.017318
-5  ( 4 )   *       *    *  *    * 171.3467 0.8478334 0.8185706  6.203520
-5  ( 5 )   *    *       *  *    * 172.2208 0.8470572 0.8176451  6.337198
-6  ( 1 )   *    *  *    *  *    * 163.4768 0.8548224 0.8199798  7.000000</code></pre>
+<pre><code>         cyl disp hp drat wt qsec RSS    R2 R2adj    Cp
+1  ( 1 )                   *      278 0.753 0.745 14.56
+1  ( 2 )   *                      308 0.726 0.717 19.15
+1  ( 3 )        *                 317 0.718 0.709 20.50
+1  ( 4 )           *              448 0.602 0.589 40.46
+1  ( 5 )                *         604 0.464 0.446 64.30
+2  ( 1 )   *               *      191 0.830 0.819  3.24
+2  ( 2 )           *       *      195 0.827 0.815  3.83
+2  ( 3 )                   *    * 195 0.826 0.814  3.89
+2  ( 4 )        *          *      247 0.781 0.766 11.72
+2  ( 5 )                *  *      269 0.761 0.744 15.17
+3  ( 1 )   *       *       *      177 0.843 0.826  3.01
+3  ( 2 )   *               *    * 181 0.840 0.822  3.62
+3  ( 3 )                *  *    * 184 0.837 0.820  4.07
+3  ( 4 )           *    *  *      184 0.837 0.819  4.09
+3  ( 5 )           *       *    * 186 0.835 0.817  4.45
+4  ( 1 )   *    *  *       *      170 0.849 0.826  4.07
+4  ( 2 )           *    *  *    * 174 0.845 0.822  4.63
+4  ( 3 )   *       *    *  *      174 0.845 0.822  4.67
+4  ( 4 )   *       *       *    * 175 0.844 0.821  4.80
+4  ( 5 )   *    *          *    * 176 0.844 0.821  4.86
+5  ( 1 )   *    *  *    *  *      167 0.851 0.823  5.60
+5  ( 2 )   *    *  *       *    * 169 0.850 0.821  5.80
+5  ( 3 )        *  *    *  *    * 170 0.849 0.820  6.02
+5  ( 4 )   *       *    *  *    * 171 0.848 0.819  6.20
+5  ( 5 )   *    *       *  *    * 172 0.847 0.818  6.34
+6  ( 1 )   *    *  *    *  *    * 163 0.855 0.820  7.00</code></pre>
 <p></details></p>
 <p>The function reports by default the 5 best models for each model size (number of predictors). The model size is given in the first column. Column two is the rank within model size, then comes a column for each variable with a star indicating that a given variable is part of the model. Finally comes the residual sum of squares (RSS or SSE), <span class="math inline">\(R^2\)</span>, <span class="math inline">\(R^2\)</span>-adjusted and finally a diagnostic called Mallow’s Cp.</p>
 <ul>
@@ -456,17 +456,15 @@ F-statistic: 24.53 on 6 and 25 DF,  p-value: 0.00000000245 </code></pre>
 <div class="ans">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(res)</code></pre></div>
 <pre><code>$pred
- [1] 22.02465 20.14940 26.64983 19.41364 16.40368 19.06674 16.61396
- [8] 21.29786 21.89094 19.03386 19.14117 15.09325 15.87195 15.93892
-[15] 13.12962 12.75906 11.08191 26.47037 31.03522 28.65971 24.50916
-[22] 16.61597 16.90330 15.94565 15.42444 29.00620 27.60453 31.99763
-[29] 16.00725 21.09180 12.31828 23.71533
+ [1] 22.0 20.1 26.6 19.4 16.4 19.1 16.6 21.3 21.9 19.0 19.1 15.1 15.9 15.9
+[15] 13.1 12.8 11.1 26.5 31.0 28.7 24.5 16.6 16.9 15.9 15.4 29.0 27.6 32.0
+[29] 16.0 21.1 12.3 23.7
 
 $msep
-[1] 6.088405
+[1] 6.09
 
 $r.squared.pred
-[1] 0.8282658</code></pre>
+[1] 0.828</code></pre>
 </div>
 <p>The <code>CV()</code> returns a list with three elements, the predictions, the Mean Square Error of Prediction and and <span class="math inline">\(R^2\)</span>-predicted.</p>
 <ul>
@@ -474,7 +472,7 @@ $r.squared.pred
 </ul>
 <div class="ans">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(mtcars<span class="op">$</span>mpg, res<span class="op">$</span>pred, <span class="dt">xlab =</span> <span class="st">&quot;Observed&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Predicted&quot;</span>)</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-109-1.svg" width="672" /></p>
 </div>
 <ul>
 <li>Is the best model from the previous exercise, identified by the <code>best.subsets()</code>, a better model in terms of prediction error (MSEP)? The MSEP is defined by:</li>
@@ -485,17 +483,15 @@ $r.squared.pred
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cars4 &lt;-<span class="st"> </span><span class="kw">lm</span>(mpg <span class="op">~</span><span class="st"> </span>cyl <span class="op">+</span><span class="st"> </span>hp <span class="op">+</span><span class="st"> </span>wt, <span class="dt">data =</span> mtcars)
 <span class="kw">CV</span>(cars4)</code></pre></div>
 <pre><code>$pred
- [1] 22.96794 22.07539 26.25638 20.90993 16.97878 20.41187 15.65251
- [8] 23.64555 23.38461 20.02785 20.09677 14.96997 16.05497 16.07208
-[15] 11.01924 10.08662  8.73892 26.32479 28.71190 27.34888 25.82503
-[22] 17.69247 18.08644 14.79267 15.57424 27.70402 26.61982 27.72238
-[29] 16.57704 21.28440 12.89349 24.61230
+ [1] 22.97 22.08 26.26 20.91 16.98 20.41 15.65 23.65 23.38 20.03 20.10
+[12] 14.97 16.05 16.07 11.02 10.09  8.74 26.32 28.71 27.35 25.83 17.69
+[23] 18.09 14.79 15.57 27.70 26.62 27.72 16.58 21.28 12.89 24.61
 
 $msep
-[1] 7.189898
+[1] 7.19
 
 $r.squared.pred
-[1] 0.7972019</code></pre>
+[1] 0.797</code></pre>
 <p>No, this model does not predict better than cars2.</p>
 </div>
 <ul>
@@ -532,17 +528,15 @@ $r.squared.pred
 <p>As you see, myfolds is a list of 8 random subsets of observation numbers. Re-run the validation of cars2 by</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">CV</span>(cars2, <span class="dt">folds =</span> myfolds)</code></pre></div>
 <pre><code>$pred
- [1] 22.27053 20.08943 26.96290 19.46344 16.23783 18.84980 16.55208
- [8] 21.69562 21.88502 19.23336 19.23336 15.25603 16.13734 16.12464
-[15] 13.21458 10.77692 11.00258 26.45393 31.20857 28.76698 23.51149
-[22] 16.77591 16.84913 15.98576 15.28733 29.43170 26.89460 32.35720
-[29] 15.98236 21.25588 12.27157 23.24905
+ [1] 22.3 20.1 27.0 19.5 16.2 18.8 16.6 21.7 21.9 19.2 19.2 15.3 16.1 16.1
+[15] 13.2 10.8 11.0 26.5 31.2 28.8 23.5 16.8 16.8 16.0 15.3 29.4 26.9 32.4
+[29] 16.0 21.3 12.3 23.2
 
 $msep
-[1] 5.826322
+[1] 5.83
 
 $r.squared.pred
-[1] 0.8368866</code></pre>
+[1] 0.837</code></pre>
 <p>Note that the result now will vary if you repeat the creation of random K-folds for the cross-validation. Try to make a new myfolds and run the CV again.</p>
 
 </div>

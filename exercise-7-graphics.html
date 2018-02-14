@@ -199,7 +199,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="plot-the-heights-versus-the-weights-for-all-observations-in-bodydata." class="section level4">
 <h4>Plot the heights versus the weights for all observations in bodydata.</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(bodydata, <span class="kw">plot</span>(<span class="dt">x =</span> Height, <span class="dt">y =</span> Weight))</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-50-1.png" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-50-1.svg" width="672" /></p>
 </div>
 <div id="spice-up-the-plot" class="section level3">
 <h3>Spice up the plot</h3>
@@ -214,7 +214,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="plot-all-variables-against-each-other" class="section level4">
 <h4>Plot all variables against each other</h4>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(bodydata, <span class="dt">col =</span> mycolors)</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-52-1.svg" width="672" /></p>
 </div>
 <div id="which-variables-seem-to-be-most-correlated-to-each-other" class="section level4">
 <h4>Which variables seem to be most correlated to each other?</h4>
@@ -225,11 +225,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><code>Age</code> and <code>Height</code> variables seems to have least correlation.</p>
 <p>Check by,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(bodydata)</code></pre></div>
-<pre><code>                 Weight     Height        Age Circumference
-Weight        1.0000000 0.72080269 0.18701340     0.8994638
-Height        0.7208027 1.00000000 0.04822479     0.5447980
-Age           0.1870134 0.04822479 1.00000000     0.3547390
-Circumference 0.8994638 0.54479800 0.35473898     1.0000000</code></pre>
+<pre><code>              Weight Height    Age Circumference
+Weight         1.000 0.7208 0.1870         0.899
+Height         0.721 1.0000 0.0482         0.545
+Age            0.187 0.0482 1.0000         0.355
+Circumference  0.899 0.5448 0.3547         1.000</code></pre>
 <p>This returns the correlation matrix for the variables, and the guess made earlier true. Further, check out the help file for pairs, and the examples at the end. Try to make a pairs plot with scatter plots with smoothed lines in the lower left triangle, histograms on the diagonal, and correlation numbers in the upper right triangle.</p>
 <p>Lets first create a function which create histogram. The function will later be used in the <code>pairs</code> function to create its diagonal plots.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">panel.hist &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {
@@ -255,7 +255,7 @@ Circumference 0.8994638 0.54479800 0.35473898     1.0000000</code></pre>
       <span class="dt">lower.panel =</span> panel.smooth, 
       <span class="dt">upper.panel =</span> panel.cor,
       <span class="dt">diag.panel =</span> panel.hist)</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-57-1.svg" width="672" /></p>
 <p>Here the <code>panel.smooth</code> deals with the smooth line on the lower panel of <code>pairs</code> plot.</p>
 <p><strong>Note::</strong> Chapter 5 of the R book contains numerous examples of graphics. <strong>Note::</strong> For those interested in playing around with plots in R checkout: <a href="http://r4ds.had.co.nz/data-visualisation.html" class="uri">http://r4ds.had.co.nz/data-visualisation.html</a></p>
 
