@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Applied Methods in Statistics</title>
+  <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  <meta name="github-repo" content="mathatistics/stat340-2018-source" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  
+  <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  
+
+<meta name="author" content="Thore Egeland and Raju Rimal">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="principal-component-analysis.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113782065-1');
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Applied Methods in Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Practical Information</a><ul>
+<li class="chapter" data-level="" data-path="lecture-and-exercise-plan.html"><a href="lecture-and-exercise-plan.html"><i class="fa fa-check"></i>Lecture and Exercise Plan</a></li>
+<li class="chapter" data-level="" data-path="reference-books.html"><a href="reference-books.html"><i class="fa fa-check"></i>Reference Books</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="exercise-1-create-new-project.html"><a href="exercise-1-create-new-project.html"><i class="fa fa-check"></i>Exercise 1: Create New Project</a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html"><i class="fa fa-check"></i>Exercise 2: Importing data in R</a><ul>
+<li><a href="exercise-2-importing-data-in-r.html#import-txt-or-csv">Import <code>txt</code> or <code>csv</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#import-microsoft-excel-spreadsheet"><i class="fa fa-check"></i>Import Microsoft Excel spreadsheet</a></li>
+<li><a href="exercise-2-importing-data-in-r.html#load-rdata-rda-or-rds">Load <code>rdata</code>, <code>rda</code> or <code>rds</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#reading-data-from-clipboard-pasting-copied-data-into-an-r-object"><i class="fa fa-check"></i>Reading data from clipboard (“pasting” copied data into an R object)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-3-exporting-data-to-a-file.html"><a href="exercise-3-exporting-data-to-a-file.html"><i class="fa fa-check"></i>Exercise 3: Exporting data to a file</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html"><i class="fa fa-check"></i>Exercise 4: Data Structure in R</a><ul>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#vector"><i class="fa fa-check"></i>Vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#list"><i class="fa fa-check"></i>List</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#data-frame"><i class="fa fa-check"></i>Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html"><i class="fa fa-check"></i>Exercise 5: Exploring the data</a><ul>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#structure-of-an-r-object"><i class="fa fa-check"></i>Structure of an R-object</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#accessing-elements-from-r-objects"><i class="fa fa-check"></i>Accessing elements from R-objects</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#view-data-in-rstudio"><i class="fa fa-check"></i>View Data in RStudio</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#summary-of-data"><i class="fa fa-check"></i>Summary of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#dimension-of-data"><i class="fa fa-check"></i>Dimension of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#lets-practice"><i class="fa fa-check"></i>Lets Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html"><i class="fa fa-check"></i>Exercise 6: Subsets of data and logical operators</a><ul>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#logical-vector-and-index-vector"><i class="fa fa-check"></i>Logical vector and index vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#subsetting-data-frame"><i class="fa fa-check"></i>Subsetting data frame</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#exercise-1"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html"><i class="fa fa-check"></i>Exercise 7: Graphics</a><ul>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html#spice-up-the-plot"><i class="fa fa-check"></i>Spice up the plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i>Regression Analysis</a><ul>
+<li class="chapter" data-level="" data-path="least-sqaures-app.html"><a href="least-sqaures-app.html"><i class="fa fa-check"></i>Least Sqaures App</a></li>
+<li class="chapter" data-level="" data-path="dataset-birth.html"><a href="dataset-birth.html"><i class="fa fa-check"></i>Dataset: birth</a><ul>
+<li><a href="dataset-birth.html#overview-of-data"><i class="fa fa-edit"></i> Overview of data</a></li>
+<li><a href="dataset-birth.html#linear-regression"><i class="fa fa-book"></i> Linear Regression</a></li>
+<li><a href="dataset-birth.html#regression-with-categories"><i class="fa fa-book"></i> Regression with categories</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataset-bodydata.html"><a href="dataset-bodydata.html"><i class="fa fa-check"></i>Dataset: bodydata</a><ul>
+<li><a href="dataset-bodydata.html#training-samples"><i class="fa fa-book"></i> Training Samples</a></li>
+<li><a href="dataset-bodydata.html#fitting-model"><i class="fa fa-edit"></i> Fitting Model</a></li>
+<li><a href="dataset-bodydata.html#understanding-the-fitted-model"><i class="fa fa-edit"></i> Understanding the fitted Model</a></li>
+<li><a href="dataset-bodydata.html#multiple-linear-regression-and-prediction"><i class="fa fa-edit"></i> Multiple Linear Regression and Prediction</a></li>
+<li><a href="dataset-bodydata.html#extra-on-r-squared"><i class="fa fa-book"></i> Extra on R-squared</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html"><i class="fa fa-check"></i>Dataset: mtcars</a><ul>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-1-model-fitting"><i class="fa fa-check"></i>Ex-1: Model Fitting</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-2-indicator-variable"><i class="fa fa-check"></i>Ex-2: Indicator variable</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-3-comparing-models---partial-f-test"><i class="fa fa-check"></i>Ex-3: Comparing models - Partial F-test</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-4-influential-measurements"><i class="fa fa-check"></i>Ex-4: Influential measurements</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-5-model-selection"><i class="fa fa-check"></i>Ex-5: Model selection</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-6-model-validation"><i class="fa fa-check"></i>Ex-6: Model validation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="principal-component-analysis.html"><a href="principal-component-analysis.html"><i class="fa fa-check"></i>Principal Component Analysis</a><ul>
+<li class="chapter" data-level="" data-path="track-and-field-data.html"><a href="track-and-field-data.html"><i class="fa fa-check"></i>Track and Field data</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
+<li><a name="title" href="javascript:void(0)"><b>Assistent Teachers:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/raju.rimal" target="blank">Raju Rimal</a></li></ul></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applied Methods in Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="track-and-field-data" class="section level2">
+<h2>Track and Field data</h2>
+<p>Load the <code>trackfieldrecords.rdata</code> file with the objects <code>runMen</code> and <code>runWomen</code>containing national records (a few years ago…) for several track and field events like 100m, 200m and so on up to marathon.</p>
+<ul>
+<li>Explore the data for both men and women using the <code>pairs()</code> - plotting function (you must exclude the Nation variable since this is non-numeric). Which events appear to be most correlated with each other? Check by using the <code>cor()</code> - function.</li>
+</ul>
+<div class="ans">
+<p><strong>For dataset: <code>runMen</code></strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(runMen[,<span class="op">-</span><span class="dv">9</span>], <span class="dt">cex =</span> <span class="fl">0.7</span>)</code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-116-1.svg" width="100%" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(runMen[,<span class="op">-</span><span class="dv">9</span>])</code></pre></div>
+<pre><code>       M100  M200  M400  M800 M1500 M5000  M10K  M42K
+M100  1.000 0.918 0.831 0.744 0.686 0.601 0.615 0.504
+M200  0.918 1.000 0.840 0.800 0.767 0.682 0.683 0.585
+M400  0.831 0.840 1.000 0.866 0.828 0.770 0.779 0.701
+M800  0.744 0.800 0.866 1.000 0.914 0.858 0.864 0.803
+M1500 0.686 0.767 0.828 0.914 1.000 0.926 0.933 0.865
+M5000 0.601 0.682 0.770 0.858 0.926 1.000 0.974 0.931
+M10K  0.615 0.683 0.779 0.864 0.933 0.974 1.000 0.943
+M42K  0.504 0.585 0.701 0.803 0.865 0.931 0.943 1.000</code></pre>
+<p>Mens running 5000m have the highest correlation (0.974) with the mens running 10000m.</p>
+<p><strong>For dataset: <code>runWomen</code></strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>], <span class="dt">cex =</span> <span class="fl">0.7</span>)</code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-117-1.svg" width="100%" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>])</code></pre></div>
+<pre><code>       M100  M200  M400  M800 M1500 M3000  M42K
+M100  1.000 0.947 0.808 0.693 0.704 0.724 0.683
+M200  0.947 1.000 0.836 0.690 0.671 0.690 0.682
+M400  0.808 0.836 1.000 0.887 0.771 0.767 0.710
+M800  0.693 0.690 0.887 1.000 0.894 0.856 0.782
+M1500 0.704 0.671 0.771 0.894 1.000 0.968 0.879
+M3000 0.724 0.690 0.767 0.856 0.968 1.000 0.899
+M42K  0.683 0.682 0.710 0.782 0.879 0.899 1.000</code></pre>
+<p>Womens running 3000m and 1500m have highest correlation (0.968)</p>
+</div>
+<ul>
+<li>Run the following command and inspect the results:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>], runMen[,<span class="op">-</span><span class="dv">9</span>])</code></pre></div>
+<p>If you were going to “predict” a nation’s record for women’s M3000, which record among men would you use (rows in the table are women variables, columns are men)?</p>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>], runMen[,<span class="op">-</span><span class="dv">9</span>])</code></pre></div>
+<pre><code>       M100  M200  M400  M800 M1500 M5000  M10K  M42K
+M100  0.650 0.760 0.777 0.804 0.784 0.718 0.713 0.651
+M200  0.716 0.799 0.811 0.817 0.766 0.703 0.703 0.621
+M400  0.645 0.715 0.792 0.778 0.770 0.738 0.731 0.691
+M800  0.595 0.697 0.740 0.785 0.834 0.817 0.820 0.785
+M1500 0.517 0.636 0.676 0.848 0.876 0.858 0.868 0.822
+M3000 0.571 0.681 0.684 0.856 0.882 0.865 0.864 0.814
+M42K  0.612 0.701 0.647 0.811 0.830 0.803 0.817 0.762</code></pre>
+<p>Men’s M1500 shows the highest corrlation to women’s M3000 and appears to be the best indicator, but in order to really check this we should run a regression analysis with cross-validation to see which predicts best.</p>
+</div>
+<ul>
+<li>Run a PCA (with scale=FALSE) on the men’s data and print out a summary and the weights (loadings) for the two first PC’s. How many components is needed to explain at least 99% of the variation in the data? Try to give an interpretation of PC1, and explain why so few components explains so much of the total variability.</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr &lt;-<span class="st"> </span><span class="kw">prcomp</span>(runMen[,<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>], <span class="dt">scale =</span> <span class="ot">FALSE</span>)
+<span class="kw">summary</span>(pr)</code></pre></div>
+<pre><code>Importance of components:
+                         PC1     PC2     PC3     PC4     PC5    PC6
+Standard deviation     9.571 0.64469 0.16890 0.05837 0.02504 0.0117
+Proportion of Variance 0.995 0.00451 0.00031 0.00004 0.00001 0.0000
+Cumulative Proportion  0.995 0.99964 0.99995 0.99999 1.00000 1.0000
+                           PC7     PC8
+Standard deviation     0.00553 0.00191
+Proportion of Variance 0.00000 0.00000
+Cumulative Proportion  1.00000 1.00000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr</code></pre></div>
+<pre><code>Standard deviations (1, .., p=8):
+[1] 9.57139 0.64469 0.16890 0.05837 0.02504 0.01174 0.00553 0.00191
+
+Rotation (n x k) = (8 x 8):
+           PC1      PC2       PC3      PC4        PC5       PC6       PC7
+M100  0.000311  0.00379 -0.000446  0.03426  0.0692868  0.185797 -0.387429
+M200  0.000656  0.00660 -0.004506  0.06800  0.0994247  0.274399 -0.850073
+M400  0.001759  0.01308 -0.005035  0.13044  0.2647439  0.885091  0.355339
+M800  0.005393  0.03175 -0.020469  0.38876  0.8602795 -0.326436  0.027660
+M1500 0.014222  0.08536 -0.050540  0.90239 -0.4184781 -0.015186  0.015555
+M5000 0.078990  0.37121 -0.921125 -0.08648  0.0031867  0.000642  0.000858
+M10K  0.180437  0.90259  0.385347 -0.06522  0.0031326 -0.002815 -0.000183
+M42K  0.980290 -0.19749  0.004152  0.00345 -0.0000589  0.000652 -0.000359
+             PC8
+M100   0.8996602
+M200  -0.4330211
+M400  -0.0551806
+M800  -0.0018789
+M1500  0.0073064
+M5000  0.0012362
+M10K  -0.0009295
+M42K   0.0000788</code></pre>
+<p>Only one component is needed to explain more than 99% of the variation. From the loadings we see that the loading weight for M42K (Marathon) is totally dominating with a weight of 0.98. All other weights are small. PC1 is therefore more or less indentical to the Marathon variable.</p>
+<p>PC1 is located in the direction of larget variability, and due to the large scale of marathon times, this variable totally dominates the PCA. In such cases it may be better to use standardized variables (which is equivalent to running the Eigenvalue decomposition on the correlation matrix instead of the covariance matrix of the variables).</p>
+</div>
+<ul>
+<li>Re-run the PCA with option <code>scale=TRUE</code> in <code>prcomp()</code>. How many variables are needed to explain 99% of the variation in this case? How much is explained by the two first components? How would you interprete the loadings of PC1, PC2 and PC3?</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr &lt;-<span class="st"> </span><span class="kw">prcomp</span>(runMen[,<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>], <span class="dt">scale =</span> <span class="ot">TRUE</span>)
+<span class="kw">summary</span>(pr)</code></pre></div>
+<pre><code>Importance of components:
+                         PC1   PC2    PC3    PC4    PC5     PC6     PC7
+Standard deviation     2.563 0.953 0.4076 0.3615 0.2859 0.26585 0.21933
+Proportion of Variance 0.821 0.114 0.0208 0.0163 0.0102 0.00883 0.00601
+Cumulative Proportion  0.821 0.935 0.9557 0.9720 0.9822 0.99106 0.99707
+                           PC8
+Standard deviation     0.15305
+Proportion of Variance 0.00293
+Cumulative Proportion  1.00000</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr</code></pre></div>
+<pre><code>Standard deviations (1, .., p=8):
+[1] 2.563 0.953 0.408 0.361 0.286 0.266 0.219 0.153
+
+Rotation (n x k) = (8 x 8):
+        PC1     PC2    PC3     PC4    PC5     PC6     PC7      PC8
+M100  0.315  0.5716  0.322 -0.1783  0.269 -0.5781  0.1425 -0.10781
+M200  0.336  0.4638  0.372  0.2485 -0.158  0.6498 -0.1218  0.09974
+M400  0.356  0.2439 -0.615 -0.5946 -0.236  0.1619 -0.0119  0.00229
+M800  0.369  0.0142 -0.496  0.5214  0.541 -0.0318 -0.2233  0.03623
+M1500 0.374 -0.1404 -0.105  0.4103 -0.494 -0.1747  0.6048 -0.14352
+M5000 0.365 -0.3129  0.194 -0.0463 -0.237 -0.1448 -0.5974 -0.54333
+M10K  0.367 -0.3071  0.180 -0.0985 -0.120 -0.2202 -0.1728  0.79734
+M42K  0.343 -0.4319  0.228 -0.3176  0.489  0.3413  0.4028 -0.15986</code></pre>
+<p>Now we need 6 components to achieve 99% explained variance. Two components explain about 93.5% of the total variance. The loadings for PC1 are almost identical for all variables, hence PC1 is close to identical to the average run record across all distances for each country. PC2 has weights ranging from highly negative for marathon to highly positive for M100. This PC therefore contrasts short versus long runs. PC3 is a component that contrasts medium long distances (400, 800 and 1500 m) and either short or long distances. This component appears to extract information about how these distances differ from both sprint and endurance distances.</p>
+</div>
+<p>Make a biplot with the first two components. You may use the argument “xlabs” in biplot to indicate that “Nations” should be used to label the scores from each country. Give comments to how the nations cluster relative to the loadings.</p>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">biplot</span>(pr, <span class="dt">xlabs =</span> runMen<span class="op">$</span>Nation, <span class="dt">cex =</span> <span class="fl">0.7</span>)</code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-122-1.svg" width="100%" /></p>
+<p>On the first axis (PC1) we observe that Cook’s Islands and West Samoa have the largest weights, and they therefore have on average poor (long time) national records for all distance. At the other end we find USA and others with on average good national records. Along PC2 (vertically) we find those with relatively poor times on long distances, but relatively good times on short, at the bottom (Dom. Repub, Bermuda, Singapore, Malaysia, Thailand and West Samoa) whereas at the top we find countries with poor records on short distances compared to their long distance records (Costa Rica, North-Korea, Cook’s Island and others).</p>
+</div>
+<ul>
+<li>Let’s try to predict the 3000M national records for women using the men’s data. First use a least squares approach using the men’s variables directly as predictor for women’s M3000. To accomplish this use <code>runWomen$M3000</code> as response in <code>lm()</code>. Are there any significant variables? What is the <span class="math inline">\(R^2\)</span> and the adjusted <span class="math inline">\(R^2\)</span> values?</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lmmod &lt;-<span class="st"> </span><span class="kw">lm</span>(runWomen<span class="op">$</span>M3000 <span class="op">~</span><span class="st"> </span>M100 <span class="op">+</span><span class="st"> </span>M200 <span class="op">+</span><span class="st"> </span>M400 <span class="op">+</span><span class="st"> </span>M800 <span class="op">+</span><span class="st"> </span>M1500 <span class="op">+</span><span class="st"> </span>
+<span class="st">              </span>M5000 <span class="op">+</span><span class="st"> </span>M10K <span class="op">+</span><span class="st"> </span>M42K, <span class="dt">data =</span> runMen)
+<span class="kw">summary</span>(lmmod)<span class="op">$</span>r.squared</code></pre></div>
+<pre><code>[1] 0.84</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(lmmod)<span class="op">$</span>adj.r.squared</code></pre></div>
+<pre><code>[1] 0.81</code></pre>
+<p>Two variables are significant at 5% level in this fitted model, M800 and M400. The <span class="math inline">\(R^2\)</span>-values indicate more than 80% explained variance. There is a slight difference between the adjusted and the non-adjusted <span class="math inline">\(R^2\)</span> indicating that there may be too many variables included in the model.</p>
+</div>
+<ul>
+<li>Either perform a manual elimination of insignificant variables, or run <code>backward()</code> from the mixlm-package to find a reduced model with only significant effects (5% testlevel). Which variables do you end up having in your model?</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">red.mod &lt;-<span class="st"> </span><span class="kw">backward</span>(lmmod, <span class="dt">alpha =</span> <span class="fl">0.05</span>)</code></pre></div>
+<pre><code>Backward elimination, alpha-to-remove: 0.05
+
+Full model: runWomen$M3000 ~ M100 + M200 + M400 + M800 + M1500 + M5000 + 
+    M10K + M42K
+&lt;environment: 0x7ff2c03a5a70&gt;
+
+      Step  RSS  AIC R2pred   Cp F value Pr(&gt;F)  
+M42K     1 5.49 -101  0.644 7.01    0.01  0.907  
+M10K     2 5.53 -102  0.687 5.32    0.32  0.576  
+M100     3 5.64 -104  0.730 4.15    0.86  0.359  
+M200     4 5.75 -104  0.746 3.03    0.92  0.343  
+M5000    5 6.20 -103  0.755 4.55    3.67  0.061 .
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(red.mod)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = runWomen$M3000 ~ M400 + M800 + M1500, data = runMen)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.6139 -0.2798 -0.0541  0.2591  0.7221 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   -6.930      1.687   -4.11  0.00015 ***
+M400         -11.241      4.286   -2.62  0.01166 *  
+M800           6.661      2.211    3.01  0.00412 ** 
+M1500          3.556      0.806    4.41 0.000058 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+s: 0.359 on 48 degrees of freedom
+Multiple R-squared: 0.819,
+Adjusted R-squared: 0.808 
+F-statistic: 72.6 on 3 and 48 DF,  p-value: &lt;2e-16 </code></pre>
+<p>In addition to M400 and M800 I find M1500 to be highly significant after removing other variables. This “covered” effect from the full model was because of the inflated variances due to multicollinear variables in the full model.</p>
+</div>
+<ul>
+<li>Fit another model using all principal component scores from the men’s data as predictors for women’s M3000. The scores are stored in the principal component object as element names <code>x</code>. Which components are significant at a 5% test level? Compare the <span class="math inline">\(R^2\)</span> values with those from the full model using all original variables as predictors.</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#You need to transform the scores into a data.frame first</span>
+PCdata &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(pr<span class="op">$</span>x)
+pcrmod &lt;-<span class="st"> </span><span class="kw">lm</span>(runWomen<span class="op">$</span>M3000 <span class="op">~</span><span class="st"> </span>PC1 <span class="op">+</span><span class="st"> </span>PC2 <span class="op">+</span><span class="st"> </span>PC3 <span class="op">+</span><span class="st"> </span>PC4 <span class="op">+</span><span class="st"> </span>PC5 <span class="op">+</span><span class="st"> </span>
+<span class="st">               </span>PC6 <span class="op">+</span><span class="st"> </span>PC7 <span class="op">+</span><span class="st"> </span>PC8, <span class="dt">data =</span> PCdata)
+
+<span class="kw">summary</span>(pcrmod)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = runWomen$M3000 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + 
+    PC7 + PC8, data = PCdata)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.7333 -0.2060 -0.0537  0.2496  0.7184 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  9.49673    0.04956  191.61  &lt; 2e-16 ***
+PC1          0.27603    0.01952   14.14  &lt; 2e-16 ***
+PC2         -0.17201    0.05249   -3.28  0.00208 ** 
+PC3          0.03614    0.12279    0.29  0.76990    
+PC4          0.53593    0.13844    3.87  0.00036 ***
+PC5          0.00982    0.17503    0.06  0.95551    
+PC6          0.04261    0.18825    0.23  0.82201    
+PC7         -0.09547    0.22818   -0.42  0.67772    
+PC8          0.04242    0.32698    0.13  0.89737    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+s: 0.357 on 43 degrees of freedom
+Multiple R-squared: 0.84,
+Adjusted R-squared: 0.81 
+F-statistic: 28.2 on 8 and 43 DF,  p-value: 1e-14 </code></pre>
+<p>Components 1,2 and 4 are highly significant, the others not. The <span class="math inline">\(R^2\)</span> values are identical to the full model on the orginal variables since we use all available components. The information content in PC1-PC8 is therefore the same as in the eight original variables.</p>
+</div>
+<ul>
+<li>Perfom a model reduction also for the PCR-model by excluding Principal components until you have only PC’s significant at 5% test level. Compare the estimated regression coefficients between the full and the reduced PCR-models. Why do you think the effects don’t change for the variables retained in the model?</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pcr.red.mod &lt;-<span class="st"> </span><span class="kw">backward</span>(pcrmod, <span class="dt">alpha =</span> <span class="fl">0.05</span>)</code></pre></div>
+<pre><code>Backward elimination, alpha-to-remove: 0.05
+
+Full model: runWomen$M3000 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8
+&lt;environment: 0x7ff2c1686708&gt;
+
+    Step  RSS  AIC R2pred     Cp F value Pr(&gt;F)
+PC5    1 5.49 -101  0.632  7.003    0.00   0.96
+PC8    2 5.50 -103  0.683  5.020    0.02   0.90
+PC6    3 5.50 -105  0.733  3.071    0.05   0.82
+PC3    4 5.51 -107  0.749  1.158    0.09   0.76
+PC7    5 5.54 -108  0.763 -0.667    0.19   0.66</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(pcr.red.mod)</code></pre></div>
+<pre><code>
+Call:
+lm(formula = runWomen$M3000 ~ PC1 + PC2 + PC4, data = PCdata)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.7232 -0.2207 -0.0461  0.2415  0.6907 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   9.4967     0.0471  201.67  &lt; 2e-16 ***
+PC1           0.2760     0.0186   14.88  &lt; 2e-16 ***
+PC2          -0.1720     0.0499   -3.45  0.00118 ** 
+PC4           0.5359     0.1315    4.07  0.00017 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+s: 0.34 on 48 degrees of freedom
+Multiple R-squared: 0.839,
+Adjusted R-squared: 0.829 
+F-statistic: 83.3 on 3 and 48 DF,  p-value: &lt;2e-16 </code></pre>
+<p>The reduced model has only PC1, PC2 and PC4 as predictors, and the <span class="math inline">\(R^2\)</span> is almost as high as for the full model. The estimated effects are identical due to the fact that the PC’s are orthogonal to each other and explain independent variability.</p>
+</div>
+<ul>
+<li>For special interested: Use the estimated effects (alphas from the lecture) from the reduced PCR-model to compute PCR-estimated regression coefficients (betas in the lecture) for the original variables back back-rotation. Compare the estimated regression coefficients from the PCR-approach with Least squares estimates using original (BUT SCALED) variables.</li>
+</ul>
+<div class="ans">
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#PCR-estimated betas using components 1,2 and 4. The %*% operator is the inner-product</span>
+<span class="co">#multiplier in R</span>
+PCRest &lt;-<span class="st"> </span>pr<span class="op">$</span>rotation[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)] <span class="op">%*%</span><span class="st"> </span>(<span class="kw">coef</span>(pcr.red.mod)[<span class="op">-</span><span class="dv">1</span>])
+
+<span class="co">#Scaling the original variables and re-running the least squares model:</span>
+runMen.scaled &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">scale</span>(runMen[,<span class="op">-</span><span class="dv">9</span>]))
+lmmod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(runWomen<span class="op">$</span>M3000 <span class="op">~</span><span class="st"> </span>M100 <span class="op">+</span><span class="st"> </span>M200 <span class="op">+</span><span class="st"> </span>M400 <span class="op">+</span><span class="st"> </span>M800 <span class="op">+</span><span class="st"> </span>M1500 <span class="op">+</span><span class="st"> </span>
+<span class="st">               </span>M5000 <span class="op">+</span><span class="st"> </span>M10K <span class="op">+</span><span class="st"> </span>M42K, <span class="dt">data =</span> runMen.scaled)
+
+<span class="co">#Estimates without intercept.</span>
+Estimates &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">coef</span>(lmmod2)[<span class="op">-</span><span class="dv">1</span>],PCRest)
+<span class="kw">colnames</span>(Estimates) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Least Squares&quot;</span>, <span class="st">&quot;PCR&quot;</span>)
+Estimates</code></pre></div>
+<pre><code>      Least Squares      PCR
+M100        -0.1355 -0.10698
+M200         0.2015  0.14607
+M400        -0.2789 -0.26247
+M800         0.3879  0.37900
+M1500        0.2673  0.34725
+M5000        0.1622  0.12968
+M10K         0.1477  0.10142
+M42K        -0.0189 -0.00125</code></pre>
+<p>For most of the variables the PCR-estimates are closer to zero (shrinkage effect) which induces a bias, but as lectured, the PCR-model may have smaller variance for the estimates due to avoidance of the multicollinearity problem. It seems like PCR has down-weighted the short and long distances compared to the Least Squares approach, which seems reasonable.</p>
+</div>
+
+</div>
+<!-- </div> -->
+<script>
+  ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
+  showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
+  hideAns_btn = '<a class="hideAns-btn btn pull-right js-toolbar-action" style="display:none;">Hide Answers</a>';
+  
+  // Adding Extra Menus in Navigation
+  
+  // Adding button on before each answer:::
+  $(".ans").before(ans_btn_html);
+  $('.btn-ans').each(function(){
+    $(this).next('.ans').andSelf().wrapAll('<div class="wrap-ans"/>');
+  });
+  $('.btn-ans').click(function(){
+    $(this).siblings('.ans').toggle(400);
+  });
+  
+if ($(".ans").length > 0){
+    $('.book-header').prepend(showAns_btn, hideAns_btn);
+    $('.showAns-btn').show();
+    $('.showAns-btn').click(function(){
+      $('.btn-ans').hide(400);
+      $('.ans').show(400);
+      $('.hideAns-btn').show();
+      $(this).hide();
+      $('.hideAns-btn').click(function(){
+        $('.btn-ans').show(400);
+        $('.ans').hide(400);
+        $('.showAns-btn').show();
+        $(this).hide();
+      });
+    });
+  }
+
+var chap = "week-two"
+if(window.location.href.indexOf(chap) != -1){
+  var now = new Date();
+  var release = new Date("August 21, 2016");
+  if(now < release){
+    $(".ans, .btn-ans, .showAns-btn, .hideAns-btn").hide()
+  }
+}
+
+$('.ans p:has(img)').css('text-align', 'center');
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82812028-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="principal-component-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["STAT340-2018.pdf", "STAT340-2018.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
