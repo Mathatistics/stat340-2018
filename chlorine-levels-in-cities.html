@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
 
   <meta property="og:title" content="Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
@@ -225,7 +225,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 19  0.81  5.20  8.63
 20  0.35 13.89  3.90</code></pre>
 <ul>
-<li>Load the city.rdata which is available on Fronter.</li>
+<li>Load the <code>city.rdata</code> which is available on Canvas.</li>
 </ul>
 <p>Before analyzing the data it is best to “stack” the data into two columns, a response column <code>y</code> and a city factor column <code>city</code>. By using the <code>stack()</code> function in R you can restructure the city data by</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">citydata &lt;-<span class="st"> </span><span class="kw">stack</span>(city)</code></pre></div>
@@ -252,7 +252,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>City 1 seems to have both the lowest average chlorine levels and the smallest variability in the measurements. Cities 2 and 3 are quite similar with both higher means and variability.</p>
 </div>
 <ul>
-<li>Fit the model and performa a residual analysis. Comment on the model fit.</li>
+<li>Fit the model and perform a residual analysis. Comment on the model fit.</li>
 </ul>
 <div class="ans">
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">contrasts=</span><span class="kw">c</span>(<span class="st">&quot;contr.treatment&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))
@@ -277,7 +277,7 @@ citymod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class=
 <p>Both problems from the previous model appear to be corrected. We continue with this model.</p>
 </div>
 <ul>
-<li>Estimate all model parameters from the latter model. Explain what the parameters measure given the paramtrization of your choice (See lecture notes from Feb 16th on parametrizations).</li>
+<li>Estimate all model parameters from the latter model. Explain what the parameters measure given the parameterization of your choice (See lecture notes for parameterization).</li>
 </ul>
 <div class="ans">
 <p>The ANOVA analysis using contr.treatment parametrization:</p>
@@ -409,11 +409,10 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
-"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",

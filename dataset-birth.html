@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
 
   <meta property="og:title" content="Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
@@ -239,14 +239,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Take a look at the top 10 rows of the data using the <code>head()</code> function</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(birth)</code></pre></div>
-<pre><code>  LOW AGE LWT SMK  BWT
-1 YES  28 120 YES  709
-2 YES  29 130  NO 1021
-3 YES  34 187 YES 1135
-4 YES  25 105  NO 1330
-5 YES  25  85  NO 1474
-6 YES  27 150  NO 1588</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(birth, <span class="dt">n =</span> <span class="dv">10</span>)</code></pre></div>
+<pre><code>   LOW AGE LWT SMK  BWT
+1  YES  28 120 YES  709
+2  YES  29 130  NO 1021
+3  YES  34 187 YES 1135
+4  YES  25 105  NO 1330
+5  YES  25  85  NO 1474
+6  YES  27 150  NO 1588
+7  YES  23  97  NO 1588
+8  YES  24 128  NO 1701
+9  YES  24 132  NO 1729
+10 YES  21 165 YES 1790</code></pre>
 </div>
 <ul>
 <li>Use the <code>summary()</code> function to get a short summary of the variables.</li>
@@ -613,11 +617,10 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
-"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
