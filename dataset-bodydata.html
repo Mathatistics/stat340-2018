@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
 
   <meta property="og:title" content="Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
@@ -58,41 +58,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -176,6 +204,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="data-from-the-nsr-education-test.html"><a href="data-from-the-nsr-education-test.html"><i class="fa fa-check"></i>Data from the NSR education test</a></li>
 <li class="chapter" data-level="" data-path="barley-data.html"><a href="barley-data.html"><i class="fa fa-check"></i>Barley Data</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="multivariate-analysis-pca.html"><a href="multivariate-analysis-pca.html"><i class="fa fa-check"></i>Multivariate Analysis (PCA)</a><ul>
+<li class="chapter" data-level="" data-path="track-and-field-data.html"><a href="track-and-field-data.html"><i class="fa fa-check"></i>Track and Field data</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
 <li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
@@ -204,15 +235,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="training-samples" class="section level3">
 <h3><i class="fa fa-book"></i> Training Samples</h3>
 <p>Create a training data set called bodytrain containing the first 20 observations only, by:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bodytrain &lt;-<span class="st"> </span>bodydata[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,]</code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1">bodytrain &lt;-<span class="st"> </span>bodydata[<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>,]</a></code></pre></div>
 </div>
 <div id="fitting-model" class="section level3">
 <h3><i class="fa fa-edit"></i> Fitting Model</h3>
 <p>Fit one at a time three simple regression models with Weight as response and each of Height, Age and Circumference as predictors, name the models <code>Model1</code>, <code>Model2</code> and <code>Model3</code>, respectively. Use the <code>summary()</code> function on each model to print out a summary of the fitted models. Use the first 20 observations as your training data.</p>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Height, <span class="dt">data =</span> bodytrain)
-model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Age, <span class="dt">data =</span> bodytrain)
-model3 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Circumference, <span class="dt">data =</span> bodytrain)</code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Height, <span class="dt">data =</span> bodytrain)</a>
+<a class="sourceLine" id="cb101-2" data-line-number="2">model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Age, <span class="dt">data =</span> bodytrain)</a>
+<a class="sourceLine" id="cb101-3" data-line-number="3">model3 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Circumference, <span class="dt">data =</span> bodytrain)</a></code></pre></div>
 </div>
 </div>
 <div id="understanding-the-fitted-model" class="section level3">
@@ -222,7 +253,7 @@ model3 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span cla
 </ul>
 <div class="ans">
 <p>The summary result for <code>model1</code> is,</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(model1)</code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb102-1" data-line-number="1"><span class="kw">summary</span>(model1)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = Weight ~ Height, data = bodytrain)
@@ -242,8 +273,9 @@ s: 5.84 on 18 degrees of freedom
 Multiple R-squared: 0.334,
 Adjusted R-squared: 0.297 
 F-statistic: 9.04 on 1 and 18 DF,  p-value: 0.00757 </code></pre>
-<p>Here, at 5% test level, Height is significant (p-value for Height is less than 0.05). The summary result for <code>model2</code> is,</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(model2)</code></pre></div>
+<p>Here, at 5% test level, Height is significant (p-value for Height is less than 0.05).
+The summary result for <code>model2</code> is,</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb104-1" data-line-number="1"><span class="kw">summary</span>(model2)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = Weight ~ Age, data = bodytrain)
@@ -263,8 +295,9 @@ s: 7.14 on 18 degrees of freedom
 Multiple R-squared: 0.00359,
 Adjusted R-squared: -0.0518 
 F-statistic: 0.0648 on 1 and 18 DF,  p-value: 0.802 </code></pre>
-<p>Here, at 5% test level, Age is not significant (p-value for age is greater than 0.05). Finally, the summary result for <code>model3</code> is,</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(model3)</code></pre></div>
+<p>Here, at 5% test level, Age is not significant (p-value for age is greater than 0.05).
+Finally, the summary result for <code>model3</code> is,</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1"><span class="kw">summary</span>(model3)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = Weight ~ Circumference, data = bodytrain)
@@ -293,9 +326,9 @@ F-statistic: 18.5 on 1 and 18 DF,  p-value: 0.000431 </code></pre>
 <p>The model with <code>Circumference</code> as predictor has highest <span class="math inline">\(R^2\)</span> among the models. This model explains 50.67 percent of variation present in the response <code>Weight</code>.</p>
 </div>
 <p>Compute the correlation matrix of the bodydtrain data by:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cormat &lt;-<span class="st"> </span><span class="kw">cor</span>(bodytrain)</code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">cormat &lt;-<span class="st"> </span><span class="kw">cor</span>(bodytrain)</a></code></pre></div>
 <p>You can square the correlations by:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cormat <span class="op">^</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb109-1" data-line-number="1">cormat <span class="op">^</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <pre><code>               Weight  Height        Age Circumference
 Weight        1.00000 0.33440 0.00358748    0.50671271
 Height        0.33440 1.00000 0.00167276    0.06116116
@@ -312,8 +345,8 @@ Circumference 0.50671 0.06116 0.00000422    1.00000000</code></pre>
 <li>Compute the squared correlations between the <code>weights</code> of <code>bodytrain</code> and the fitted values of <code>model1</code>.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cors &lt;-<span class="st"> </span><span class="kw">cor</span>(bodytrain[ , <span class="dv">1</span>], model1<span class="op">$</span>fitted.values)
-cors <span class="op">^</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" data-line-number="1">cors &lt;-<span class="st"> </span><span class="kw">cor</span>(bodytrain[ , <span class="dv">1</span>], model1<span class="op">$</span>fitted.values)</a>
+<a class="sourceLine" id="cb111-2" data-line-number="2">cors <span class="op">^</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <pre><code>[1] 0.334</code></pre>
 </div>
 <ul>
@@ -327,7 +360,7 @@ cors <span class="op">^</span><span class="st"> </span><span class="dv">2</span>
 </ul>
 <div class="ans">
 <p>By applying the anova() function to each model object we obtain the analysis of variance tables containing the MSE, i.e. the Mean Sum of Squares of the Error (Residuals), which is the estimator for the error variance.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(model1)</code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" data-line-number="1"><span class="kw">anova</span>(model1)</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: Weight
@@ -336,14 +369,14 @@ Height     1    308   308.3    9.04 0.0076 **
 Residuals 18    614    34.1                  
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(model2)</code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" data-line-number="1"><span class="kw">anova</span>(model2)</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: Weight
           Df Sum Sq Mean Sq F value Pr(&gt;F)
 Age        1      3     3.3    0.06    0.8
 Residuals 18    919    51.0               </code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(model3)</code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" data-line-number="1"><span class="kw">anova</span>(model3)</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: Weight
@@ -357,7 +390,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <li>Which model has the smallest error variance estimate?</li>
 </ul>
 <div class="ans">
-<p>Model 3 has the smallest error variance estimate. We can also obtain the error variance estimate using the “Residual standard error” from the summary output since, <span class="math inline">\(MSE = s^2\)</span>.</p>
+<p>Model 3 has the smallest error variance estimate.
+We can also obtain the error variance estimate using the “Residual standard error” from the summary output since, <span class="math inline">\(MSE = s^2\)</span>.</p>
 </div>
 </div>
 <div id="multiple-linear-regression-and-prediction" class="section level3">
@@ -366,8 +400,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <li>Fit a model 4 with both <code>Height</code> and <code>Circumference</code> as predictors.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model4 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Height <span class="op">+</span><span class="st"> </span>Circumference, <span class="dt">data =</span> bodytrain)
-<span class="kw">summary</span>(model4)</code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" data-line-number="1">model4 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Height <span class="op">+</span><span class="st"> </span>Circumference, <span class="dt">data =</span> bodytrain)</a>
+<a class="sourceLine" id="cb119-2" data-line-number="2"><span class="kw">summary</span>(model4)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = Weight ~ Height + Circumference, data = bodytrain)
@@ -393,25 +427,25 @@ F-statistic:   18 on 2 and 17 DF,  p-value: 0.0000638 </code></pre>
 <li>Get test observations for prediction: (<em>Make a test data set called bodytest containing observations <code>21:40</code> (Hint: Check how we made <code>bodytrain</code> above)</em>)</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bodytest &lt;-<span class="st"> </span>bodydata[<span class="dv">21</span><span class="op">:</span><span class="dv">40</span>, ]</code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" data-line-number="1">bodytest &lt;-<span class="st"> </span>bodydata[<span class="dv">21</span><span class="op">:</span><span class="dv">40</span>, ]</a></code></pre></div>
 </div>
 <ul>
 <li>Use <code>model4</code> to predict the Weights of the testdata.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pred &lt;-<span class="st"> </span><span class="kw">predict</span>(model4, <span class="dt">newdata =</span> bodytest)</code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" data-line-number="1">pred &lt;-<span class="st"> </span><span class="kw">predict</span>(model4, <span class="dt">newdata =</span> bodytest)</a></code></pre></div>
 </div>
 <ul>
 <li>Make a scatter plot of the actually observed weights of the test data and the predicted weights.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(bodytest[ , <span class="dv">1</span>], pred)</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-87-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" data-line-number="1"><span class="kw">plot</span>(bodytest[ , <span class="dv">1</span>], pred)</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-87-1.svg" width="672" /></p>
 </div>
 <ul>
 <li>Compute the squared correlation between the actually observed Weights and the predicted weights.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(pred, bodytest[ , <span class="dv">1</span>]) <span class="op">^</span><span class="st"> </span><span class="dv">2</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" data-line-number="1"><span class="kw">cor</span>(pred, bodytest[ , <span class="dv">1</span>]) <span class="op">^</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
 <pre><code>[1] 0.714</code></pre>
 <p>What you get here is a so-called “prediction R-squared” of this model.</p>
 <ul>
@@ -427,8 +461,8 @@ F-statistic:   18 on 2 and 17 DF,  p-value: 0.0000638 </code></pre>
 <ul>
 <li>Fit a model with all three predictors to the bodytrain data:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">model5 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Height <span class="op">+</span><span class="st"> </span>Circumference <span class="op">+</span><span class="st"> </span>Age, <span class="dt">data =</span> bodytrain)
-<span class="kw">summary</span>(model5)</code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" data-line-number="1">model5 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Height <span class="op">+</span><span class="st"> </span>Circumference <span class="op">+</span><span class="st"> </span>Age, <span class="dt">data =</span> bodytrain)</a>
+<a class="sourceLine" id="cb126-2" data-line-number="2"><span class="kw">summary</span>(model5)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = Weight ~ Height + Circumference + Age, data = bodytrain)
@@ -453,12 +487,12 @@ F-statistic: 11.6 on 3 and 16 DF,  p-value: 0.000273 </code></pre>
 <ul>
 <li>Lets add some randomly generated junk from a normal distribution</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Junk1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">10</span>)
-Junk2 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">10</span>)
-Junk3 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">10</span>)
-model6 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Height <span class="op">+</span><span class="st"> </span>Circumference <span class="op">+</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span>
-<span class="st">               </span>Junk1 <span class="op">+</span><span class="st"> </span>Junk2 <span class="op">+</span><span class="st"> </span>Junk3, <span class="dt">data =</span> bodytrain)
-<span class="kw">summary</span>(model6)</code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" data-line-number="1">Junk1 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb128-2" data-line-number="2">Junk2 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb128-3" data-line-number="3">Junk3 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb128-4" data-line-number="4">model6 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Height <span class="op">+</span><span class="st"> </span>Circumference <span class="op">+</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb128-5" data-line-number="5"><span class="st">               </span>Junk1 <span class="op">+</span><span class="st"> </span>Junk2 <span class="op">+</span><span class="st"> </span>Junk3, <span class="dt">data =</span> bodytrain)</a>
+<a class="sourceLine" id="cb128-6" data-line-number="6"><span class="kw">summary</span>(model6)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = Weight ~ Height + Circumference + Age + Junk1 + 
@@ -490,18 +524,20 @@ F-statistic: 5.98 on 6 and 13 DF,  p-value: 0.00346 </code></pre>
 <li>Compare models 5 and 6. What happens to the R-squared? (<em>Compare also the adjusted R-squared values for models 5 and 6.</em>)</li>
 </ul>
 <div class="ans">
-<p>The results will vary from time to time since we sample random junk, but in general we will observe that R-squared increase, whereas the adjuste R-squared decrease as we add more junk variables.</p>
+<p>The results will vary from time to time since we sample random junk, but in general
+we will observe that R-squared increase, whereas the adjuste R-squared decrease as we add
+more junk variables.</p>
 </div>
 <ul>
 <li>Try to add 3 more junk variables, <code>Junk4</code>, <code>Junk5</code> and <code>Junk6</code>.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Junk4 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">10</span>)
-Junk5 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">10</span>)
-Junk6 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">10</span>)
-model6 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Height <span class="op">+</span><span class="st"> </span>Circumference <span class="op">+</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span>Junk1 <span class="op">+</span><span class="st"> </span>Junk2 <span class="op">+</span><span class="st"> </span>Junk3 <span class="op">+</span>
-<span class="st">               </span>Junk4 <span class="op">+</span><span class="st"> </span>Junk5 <span class="op">+</span><span class="st"> </span>Junk6, <span class="dt">data =</span> bodytrain)
-<span class="kw">summary</span>(model6)</code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" data-line-number="1">Junk4 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n =</span> <span class="dv">20</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb130-2" data-line-number="2">Junk5 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb130-3" data-line-number="3">Junk6 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">20</span>, <span class="dv">0</span>, <span class="dv">10</span>)</a>
+<a class="sourceLine" id="cb130-4" data-line-number="4">model6 &lt;-<span class="st"> </span><span class="kw">lm</span>(Weight <span class="op">~</span><span class="st"> </span>Height <span class="op">+</span><span class="st"> </span>Circumference <span class="op">+</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span>Junk1 <span class="op">+</span><span class="st"> </span>Junk2 <span class="op">+</span><span class="st"> </span>Junk3 <span class="op">+</span></a>
+<a class="sourceLine" id="cb130-5" data-line-number="5"><span class="st">               </span>Junk4 <span class="op">+</span><span class="st"> </span>Junk5 <span class="op">+</span><span class="st"> </span>Junk6, <span class="dt">data =</span> bodytrain)</a>
+<a class="sourceLine" id="cb130-6" data-line-number="6"><span class="kw">summary</span>(model6)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = Weight ~ Height + Circumference + Age + Junk1 + 
@@ -620,10 +656,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -647,7 +684,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

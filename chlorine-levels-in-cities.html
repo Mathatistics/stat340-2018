@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
 
   <meta property="og:title" content="Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
@@ -58,41 +58,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -176,6 +204,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="data-from-the-nsr-education-test.html"><a href="data-from-the-nsr-education-test.html"><i class="fa fa-check"></i>Data from the NSR education test</a></li>
 <li class="chapter" data-level="" data-path="barley-data.html"><a href="barley-data.html"><i class="fa fa-check"></i>Barley Data</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="multivariate-analysis-pca.html"><a href="multivariate-analysis-pca.html"><i class="fa fa-check"></i>Multivariate Analysis (PCA)</a><ul>
+<li class="chapter" data-level="" data-path="track-and-field-data.html"><a href="track-and-field-data.html"><i class="fa fa-check"></i>Track and Field data</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
 <li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
@@ -201,8 +232,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="chlorine-levels-in-cities" class="section level2">
 <h2>Chlorine levels in cities</h2>
-<p>Independent measurements of chlorine (ppm parts per million) were taken from 3 large cities:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">city</code></pre></div>
+<p>Independent measurements of chlorine (ppm parts per million) were taken from 3
+large cities:</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1">city</a></code></pre></div>
 <pre><code>   City1 City2 City3
 1   0.46  1.21  0.44
 2   0.92 10.86  0.71
@@ -228,12 +260,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Load the <code>city.rdata</code> which is available on Canvas.</li>
 </ul>
 <p>Before analyzing the data it is best to “stack” the data into two columns, a response column <code>y</code> and a city factor column <code>city</code>. By using the <code>stack()</code> function in R you can restructure the city data by</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">citydata &lt;-<span class="st"> </span><span class="kw">stack</span>(city)</code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1">citydata &lt;-<span class="st"> </span><span class="kw">stack</span>(city)</a></code></pre></div>
 <ul>
 <li>Use the <code>colnames()</code> function to rename the variables as <code>y</code> and <code>city</code>.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(citydata) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;y&quot;</span>, <span class="st">&quot;city&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1"><span class="kw">colnames</span>(citydata) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;y&quot;</span>, <span class="st">&quot;city&quot;</span>)</a></code></pre></div>
 </div>
 <ul>
 <li>Assume an ANOVA-model with chlorine as response and city as a factor. What assumptions do you make?</li>
@@ -247,33 +279,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Make a box-plot of the data. Describe the variabilities between cities and within cities.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(y <span class="op">~</span><span class="st"> </span>city, <span class="dt">data =</span> citydata)</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-119-1.svg" width="60%" /></p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1"><span class="kw">plot</span>(y <span class="op">~</span><span class="st"> </span>city, <span class="dt">data =</span> citydata)</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-119-1.svg" width="60%" /></p>
 <p>City 1 seems to have both the lowest average chlorine levels and the smallest variability in the measurements. Cities 2 and 3 are quite similar with both higher means and variability.</p>
 </div>
 <ul>
 <li>Fit the model and perform a residual analysis. Comment on the model fit.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">contrasts=</span><span class="kw">c</span>(<span class="st">&quot;contr.treatment&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))
-citymod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>city, <span class="dt">data =</span> citydata)
-<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
-<span class="kw">plot</span>(citymod1, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-120-1.svg" width="100%" /></p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1"><span class="kw">options</span>(<span class="dt">contrasts=</span><span class="kw">c</span>(<span class="st">&quot;contr.treatment&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))</a>
+<a class="sourceLine" id="cb174-2" data-line-number="2">citymod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>city, <span class="dt">data =</span> citydata)</a>
+<a class="sourceLine" id="cb174-3" data-line-number="3"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb174-4" data-line-number="4"><span class="kw">plot</span>(citymod1, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-120-1.svg" width="100%" /></p>
 <p>The residual analysis reveals two problems: 1) Non-constant variability, which was also observed in the boxplot, and 2) A skeewed and non-normal distribution for the residuals with a heavy tail to the right.</p>
 </div>
 <ul>
 <li>Make a log-transformation of <span class="math inline">\(y\)</span> to create the variable <code>logy</code>, and add the new variable to your data set by:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">citydata<span class="op">$</span>logy &lt;-<span class="st"> </span><span class="kw">log</span>(citydata<span class="op">$</span>y)</code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1">citydata<span class="op">$</span>logy &lt;-<span class="st"> </span><span class="kw">log</span>(citydata<span class="op">$</span>y)</a></code></pre></div>
 <ul>
 <li>Fit a new model with <code>logy</code> as response and check the model fit again.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">citymod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(logy<span class="op">~</span>city, <span class="dt">data =</span> citydata)
-<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
-<span class="kw">plot</span>(citymod2, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-122-1.svg" width="100%" /></p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1">citymod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(logy<span class="op">~</span>city, <span class="dt">data =</span> citydata)</a>
+<a class="sourceLine" id="cb176-2" data-line-number="2"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb176-3" data-line-number="3"><span class="kw">plot</span>(citymod2, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-122-1.svg" width="100%" /></p>
 <p>Both problems from the previous model appear to be corrected. We continue with this model.</p>
 </div>
 <ul>
@@ -281,7 +313,7 @@ citymod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class=
 </ul>
 <div class="ans">
 <p>The ANOVA analysis using contr.treatment parametrization:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(citymod2)</code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1"><span class="kw">summary</span>(citymod2)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = logy ~ city, data = citydata)
@@ -302,7 +334,7 @@ s: 1.03 on 57 degrees of freedom
 Multiple R-squared: 0.255,
 Adjusted R-squared: 0.229 
 F-statistic: 9.75 on 2 and 57 DF,  p-value: 0.000228 </code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Anova</span>(citymod2)</code></pre></div>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1"><span class="kw">Anova</span>(citymod2)</a></code></pre></div>
 <pre><code>Anova Table (Type II tests)
 
 Response: logy
@@ -311,7 +343,7 @@ city        20.8  2    9.75 0.00023 ***
 Residuals   60.7 57                    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coefs &lt;-<span class="st"> </span>citymod2<span class="op">$</span>coefficients</code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1">coefs &lt;-<span class="st"> </span>citymod2<span class="op">$</span>coefficients</a></code></pre></div>
 <p>We observe that <span class="math inline">\(R^2 = 0.25\)</span> indicating that there is still a lot of unexplained variability in the response. We get the following estimates for the city means of log(chlorine)-levels using this parametrization (city 1 is reference city):</p>
 <p><span class="math inline">\(\mu_1 = \mu =\)</span> -0.3</p>
 <p><span class="math inline">\(\mu_2 = \mu + \alpha_2 =\)</span> 0.93</p>
@@ -409,10 +441,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -436,7 +469,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

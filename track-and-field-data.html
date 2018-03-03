@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="principal-component-analysis.html">
+<link rel="prev" href="multivariate-analysis-pca.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -58,41 +58,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -171,7 +199,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-6-model-validation"><i class="fa fa-check"></i>Ex-6: Model validation</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="principal-component-analysis.html"><a href="principal-component-analysis.html"><i class="fa fa-check"></i>Principal Component Analysis</a><ul>
+<li class="chapter" data-level="" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html"><i class="fa fa-check"></i>Analysis of variance</a><ul>
+<li class="chapter" data-level="" data-path="chlorine-levels-in-cities.html"><a href="chlorine-levels-in-cities.html"><i class="fa fa-check"></i>Chlorine levels in cities</a></li>
+<li class="chapter" data-level="" data-path="data-from-the-nsr-education-test.html"><a href="data-from-the-nsr-education-test.html"><i class="fa fa-check"></i>Data from the NSR education test</a></li>
+<li class="chapter" data-level="" data-path="barley-data.html"><a href="barley-data.html"><i class="fa fa-check"></i>Barley Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multivariate-analysis-pca.html"><a href="multivariate-analysis-pca.html"><i class="fa fa-check"></i>Multivariate Analysis (PCA)</a><ul>
 <li class="chapter" data-level="" data-path="track-and-field-data.html"><a href="track-and-field-data.html"><i class="fa fa-check"></i>Track and Field data</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -205,9 +238,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <div class="ans">
 <p><strong>For dataset: <code>runMen</code></strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(runMen[,<span class="op">-</span><span class="dv">9</span>], <span class="dt">cex =</span> <span class="fl">0.7</span>)</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-116-1.svg" width="100%" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(runMen[,<span class="op">-</span><span class="dv">9</span>])</code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1"><span class="kw">pairs</span>(runMen[,<span class="op">-</span><span class="dv">9</span>], <span class="dt">cex =</span> <span class="fl">0.7</span>)</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-137-1.svg" width="100%" /></p>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1"><span class="kw">cor</span>(runMen[,<span class="op">-</span><span class="dv">9</span>])</a></code></pre></div>
 <pre><code>       M100  M200  M400  M800 M1500 M5000  M10K  M42K
 M100  1.000 0.918 0.831 0.744 0.686 0.601 0.615 0.504
 M200  0.918 1.000 0.840 0.800 0.767 0.682 0.683 0.585
@@ -219,9 +252,9 @@ M10K  0.615 0.683 0.779 0.864 0.933 0.974 1.000 0.943
 M42K  0.504 0.585 0.701 0.803 0.865 0.931 0.943 1.000</code></pre>
 <p>Mens running 5000m have the highest correlation (0.974) with the mens running 10000m.</p>
 <p><strong>For dataset: <code>runWomen</code></strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>], <span class="dt">cex =</span> <span class="fl">0.7</span>)</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-117-1.svg" width="100%" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>])</code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1"><span class="kw">pairs</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>], <span class="dt">cex =</span> <span class="fl">0.7</span>)</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-138-1.svg" width="100%" /></p>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1"><span class="kw">cor</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>])</a></code></pre></div>
 <pre><code>       M100  M200  M400  M800 M1500 M3000  M42K
 M100  1.000 0.947 0.808 0.693 0.704 0.724 0.683
 M200  0.947 1.000 0.836 0.690 0.671 0.690 0.682
@@ -235,10 +268,10 @@ M42K  0.683 0.682 0.710 0.782 0.879 0.899 1.000</code></pre>
 <ul>
 <li>Run the following command and inspect the results:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>], runMen[,<span class="op">-</span><span class="dv">9</span>])</code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb219-1" data-line-number="1"><span class="kw">cor</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>], runMen[,<span class="op">-</span><span class="dv">9</span>])</a></code></pre></div>
 <p>If you were going to “predict” a nation’s record for women’s M3000, which record among men would you use (rows in the table are women variables, columns are men)?</p>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>], runMen[,<span class="op">-</span><span class="dv">9</span>])</code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb220-1" data-line-number="1"><span class="kw">cor</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>], runMen[,<span class="op">-</span><span class="dv">9</span>])</a></code></pre></div>
 <pre><code>       M100  M200  M400  M800 M1500 M5000  M10K  M42K
 M100  0.650 0.760 0.777 0.804 0.784 0.718 0.713 0.651
 M200  0.716 0.799 0.811 0.817 0.766 0.703 0.703 0.621
@@ -253,8 +286,8 @@ M42K  0.612 0.701 0.647 0.811 0.830 0.803 0.817 0.762</code></pre>
 <li>Run a PCA (with scale=FALSE) on the men’s data and print out a summary and the weights (loadings) for the two first PC’s. How many components is needed to explain at least 99% of the variation in the data? Try to give an interpretation of PC1, and explain why so few components explains so much of the total variability.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr &lt;-<span class="st"> </span><span class="kw">prcomp</span>(runMen[,<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>], <span class="dt">scale =</span> <span class="ot">FALSE</span>)
-<span class="kw">summary</span>(pr)</code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb222-1" data-line-number="1">pr &lt;-<span class="st"> </span><span class="kw">prcomp</span>(runMen[,<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>], <span class="dt">scale =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb222-2" data-line-number="2"><span class="kw">summary</span>(pr)</a></code></pre></div>
 <pre><code>Importance of components:
                          PC1     PC2     PC3     PC4     PC5    PC6
 Standard deviation     9.571 0.64469 0.16890 0.05837 0.02504 0.0117
@@ -264,7 +297,7 @@ Cumulative Proportion  0.995 0.99964 0.99995 0.99999 1.00000 1.0000
 Standard deviation     0.00553 0.00191
 Proportion of Variance 0.00000 0.00000
 Cumulative Proportion  1.00000 1.00000</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr</code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb224-1" data-line-number="1">pr</a></code></pre></div>
 <pre><code>Standard deviations (1, .., p=8):
 [1] 9.57139 0.64469 0.16890 0.05837 0.02504 0.01174 0.00553 0.00191
 
@@ -287,15 +320,17 @@ M1500  0.0073064
 M5000  0.0012362
 M10K  -0.0009295
 M42K   0.0000788</code></pre>
-<p>Only one component is needed to explain more than 99% of the variation. From the loadings we see that the loading weight for M42K (Marathon) is totally dominating with a weight of 0.98. All other weights are small. PC1 is therefore more or less indentical to the Marathon variable.</p>
+<p>Only one component is needed to explain more than 99% of the variation. From the loadings we
+see that the loading weight for M42K (Marathon) is totally dominating with a weight of 0.98. All other weights are small. PC1 is therefore more or less indentical to the Marathon variable.</p>
 <p>PC1 is located in the direction of larget variability, and due to the large scale of marathon times, this variable totally dominates the PCA. In such cases it may be better to use standardized variables (which is equivalent to running the Eigenvalue decomposition on the correlation matrix instead of the covariance matrix of the variables).</p>
 </div>
 <ul>
-<li>Re-run the PCA with option <code>scale=TRUE</code> in <code>prcomp()</code>. How many variables are needed to explain 99% of the variation in this case? How much is explained by the two first components? How would you interprete the loadings of PC1, PC2 and PC3?</li>
+<li>Re-run the PCA with option <code>scale=TRUE</code> in <code>prcomp()</code>. How many variables are needed to explain 99% of the variation in this case? How much is explained by the two first components?
+How would you interprete the loadings of PC1, PC2 and PC3?</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr &lt;-<span class="st"> </span><span class="kw">prcomp</span>(runMen[,<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>], <span class="dt">scale =</span> <span class="ot">TRUE</span>)
-<span class="kw">summary</span>(pr)</code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb226-1" data-line-number="1">pr &lt;-<span class="st"> </span><span class="kw">prcomp</span>(runMen[,<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>], <span class="dt">scale =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb226-2" data-line-number="2"><span class="kw">summary</span>(pr)</a></code></pre></div>
 <pre><code>Importance of components:
                          PC1   PC2    PC3    PC4    PC5     PC6     PC7
 Standard deviation     2.563 0.953 0.4076 0.3615 0.2859 0.26585 0.21933
@@ -305,7 +340,7 @@ Cumulative Proportion  0.821 0.935 0.9557 0.9720 0.9822 0.99106 0.99707
 Standard deviation     0.15305
 Proportion of Variance 0.00293
 Cumulative Proportion  1.00000</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pr</code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb228-1" data-line-number="1">pr</a></code></pre></div>
 <pre><code>Standard deviations (1, .., p=8):
 [1] 2.563 0.953 0.408 0.361 0.286 0.266 0.219 0.153
 
@@ -323,19 +358,20 @@ M42K  0.343 -0.4319  0.228 -0.3176  0.489  0.3413  0.4028 -0.15986</code></pre>
 </div>
 <p>Make a biplot with the first two components. You may use the argument “xlabs” in biplot to indicate that “Nations” should be used to label the scores from each country. Give comments to how the nations cluster relative to the loadings.</p>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">biplot</span>(pr, <span class="dt">xlabs =</span> runMen<span class="op">$</span>Nation, <span class="dt">cex =</span> <span class="fl">0.7</span>)</code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-122-1.svg" width="100%" /></p>
-<p>On the first axis (PC1) we observe that Cook’s Islands and West Samoa have the largest weights, and they therefore have on average poor (long time) national records for all distance. At the other end we find USA and others with on average good national records. Along PC2 (vertically) we find those with relatively poor times on long distances, but relatively good times on short, at the bottom (Dom. Repub, Bermuda, Singapore, Malaysia, Thailand and West Samoa) whereas at the top we find countries with poor records on short distances compared to their long distance records (Costa Rica, North-Korea, Cook’s Island and others).</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1"><span class="kw">biplot</span>(pr, <span class="dt">xlabs =</span> runMen<span class="op">$</span>Nation, <span class="dt">cex =</span> <span class="fl">0.7</span>)</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-143-1.svg" width="100%" /></p>
+<p>On the first axis (PC1) we observe that Cook’s Islands and West Samoa have the largest weights, and they therefore have on average poor (long time) national records for all distance. At the other end we find USA and others with on average good national records.
+Along PC2 (vertically) we find those with relatively poor times on long distances, but relatively good times on short, at the bottom (Dom. Repub, Bermuda, Singapore, Malaysia, Thailand and West Samoa) whereas at the top we find countries with poor records on short distances compared to their long distance records (Costa Rica, North-Korea, Cook’s Island and others).</p>
 </div>
 <ul>
 <li>Let’s try to predict the 3000M national records for women using the men’s data. First use a least squares approach using the men’s variables directly as predictor for women’s M3000. To accomplish this use <code>runWomen$M3000</code> as response in <code>lm()</code>. Are there any significant variables? What is the <span class="math inline">\(R^2\)</span> and the adjusted <span class="math inline">\(R^2\)</span> values?</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lmmod &lt;-<span class="st"> </span><span class="kw">lm</span>(runWomen<span class="op">$</span>M3000 <span class="op">~</span><span class="st"> </span>M100 <span class="op">+</span><span class="st"> </span>M200 <span class="op">+</span><span class="st"> </span>M400 <span class="op">+</span><span class="st"> </span>M800 <span class="op">+</span><span class="st"> </span>M1500 <span class="op">+</span><span class="st"> </span>
-<span class="st">              </span>M5000 <span class="op">+</span><span class="st"> </span>M10K <span class="op">+</span><span class="st"> </span>M42K, <span class="dt">data =</span> runMen)
-<span class="kw">summary</span>(lmmod)<span class="op">$</span>r.squared</code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1">lmmod &lt;-<span class="st"> </span><span class="kw">lm</span>(runWomen<span class="op">$</span>M3000 <span class="op">~</span><span class="st"> </span>M100 <span class="op">+</span><span class="st"> </span>M200 <span class="op">+</span><span class="st"> </span>M400 <span class="op">+</span><span class="st"> </span>M800 <span class="op">+</span><span class="st"> </span>M1500 <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb231-2" data-line-number="2"><span class="st">              </span>M5000 <span class="op">+</span><span class="st"> </span>M10K <span class="op">+</span><span class="st"> </span>M42K, <span class="dt">data =</span> runMen)</a>
+<a class="sourceLine" id="cb231-3" data-line-number="3"><span class="kw">summary</span>(lmmod)<span class="op">$</span>r.squared</a></code></pre></div>
 <pre><code>[1] 0.84</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(lmmod)<span class="op">$</span>adj.r.squared</code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="kw">summary</span>(lmmod)<span class="op">$</span>adj.r.squared</a></code></pre></div>
 <pre><code>[1] 0.81</code></pre>
 <p>Two variables are significant at 5% level in this fitted model, M800 and M400. The <span class="math inline">\(R^2\)</span>-values indicate more than 80% explained variance. There is a slight difference between the adjusted and the non-adjusted <span class="math inline">\(R^2\)</span> indicating that there may be too many variables included in the model.</p>
 </div>
@@ -343,12 +379,12 @@ M42K  0.343 -0.4319  0.228 -0.3176  0.489  0.3413  0.4028 -0.15986</code></pre>
 <li>Either perform a manual elimination of insignificant variables, or run <code>backward()</code> from the mixlm-package to find a reduced model with only significant effects (5% testlevel). Which variables do you end up having in your model?</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">red.mod &lt;-<span class="st"> </span><span class="kw">backward</span>(lmmod, <span class="dt">alpha =</span> <span class="fl">0.05</span>)</code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb235-1" data-line-number="1">red.mod &lt;-<span class="st"> </span><span class="kw">backward</span>(lmmod, <span class="dt">alpha =</span> <span class="fl">0.05</span>)</a></code></pre></div>
 <pre><code>Backward elimination, alpha-to-remove: 0.05
 
 Full model: runWomen$M3000 ~ M100 + M200 + M400 + M800 + M1500 + M5000 + 
     M10K + M42K
-&lt;environment: 0x7ff2c03a5a70&gt;
+&lt;environment: 0x7fcbbd45ebf0&gt;
 
       Step  RSS  AIC R2pred   Cp F value Pr(&gt;F)  
 M42K     1 5.49 -101  0.644 7.01    0.01  0.907  
@@ -358,7 +394,7 @@ M200     4 5.75 -104  0.746 3.03    0.92  0.343
 M5000    5 6.20 -103  0.755 4.55    3.67  0.061 .
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(red.mod)</code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb237-1" data-line-number="1"><span class="kw">summary</span>(red.mod)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = runWomen$M3000 ~ M400 + M800 + M1500, data = runMen)
@@ -383,15 +419,16 @@ F-statistic: 72.6 on 3 and 48 DF,  p-value: &lt;2e-16 </code></pre>
 <p>In addition to M400 and M800 I find M1500 to be highly significant after removing other variables. This “covered” effect from the full model was because of the inflated variances due to multicollinear variables in the full model.</p>
 </div>
 <ul>
-<li>Fit another model using all principal component scores from the men’s data as predictors for women’s M3000. The scores are stored in the principal component object as element names <code>x</code>. Which components are significant at a 5% test level? Compare the <span class="math inline">\(R^2\)</span> values with those from the full model using all original variables as predictors.</li>
+<li>Fit another model using all principal component scores from the men’s data as predictors for women’s M3000. The scores are stored in the principal component object as element names <code>x</code>.
+Which components are significant at a 5% test level? Compare the <span class="math inline">\(R^2\)</span> values with those from the full model using all original variables as predictors.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#You need to transform the scores into a data.frame first</span>
-PCdata &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(pr<span class="op">$</span>x)
-pcrmod &lt;-<span class="st"> </span><span class="kw">lm</span>(runWomen<span class="op">$</span>M3000 <span class="op">~</span><span class="st"> </span>PC1 <span class="op">+</span><span class="st"> </span>PC2 <span class="op">+</span><span class="st"> </span>PC3 <span class="op">+</span><span class="st"> </span>PC4 <span class="op">+</span><span class="st"> </span>PC5 <span class="op">+</span><span class="st"> </span>
-<span class="st">               </span>PC6 <span class="op">+</span><span class="st"> </span>PC7 <span class="op">+</span><span class="st"> </span>PC8, <span class="dt">data =</span> PCdata)
-
-<span class="kw">summary</span>(pcrmod)</code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb239-1" data-line-number="1"><span class="co">#You need to transform the scores into a data.frame first</span></a>
+<a class="sourceLine" id="cb239-2" data-line-number="2">PCdata &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(pr<span class="op">$</span>x)</a>
+<a class="sourceLine" id="cb239-3" data-line-number="3">pcrmod &lt;-<span class="st"> </span><span class="kw">lm</span>(runWomen<span class="op">$</span>M3000 <span class="op">~</span><span class="st"> </span>PC1 <span class="op">+</span><span class="st"> </span>PC2 <span class="op">+</span><span class="st"> </span>PC3 <span class="op">+</span><span class="st"> </span>PC4 <span class="op">+</span><span class="st"> </span>PC5 <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb239-4" data-line-number="4"><span class="st">               </span>PC6 <span class="op">+</span><span class="st"> </span>PC7 <span class="op">+</span><span class="st"> </span>PC8, <span class="dt">data =</span> PCdata)</a>
+<a class="sourceLine" id="cb239-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb239-6" data-line-number="6"><span class="kw">summary</span>(pcrmod)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = runWomen$M3000 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + 
@@ -425,11 +462,11 @@ F-statistic: 28.2 on 8 and 43 DF,  p-value: 1e-14 </code></pre>
 <li>Perfom a model reduction also for the PCR-model by excluding Principal components until you have only PC’s significant at 5% test level. Compare the estimated regression coefficients between the full and the reduced PCR-models. Why do you think the effects don’t change for the variables retained in the model?</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pcr.red.mod &lt;-<span class="st"> </span><span class="kw">backward</span>(pcrmod, <span class="dt">alpha =</span> <span class="fl">0.05</span>)</code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb241-1" data-line-number="1">pcr.red.mod &lt;-<span class="st"> </span><span class="kw">backward</span>(pcrmod, <span class="dt">alpha =</span> <span class="fl">0.05</span>)</a></code></pre></div>
 <pre><code>Backward elimination, alpha-to-remove: 0.05
 
 Full model: runWomen$M3000 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8
-&lt;environment: 0x7ff2c1686708&gt;
+&lt;environment: 0x7fcbbf08dad8&gt;
 
     Step  RSS  AIC R2pred     Cp F value Pr(&gt;F)
 PC5    1 5.49 -101  0.632  7.003    0.00   0.96
@@ -437,7 +474,7 @@ PC8    2 5.50 -103  0.683  5.020    0.02   0.90
 PC6    3 5.50 -105  0.733  3.071    0.05   0.82
 PC3    4 5.51 -107  0.749  1.158    0.09   0.76
 PC7    5 5.54 -108  0.763 -0.667    0.19   0.66</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(pcr.red.mod)</code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb243-1" data-line-number="1"><span class="kw">summary</span>(pcr.red.mod)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = runWomen$M3000 ~ PC1 + PC2 + PC4, data = PCdata)
@@ -465,19 +502,19 @@ F-statistic: 83.3 on 3 and 48 DF,  p-value: &lt;2e-16 </code></pre>
 <li>For special interested: Use the estimated effects (alphas from the lecture) from the reduced PCR-model to compute PCR-estimated regression coefficients (betas in the lecture) for the original variables back back-rotation. Compare the estimated regression coefficients from the PCR-approach with Least squares estimates using original (BUT SCALED) variables.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#PCR-estimated betas using components 1,2 and 4. The %*% operator is the inner-product</span>
-<span class="co">#multiplier in R</span>
-PCRest &lt;-<span class="st"> </span>pr<span class="op">$</span>rotation[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)] <span class="op">%*%</span><span class="st"> </span>(<span class="kw">coef</span>(pcr.red.mod)[<span class="op">-</span><span class="dv">1</span>])
-
-<span class="co">#Scaling the original variables and re-running the least squares model:</span>
-runMen.scaled &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">scale</span>(runMen[,<span class="op">-</span><span class="dv">9</span>]))
-lmmod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(runWomen<span class="op">$</span>M3000 <span class="op">~</span><span class="st"> </span>M100 <span class="op">+</span><span class="st"> </span>M200 <span class="op">+</span><span class="st"> </span>M400 <span class="op">+</span><span class="st"> </span>M800 <span class="op">+</span><span class="st"> </span>M1500 <span class="op">+</span><span class="st"> </span>
-<span class="st">               </span>M5000 <span class="op">+</span><span class="st"> </span>M10K <span class="op">+</span><span class="st"> </span>M42K, <span class="dt">data =</span> runMen.scaled)
-
-<span class="co">#Estimates without intercept.</span>
-Estimates &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">coef</span>(lmmod2)[<span class="op">-</span><span class="dv">1</span>],PCRest)
-<span class="kw">colnames</span>(Estimates) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Least Squares&quot;</span>, <span class="st">&quot;PCR&quot;</span>)
-Estimates</code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb245-1" data-line-number="1"><span class="co">#PCR-estimated betas using components 1,2 and 4. The %*% operator is the inner-product</span></a>
+<a class="sourceLine" id="cb245-2" data-line-number="2"><span class="co">#multiplier in R</span></a>
+<a class="sourceLine" id="cb245-3" data-line-number="3">PCRest &lt;-<span class="st"> </span>pr<span class="op">$</span>rotation[,<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>)] <span class="op">%*%</span><span class="st"> </span>(<span class="kw">coef</span>(pcr.red.mod)[<span class="op">-</span><span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb245-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb245-5" data-line-number="5"><span class="co">#Scaling the original variables and re-running the least squares model:</span></a>
+<a class="sourceLine" id="cb245-6" data-line-number="6">runMen.scaled &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">scale</span>(runMen[,<span class="op">-</span><span class="dv">9</span>]))</a>
+<a class="sourceLine" id="cb245-7" data-line-number="7">lmmod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(runWomen<span class="op">$</span>M3000 <span class="op">~</span><span class="st"> </span>M100 <span class="op">+</span><span class="st"> </span>M200 <span class="op">+</span><span class="st"> </span>M400 <span class="op">+</span><span class="st"> </span>M800 <span class="op">+</span><span class="st"> </span>M1500 <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb245-8" data-line-number="8"><span class="st">               </span>M5000 <span class="op">+</span><span class="st"> </span>M10K <span class="op">+</span><span class="st"> </span>M42K, <span class="dt">data =</span> runMen.scaled)</a>
+<a class="sourceLine" id="cb245-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb245-10" data-line-number="10"><span class="co">#Estimates without intercept.</span></a>
+<a class="sourceLine" id="cb245-11" data-line-number="11">Estimates &lt;-<span class="st"> </span><span class="kw">cbind</span>(<span class="kw">coef</span>(lmmod2)[<span class="op">-</span><span class="dv">1</span>],PCRest)</a>
+<a class="sourceLine" id="cb245-12" data-line-number="12"><span class="kw">colnames</span>(Estimates) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Least Squares&quot;</span>, <span class="st">&quot;PCR&quot;</span>)</a>
+<a class="sourceLine" id="cb245-13" data-line-number="13">Estimates</a></code></pre></div>
 <pre><code>      Least Squares      PCR
 M100        -0.1355 -0.10698
 M200         0.2015  0.14607
@@ -487,7 +524,9 @@ M1500        0.2673  0.34725
 M5000        0.1622  0.12968
 M10K         0.1477  0.10142
 M42K        -0.0189 -0.00125</code></pre>
-<p>For most of the variables the PCR-estimates are closer to zero (shrinkage effect) which induces a bias, but as lectured, the PCR-model may have smaller variance for the estimates due to avoidance of the multicollinearity problem. It seems like PCR has down-weighted the short and long distances compared to the Least Squares approach, which seems reasonable.</p>
+<p>For most of the variables the PCR-estimates are closer to zero (shrinkage effect) which
+induces a bias, but as lectured, the PCR-model may have smaller variance for the estimates due
+to avoidance of the multicollinearity problem. It seems like PCR has down-weighted the short and long distances compared to the Least Squares approach, which seems reasonable.</p>
 </div>
 
 </div>
@@ -552,7 +591,7 @@ $('.ans p:has(img)').css('text-align', 'center');
           </div>
         </div>
       </div>
-<a href="principal-component-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multivariate-analysis-pca.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -599,7 +638,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
