@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="multivariate-analysis-pca.html">
-
+<link rel="next" href="multivariate-analysis-pcr-pls.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -207,6 +207,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="multivariate-analysis-pca.html"><a href="multivariate-analysis-pca.html"><i class="fa fa-check"></i>Multivariate Analysis (PCA)</a><ul>
 <li class="chapter" data-level="" data-path="track-and-field-data.html"><a href="track-and-field-data.html"><i class="fa fa-check"></i>Track and Field data</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="multivariate-analysis-pcr-pls.html"><a href="multivariate-analysis-pcr-pls.html"><i class="fa fa-check"></i>Multivariate Analysis (PCR, PLS)</a><ul>
+<li class="chapter" data-level="" data-path="prediction-of-cow-milk-percentage.html"><a href="prediction-of-cow-milk-percentage.html"><i class="fa fa-check"></i>Prediction of cow milk percentage</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
 <li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
@@ -369,10 +372,40 @@ Along PC2 (vertically) we find those with relatively poor times on long distance
 <div class="ans">
 <div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb231-1" data-line-number="1">lmmod &lt;-<span class="st"> </span><span class="kw">lm</span>(runWomen<span class="op">$</span>M3000 <span class="op">~</span><span class="st"> </span>M100 <span class="op">+</span><span class="st"> </span>M200 <span class="op">+</span><span class="st"> </span>M400 <span class="op">+</span><span class="st"> </span>M800 <span class="op">+</span><span class="st"> </span>M1500 <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb231-2" data-line-number="2"><span class="st">              </span>M5000 <span class="op">+</span><span class="st"> </span>M10K <span class="op">+</span><span class="st"> </span>M42K, <span class="dt">data =</span> runMen)</a>
-<a class="sourceLine" id="cb231-3" data-line-number="3"><span class="kw">summary</span>(lmmod)<span class="op">$</span>r.squared</a></code></pre></div>
-<pre><code>[1] 0.84</code></pre>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1"><span class="kw">summary</span>(lmmod)<span class="op">$</span>adj.r.squared</a></code></pre></div>
-<pre><code>[1] 0.81</code></pre>
+<a class="sourceLine" id="cb231-3" data-line-number="3">(lm_sumry &lt;-<span class="st"> </span><span class="kw">summary</span>(lmmod))</a></code></pre></div>
+<pre><code>
+Call:
+lm(formula = runWomen$M3000 ~ M100 + M200 + M400 + M800 + M1500 + 
+    M5000 + M10K + M42K, data = runMen)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.7333 -0.2060 -0.0537  0.2496  0.7184 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)  -6.09205    1.98465   -3.07   0.0037 **
+M100        -23.17895   23.87260   -0.97   0.3370   
+M200         18.93566   13.76942    1.38   0.1762   
+M400        -11.69187    5.19182   -2.25   0.0295 * 
+M800          6.06528    2.25105    2.69   0.0100 * 
+M1500         1.70738    1.16573    1.46   0.1503   
+M5000         0.20068    0.28632    0.70   0.4871   
+M10K          0.08099    0.14783    0.55   0.5866   
+M42K         -0.00202    0.01715   -0.12   0.9070   
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+s: 0.357 on 43 degrees of freedom
+Multiple R-squared: 0.84,
+Adjusted R-squared: 0.81 
+F-statistic: 28.2 on 8 and 43 DF,  p-value: 1e-14 </code></pre>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb233-1" data-line-number="1">lm_sumry[<span class="kw">c</span>(<span class="st">&quot;r.squared&quot;</span>, <span class="st">&quot;adj.r.squared&quot;</span>)]</a></code></pre></div>
+<pre><code>$r.squared
+[1] 0.84
+
+$adj.r.squared
+[1] 0.81</code></pre>
 <p>Two variables are significant at 5% level in this fitted model, M800 and M400. The <span class="math inline">\(R^2\)</span>-values indicate more than 80% explained variance. There is a slight difference between the adjusted and the non-adjusted <span class="math inline">\(R^2\)</span> indicating that there may be too many variables included in the model.</p>
 </div>
 <ul>
@@ -384,7 +417,7 @@ Along PC2 (vertically) we find those with relatively poor times on long distance
 
 Full model: runWomen$M3000 ~ M100 + M200 + M400 + M800 + M1500 + M5000 + 
     M10K + M42K
-&lt;environment: 0x7fcbbd45ebf0&gt;
+&lt;environment: 0x7fc3fb0512d0&gt;
 
       Step  RSS  AIC R2pred   Cp F value Pr(&gt;F)  
 M42K     1 5.49 -101  0.644 7.01    0.01  0.907  
@@ -466,7 +499,7 @@ F-statistic: 28.2 on 8 and 43 DF,  p-value: 1e-14 </code></pre>
 <pre><code>Backward elimination, alpha-to-remove: 0.05
 
 Full model: runWomen$M3000 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8
-&lt;environment: 0x7fcbbf08dad8&gt;
+&lt;environment: 0x7fc3faec44a8&gt;
 
     Step  RSS  AIC R2pred     Cp F value Pr(&gt;F)
 PC5    1 5.49 -101  0.632  7.003    0.00   0.96
@@ -591,8 +624,8 @@ $('.ans p:has(img)').css('text-align', 'center');
           </div>
         </div>
       </div>
-<a href="multivariate-analysis-pca.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="multivariate-analysis-pca.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="multivariate-analysis-pcr-pls.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
