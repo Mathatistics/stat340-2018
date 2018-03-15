@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="reference-books.html">
-<link rel="next" href="exercise-1-create-new-project.html">
+<link rel="prev" href="prediction-of-cow-milk-percentage.html">
+<link rel="next" href="iris-dataset.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -237,19 +237,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1">
-<h1>Getting Started</h1>
-<p>In this secion, we will dive into R and RStudio and get used to with it to some extent. We will continue learning about R and RStudio as we go on. R is an open source programming language basically used in data analysis. In R there are many packages that are created for specific purposes and they have made R rich and powerful. In this course, apart from default R package (that is installed and already loaded), we will use few other packages which we will install and load as we go through our exercises. We can use following command to install a package. Below, a <code>car</code> package is used as an example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;car&quot;</span>)</a></code></pre></div>
-<p>To load the package we use <code>library</code> function as,</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(car)</a></code></pre></div>
-<p>Following screenshot help you to install package using RStudio IDE,</p>
-<div class="figure"><span id="fig:install-load-package"></span>
-<img src="gif/install-load-package.gif" alt="Installing and Loading Package from RStudio" width="100%" />
-<p class="caption">
-Figure 1: Installing and Loading Package from RStudio
-</p>
-</div> 
+<div id="discrimination-and-classification" class="section level1">
+<h1>Discrimination and classification</h1>
+<p>Load the datasets,</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb266-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;_data/iris.train.rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb266-2" data-line-number="2"><span class="kw">load</span>(<span class="st">&quot;_data/iris.test.rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb266-3" data-line-number="3"><span class="kw">source</span>(<span class="st">&quot;_functions/CV.class.R&quot;</span>)</a></code></pre></div>
+<p>Load the packages,</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb267-1" data-line-number="1"><span class="kw">library</span>(MASS)</a></code></pre></div> 
 </div>
 <script>
   ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
@@ -311,8 +306,8 @@ $('.ans p:has(img)').css('text-align', 'center');
           </div>
         </div>
       </div>
-<a href="reference-books.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercise-1-create-new-project.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="prediction-of-cow-milk-percentage.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="iris-dataset.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

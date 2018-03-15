@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="reference-books.html">
-<link rel="next" href="exercise-1-create-new-project.html">
+<link rel="prev" href="discrimination-and-classification.html">
+<link rel="next" href="logistic-regression.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -237,19 +237,136 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1">
-<h1>Getting Started</h1>
-<p>In this secion, we will dive into R and RStudio and get used to with it to some extent. We will continue learning about R and RStudio as we go on. R is an open source programming language basically used in data analysis. In R there are many packages that are created for specific purposes and they have made R rich and powerful. In this course, apart from default R package (that is installed and already loaded), we will use few other packages which we will install and load as we go through our exercises. We can use following command to install a package. Below, a <code>car</code> package is used as an example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;car&quot;</span>)</a></code></pre></div>
-<p>To load the package we use <code>library</code> function as,</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(car)</a></code></pre></div>
-<p>Following screenshot help you to install package using RStudio IDE,</p>
-<div class="figure"><span id="fig:install-load-package"></span>
-<img src="gif/install-load-package.gif" alt="Installing and Loading Package from RStudio" width="100%" />
-<p class="caption">
-Figure 1: Installing and Loading Package from RStudio
-</p>
-</div> 
+<div id="iris-dataset" class="section level2">
+<h2>Iris Dataset</h2>
+<ul>
+<li><ol style="list-style-type: lower-alpha">
+<li>Consider the famous iris data set <code>iris.train.rdata</code> as introduced in lesson 8.
+Reproduce the pairs plot for the four sepal and petal variables as given in lesson 8 slide 4.
+Which variable appears to be discriminating the species best? And which is worst?</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-167-1.svg" width="672" /></p>
+<p>The two classes are best separated from the point of view of Petal.Length. The Sepal.Width looks like the worst discriminator.</p>
+</div>
+<ul>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>Explain the difference between “discrimination” and “classification”.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p>Discrimination corresponds to the model fitting process in statistical inference. We seek good variables for discriminating classes. Classification corresponds to the actual prediction of new samples, that is, to allocate new samples to classes using the presumably best “classifier”-model estimated from the training data.</p>
+</div>
+<ul>
+<li><ol start="3" style="list-style-type: lower-alpha">
+<li>Explain what is meant by the assumption “We assume apriori that versicolor and virginica are equally likely”.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p>This means that both species are equally probable if you sample a random plant from the population.</p>
+</div>
+<ul>
+<li><ol start="4" style="list-style-type: lower-alpha">
+<li>Fit an LDA model to the iris data using Sepal.Length as the predictor. Assume equal prior probabilities for both species. Use the <code>print()</code>-function on you fitted model. What are the sample means of each species for this predictor variable?</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb268-1" data-line-number="1">mod1.lda &lt;-<span class="st"> </span><span class="kw">lda</span>(Species <span class="op">~</span><span class="st"> </span>Sepal.Length, <span class="dt">data =</span> iris.train, <span class="dt">prior =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>))</a>
+<a class="sourceLine" id="cb268-2" data-line-number="2">mod1.lda</a></code></pre></div>
+<pre><code>Call:
+lda(Species ~ Sepal.Length, data = iris.train, prior = c(0.5, 
+    0.5))
+
+Prior probabilities of groups:
+versicolor  virginica 
+       0.5        0.5 
+
+Group means:
+           Sepal.Length
+versicolor         5.89
+virginica          6.59
+
+Coefficients of linear discriminants:
+              LD1
+Sepal.Length 1.89</code></pre>
+<p>The means are reported in the print output as <code>Group means</code>.</p>
+</div>
+<ul>
+<li><ol start="5" style="list-style-type: lower-alpha">
+<li>Source in the <code>CV.class.R</code> file (open the fil in the script window and press the “Source” button to the upper right). Look at the <code>CV.class.examples.R</code>-file for reference. Perform a Leave-One-Out Cross-Validation of the model you fitted in the previous exercise. Report the confusion matrix, the accuracy and the cross-validated error rate.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb270-1" data-line-number="1">cvres1 &lt;-<span class="st"> </span><span class="kw">CV.class</span>(mod1.lda, <span class="dt">data =</span> iris.train)</a></code></pre></div>
+<pre><code>            True
+Predicted    versicolor virginica
+  versicolor         32        11
+  virginica           8        29
+  Total              40        40
+  Correct            32        29
+
+Proportions correct
+versicolor  virginica 
+     0.800      0.725 
+
+N correct/N total = 61/80 = 0.762</code></pre>
+<p>The confusion matrix is given in the first part of the output. 32 out of 40 versicolor are correctly classified, whereas 29 out of 40 virginica are correct. In total 61 out of 80 are correctly classified giving an accuracy of 0.7625 as reported. The APER is 1-accuracy, hence APER=1-0.7625 = 0.2375. We typically seek classifiers that minimize the classification error rate.</p>
+</div>
+<ul>
+<li><ol start="6" style="list-style-type: lower-alpha">
+<li>Use the scheme from exercises d. and e. to identify a good classifier for iris species. You may use either <code>lda</code> or <code>qda</code> and you may use one or several predictors. Report the cross-validated error for you “best choice”.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p>Through some trial and error, and by looking at the pairs-plot from exercise a, my personal choice is the following model:</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb272-1" data-line-number="1">mymod &lt;-<span class="st"> </span><span class="kw">qda</span>(Species <span class="op">~</span><span class="st"> </span>Petal.Length <span class="op">+</span><span class="st"> </span>Petal.Width, <span class="dt">data =</span> iris.train, <span class="dt">prior =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>))</a>
+<a class="sourceLine" id="cb272-2" data-line-number="2">cvres2 &lt;-<span class="st"> </span><span class="kw">CV.class</span>(mymod, <span class="dt">data =</span> iris.train)</a></code></pre></div>
+<pre><code>            True
+Predicted    versicolor virginica
+  versicolor         38         2
+  virginica           2        38
+  Total              40        40
+  Correct            38        38
+
+Proportions correct
+versicolor  virginica 
+      0.95       0.95 
+
+N correct/N total = 76/80 = 0.95</code></pre>
+<p>This has an accuracy of 0.95 and, hence, an error of 0.05.</p>
+</div>
+<ul>
+<li><ol start="7" style="list-style-type: lower-alpha">
+<li>What is the model assumption difference between an LDA and a QDA model?</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p>In LDA we assume equal variance structure for all classes, whereas in QDA we assume different
+variance structures for all classes.</p>
+</div>
+<ul>
+<li><ol start="8" style="list-style-type: lower-alpha">
+<li>Use the model of your choice to predict the samples in <code>iris.test.rdata</code>. Use the <code>confusion()</code>-function in the mixlm-library to evaluate the performance of your classifier.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb274-1" data-line-number="1">pred &lt;-<span class="st"> </span><span class="kw">predict</span>(mymod, <span class="dt">newdata =</span> iris.test)</a>
+<a class="sourceLine" id="cb274-2" data-line-number="2"><span class="kw">confusion</span>(iris.test<span class="op">$</span>Species, pred<span class="op">$</span>class)</a></code></pre></div>
+<pre><code>            True
+Predicted    versicolor virginica
+  versicolor         10         0
+  virginica           0        10
+  Total              10        10
+  Correct            10        10
+
+Proportions correct
+versicolor  virginica 
+         1          1 
+
+N correct/N total = 20/20 = 1</code></pre>
+<p>The model I found in f. gave a perfect classification, accuracy=1.0 and error=0.0.</p>
+</div>
 </div>
 <script>
   ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
@@ -311,8 +428,8 @@ $('.ans p:has(img)').css('text-align', 'center');
           </div>
         </div>
       </div>
-<a href="reference-books.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercise-1-create-new-project.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="discrimination-and-classification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logistic-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

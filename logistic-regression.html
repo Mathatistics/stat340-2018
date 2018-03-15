@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="reference-books.html">
-<link rel="next" href="exercise-1-create-new-project.html">
+<link rel="prev" href="iris-dataset.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -237,20 +237,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="getting-started" class="section level1">
-<h1>Getting Started</h1>
-<p>In this secion, we will dive into R and RStudio and get used to with it to some extent. We will continue learning about R and RStudio as we go on. R is an open source programming language basically used in data analysis. In R there are many packages that are created for specific purposes and they have made R rich and powerful. In this course, apart from default R package (that is installed and already loaded), we will use few other packages which we will install and load as we go through our exercises. We can use following command to install a package. Below, a <code>car</code> package is used as an example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;car&quot;</span>)</a></code></pre></div>
-<p>To load the package we use <code>library</code> function as,</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(car)</a></code></pre></div>
-<p>Following screenshot help you to install package using RStudio IDE,</p>
-<div class="figure"><span id="fig:install-load-package"></span>
-<img src="gif/install-load-package.gif" alt="Installing and Loading Package from RStudio" width="100%" />
-<p class="caption">
-Figure 1: Installing and Loading Package from RStudio
-</p>
-</div> 
+<div id="logistic-regression" class="section level2">
+<h2>Logistic regression</h2>
+<ul>
+<li><ol style="list-style-type: lower-alpha">
+<li>We will consider the Species variable of the <code>iris.train.rdata</code> set as a binary response variable in these exercises. You may use the <code>Species</code> variable directly as response in the models. R will recode “versicolor” as 0 and “virginica” as 1. Hence, we will model the probability of a plant being “virginica” as a function of the predictor variable(s). Fit a logist regression model for Species using Petal.Length as predictor. Report the estimated coefficients of the linear predictor. Is the Petal.Length variable a significant predictor for the probability of “virginica” at 5% test level? What is the AIC-value?</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb276-1" data-line-number="1">mod.glm1 &lt;-<span class="st"> </span><span class="kw">glm</span>(Species <span class="op">~</span><span class="st"> </span>Petal.Length, <span class="dt">family =</span> binomial, <span class="dt">data =</span> iris.train)</a>
+<a class="sourceLine" id="cb276-2" data-line-number="2"><span class="kw">summary</span>(mod.glm1)</a></code></pre></div>
+<pre><code>
+Call:
+glm(formula = Species ~ Petal.Length, family = binomial, data = iris.train)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.2906  -0.0461   0.0000   0.0537   1.4821  
+
+Coefficients:
+             Estimate Std. Error z value Pr(&gt;|z|)   
+(Intercept)    -52.54      16.35   -3.21   0.0013 **
+Petal.Length    10.80       3.34    3.23   0.0012 **
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 110.904  on 79  degrees of freedom
+Residual deviance:  23.162  on 78  degrees of freedom
+AIC: 27.16
+
+Number of Fisher Scoring iterations: 8</code></pre>
+<p>The <code>Petal.length</code> is according to the Wald test significant at all test levels larger than 0.001.</p>
 </div>
+<ul>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>What is the estimated probability of a plant having <code>Petal.Length</code> equal to 5 to be a “virginica”?</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb278-1" data-line-number="1"><span class="kw">predict</span>(mod.glm1, <span class="dt">new =</span> <span class="kw">list</span>(<span class="dt">Petal.Length =</span> <span class="dv">5</span>), <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a></code></pre></div>
+<pre><code>    1 
+0.813 </code></pre>
+</div>
+<ul>
+<li><ol start="3" style="list-style-type: lower-alpha">
+<li>Compute the AIC also for models with each of the other three variables as sole predictors.
+Which model is preferable from the AIC point of view?</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb280-1" data-line-number="1">mod.glm2 &lt;-<span class="st"> </span><span class="kw">glm</span>(Species <span class="op">~</span><span class="st"> </span>Petal.Width, <span class="dt">family =</span> binomial, <span class="dt">data =</span> iris.train)</a>
+<a class="sourceLine" id="cb280-2" data-line-number="2">mod.glm3 &lt;-<span class="st"> </span><span class="kw">glm</span>(Species <span class="op">~</span><span class="st"> </span>Sepal.Width, <span class="dt">family =</span> binomial, <span class="dt">data =</span> iris.train)</a>
+<a class="sourceLine" id="cb280-3" data-line-number="3">mod.glm4 &lt;-<span class="st"> </span><span class="kw">glm</span>(Species <span class="op">~</span><span class="st"> </span>Sepal.Length, <span class="dt">family =</span> binomial, <span class="dt">data =</span> iris.train)</a>
+<a class="sourceLine" id="cb280-4" data-line-number="4"><span class="kw">AIC</span>(mod.glm1)</a></code></pre></div>
+<pre><code>[1] 27.2</code></pre>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb282-1" data-line-number="1"><span class="kw">AIC</span>(mod.glm2)</a></code></pre></div>
+<pre><code>[1] 33.4</code></pre>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb284-1" data-line-number="1"><span class="kw">AIC</span>(mod.glm3)</a></code></pre></div>
+<pre><code>[1] 104</code></pre>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb286-1" data-line-number="1"><span class="kw">AIC</span>(mod.glm4)</a></code></pre></div>
+<pre><code>[1] 84.6</code></pre>
+<p>The <code>Petal.Length</code> variable gives the smallest AIC when used as predictor. It is marginally better than <code>Petal.Width</code> as prdictor.</p>
+</div>
+<ul>
+<li><ol start="4" style="list-style-type: lower-alpha">
+<li>(Optional) Try to construct a plot like the plot on slide 9 from lesson 9 with <code>Petal.Length</code> as predictor.
+You may need to make a variable <code>y</code> by <code>y &lt;- ifelse(iris.train$Species==&quot;virginica&quot;,1,0)</code> first.
+You may also check out the code for slide 9 from the <code>Generalized1.rmd</code> file available on Fronter for more hints.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb288-1" data-line-number="1">y &lt;-<span class="st"> </span><span class="kw">ifelse</span>(iris.train<span class="op">$</span>Species <span class="op">==</span><span class="st"> &quot;virginica&quot;</span>,<span class="dv">1</span>,<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb288-2" data-line-number="2">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">2</span>,<span class="dv">8</span>, <span class="dt">by =</span> <span class="fl">0.1</span>)</a>
+<a class="sourceLine" id="cb288-3" data-line-number="3">ypred &lt;-<span class="st"> </span><span class="kw">predict</span>(mod.glm1, <span class="kw">list</span>(<span class="dt">Petal.Length =</span> x), <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a>
+<a class="sourceLine" id="cb288-4" data-line-number="4"><span class="kw">plot</span>(iris.train<span class="op">$</span>Petal.Length, y, <span class="dt">ylab =</span> <span class="st">&quot;Proportion virginica&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Petal.Length&quot;</span>)</a>
+<a class="sourceLine" id="cb288-5" data-line-number="5"><span class="kw">lines</span>(x,ypred,<span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-175-1.svg" width="672" /></p>
+</div>
+<ul>
+<li><ol start="5" style="list-style-type: lower-alpha">
+<li>Use a logistic model of your choice (perhaps the same predictors as you used in your best choice classifier of Ex-1) to estimate the posterior probabilities of “virginica” for the samples of the <code>iris.test.Rdata</code> set. Allocate the samples to the most probable species class and use the <code>confusion()</code> function to evaluate the classification performance. (Hint: The posterior probabilies, say you name then <code>postprob</code>, should be classified into a factor variable by</li>
+</ol>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1">predicted &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">ifelse</span>(postprob <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>,<span class="st">&quot;virginica&quot;</span>,<span class="st">&quot;versicolor&quot;</span>))</a></code></pre></div></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb290-1" data-line-number="1">mymod2 &lt;-<span class="st"> </span><span class="kw">glm</span>(Species <span class="op">~</span><span class="st"> </span>Petal.Length <span class="op">+</span><span class="st"> </span>Petal.Width, <span class="dt">family =</span> binomial, <span class="dt">data =</span> iris.train)</a>
+<a class="sourceLine" id="cb290-2" data-line-number="2">postprob &lt;-<span class="st"> </span><span class="kw">predict</span>(mymod2, <span class="dt">new =</span> iris.test, <span class="dt">type =</span> <span class="st">&quot;response&quot;</span>)</a>
+<a class="sourceLine" id="cb290-3" data-line-number="3">predicted &lt;-<span class="st"> </span><span class="kw">factor</span>(<span class="kw">ifelse</span>(postprob <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.5</span>,<span class="st">&quot;virginica&quot;</span>,<span class="st">&quot;versicolor&quot;</span>))</a>
+<a class="sourceLine" id="cb290-4" data-line-number="4"><span class="kw">confusion</span>(iris.test<span class="op">$</span>Species, predicted)</a></code></pre></div>
+<pre><code>            True
+Predicted    versicolor virginica
+  versicolor         10         1
+  virginica           0         9
+  Total              10        10
+  Correct            10         9
+
+Proportions correct
+versicolor  virginica 
+       1.0        0.9 
+
+N correct/N total = 19/20 = 0.95</code></pre>
+<p>With my chosen model I got one mis-classification and an error rate of 0.05.</p>
+</div>
+
+</div>
+<!-- </div> -->
 <script>
   ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
   showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
@@ -311,8 +404,8 @@ $('.ans p:has(img)').css('text-align', 'center');
           </div>
         </div>
       </div>
-<a href="reference-books.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="exercise-1-create-new-project.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="iris-dataset.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

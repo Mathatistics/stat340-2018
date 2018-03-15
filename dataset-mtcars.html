@@ -210,6 +210,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="multivariate-analysis-pcr-pls.html"><a href="multivariate-analysis-pcr-pls.html"><i class="fa fa-check"></i>Multivariate Analysis (PCR, PLS)</a><ul>
 <li class="chapter" data-level="" data-path="prediction-of-cow-milk-percentage.html"><a href="prediction-of-cow-milk-percentage.html"><i class="fa fa-check"></i>Prediction of cow milk percentage</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="discrimination-and-classification.html"><a href="discrimination-and-classification.html"><i class="fa fa-check"></i>Discrimination and classification</a><ul>
+<li class="chapter" data-level="" data-path="iris-dataset.html"><a href="iris-dataset.html"><i class="fa fa-check"></i>Iris Dataset</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i>Logistic regression</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
 <li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
@@ -260,7 +264,7 @@ Valiant           18.1   6  225 105 2.76 3.46 20.2  1  0    3    1</code></pre>
 <div class="ans">
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co">#This creates a layout for plots, one row and two columns</span></a>
 <a class="sourceLine" id="cb136-2" data-line-number="2"><span class="kw">plot</span>(cars1, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co">#Only the two first residual plots</span></a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-96-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-96-1.svg" width="672" /></p>
 </div>
 <ul>
 <li>Give a summary of the results and compute the ANOVA-table.</li>
@@ -397,7 +401,7 @@ quantile of the Fisher distribution by:</p>
 <div class="ans">
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb148-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) </a>
 <a class="sourceLine" id="cb148-2" data-line-number="2"><span class="kw">plot</span>(cars2, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) </a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-102-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-102-1.svg" width="672" /></p>
 <p>The linearity has improved, but maybe there is an increasing variance with increasing fitted value (estimated mileage). The normality looks good.</p>
 </div>
 </div>
@@ -532,7 +536,7 @@ $r.squared.pred
 </ul>
 <div class="ans">
 <div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb159-1" data-line-number="1"><span class="kw">plot</span>(mtcars<span class="op">$</span>mpg, res<span class="op">$</span>pred, <span class="dt">xlab =</span> <span class="st">&quot;Observed&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Predicted&quot;</span>)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-109-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-109-1.svg" width="672" /></p>
 </div>
 <ul>
 <li>Is the best model from the previous exercise, identified by the <code>best.subsets()</code>, a better model in terms of prediction error (MSEP)? The MSEP is defined by:</li>

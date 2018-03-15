@@ -210,6 +210,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="multivariate-analysis-pcr-pls.html"><a href="multivariate-analysis-pcr-pls.html"><i class="fa fa-check"></i>Multivariate Analysis (PCR, PLS)</a><ul>
 <li class="chapter" data-level="" data-path="prediction-of-cow-milk-percentage.html"><a href="prediction-of-cow-milk-percentage.html"><i class="fa fa-check"></i>Prediction of cow milk percentage</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="discrimination-and-classification.html"><a href="discrimination-and-classification.html"><i class="fa fa-check"></i>Discrimination and classification</a><ul>
+<li class="chapter" data-level="" data-path="iris-dataset.html"><a href="iris-dataset.html"><i class="fa fa-check"></i>Iris Dataset</a></li>
+<li class="chapter" data-level="" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i>Logistic regression</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
 <li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
@@ -283,7 +287,7 @@ sort(1):soil(1)     13.8       10.1    1.36 1.84e-01</code></pre>
 </ul>
 <div class="ans">
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">allEffects</span>(mod1,<span class="dt">confidence.level =</span> <span class="fl">.95</span>))</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-128-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-128-1.svg" width="100%" /></p>
 From the plot, it seems that a farmer can expect an increase in yield when using sort 2 instead of sort 1 for both types of soil, and there may be a higher gain of sort 2 over sort 1 for soil-type 2 than for soil type 1. If this is so, there is a so-called interaction effect of sort and soil on yield.
 </div>
 <ul>
@@ -372,7 +376,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <pre><code>Backward elimination, alpha-to-remove: 0.05
 
 Full model: Yield ~ sort * soil * fert * site
-&lt;environment: 0x7fc3fe238008&gt;
+&lt;environment: 0x7fa7481afe28&gt;
 
                     Step   RSS AIC R2pred   Cp F value Pr(&gt;F)
 sort:soil:fert:site    1 16905 231  0.659 14.4    0.39   0.54
@@ -395,7 +399,7 @@ sort:soil:fert         5 21162 230  0.720 10.5    2.37   0.14</code></pre>
 <a class="sourceLine" id="cb208-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb208-5" data-line-number="5"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb208-6" data-line-number="6"><span class="kw">plot</span>(mod4)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-134-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-134-1.svg" width="100%" /></p>
 <p>The residual plots give no evidence of any problems with the model assumptions.</p>
 </div>
 <ul>
@@ -406,7 +410,7 @@ sort:soil:fert         5 21162 230  0.720 10.5    2.37   0.14</code></pre>
 <div class="ans">
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1">eff &lt;-<span class="st"> </span><span class="kw">allEffects</span>(mod4, <span class="dt">confidence.level =</span> <span class="fl">.95</span>)</a>
 <a class="sourceLine" id="cb210-2" data-line-number="2"><span class="kw">plot</span>(eff[<span class="dv">3</span>])</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/effectPlot-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/effectPlot-1.svg" width="100%" /></p>
 </div>
 <p>Try to explain the plot. Why do you think the interaction between sort, fertilizer and site was significant?</p>
 <div class="ans">

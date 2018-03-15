@@ -55,3 +55,7 @@ section ul {
   border-left: 5px solid #117d6b;
   background-color: #7aa77a12!important;
 }
+ul>li>ol {
+    padding-left: 10px!important;
+    list-style-position: outside;
+}
