@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="discrimination-and-classification.html">
-<link rel="next" href="logistic-regression.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -212,7 +212,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="discrimination-and-classification.html"><a href="discrimination-and-classification.html"><i class="fa fa-check"></i>Discrimination and classification</a><ul>
 <li class="chapter" data-level="" data-path="iris-dataset.html"><a href="iris-dataset.html"><i class="fa fa-check"></i>Iris Dataset</a></li>
-<li class="chapter" data-level="" data-path="logistic-regression.html"><a href="logistic-regression.html"><i class="fa fa-check"></i>Logistic regression</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
@@ -367,7 +366,168 @@ versicolor  virginica
 N correct/N total = 20/20 = 1</code></pre>
 <p>The model I found in f. gave a perfect classification, accuracy=1.0 and error=0.0.</p>
 </div>
+<!--
+## Logistic regression
+
+- a. We will consider the Species variable of the `iris.train.rdata` set as a binary response variable in these exercises. You may use the `Species` variable directly as response in the models. R will recode "versicolor" as 0 and "virginica" as 1. Hence, we will model the probability of a plant being "virginica" as a function of the predictor variable(s). Fit a logist regression model for Species using Petal.Length as predictor. Report the estimated coefficients of the linear predictor. Is the Petal.Length variable a significant predictor for the probability of "virginica" at 5% test level? What is the AIC-value?
+
+<div class="ans">
+
+
+```r
+mod.glm1 <- glm(Species ~ Petal.Length, family = binomial, data = iris.train)
+summary(mod.glm1)
+```
+
+```
+
+Call:
+glm(formula = Species ~ Petal.Length, family = binomial, data = iris.train)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.2906  -0.0461   0.0000   0.0537   1.4821  
+
+Coefficients:
+             Estimate Std. Error z value Pr(>|z|)   
+(Intercept)    -52.54      16.35   -3.21   0.0013 **
+Petal.Length    10.80       3.34    3.23   0.0012 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 110.904  on 79  degrees of freedom
+Residual deviance:  23.162  on 78  degrees of freedom
+AIC: 27.16
+
+Number of Fisher Scoring iterations: 8
+```
+
+The `Petal.length` is according to the Wald test significant at all test levels larger than 0.001.
+
 </div>
+
+
+- b. What is the estimated probability of a plant having `Petal.Length` equal to 5 to be a "virginica"?
+
+<div class="ans">
+
+
+```r
+predict(mod.glm1, new = list(Petal.Length = 5), type = "response")
+```
+
+```
+    1 
+0.813 
+```
+
+</div>
+
+- c. Compute the AIC also for models with each of the other three variables as sole predictors.
+Which model is preferable from the AIC point of view?
+
+<div class="ans">
+
+
+```r
+mod.glm2 <- glm(Species ~ Petal.Width, family = binomial, data = iris.train)
+mod.glm3 <- glm(Species ~ Sepal.Width, family = binomial, data = iris.train)
+mod.glm4 <- glm(Species ~ Sepal.Length, family = binomial, data = iris.train)
+AIC(mod.glm1)
+```
+
+```
+[1] 27.2
+```
+
+```r
+AIC(mod.glm2)
+```
+
+```
+[1] 33.4
+```
+
+```r
+AIC(mod.glm3)
+```
+
+```
+[1] 104
+```
+
+```r
+AIC(mod.glm4)
+```
+
+```
+[1] 84.6
+```
+
+The `Petal.Length` variable gives the smallest AIC when used as predictor. It is marginally better than `Petal.Width` as prdictor.
+
+</div>
+
+- d. (Optional) Try to construct a plot like the plot on slide 9 from lesson 9 with `Petal.Length` as predictor.
+You may need to make a variable `y` by `y <- ifelse(iris.train$Species=="virginica",1,0)` first.
+You may also check out the code for slide 9 from the `Generalized1.rmd` file available on Fronter for more hints.
+
+<div class="ans">
+
+
+```r
+y <- ifelse(iris.train$Species == "virginica",1,0)
+x <- seq(2,8, by = 0.1)
+ypred <- predict(mod.glm1, list(Petal.Length = x), type = "response")
+plot(iris.train$Petal.Length, y, ylab = "Proportion virginica", xlab = "Petal.Length")
+lines(x,ypred,col = "red")
+```
+
+<img src="STAT340-2018_files/figure-html/unnamed-chunk-175-1.svg" width="672" />
+
+</div>
+
+- e. Use a logistic model of your choice (perhaps the same predictors as you used in your best choice classifier of Ex-1) to estimate the posterior probabilities of "virginica" for the samples of the `iris.test.Rdata` set. Allocate the samples to the most probable species class and use the `confusion()` function to evaluate the classification performance. (Hint: The posterior probabilies, say you name then `postprob`, should be classified into a factor variable by
+    
+    
+    ```r
+    predicted <- factor(ifelse(postprob > 0.5,"virginica","versicolor"))
+    ```
+
+<div class="ans">
+
+
+```r
+mymod2 <- glm(Species ~ Petal.Length + Petal.Width, family = binomial, data = iris.train)
+postprob <- predict(mymod2, new = iris.test, type = "response")
+predicted <- factor(ifelse(postprob > 0.5,"virginica","versicolor"))
+confusion(iris.test$Species, predicted)
+```
+
+```
+            True
+Predicted    versicolor virginica
+  versicolor         10         1
+  virginica           0         9
+  Total              10        10
+  Correct            10         9
+
+Proportions correct
+versicolor  virginica 
+       1.0        0.9 
+
+N correct/N total = 19/20 = 0.95
+```
+
+With my chosen model I got one mis-classification and an error rate of 0.05.
+
+</div>
+-->
+
+</div>
+<!-- </div> -->
 <script>
   ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
   showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
@@ -428,8 +588,8 @@ $('.ans p:has(img)').css('text-align', 'center');
           </div>
         </div>
       </div>
-<a href="discrimination-and-classification.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="logistic-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="discrimination-and-classification.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
