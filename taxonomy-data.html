@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Applied Methods in Statistics</title>
+  <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  <meta name="github-repo" content="mathatistics/stat340-2018-source" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  
+  <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  
+
+<meta name="author" content="Thore Egeland and Raju Rimal">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="species-data.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113782065-1');
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Applied Methods in Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Practical Information</a><ul>
+<li class="chapter" data-level="" data-path="lecture-and-exercise-plan.html"><a href="lecture-and-exercise-plan.html"><i class="fa fa-check"></i>Lecture and Exercise Plan</a></li>
+<li class="chapter" data-level="" data-path="reference-books.html"><a href="reference-books.html"><i class="fa fa-check"></i>Reference Books</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="exercise-1-create-new-project.html"><a href="exercise-1-create-new-project.html"><i class="fa fa-check"></i>Exercise 1: Create New Project</a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html"><i class="fa fa-check"></i>Exercise 2: Importing data in R</a><ul>
+<li><a href="exercise-2-importing-data-in-r.html#import-txt-or-csv">Import <code>txt</code> or <code>csv</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#import-microsoft-excel-spreadsheet"><i class="fa fa-check"></i>Import Microsoft Excel spreadsheet</a></li>
+<li><a href="exercise-2-importing-data-in-r.html#load-rdata-rda-or-rds">Load <code>rdata</code>, <code>rda</code> or <code>rds</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#reading-data-from-clipboard-pasting-copied-data-into-an-r-object"><i class="fa fa-check"></i>Reading data from clipboard (“pasting” copied data into an R object)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-3-exporting-data-to-a-file.html"><a href="exercise-3-exporting-data-to-a-file.html"><i class="fa fa-check"></i>Exercise 3: Exporting data to a file</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html"><i class="fa fa-check"></i>Exercise 4: Data Structure in R</a><ul>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#vector"><i class="fa fa-check"></i>Vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#list"><i class="fa fa-check"></i>List</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#data-frame"><i class="fa fa-check"></i>Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html"><i class="fa fa-check"></i>Exercise 5: Exploring the data</a><ul>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#structure-of-an-r-object"><i class="fa fa-check"></i>Structure of an R-object</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#accessing-elements-from-r-objects"><i class="fa fa-check"></i>Accessing elements from R-objects</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#view-data-in-rstudio"><i class="fa fa-check"></i>View Data in RStudio</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#summary-of-data"><i class="fa fa-check"></i>Summary of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#dimension-of-data"><i class="fa fa-check"></i>Dimension of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#lets-practice"><i class="fa fa-check"></i>Lets Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html"><i class="fa fa-check"></i>Exercise 6: Subsets of data and logical operators</a><ul>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#logical-vector-and-index-vector"><i class="fa fa-check"></i>Logical vector and index vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#subsetting-data-frame"><i class="fa fa-check"></i>Subsetting data frame</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#exercise-1"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html"><i class="fa fa-check"></i>Exercise 7: Graphics</a><ul>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html#spice-up-the-plot"><i class="fa fa-check"></i>Spice up the plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i>Regression Analysis</a><ul>
+<li class="chapter" data-level="" data-path="least-sqaures-app.html"><a href="least-sqaures-app.html"><i class="fa fa-check"></i>Least Sqaures App</a></li>
+<li class="chapter" data-level="" data-path="dataset-birth.html"><a href="dataset-birth.html"><i class="fa fa-check"></i>Dataset: birth</a><ul>
+<li><a href="dataset-birth.html#overview-of-data"><i class="fa fa-edit"></i> Overview of data</a></li>
+<li><a href="dataset-birth.html#linear-regression"><i class="fa fa-book"></i> Linear Regression</a></li>
+<li><a href="dataset-birth.html#regression-with-categories"><i class="fa fa-book"></i> Regression with categories</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataset-bodydata.html"><a href="dataset-bodydata.html"><i class="fa fa-check"></i>Dataset: bodydata</a><ul>
+<li><a href="dataset-bodydata.html#training-samples"><i class="fa fa-book"></i> Training Samples</a></li>
+<li><a href="dataset-bodydata.html#fitting-model"><i class="fa fa-edit"></i> Fitting Model</a></li>
+<li><a href="dataset-bodydata.html#understanding-the-fitted-model"><i class="fa fa-edit"></i> Understanding the fitted Model</a></li>
+<li><a href="dataset-bodydata.html#multiple-linear-regression-and-prediction"><i class="fa fa-edit"></i> Multiple Linear Regression and Prediction</a></li>
+<li><a href="dataset-bodydata.html#extra-on-r-squared"><i class="fa fa-book"></i> Extra on R-squared</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html"><i class="fa fa-check"></i>Dataset: mtcars</a><ul>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-1-model-fitting"><i class="fa fa-check"></i>Ex-1: Model Fitting</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-2-indicator-variable"><i class="fa fa-check"></i>Ex-2: Indicator variable</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-3-comparing-models---partial-f-test"><i class="fa fa-check"></i>Ex-3: Comparing models - Partial F-test</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-4-influential-measurements"><i class="fa fa-check"></i>Ex-4: Influential measurements</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-5-model-selection"><i class="fa fa-check"></i>Ex-5: Model selection</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-6-model-validation"><i class="fa fa-check"></i>Ex-6: Model validation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html"><i class="fa fa-check"></i>Analysis of variance</a><ul>
+<li class="chapter" data-level="" data-path="chlorine-levels-in-cities.html"><a href="chlorine-levels-in-cities.html"><i class="fa fa-check"></i>Chlorine levels in cities</a></li>
+<li class="chapter" data-level="" data-path="data-from-the-nsr-education-test.html"><a href="data-from-the-nsr-education-test.html"><i class="fa fa-check"></i>Data from the NSR education test</a></li>
+<li class="chapter" data-level="" data-path="barley-data.html"><a href="barley-data.html"><i class="fa fa-check"></i>Barley Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multivariate-analysis-pca.html"><a href="multivariate-analysis-pca.html"><i class="fa fa-check"></i>Multivariate Analysis (PCA)</a><ul>
+<li class="chapter" data-level="" data-path="track-and-field-data.html"><a href="track-and-field-data.html"><i class="fa fa-check"></i>Track and Field data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multivariate-analysis-pcr-pls.html"><a href="multivariate-analysis-pcr-pls.html"><i class="fa fa-check"></i>Multivariate Analysis (PCR, PLS)</a><ul>
+<li class="chapter" data-level="" data-path="prediction-of-cow-milk-percentage.html"><a href="prediction-of-cow-milk-percentage.html"><i class="fa fa-check"></i>Prediction of cow milk percentage</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="discrimination-and-classification.html"><a href="discrimination-and-classification.html"><i class="fa fa-check"></i>Discrimination and classification</a><ul>
+<li class="chapter" data-level="" data-path="iris-dataset.html"><a href="iris-dataset.html"><i class="fa fa-check"></i>Iris Dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html"><i class="fa fa-check"></i>Generalized Linear Model</a><ul>
+<li class="chapter" data-level="" data-path="species-data.html"><a href="species-data.html"><i class="fa fa-check"></i>Species Data</a></li>
+<li class="chapter" data-level="" data-path="taxonomy-data.html"><a href="taxonomy-data.html"><i class="fa fa-check"></i>Taxonomy Data</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
+<li><a name="title" href="javascript:void(0)"><b>Assistent Teachers:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/raju.rimal" target="blank">Raju Rimal</a></li></ul></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applied Methods in Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="taxonomy-data" class="section level2">
+<h2>Taxonomy Data</h2>
+<p>We return to the taxonomy data used in the lecture on cluster analysis. In the file <code>taxonomy.Rdata</code> you find seven variables measured on plants from four different taxa. We will use multinomial regression as means for classification of taxa. A code file for performing cross-validation of classifications based on multinomial regression is found in the file <code>CV.class.multinom.R</code> on Fronter. Throughout this exercise you may need to increase the number of iterations used in the Maximum Likelihood estimation procedure. The default is 100 iterations. For example, in exercise a. <code>maxit = 200</code> should suffice.</p>
+<ul>
+<li><ol style="list-style-type: lower-alpha">
+<li>Use multinomial regression to model the probabilities of the various taxa as a function of the variable <code>Sepal</code>.
+Save the model as an object called <code>mod1.multi</code>. Use summary to display the results.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1">mod1.multi &lt;-<span class="st"> </span><span class="kw">multinom</span>(Taxon <span class="op">~</span><span class="st"> </span>Sepal, <span class="dt">data =</span> taxonomy, <span class="dt">maxit =</span> <span class="dv">200</span>)</a></code></pre></div>
+<pre><code># weights:  12 (6 variable)
+initial  value 166.355323 
+iter  10 value 98.990404
+iter  20 value 98.141917
+iter  30 value 98.100674
+iter  40 value 98.097605
+iter  50 value 98.096106
+iter  60 value 98.095900
+iter  70 value 98.095310
+iter  80 value 98.095057
+iter  90 value 98.094619
+iter 100 value 98.092238
+final  value 98.092209 
+converged</code></pre>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1"><span class="kw">summary</span>(mod1.multi)</a></code></pre></div>
+<pre><code>Call:
+multinom(formula = Taxon ~ Sepal, data = taxonomy, maxit = 200)
+
+Coefficients:
+    (Intercept)  Sepal
+II         1.49 -0.593
+III        2.86 -1.148
+IV       -48.04 13.738
+
+Std. Errors:
+    (Intercept)  Sepal
+II         2.31  0.914
+III        2.32  0.924
+IV        84.93 24.439
+
+Residual Deviance: 196 
+AIC: 208 </code></pre>
+</div>
+<ul>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>What are the estimated linear predictors <span class="math inline">\(\eta_j\)</span> for each of the four taxa, <span class="math inline">\(j=1,2,3,4\)</span>?</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p>First we extract the estimated regression coefficients. Remember that for the reference level taxon the
+regression coefficients are assumed equal to zero. We therefore add a row of zeros for this taxon (here <code>taxon = 1</code>).</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1">summod1.multi &lt;-<span class="st"> </span><span class="kw">summary</span>(mod1.multi)</a>
+<a class="sourceLine" id="cb291-2" data-line-number="2">co &lt;-<span class="st"> </span>summod1.multi<span class="op">$</span>coefficients</a>
+<a class="sourceLine" id="cb291-3" data-line-number="3">co &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>),co)</a>
+<a class="sourceLine" id="cb291-4" data-line-number="4"><span class="kw">rownames</span>(co)[<span class="dv">1</span>] &lt;-<span class="st"> &quot;I&quot;</span></a>
+<a class="sourceLine" id="cb291-5" data-line-number="5">co</a></code></pre></div>
+<pre><code>    (Intercept)  Sepal
+I          0.00  0.000
+II         1.49 -0.593
+III        2.86 -1.148
+IV       -48.04 13.738</code></pre>
+<p>This gives the following linear predictors:</p>
+<p><span class="math display">\[\eta_1 = 0 + 0\cdot \text{Sepal} = 0\]</span></p>
+<p><span class="math display">\[\eta_2 = 1.49 - 0.593\cdot \text{Sepal}\]</span></p>
+<p><span class="math display">\[\eta_3 = 2.86 - 1.15\cdot \text{Sepal}\]</span></p>
+<p><span class="math display">\[\eta_4 = -48.0 + 13.7\cdot \text{Sepal}\]</span></p>
+</div>
+<ul>
+<li><ol start="3" style="list-style-type: lower-alpha">
+<li>What is the most probable taxon according to this model for a plant with average value of <code>Sepal</code>?
+(Hint: If your coefficients are stored in a matrix called <code>co</code> you may compute the probabilities for each taxon by using the code <code>probs &lt;- exp(co[,1]+co[,2]*x)/sum(exp(co[,1]+co[,2]*x))</code> where <code>x</code>is the value of
+interest for <code>Sepal</code>.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">mean</span>(taxonomy<span class="op">$</span>Sepal)</a>
+<a class="sourceLine" id="cb293-2" data-line-number="2">probs &lt;-<span class="st"> </span><span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x))</a>
+<a class="sourceLine" id="cb293-3" data-line-number="3">probs</a></code></pre></div>
+<pre><code>       I       II      III       IV 
+0.433455 0.324557 0.241505 0.000483 </code></pre>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">maxp &lt;-<span class="st"> </span><span class="kw">which.max</span>(probs)</a>
+<a class="sourceLine" id="cb295-2" data-line-number="2">maxp</a></code></pre></div>
+<pre><code>I 
+1 </code></pre>
+<p>We see that taxon I is the most probable with a probability equal to 0.433.</p>
+<p>Extra: The following figure shows the probabilities of each taxon for various values of <code>Sepal</code>. Remember that these probabilities are the posterior probability estimates for the class in a classification terminology. We classify to the most probable class given the observed predictor values.</p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1">xvector &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">by =</span> <span class="fl">0.05</span>)</a>
+<a class="sourceLine" id="cb297-2" data-line-number="2">probfunc &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb297-3" data-line-number="3">    <span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x))</a>
+<a class="sourceLine" id="cb297-4" data-line-number="4">}</a>
+<a class="sourceLine" id="cb297-5" data-line-number="5">probmat &lt;-<span class="st"> </span><span class="kw">t</span>(<span class="kw">sapply</span>(xvector, probfunc))</a>
+<a class="sourceLine" id="cb297-6" data-line-number="6"><span class="kw">matplot</span>(xvector, probmat, <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, </a>
+<a class="sourceLine" id="cb297-7" data-line-number="7">        <span class="dt">main =</span> <span class="st">&quot;Posterior probabilities for taxa&quot;</span>, </a>
+<a class="sourceLine" id="cb297-8" data-line-number="8">        <span class="dt">xlab =</span> <span class="st">&quot;Sepal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Estimated posterior probability&quot;</span>)</a>
+<a class="sourceLine" id="cb297-9" data-line-number="9"><span class="kw">legend</span>(<span class="dv">6</span>, <span class="fl">0.8</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;I&quot;</span>, <span class="st">&quot;II&quot;</span>, <span class="st">&quot;III&quot;</span>, <span class="st">&quot;IV&quot;</span>), <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-188-1.svg" width="672" /></p>
+<p>We observe that taxon III is the most probable for <code>Sepal&lt;2.5</code>, taxon I for <code>2.5 &lt; Sepal &lt; 3.5</code> and taxon IV for <code>Sepal &gt;= 3.5</code>. Taxon 2 is the most probable taxon only for <code>Sepal</code> <span class="math inline">\(\approx\)</span> <code>2.5</code>.</p>
+</div>
+<ul>
+<li><ol start="4" style="list-style-type: lower-alpha">
+<li>Execute the following plot command: <code>plot(Sepal ~ Taxon, data=taxonomy)</code>. Use the figure to explain the result from exercise c.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="kw">plot</span>(Sepal <span class="op">~</span><span class="st"> </span>Taxon, <span class="dt">data =</span> taxonomy)</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-189-1.svg" width="672" /></p>
+<p>We see that taxon I has the median (and probably also the mean) closest to the average Sepal length which is 3.0.
+Taxa II and III are very similar, but slightly further away, hence their probabilities are a bit smaller. Taxa IV has
+Sepal lengths much larger than the average and is thus the least probable taxon.</p>
+</div>
+<ul>
+<li><ol start="5" style="list-style-type: lower-alpha">
+<li>Repeat the taxon classification of exercise c. by means of the <code>predict()</code> - function.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">predict</span>(mod1.multi,<span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">Sepal =</span> <span class="kw">mean</span>(taxonomy<span class="op">$</span>Sepal)))</a></code></pre></div>
+<pre><code>[1] I
+Levels: I II III IV</code></pre>
+</div>
+<ul>
+<li><ol start="6" style="list-style-type: lower-alpha">
+<li>Use similar plots like in d. to identify other variables which are promising with regard to separating taxa I, II and III (Sepal is already a good variable to distinguish taxon IV from the others). Fit an extended model with the variables you have chosen and save the model as an object called <code>mod2.multi</code>.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p>I have found two variables which are promising; <code>Leaf</code> and <code>Petiole</code>, as shown in the figures below.</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">plot</span>(Leaf <span class="op">~</span><span class="st"> </span>Taxon, <span class="dt">data =</span> taxonomy)</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-191-1.svg" width="672" /></p>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">plot</span>(Petiole <span class="op">~</span><span class="st"> </span>Taxon, <span class="dt">data =</span> taxonomy)</a></code></pre></div>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-191-2.svg" width="672" /></p>
+<p><code>Leaf</code> seems to distinguish taxon III from the others, and <code>Petiole</code> may separate taxa I and II.</p>
+<p>I therefore fit a model with <code>Sepal</code>, <code>Leaf</code> and <code>Petiole</code> as predictors for taxa. This model requires
+many iterations in the estimation process. I set <code>maxit = 5000</code> to be sure. (<code>trace =FALSE</code> supresses
+a long list of convergence details)</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1">mod2.multi &lt;-<span class="st"> </span><span class="kw">multinom</span>(Taxon <span class="op">~</span><span class="st"> </span>Sepal <span class="op">+</span><span class="st"> </span>Leaf <span class="op">+</span><span class="st"> </span>Petiole , <span class="dt">data =</span> taxonomy, </a>
+<a class="sourceLine" id="cb303-2" data-line-number="2">                       <span class="dt">maxit =</span> <span class="dv">5000</span>, <span class="dt">trace =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb303-3" data-line-number="3"><span class="kw">summary</span>(mod2.multi)</a></code></pre></div>
+<pre><code>Call:
+multinom(formula = Taxon ~ Sepal + Leaf + Petiole, data = taxonomy, 
+    maxit = 5000, trace = FALSE)
+
+Coefficients:
+    (Intercept) Sepal  Leaf Petiole
+II        554.9  23.1  12.8   -64.6
+III       -67.1 -73.5 371.7   -51.6
+IV        -68.1  63.3   6.4   -14.4
+
+Std. Errors:
+    (Intercept) Sepal Leaf Petiole
+II       3631.9   574  387     465
+III      9508.8  5686 3115     456
+IV         21.5  4054 7258     848
+
+Residual Deviance: 0.00067 
+AIC: 24 </code></pre>
+</div>
+<ul>
+<li>Use a Chis-square test to test the joint significance of the extra variables you added
+as you extended <code>mod1.multi</code> to <code>mod2.multi</code>.</li>
+</ul>
+<div class="ans">
+<p>We test whether the difference in deviances between the two models is significant.</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">dev.diff &lt;-<span class="st"> </span><span class="dv">-2</span> <span class="op">*</span><span class="st"> </span>(<span class="kw">logLik</span>(mod1.multi) <span class="op">-</span><span class="st"> </span><span class="kw">logLik</span>(mod2.multi))</a>
+<a class="sourceLine" id="cb305-2" data-line-number="2"><span class="kw">pchisq</span>(dev.diff, <span class="dv">6</span>, <span class="dt">lower =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<pre><code>&#39;log Lik.&#39; 1.23e-39 (df=6)</code></pre>
+<p>The p-value indicates that <code>Leaf</code> and <code>Petiole</code> are highly significant in addition to <code>Sepal</code> as
+predictors in the model.</p>
+</div>
+<ul>
+<li><ol start="8" style="list-style-type: lower-alpha">
+<li>Use the <code>predict()</code>function on <code>mod2.multi</code> with <code>newdata=taxonomy</code> to classify all plants in the
+dataset to taxa. Then apply the <code>confusion()</code> function in the <code>mixlm</code>- package to compute the
+classification performance of the multinomial model. What is the accuracy and apparent classification error?</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1">pred.all &lt;-<span class="st"> </span><span class="kw">predict</span>(mod2.multi, <span class="dt">newdata =</span> taxonomy)</a>
+<a class="sourceLine" id="cb307-2" data-line-number="2">mixlm<span class="op">::</span><span class="kw">confusion</span>(taxonomy<span class="op">$</span>Taxon, pred.all)</a></code></pre></div>
+<pre><code>         True
+Predicted  I II III IV
+  I       30  0   0  0
+  II       0 30   0  0
+  III      0  0  30  0
+  IV       0  0   0 30
+  Total   30 30  30 30
+  Correct 30 30  30 30
+
+Proportions correct
+  I  II III  IV 
+  1   1   1   1 
+
+N correct/N total = 120/120 = 1</code></pre>
+<p>I get an accuracy of 1 and an apparent classification error (APER) of 0. That is, a perfect “fit” to the data.
+(Note the R-code <code>mixlm::</code> for extracting the confusion function from mixlm without loading the entire package).</p>
+</div>
+<ul>
+<li><ol style="list-style-type: lower-roman">
+<li>We should watch out for over-fitting. Use the <code>CV.class.multinom()</code> function to run a Leave-One-Out Cross-validation to validate the <code>mod2.multi</code> model.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1"><span class="co">#source(&quot;CV.class.multinom.R&quot;)</span></a>
+<a class="sourceLine" id="cb309-2" data-line-number="2">CVres &lt;-<span class="st"> </span><span class="kw">CV.class.multinom</span>(mod2.multi,<span class="dt">data =</span> taxonomy, <span class="dt">trace =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<pre><code>         True
+Predicted  I II III IV
+  I       28  1   1  0
+  II       1 29   1  0
+  III      1  0  28  0
+  IV       0  0   0 30
+  Total   30 30  30 30
+  Correct 28 29  28 30
+
+Proportions correct
+    I    II   III    IV 
+0.933 0.967 0.933 1.000 
+
+N correct/N total = 115/120 = 0.958</code></pre>
+<p>The cross-validation gave 5 mis-classifications. Taxon IV is perfectly classified, but there are some
+mix-up’s between taxa I, II and III. The accuracy is still high (0.96) and the total classification error is
+correspondingly small (0.04).</p>
+</div>
+
+</div>
+<!-- </div> -->
+<script>
+  ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
+  showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
+  hideAns_btn = '<a class="hideAns-btn btn pull-right js-toolbar-action" style="display:none;">Hide Answers</a>';
+  
+  // Adding Extra Menus in Navigation
+  
+  // Adding button on before each answer:::
+  $(".ans").before(ans_btn_html);
+  $('.btn-ans').each(function(){
+    $(this).next('.ans').andSelf().wrapAll('<div class="wrap-ans"/>');
+  });
+  $('.btn-ans').click(function(){
+    $(this).siblings('.ans').toggle(400);
+  });
+  
+if ($(".ans").length > 0){
+    $('.book-header').prepend(showAns_btn, hideAns_btn);
+    $('.showAns-btn').show();
+    $('.showAns-btn').click(function(){
+      $('.btn-ans').hide(400);
+      $('.ans').show(400);
+      $('.hideAns-btn').show();
+      $(this).hide();
+      $('.hideAns-btn').click(function(){
+        $('.btn-ans').show(400);
+        $('.ans').hide(400);
+        $('.showAns-btn').show();
+        $(this).hide();
+      });
+    });
+  }
+
+var chap = "week-two"
+if(window.location.href.indexOf(chap) != -1){
+  var now = new Date();
+  var release = new Date("August 21, 2016");
+  if(now < release){
+    $(".ans, .btn-ans, .showAns-btn, .hideAns-btn").hide()
+  }
+}
+
+$('.ans p:has(img)').css('text-align', 'center');
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82812028-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="species-data.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["STAT340-2018.pdf", "STAT340-2018.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
