@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
 
   <meta property="og:title" content="Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
@@ -249,15 +249,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <div class="ans">
 <p>First we fit the model:</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1"><span class="co">#options(contrasts=c(&quot;contr.treatment&quot;,&quot;contr.poly&quot;))</span></a>
-<a class="sourceLine" id="cb277-2" data-line-number="2">mod2.glm &lt;-<span class="st"> </span><span class="kw">glm</span>(Species <span class="op">~</span><span class="st"> </span>Biomass <span class="op">+</span><span class="st"> </span>pH, <span class="dt">family =</span> poisson, <span class="dt">data =</span> species)</a>
-<a class="sourceLine" id="cb277-3" data-line-number="3">summod2 &lt;-<span class="st"> </span><span class="kw">summary</span>(mod2.glm)</a>
-<a class="sourceLine" id="cb277-4" data-line-number="4">summod2<span class="op">$</span>coefficients</a></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1">mod2.glm &lt;-<span class="st"> </span><span class="kw">glm</span>(Species <span class="op">~</span><span class="st"> </span>Biomass <span class="op">+</span><span class="st"> </span>pH, <span class="dt">family =</span> poisson, <span class="dt">data =</span> species)</a>
+<a class="sourceLine" id="cb277-2" data-line-number="2">summod2 &lt;-<span class="st"> </span><span class="kw">summary</span>(mod2.glm)</a>
+<a class="sourceLine" id="cb277-3" data-line-number="3">summod2<span class="op">$</span>coefficients</a></code></pre></div>
 <pre><code>            Estimate Std. Error z value Pr(&gt;|z|)
-(Intercept)    3.322     0.0388    85.5 0.00e+00
-Biomass       -0.128     0.0101   -12.6 2.76e-36
-pH(high)       0.527     0.0340    15.5 3.29e-54
-pH(low)       -0.609     0.0412   -14.8 2.28e-49</code></pre>
+(Intercept)    3.849     0.0528   72.89 0.00e+00
+Biomass       -0.128     0.0101  -12.58 2.76e-36
+pH(low)       -1.136     0.0672  -16.91 3.77e-64
+pH(mid)       -0.445     0.0549   -8.11 4.88e-16</code></pre>
 <p>Then the estimated linear predictors are:</p>
 <p><span class="math display">\[\eta_\text{low} = 3.85 - 0.128\cdot \text{Biomass} - 1.14\]</span></p>
 <p><span class="math display">\[\eta_\text{medium} = 3.85 - 0.128\cdot \text{Biomass} - 0.45\]</span></p>
@@ -287,11 +286,11 @@ Deviance Residuals:
 -2.596  -0.699  -0.074   0.665   3.560  
 
 Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   3.3218     0.0409    81.3   &lt;2e-16 ***
-Biomass      -0.1276     0.0107   -12.0   &lt;2e-16 ***
-pH(high)      0.5272     0.0358    14.7   &lt;2e-16 ***
-pH(low)      -0.6092     0.0434   -14.0   &lt;2e-16 ***
+            Estimate Std. Error t value      Pr(&gt;|t|)    
+(Intercept)   3.8489     0.0556   69.28       &lt; 2e-16 ***
+Biomass      -0.1276     0.0107  -11.96       &lt; 2e-16 ***
+pH(low)      -1.1364     0.0707  -16.07       &lt; 2e-16 ***
+pH(mid)      -0.4452     0.0577   -7.71 0.00000000002 ***
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -321,13 +320,13 @@ Deviance Residuals:
 -2.498  -0.748  -0.040   0.557   3.230  
 
 Coefficients:
-                 Estimate Std. Error z value        Pr(&gt;|z|)    
-(Intercept)        3.3858     0.0412   82.16         &lt; 2e-16 ***
-Biomass           -0.1694     0.0148  -11.43         &lt; 2e-16 ***
-pH(high)           0.3823     0.0544    7.03 0.0000000000021 ***
-pH(low)           -0.4332     0.0629   -6.88 0.0000000000059 ***
-Biomass:pH(high)   0.0623     0.0165    3.78         0.00016 ***
-Biomass:pH(low)   -0.0927     0.0265   -3.50         0.00047 ***
+                Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)       3.7681     0.0615   61.24  &lt; 2e-16 ***
+Biomass          -0.1071     0.0125   -8.58  &lt; 2e-16 ***
+pH(low)          -0.8156     0.1028   -7.93  2.2e-15 ***
+pH(mid)          -0.3315     0.0922   -3.60  0.00032 ***
+Biomass:pH(low)  -0.1550     0.0400   -3.87  0.00011 ***
+Biomass:pH(mid)  -0.0319     0.0231   -1.38  0.16695    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
@@ -500,7 +499,7 @@ matplot(xvector, probmat, lty = 1, type = "l", lwd = 2,
 legend(6, 0.8, legend = c("I", "II", "III", "IV"), lty = 1, col = 1:4, lwd = 2)
 ```
 
-<img src="STAT340-2018_files/figure-html/unnamed-chunk-188-1.svg" width="672" />
+<img src="STAT340-2018_files/figure-html4/unnamed-chunk-188-1.svg" width="672" />
 
 We observe that taxon III is the most probable for `Sepal<2.5`, taxon I for `2.5 < Sepal < 3.5` and taxon IV for `Sepal >= 3.5`. Taxon 2 is the most probable taxon only for `Sepal` $\approx$ `2.5`. 
 
@@ -515,7 +514,7 @@ We observe that taxon III is the most probable for `Sepal<2.5`, taxon I for `2.5
 plot(Sepal ~ Taxon, data = taxonomy)
 ```
 
-<img src="STAT340-2018_files/figure-html/unnamed-chunk-189-1.svg" width="672" />
+<img src="STAT340-2018_files/figure-html4/unnamed-chunk-189-1.svg" width="672" />
 
 We see that taxon I has the median (and probably also the mean) closest to the average Sepal length which is 3.0.
 Taxa II and III are very similar, but slightly further away, hence their probabilities are a bit smaller. Taxa IV has
@@ -550,13 +549,13 @@ I have found two variables which are promising; `Leaf` and `Petiole`, as shown i
 plot(Leaf ~ Taxon, data = taxonomy)
 ```
 
-<img src="STAT340-2018_files/figure-html/unnamed-chunk-191-1.svg" width="672" />
+<img src="STAT340-2018_files/figure-html4/unnamed-chunk-191-1.svg" width="672" />
 
 ```r
 plot(Petiole ~ Taxon, data = taxonomy)
 ```
 
-<img src="STAT340-2018_files/figure-html/unnamed-chunk-191-2.svg" width="672" />
+<img src="STAT340-2018_files/figure-html4/unnamed-chunk-191-2.svg" width="672" />
 
 `Leaf` seems to distinguish taxon III from the others, and `Petiole` may separate taxa I and II.
 
@@ -577,18 +576,18 @@ multinom(formula = Taxon ~ Sepal + Leaf + Petiole, data = taxonomy,
     maxit = 5000, trace = FALSE)
 
 Coefficients:
-    (Intercept) Sepal  Leaf Petiole
-II        554.9  23.1  12.8   -64.6
-III       -67.1 -73.5 371.7   -51.6
-IV        -68.1  63.3   6.4   -14.4
+    (Intercept) Sepal   Leaf Petiole
+II        575.2  24.0  13.15   -67.0
+III       -69.2 -75.7 383.70   -53.3
+IV        -68.0  65.6   6.72   -14.7
 
 Std. Errors:
     (Intercept) Sepal Leaf Petiole
-II       3631.9   574  387     465
-III      9508.8  5686 3115     456
-IV         21.5  4054 7258     848
+II         4301   667  483     549
+III       12041  7159 3721     553
+IV          112  3866 3030    1234
 
-Residual Deviance: 0.00067 
+Residual Deviance: 0.000472 
 AIC: 24 
 ```
 
@@ -766,11 +765,10 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
-"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
