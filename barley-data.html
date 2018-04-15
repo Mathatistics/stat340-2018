@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
 
   <meta property="og:title" content="Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
@@ -215,6 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html"><i class="fa fa-check"></i>Generalized Linear Model</a><ul>
 <li class="chapter" data-level="" data-path="species-data.html"><a href="species-data.html"><i class="fa fa-check"></i>Species Data</a></li>
+<li class="chapter" data-level="" data-path="taxonomy-data.html"><a href="taxonomy-data.html"><i class="fa fa-check"></i>Taxonomy Data</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
@@ -289,7 +290,7 @@ sort(1):soil(1)     13.8       10.1    1.36 1.84e-01</code></pre>
 </ul>
 <div class="ans">
 <div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">allEffects</span>(mod1,<span class="dt">confidence.level =</span> <span class="fl">.95</span>))</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-128-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-128-1.svg" width="100%" /></p>
 From the plot, it seems that a farmer can expect an increase in yield when using sort 2 instead of sort 1 for both types of soil, and there may be a higher gain of sort 2 over sort 1 for soil-type 2 than for soil type 1. If this is so, there is a so-called interaction effect of sort and soil on yield.
 </div>
 <ul>
@@ -324,7 +325,7 @@ Response: Yield
                      Sum Sq Df F value    Pr(&gt;F)    
 (Intercept)         4643628  1 4503.19   &lt; 2e-16 ***
 sort                  17861  1   17.32   0.00073 ***
-soil                  59513  1   57.71 0.0000011 ***
+soil                  59512  1   57.71 0.0000011 ***
 fert                   2813  1    2.73   0.11812    
 site                   1458  1    1.41   0.25176    
 sort:soil              6105  1    5.92   0.02707 *  
@@ -362,7 +363,7 @@ Model 1: Yield ~ sort * soil * fert * site
 Model 2: Yield ~ sort * soil * fert
   Res.Df   RSS Df Sum of Sq   F Pr(&gt;F)   
 1     16 16499                           
-2     24 51142 -8    -34643 4.2 0.0071 **
+2     24 51142 -8    -34644 4.2 0.0071 **
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>The <code>anova</code> result for partial F-test shows that site is needed to a certain degree in the model. The low p-value reject the hypothesis that there is no effect of <code>site</code> on <code>Yield</code>.</p>
@@ -378,7 +379,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <pre><code>Backward elimination, alpha-to-remove: 0.05
 
 Full model: Yield ~ sort * soil * fert * site
-&lt;environment: 0xaad2358&gt;
+&lt;environment: 0x7ffabda05ad0&gt;
 
                     Step   RSS AIC R2pred   Cp F value Pr(&gt;F)
 sort:soil:fert:site    1 16905 231  0.659 14.4    0.39   0.54
@@ -401,7 +402,7 @@ sort:soil:fert         5 21162 230  0.720 10.5    2.37   0.14</code></pre>
 <a class="sourceLine" id="cb208-4" data-line-number="4"></a>
 <a class="sourceLine" id="cb208-5" data-line-number="5"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb208-6" data-line-number="6"><span class="kw">plot</span>(mod4)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-134-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-134-1.svg" width="100%" /></p>
 <p>The residual plots give no evidence of any problems with the model assumptions.</p>
 </div>
 <ul>
@@ -412,7 +413,7 @@ sort:soil:fert         5 21162 230  0.720 10.5    2.37   0.14</code></pre>
 <div class="ans">
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1">eff &lt;-<span class="st"> </span><span class="kw">allEffects</span>(mod4, <span class="dt">confidence.level =</span> <span class="fl">.95</span>)</a>
 <a class="sourceLine" id="cb210-2" data-line-number="2"><span class="kw">plot</span>(eff[<span class="dv">3</span>])</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/effectPlot-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/effectPlot-1.svg" width="100%" /></p>
 </div>
 <p>Try to explain the plot. Why do you think the interaction between sort, fertilizer and site was significant?</p>
 <div class="ans">
@@ -500,10 +501,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",

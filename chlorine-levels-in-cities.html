@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
 
   <meta property="og:title" content="Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
@@ -215,6 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html"><i class="fa fa-check"></i>Generalized Linear Model</a><ul>
 <li class="chapter" data-level="" data-path="species-data.html"><a href="species-data.html"><i class="fa fa-check"></i>Species Data</a></li>
+<li class="chapter" data-level="" data-path="taxonomy-data.html"><a href="taxonomy-data.html"><i class="fa fa-check"></i>Taxonomy Data</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
@@ -289,7 +290,7 @@ large cities:</p>
 </ul>
 <div class="ans">
 <div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1"><span class="kw">plot</span>(y <span class="op">~</span><span class="st"> </span>city, <span class="dt">data =</span> citydata)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-119-1.svg" width="60%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-119-1.svg" width="60%" /></p>
 <p>City 1 seems to have both the lowest average chlorine levels and the smallest variability in the measurements. Cities 2 and 3 are quite similar with both higher means and variability.</p>
 </div>
 <ul>
@@ -300,7 +301,7 @@ large cities:</p>
 <a class="sourceLine" id="cb174-2" data-line-number="2">citymod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>city, <span class="dt">data =</span> citydata)</a>
 <a class="sourceLine" id="cb174-3" data-line-number="3"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb174-4" data-line-number="4"><span class="kw">plot</span>(citymod1, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-120-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-120-1.svg" width="100%" /></p>
 <p>The residual analysis reveals two problems: 1) Non-constant variability, which was also observed in the boxplot, and 2) A skeewed and non-normal distribution for the residuals with a heavy tail to the right.</p>
 </div>
 <ul>
@@ -314,7 +315,7 @@ large cities:</p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1">citymod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(logy<span class="op">~</span>city, <span class="dt">data =</span> citydata)</a>
 <a class="sourceLine" id="cb176-2" data-line-number="2"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb176-3" data-line-number="3"><span class="kw">plot</span>(citymod2, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-122-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-122-1.svg" width="100%" /></p>
 <p>Both problems from the previous model appear to be corrected. We continue with this model.</p>
 </div>
 <ul>
@@ -450,10 +451,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",

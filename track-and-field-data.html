@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
 
   <meta property="og:title" content="Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
@@ -215,6 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html"><i class="fa fa-check"></i>Generalized Linear Model</a><ul>
 <li class="chapter" data-level="" data-path="species-data.html"><a href="species-data.html"><i class="fa fa-check"></i>Species Data</a></li>
+<li class="chapter" data-level="" data-path="taxonomy-data.html"><a href="taxonomy-data.html"><i class="fa fa-check"></i>Taxonomy Data</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
@@ -248,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="ans">
 <p><strong>For dataset: <code>runMen</code></strong></p>
 <div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb213-1" data-line-number="1"><span class="kw">pairs</span>(runMen[,<span class="op">-</span><span class="dv">9</span>], <span class="dt">cex =</span> <span class="fl">0.7</span>)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-137-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-137-1.svg" width="100%" /></p>
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb214-1" data-line-number="1"><span class="kw">cor</span>(runMen[,<span class="op">-</span><span class="dv">9</span>])</a></code></pre></div>
 <pre><code>       M100  M200  M400  M800 M1500 M5000  M10K  M42K
 M100  1.000 0.918 0.831 0.744 0.686 0.601 0.615 0.504
@@ -262,7 +263,7 @@ M42K  0.504 0.585 0.701 0.803 0.865 0.931 0.943 1.000</code></pre>
 <p>Mens running 5000m have the highest correlation (0.974) with the mens running 10000m.</p>
 <p><strong>For dataset: <code>runWomen</code></strong></p>
 <div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb216-1" data-line-number="1"><span class="kw">pairs</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>], <span class="dt">cex =</span> <span class="fl">0.7</span>)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-138-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-138-1.svg" width="100%" /></p>
 <div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb217-1" data-line-number="1"><span class="kw">cor</span>(runWomen[,<span class="op">-</span><span class="dv">8</span>])</a></code></pre></div>
 <pre><code>       M100  M200  M400  M800 M1500 M3000  M42K
 M100  1.000 0.947 0.808 0.693 0.704 0.724 0.683
@@ -368,7 +369,7 @@ M42K  0.343 -0.4319  0.228 -0.3176  0.489  0.3413  0.4028 -0.15986</code></pre>
 <p>Make a biplot with the first two components. You may use the argument “xlabs” in biplot to indicate that “Nations” should be used to label the scores from each country. Give comments to how the nations cluster relative to the loadings.</p>
 <div class="ans">
 <div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb230-1" data-line-number="1"><span class="kw">biplot</span>(pr, <span class="dt">xlabs =</span> runMen<span class="op">$</span>Nation, <span class="dt">cex =</span> <span class="fl">0.7</span>)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-143-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-143-1.svg" width="100%" /></p>
 <p>On the first axis (PC1) we observe that Cook’s Islands and West Samoa have the largest weights, and they therefore have on average poor (long time) national records for all distance. At the other end we find USA and others with on average good national records.
 Along PC2 (vertically) we find those with relatively poor times on long distances, but relatively good times on short, at the bottom (Dom. Repub, Bermuda, Singapore, Malaysia, Thailand and West Samoa) whereas at the top we find countries with poor records on short distances compared to their long distance records (Costa Rica, North-Korea, Cook’s Island and others).</p>
 </div>
@@ -423,7 +424,7 @@ $adj.r.squared
 
 Full model: runWomen$M3000 ~ M100 + M200 + M400 + M800 + M1500 + M5000 + 
     M10K + M42K
-&lt;environment: 0x9048418&gt;
+&lt;environment: 0x7ffabfd4c740&gt;
 
       Step  RSS  AIC R2pred   Cp F value Pr(&gt;F)  
 M42K     1 5.49 -101  0.644 7.01    0.01  0.907  
@@ -505,7 +506,7 @@ F-statistic: 28.2 on 8 and 43 DF,  p-value: 1e-14 </code></pre>
 <pre><code>Backward elimination, alpha-to-remove: 0.05
 
 Full model: runWomen$M3000 ~ PC1 + PC2 + PC3 + PC4 + PC5 + PC6 + PC7 + PC8
-&lt;environment: 0x8ddc500&gt;
+&lt;environment: 0x7ffabfab6a00&gt;
 
     Step  RSS  AIC R2pred     Cp F value Pr(&gt;F)
 PC5    1 5.49 -101  0.632  7.003    0.00   0.96
@@ -649,10 +650,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",

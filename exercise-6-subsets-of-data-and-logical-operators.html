@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
 
   <meta property="og:title" content="Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
@@ -215,6 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html"><i class="fa fa-check"></i>Generalized Linear Model</a><ul>
 <li class="chapter" data-level="" data-path="species-data.html"><a href="species-data.html"><i class="fa fa-check"></i>Species Data</a></li>
+<li class="chapter" data-level="" data-path="taxonomy-data.html"><a href="taxonomy-data.html"><i class="fa fa-check"></i>Taxonomy Data</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
@@ -317,11 +318,11 @@ The <code>&amp;</code> operator result <code>TRUE</code> if both <code>isHeavy</
 <p>Here is the first five rows of <code>bodydataRandom</code> dataset.</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">head</span>(bodydataRandom, <span class="dt">n =</span> <span class="dv">5</span>)</a></code></pre></div>
 <pre><code>    Weight Height Age Circumference
-255   69.8    166  22          74.5
-227   64.5    168  53          84.9
-127   85.5    198  27          82.5
-257   75.2    160  40          90.5
-20    85.9    176  22          87.3</code></pre>
+270   57.2    167  24          70.2
+261   42.0    153  29          62.0
+439   56.6    169  39          62.7
+262   50.0    160  22          63.4
+249   59.0    168  20          61.5</code></pre>
 </div>
 </div>
 <div id="exercise-1" class="section level3">
@@ -421,10 +422,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",

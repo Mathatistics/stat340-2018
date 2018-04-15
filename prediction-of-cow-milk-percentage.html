@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.5.15 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
 
   <meta property="og:title" content="Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
@@ -215,6 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html"><i class="fa fa-check"></i>Generalized Linear Model</a><ul>
 <li class="chapter" data-level="" data-path="species-data.html"><a href="species-data.html"><i class="fa fa-check"></i>Species Data</a></li>
+<li class="chapter" data-level="" data-path="taxonomy-data.html"><a href="taxonomy-data.html"><i class="fa fa-check"></i>Taxonomy Data</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
@@ -250,10 +251,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>You may plot the spectra in <code>X</code> one-by-one as,:</p>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb249-1" data-line-number="1"><span class="kw">plot</span>(X[, <span class="dv">1</span>], <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-151-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-151-1.svg" width="672" /></p>
 <p>We can also plot multiple (all) spectra together, takes more time.</p>
 <div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb250-1" data-line-number="1"><span class="kw">matplot</span>(X[, <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>], <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;black&quot;</span>)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-152-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-152-1.svg" width="672" /></p>
 <p>The peaks show molecule sizes that are abundant in the sample.</p>
 <ul>
 <li>First run a PCA on <code>X</code>. How many components are needed to explain 80% and 90% of the variability in <code>X</code>?</li>
@@ -323,7 +324,7 @@ Cumulative Proportion  0.85768</code></pre>
       PC169   PC170   PC171    PC172    PC173  PC174   PC175     PC176
 [1,] -0.015 -0.0092 -0.0134 -0.00933 -0.00255 0.0113 0.00024 -0.000418
        PC177   PC178  PC179  PC180
-[1,] -0.0057 -0.0103 0.0218 0.0663</code></pre>
+[1,] -0.0057 -0.0103 0.0218 0.0288</code></pre>
 <p>Components 1, 2, 4 and perhaps 8 are moderately to highly correlated with <code>Y</code>. Supposedly 3 to 4 components will be necessary for PLSR.</p>
 </div>
 <ul>
@@ -332,7 +333,7 @@ Cumulative Proportion  0.85768</code></pre>
 <div class="ans">
 <div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb255-1" data-line-number="1">plsmod &lt;-<span class="st"> </span><span class="kw">plsr</span>(Y <span class="op">~</span><span class="st"> </span>X, <span class="dt">ncomp =</span> <span class="dv">10</span>)</a>
 <a class="sourceLine" id="cb255-2" data-line-number="2"><span class="kw">scoreplot</span>(plsmod, <span class="dt">comps =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>), <span class="dt">labels =</span> <span class="st">&#39;names&#39;</span>, <span class="dt">pch =</span> <span class="fl">0.7</span>)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-155-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-155-1.svg" width="100%" /></p>
 <p>We observe that there are clusters of observations and that there is a tendency of successive numbers to be close in the scoreplot. Cluster sizes are difficult to determine.</p>
 </div>
 <ul>
@@ -341,7 +342,7 @@ Cumulative Proportion  0.85768</code></pre>
 <div class="ans">
 <div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb256-1" data-line-number="1">clust1 &lt;-<span class="st"> </span><span class="kw">hclust</span>(<span class="kw">dist</span>(plsmod<span class="op">$</span>scores[,<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]), <span class="dt">method =</span> <span class="st">&quot;complete&quot;</span>)</a>
 <a class="sourceLine" id="cb256-2" data-line-number="2"><span class="kw">plot</span>(clust1, <span class="dt">cex =</span> <span class="fl">0.5</span>)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-156-1.svg" width="100%" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-156-1.svg" width="100%" /></p>
 <p>From the dendrogram we observe several clusters of size four, and some of three with successive observation numbers. This implies that the replicates are more similar to each other than samples from different milk samples. Sample 159 seems to be an outlier, very different from all others.</p>
 </div>
 <ul>
@@ -395,7 +396,7 @@ Make a prediction error plot of MSEP with 0 to 10 components. How many component
 <div class="ans">
 <div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb260-1" data-line-number="1">MSEP &lt;-<span class="st"> </span><span class="kw">c</span>(plsmod<span class="op">$</span>validation<span class="op">$</span>PRESS0, plsmod<span class="op">$</span>validation<span class="op">$</span>PRESS)<span class="op">/</span><span class="dv">180</span></a>
 <a class="sourceLine" id="cb260-2" data-line-number="2"><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, MSEP, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-160-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-160-1.svg" width="672" /></p>
 <p>The prediction error is heavily reduced as we introduce components 1 and 2, but there is a small gain by adding components 3, 4 and 5. Simple models are usually more robust, so I would not go any further than 5 components here.</p>
 </div>
 <ul>
@@ -426,7 +427,7 @@ but the order of magnitude is the same.</p>
 <a class="sourceLine" id="cb265-2" data-line-number="2">MSEP2 &lt;-<span class="st"> </span><span class="kw">c</span>(plsmod2<span class="op">$</span>validation<span class="op">$</span>PRESS0, plsmod2<span class="op">$</span>validation<span class="op">$</span>PRESS)<span class="op">/</span><span class="dv">180</span></a>
 <a class="sourceLine" id="cb265-3" data-line-number="3"><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, MSEP, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">col =</span> <span class="dv">2</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a>
 <a class="sourceLine" id="cb265-4" data-line-number="4"><span class="kw">points</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>, MSEP2, <span class="dt">type =</span> <span class="st">&quot;b&quot;</span>, <span class="dt">col =</span> <span class="dv">4</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-164-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-164-1.svg" width="672" /></p>
 <p>We see that LOO-CV underestimates the prediction error, as commented in exercise f.</p>
 </div>
 
@@ -511,10 +512,11 @@ gitbook.start({
 "facebook": true,
 "twitter": true,
 "google": false,
+"linkedin": false,
 "weibo": false,
 "instapper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
