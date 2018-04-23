@@ -217,6 +217,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="species-data.html"><a href="species-data.html"><i class="fa fa-check"></i>Species Data</a></li>
 <li class="chapter" data-level="" data-path="taxonomy-data.html"><a href="taxonomy-data.html"><i class="fa fa-check"></i>Taxonomy Data</a></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="random-effect-model.html"><a href="random-effect-model.html"><i class="fa fa-check"></i>Random Effect Model</a><ul>
+<li class="chapter" data-level="" data-path="litter-sizes.html"><a href="litter-sizes.html"><i class="fa fa-check"></i>Litter sizes</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
 <li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
@@ -393,7 +396,7 @@ F-statistic: 6.69 on 1 and 187 DF,  p-value: 0.0105 </code></pre>
 <p>The scatter plot of LWT and BWT is,</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">plot</span>(<span class="dt">x =</span> birth<span class="op">$</span>LWT, <span class="dt">y =</span> birth<span class="op">$</span>BWT)</a>
 <a class="sourceLine" id="cb85-2" data-line-number="2"><span class="kw">abline</span>(birth1)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-64-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-64-1.svg" width="672" /></p>
 </div>
 <ul>
 <li>Make a comment to the plot in light of the output of your analyses.</li>
@@ -456,7 +459,7 @@ Fit the same model as <code>birth1</code>, but separate models for non-smokers a
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">plot</span>(<span class="dt">x =</span> birth<span class="op">$</span>LWT, <span class="dt">y =</span> birth<span class="op">$</span>BWT)</a>
 <a class="sourceLine" id="cb92-2" data-line-number="2"><span class="kw">abline</span>(birth2, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a>
 <a class="sourceLine" id="cb92-3" data-line-number="3"><span class="kw">abline</span>(birth3, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-69-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-69-1.svg" width="672" /></p>
 </div>
 <ul>
 <li>Comment on the plot</li>
@@ -560,7 +563,7 @@ F-statistic: 3.65 on 2 and 186 DF,  p-value: 0.0278 </code></pre>
 <a class="sourceLine" id="cb97-16" data-line-number="16">  <span class="co"># Add segment for the residuals</span></a>
 <a class="sourceLine" id="cb97-17" data-line-number="17">  <span class="kw">segments</span>(true<span class="op">$</span>x, true<span class="op">$</span>y, fitted<span class="op">$</span>x, fitted<span class="op">$</span>y, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>)[neg_res])</a>
 <a class="sourceLine" id="cb97-18" data-line-number="18">})</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-72-1.svg" width="100%" />
+<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-72-1.svg" width="100%" />
 <!-- ![Scatter3D](images/scatter3d.png) --></p>
 </div>
 <div id="an-interactive-3d-plot" class="section level5">

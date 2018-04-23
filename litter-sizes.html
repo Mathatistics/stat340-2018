@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="dataset-mtcars.html">
-<link rel="next" href="chlorine-levels-in-cities.html">
+<link rel="prev" href="random-effect-model.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -243,17 +243,133 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="analysis-of-variance" class="section level1">
-<h1>Analysis of variance</h1>
-<p><strong>We will use following datasets for this exercise:</strong></p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;_data/city.rdata&quot;</span>)</a>
-<a class="sourceLine" id="cb167-2" data-line-number="2"><span class="kw">load</span>(<span class="st">&quot;_data/nsr.rdata&quot;</span>)</a>
-<a class="sourceLine" id="cb167-3" data-line-number="3"><span class="kw">load</span>(<span class="st">&quot;_data/barley.rdata&quot;</span>)</a></code></pre></div>
-<p><strong>R-package we will use in this exercises</strong></p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1"><span class="co"># load the library</span></a>
-<a class="sourceLine" id="cb168-2" data-line-number="2"><span class="kw">library</span>(mixlm)</a>
-<a class="sourceLine" id="cb168-3" data-line-number="3"><span class="kw">library</span>(effects)</a></code></pre></div> 
+<div id="litter-sizes" class="section level2">
+<h2>Litter sizes</h2>
+<p>A scientist working with animal breading did the following experiment: He took a random sample of 6 boars (male pigs), and a random sample of 5 swine (pig) farms. At each farm 12 sows (females) were randomly picked out, and each boar was mated with 2 sows. The response was number of piglets from each sow. The data may be found in the file <code>litter.Rdata</code>.</p>
+<ul>
+<li><ol style="list-style-type: lower-alpha">
+<li>Assume a random effects model using litter <code>Size</code>as a response (<span class="math inline">\(y\)</span>) and <code>Farm</code> and <code>Boar</code> as random effects. Also include the interaction between the random effects in the model. State the model and write up all the assumptions made for the model.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p>We assume the random effects model:</p>
+<p><span class="math display">\[y_{ijk} = \mu + \alpha_i + \beta_j + \alpha\beta_{ij} + \epsilon_{ijk}\]</span></p>
+<p>with Farm levels <span class="math inline">\(i=1,...,5\)</span>, Boar levels <span class="math inline">\(j=1,...,b\)</span> and replicates (sows) <span class="math inline">\(k = 1,2\)</span>.</p>
+<p>where</p>
+<p><span class="math display">\[\alpha_i \sim N(0, \sigma_{\alpha}^2)\]</span></p>
+<p><span class="math display">\[\beta_j \sim N(0, \sigma_{\beta}^2)\]</span></p>
+<p><span class="math display">\[\alpha\beta_{ij} \sim N(0, \sigma_{\alpha\beta}^2)\]</span></p>
+<p><span class="math display">\[\epsilon_{ij} \sim N(0, \sigma^2)\]</span></p>
+<p>Further we assume that all random effects are independent of each other.</p>
 </div>
+<ul>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>Express the total theoretical variance of <span class="math inline">\(y_{ijk}\)</span> (where <span class="math inline">\(i=1,...,6\)</span>, <span class="math inline">\(j=1,...,5\)</span> and <span class="math inline">\(k=1,2\)</span>) in terms of the variance components of all random effects in the model. It may be shown that the theoretical correlation between any two litter sizes from the same Boar and within the same Farm is
+<span class="math inline">\(\sigma_{\alpha}^2 + \sigma_{\beta}^2 + \sigma_{\alpha\beta}^2\)</span> where the variance components belong to the Herd-effect, the Boar-effect and their interaction, respectively. How can we express the correlation between such two observations?</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p><span class="math display">\[\text{var}(y_{ijk}) = \text{var}(\mu + \alpha_i + \beta_j + \alpha\beta_{ij} + \epsilon_{ijk}) = \sigma_{\alpha}^2 + \sigma_{\beta}^2 + \sigma_{\alpha\beta}^2 + \sigma^2\]</span></p>
+<p>This means that the correlation between the litter sizes of two sows (<span class="math inline">\(k\)</span> and <span class="math inline">\(l\)</span>) from the same farm and mated with the same boar is
+<span class="math display">\[\text{cor}(y_{ijk}, y_{ijl})=\frac{\text{cov}(y_{ijk}, y_{ijl})}{\sqrt{\text{var}(y_{ijk})}\sqrt{\text{var}(y_{ijl})}} = \frac{\sigma_{\alpha}^2 + \sigma_{\beta}^2 + \sigma_{\alpha\beta}^2}{\sigma_{\alpha}^2 + \sigma_{\beta}^2 + \sigma_{\alpha\beta}^2 + \sigma^2}\]</span></p>
+</div>
+<ul>
+<li><ol start="3" style="list-style-type: lower-alpha">
+<li>Fit the model and estimate the mean litter size and find estimates for all variance components.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="kw">lmer</span>(Size <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Boar) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Farm) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Boar<span class="op">:</span>Farm), <span class="dt">data =</span> litter)</a>
+<a class="sourceLine" id="cb312-2" data-line-number="2"><span class="kw">summary</span>(mod)</a></code></pre></div>
+<pre><code>Linear mixed model fit by REML [&#39;lmerMod&#39;]
+Formula: Size ~ 1 + (1 | Boar) + (1 | Farm) + (1 | Boar:Farm)
+   Data: litter
+
+REML criterion at convergence: 187
+
+Scaled residuals: 
+   Min     1Q Median     3Q    Max 
+-1.550 -0.721  0.122  0.453  1.479 
+
+Random effects:
+ Groups    Name        Variance Std.Dev.
+ Boar:Farm (Intercept) 0.411    0.641   
+ Boar      (Intercept) 1.552    1.246   
+ Farm      (Intercept) 0.823    0.907   
+ Residual              0.600    0.775   
+Number of obs: 60, groups:  Boar:Farm, 30; Boar, 6; Farm, 5
+
+Fixed effects:
+            Estimate Std. Error t value
+(Intercept)    9.167      0.669    13.7</code></pre>
+<p>The intercept term gives an estimate of the mean litter size in the population which is 9.167. The variance component estimates are given in the random effects section of above output. We have the following estimates:</p>
+<p>Farm variance: <span class="math inline">\(\hat{\sigma}_{\alpha}^2 = 0.823\)</span></p>
+<p>Boar variance: <span class="math inline">\(\hat{\sigma}_{\beta}^2 = 1.552\)</span></p>
+<p>Farm:Boar variance: <span class="math inline">\(\hat{\sigma}_{\alpha\beta}^2 = 0.411\)</span></p>
+<p>Error variance: <span class="math inline">\(\hat{\sigma}^2 = 0.6\)</span></p>
+</div>
+<ul>
+<li><ol start="4" style="list-style-type: lower-alpha">
+<li>Find the estimated correlation as derived in exercise b.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p>Plugging these estimates into the formula found in exercise b. gives the estimated correlation:</p>
+<p><span class="math display">\[\widehat{\text{cor}(y_{ijk}, y_{ijl})} = \frac{0.823 + 1.552 + 0.411}{0.823 + 1.552 + 0.411 + 0.6} = 0.823\]</span></p>
+</div>
+<ul>
+<li><ol start="5" style="list-style-type: lower-alpha">
+<li>State the hypotheses for testing whether there is an interaction effect between Boar and Farm
+and perform the test. What is the appropriate test statistic for this test, what is the observed test statistic and what is the p-value? How do you
+interprete the result in terms of boars and farms?</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p>Model without interaction effect,</p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1">mod1 &lt;-<span class="st"> </span><span class="kw">update</span>(mod, . <span class="op">~</span><span class="st"> </span>. <span class="op">-</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Boar<span class="op">:</span>Farm))</a></code></pre></div>
+<p>Compare models with and without interaction using <code>anova</code> as,</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1">(anv &lt;-<span class="st"> </span><span class="kw">anova</span>(mod1, mod))</a></code></pre></div>
+<pre><code>refitting model(s) with ML (instead of REML)</code></pre>
+<pre><code>Data: litter
+Models:
+mod1: Size ~ (1 | Boar) + (1 | Farm)
+mod: Size ~ 1 + (1 | Boar) + (1 | Farm) + (1 | Boar:Farm)
+     Df AIC BIC logLik deviance Chisq Chi Df Pr(&gt;Chisq)  
+mod1  4 201 209  -96.3      193                          
+mod   5 198 208  -94.0      188  4.61      1      0.032 *
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>The Anova reports an Chisq based test for the interaction effect with a p-value of 0.032. With a test level of 5% we therefore reject a null-hypothesis <span class="math inline">\(H_0: \sigma_{\alpha\beta}^2 = 0\)</span> in favour of <span class="math inline">\(H_1: \sigma_{\alpha\beta}^2 &gt; 0\)</span> which implies that there are differences between the farm:boar interaction levels. As the interaction effect is significant at 5% level, we can say that at this level there is signifant difference between Boars taken from a given random Farm.</p>
+</div>
+<ul>
+<li><ol start="6" style="list-style-type: lower-alpha">
+<li>If you were to choose one boar among the six, which boar should be chosen (if any) in a breeding programme with the aim of increasing litter sizes?</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p>We can obtain the coefficients corresponding to each boars as,</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1"><span class="kw">coef</span>(mod)[[<span class="st">&quot;Boar&quot;</span>]]</a></code></pre></div>
+<pre><code>      (Intercept)
+Boar1        7.46
+Boar2        8.19
+Boar3        9.01
+Boar4        9.66
+Boar5       10.02
+Boar6       10.66</code></pre>
+<p>This suggests that <code>Boar6</code> has largest litter size.</p>
+</div>
+<ul>
+<li><ol start="7" style="list-style-type: lower-alpha">
+<li>Explain why boar should be treated as a random effect and not a fixed effect.</li>
+</ol></li>
+</ul>
+<div class="ans">
+<p>The boars are assumed to be selected from a large population of boars. We intend to use this selected
+group to say if there are differences between boars in general (for the entire population of boars). Therefore we should treat boar as a random effect.</p>
+</div>
+
+</div>
+<!-- </div> -->
 <script>
   ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
   showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
@@ -314,8 +430,8 @@ $('.ans p:has(img)').css('text-align', 'center');
           </div>
         </div>
       </div>
-<a href="dataset-mtcars.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chlorine-levels-in-cities.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="random-effect-model.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

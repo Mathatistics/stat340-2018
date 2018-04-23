@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="dataset-mtcars.html">
-<link rel="next" href="chlorine-levels-in-cities.html">
+<link rel="prev" href="taxonomy-data.html">
+<link rel="next" href="litter-sizes.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -243,16 +243,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="analysis-of-variance" class="section level1">
-<h1>Analysis of variance</h1>
-<p><strong>We will use following datasets for this exercise:</strong></p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb167-1" data-line-number="1"><span class="kw">load</span>(<span class="st">&quot;_data/city.rdata&quot;</span>)</a>
-<a class="sourceLine" id="cb167-2" data-line-number="2"><span class="kw">load</span>(<span class="st">&quot;_data/nsr.rdata&quot;</span>)</a>
-<a class="sourceLine" id="cb167-3" data-line-number="3"><span class="kw">load</span>(<span class="st">&quot;_data/barley.rdata&quot;</span>)</a></code></pre></div>
-<p><strong>R-package we will use in this exercises</strong></p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb168-1" data-line-number="1"><span class="co"># load the library</span></a>
-<a class="sourceLine" id="cb168-2" data-line-number="2"><span class="kw">library</span>(mixlm)</a>
-<a class="sourceLine" id="cb168-3" data-line-number="3"><span class="kw">library</span>(effects)</a></code></pre></div> 
+<div id="random-effect-model" class="section level1">
+<h1>Random Effect Model</h1>
+<p>For this exercise, we are using <code>lme4</code> and <code>car</code> packages and <code>litter</code> data.</p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb311-1" data-line-number="1"><span class="kw">library</span>(lme4)</a>
+<a class="sourceLine" id="cb311-2" data-line-number="2"><span class="kw">library</span>(car)</a>
+<a class="sourceLine" id="cb311-3" data-line-number="3"><span class="kw">load</span>(<span class="st">&quot;_data/litter.rdata&quot;</span>)</a></code></pre></div> 
 </div>
 <script>
   ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
@@ -314,8 +310,8 @@ $('.ans p:has(img)').css('text-align', 'center');
           </div>
         </div>
       </div>
-<a href="dataset-mtcars.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chlorine-levels-in-cities.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="taxonomy-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="litter-sizes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
