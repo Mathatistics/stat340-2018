@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Applied Methods in Statistics</title>
+  <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  <meta name="github-repo" content="mathatistics/stat340-2018-source" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  
+  <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  
+
+<meta name="author" content="Thore Egeland and Raju Rimal">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="exam-questions.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113782065-1');
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Applied Methods in Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Practical Information</a><ul>
+<li class="chapter" data-level="" data-path="lecture-and-exercise-plan.html"><a href="lecture-and-exercise-plan.html"><i class="fa fa-check"></i>Lecture and Exercise Plan</a></li>
+<li class="chapter" data-level="" data-path="reference-books.html"><a href="reference-books.html"><i class="fa fa-check"></i>Reference Books</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="exercise-1-create-new-project.html"><a href="exercise-1-create-new-project.html"><i class="fa fa-check"></i>Exercise 1: Create New Project</a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html"><i class="fa fa-check"></i>Exercise 2: Importing data in R</a><ul>
+<li><a href="exercise-2-importing-data-in-r.html#import-txt-or-csv">Import <code>txt</code> or <code>csv</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#import-microsoft-excel-spreadsheet"><i class="fa fa-check"></i>Import Microsoft Excel spreadsheet</a></li>
+<li><a href="exercise-2-importing-data-in-r.html#load-rdata-rda-or-rds">Load <code>rdata</code>, <code>rda</code> or <code>rds</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#reading-data-from-clipboard-pasting-copied-data-into-an-r-object"><i class="fa fa-check"></i>Reading data from clipboard (“pasting” copied data into an R object)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-3-exporting-data-to-a-file.html"><a href="exercise-3-exporting-data-to-a-file.html"><i class="fa fa-check"></i>Exercise 3: Exporting data to a file</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html"><i class="fa fa-check"></i>Exercise 4: Data Structure in R</a><ul>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#vector"><i class="fa fa-check"></i>Vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#list"><i class="fa fa-check"></i>List</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#data-frame"><i class="fa fa-check"></i>Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html"><i class="fa fa-check"></i>Exercise 5: Exploring the data</a><ul>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#structure-of-an-r-object"><i class="fa fa-check"></i>Structure of an R-object</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#accessing-elements-from-r-objects"><i class="fa fa-check"></i>Accessing elements from R-objects</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#view-data-in-rstudio"><i class="fa fa-check"></i>View Data in RStudio</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#summary-of-data"><i class="fa fa-check"></i>Summary of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#dimension-of-data"><i class="fa fa-check"></i>Dimension of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#lets-practice"><i class="fa fa-check"></i>Lets Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html"><i class="fa fa-check"></i>Exercise 6: Subsets of data and logical operators</a><ul>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#logical-vector-and-index-vector"><i class="fa fa-check"></i>Logical vector and index vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#subsetting-data-frame"><i class="fa fa-check"></i>Subsetting data frame</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#exercise-1"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html"><i class="fa fa-check"></i>Exercise 7: Graphics</a><ul>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html#spice-up-the-plot"><i class="fa fa-check"></i>Spice up the plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i>Regression Analysis</a><ul>
+<li class="chapter" data-level="" data-path="least-sqaures-app.html"><a href="least-sqaures-app.html"><i class="fa fa-check"></i>Least Sqaures App</a></li>
+<li class="chapter" data-level="" data-path="dataset-birth.html"><a href="dataset-birth.html"><i class="fa fa-check"></i>Dataset: birth</a><ul>
+<li><a href="dataset-birth.html#overview-of-data"><i class="fa fa-edit"></i> Overview of data</a></li>
+<li><a href="dataset-birth.html#linear-regression"><i class="fa fa-book"></i> Linear Regression</a></li>
+<li><a href="dataset-birth.html#regression-with-categories"><i class="fa fa-book"></i> Regression with categories</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataset-bodydata.html"><a href="dataset-bodydata.html"><i class="fa fa-check"></i>Dataset: bodydata</a><ul>
+<li><a href="dataset-bodydata.html#training-samples"><i class="fa fa-book"></i> Training Samples</a></li>
+<li><a href="dataset-bodydata.html#fitting-model"><i class="fa fa-edit"></i> Fitting Model</a></li>
+<li><a href="dataset-bodydata.html#understanding-the-fitted-model"><i class="fa fa-edit"></i> Understanding the fitted Model</a></li>
+<li><a href="dataset-bodydata.html#multiple-linear-regression-and-prediction"><i class="fa fa-edit"></i> Multiple Linear Regression and Prediction</a></li>
+<li><a href="dataset-bodydata.html#extra-on-r-squared"><i class="fa fa-book"></i> Extra on R-squared</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html"><i class="fa fa-check"></i>Dataset: mtcars</a><ul>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-1-model-fitting"><i class="fa fa-check"></i>Ex-1: Model Fitting</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-2-indicator-variable"><i class="fa fa-check"></i>Ex-2: Indicator variable</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-3-comparing-models---partial-f-test"><i class="fa fa-check"></i>Ex-3: Comparing models - Partial F-test</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-4-influential-measurements"><i class="fa fa-check"></i>Ex-4: Influential measurements</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-5-model-selection"><i class="fa fa-check"></i>Ex-5: Model selection</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-6-model-validation"><i class="fa fa-check"></i>Ex-6: Model validation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html"><i class="fa fa-check"></i>Analysis of variance</a><ul>
+<li class="chapter" data-level="" data-path="chlorine-levels-in-cities.html"><a href="chlorine-levels-in-cities.html"><i class="fa fa-check"></i>Chlorine levels in cities</a></li>
+<li class="chapter" data-level="" data-path="data-from-the-nsr-education-test.html"><a href="data-from-the-nsr-education-test.html"><i class="fa fa-check"></i>Data from the NSR education test</a></li>
+<li class="chapter" data-level="" data-path="barley-data.html"><a href="barley-data.html"><i class="fa fa-check"></i>Barley Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multivariate-analysis-pca.html"><a href="multivariate-analysis-pca.html"><i class="fa fa-check"></i>Multivariate Analysis (PCA)</a><ul>
+<li class="chapter" data-level="" data-path="track-and-field-data.html"><a href="track-and-field-data.html"><i class="fa fa-check"></i>Track and Field data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multivariate-analysis-pcr-pls.html"><a href="multivariate-analysis-pcr-pls.html"><i class="fa fa-check"></i>Multivariate Analysis (PCR, PLS)</a><ul>
+<li class="chapter" data-level="" data-path="prediction-of-cow-milk-percentage.html"><a href="prediction-of-cow-milk-percentage.html"><i class="fa fa-check"></i>Prediction of cow milk percentage</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="discrimination-and-classification.html"><a href="discrimination-and-classification.html"><i class="fa fa-check"></i>Discrimination and classification</a><ul>
+<li class="chapter" data-level="" data-path="iris-dataset.html"><a href="iris-dataset.html"><i class="fa fa-check"></i>Iris Dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html"><i class="fa fa-check"></i>Generalized Linear Model</a><ul>
+<li class="chapter" data-level="" data-path="species-data.html"><a href="species-data.html"><i class="fa fa-check"></i>Species Data</a></li>
+<li class="chapter" data-level="" data-path="taxonomy-data.html"><a href="taxonomy-data.html"><i class="fa fa-check"></i>Taxonomy Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="random-effect-model.html"><a href="random-effect-model.html"><i class="fa fa-check"></i>Random Effect Model</a><ul>
+<li class="chapter" data-level="" data-path="litter-sizes.html"><a href="litter-sizes.html"><i class="fa fa-check"></i>Litter sizes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="mixed-effect-model.html"><a href="mixed-effect-model.html"><i class="fa fa-check"></i>Mixed Effect Model</a><ul>
+<li class="chapter" data-level="" data-path="exercises-and-diet.html"><a href="exercises-and-diet.html"><i class="fa fa-check"></i>Exercises and Diet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exam-questions.html"><a href="exam-questions.html"><i class="fa fa-check"></i>Exam Questions</a><ul>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html"><i class="fa fa-check"></i>Exam 2017</a><ul>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html#exercise-1-1"><i class="fa fa-check"></i>Exercise 1</a></li>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html#exercise-2"><i class="fa fa-check"></i>Exercise 2</a></li>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html#exercise-3"><i class="fa fa-check"></i>Exercise 3</a></li>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html#exercise-4"><i class="fa fa-check"></i>Exercise 4</a></li>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html#appendix-to-exam-stat340"><i class="fa fa-check"></i>Appendix to exam STAT340</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
+<li><a name="title" href="javascript:void(0)"><b>Assistent Teachers:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/raju.rimal" target="blank">Raju Rimal</a></li></ul></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applied Methods in Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exam-2017" class="section level2">
+<h2>Exam 2017</h2>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1"><span class="kw">library</span>(nlme)</a>
+<a class="sourceLine" id="cb334-2" data-line-number="2"><span class="kw">load</span>(<span class="st">&quot;_data/Pear2011.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb334-3" data-line-number="3"><span class="kw">load</span>(<span class="st">&quot;_data/Pear.Rdata&quot;</span>)</a>
+<a class="sourceLine" id="cb334-4" data-line-number="4"><span class="kw">load</span>(<span class="st">&quot;_data/Reindeer.Rdata&quot;</span>)</a></code></pre></div>
+<div id="exercise-1-1" class="section level3">
+<h3>Exercise 1</h3>
+<p>The quality of fruits are often judged by the index of refraction (REF) and measured by means of a refractometer. The REF value is connected to the amount of sugar in a liquid solution. In an experiment at Bioforsk at Ås they were monitoring the REF’s in four types of pears. The data for the year 2011 containing 6 replicates for each sort of pear are given in Table 1a in the Appendix.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Define an ANOVA model suitable for analyzing these data in order to investigate the potential difference between the 4 sorts of pear with respect to the expected REF level. State the model assumptions and parameter restrictions (sum-to-zero) and interpret the model parameters.</p></li>
+<li><p>Based on Table 1b in the Appendix give answers to the following questions:</p>
+<ol style="list-style-type: decimal">
+<li><p>What are the estimated values of all unknown model parameters?</p></li>
+<li><p>Perform a hypothesis test for testing the significance of “sort” (Test level 5%). Interpret the results in light of the topic of the study.</p></li>
+</ol></li>
+<li><p>Consider the output from the Tukey test given in Table 1c. If we test with an over-all error rate of 5%, which pear sorts are significantly different from each other with respect to their expected REF level? When and why may it be important to use Tukey tests instead of regular pairwise contrasts in ANOVA?</p></li>
+</ol>
+</div>
+<div id="exercise-2" class="section level3">
+<h3>Exercise 2</h3>
+<p>The data in exercise 1 were really part of a bigger study that was repeated over three consecutive years from 2009 to 2011. The scientist performed an analysis of the data, across all three years, which gave the R-output given in Table 2 in the Appendix. Write a short report (~1-2 pages) based on the R output where you explain the model, its assumptions, the hypothesis tests and conclude on the results of the study.</p>
+</div>
+<div id="exercise-3" class="section level3">
+<h3>Exercise 3</h3>
+<p>A student studied reindeer that stayed at two different locations in northern Norway. One site was close to a wind mill farm near the coast (Kjøllefjord) and the other site was in the inland at the Finnmark plateau. A random sample of 10 reindeer was sampled at each site and the student counted the number of steps each reindeer took in a 4 minute period (variable “steps”) as a response variable and as an indicator of stress level. The student also registered the number of calves for each reindeer (0 or 1). The data are displayed in Table 3a in the Appendix.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>In Table 3b the results from a Poisson-regression is given (with reference level parametrization). Explain shortly the model which has been assumed for the analysis and give reasons to why a Poisson model is a reasonable choice in this case.</p></li>
+<li><p>Based on the output find the estimated expected step counts for two reindeer, one with and one without calf.</p></li>
+<li><p>In Table 3c the results from a deviance test for comparing two models has been conducted. Describe briefly the test procedure and use the output to test the hypothesis that reindeer close to the wind mill farm (coast) is expected to have a different expected step count (stress level) than reindeer in the inland.</p></li>
+</ol>
+</div>
+<div id="exercise-4" class="section level3">
+<h3>Exercise 4</h3>
+<p>In a beer liking study 9 women tasted 9 different beer types: 3 types of Ale (A1, A2, A3), 3 types of Strong Lager (SL1, SL2, SL3) and 3 types of Lager (L1, L2, L3). They scored each beer with a score between 1 (dislike) and 7 (like), and the data are given in Table 4a. A cluster analysis was conducted on the Euclidian distances between the beer type scores with the single linkage method.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Describe shortly the single linkage method and illustrate by finding the missing number in the bottom part of Table 4b (the distance between SL3 and the cluster L1/L3).</p></li>
+<li><p>Based on the dendrogram in Figure 4, answer the questions below:</p>
+<ol style="list-style-type: decimal">
+<li><p>Which class of beers (Ale, Strong Lager or Lager) seems to show highest internal similarity with regard to liking?</p></li>
+<li><p>Which of the nine beers is least similar to the others in liking?</p></li>
+<li><p>If you should put the nine beers into three clusters based on the single linkage clustering, at approximately what distance (height) would you cut the dendrogram tree, and which beers would make up the three clusters?</p></li>
+</ol></li>
+</ol>
+</div>
+<div id="appendix-to-exam-stat340" class="section level3">
+<h3>Appendix to exam STAT340</h3>
+<p><strong>Table 1a:</strong> The pear data from 2011</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1"><span class="kw">do.call</span>(cbind, <span class="kw">split</span>(Pear2011<span class="op">$</span>REF, Pear2011<span class="op">$</span>Sort)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb335-2" data-line-number="2"><span class="st">  </span><span class="kw">as.tibble</span>()</a></code></pre></div>
+<pre><code># A tibble: 6 x 4
+  KvedeA kvedeadams KvedeC Pyrodwarf
+   &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+1   12.1       12.4   12.7      11.3
+2   12.1       11.5   12.7      11.2
+3   12.4       11.4   12.3      12.1
+4   11.8       11.4   13.8      11.3
+5   11.6       10.8   12.5      10.8
+6   12.4       11.3   11.3      11.4</code></pre>
+<p><strong>Table 1b:</strong> R Commander output for exercise 1b</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" data-line-number="1">LinearModel<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(REF <span class="op">~</span><span class="st"> </span>Sort, <span class="dt">data =</span> Pear2011)</a>
+<a class="sourceLine" id="cb337-2" data-line-number="2"><span class="kw">summary</span>(LinearModel<span class="fl">.1</span>)</a></code></pre></div>
+<pre><code>
+Call:
+lm(formula = REF ~ Sort, data = Pear2011)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-1.250 -0.188 -0.050  0.150  1.250 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        11.858      0.112  106.09   &lt;2e-16 ***
+Sort(KvedeA)        0.208      0.194    1.08   0.2947    
+Sort(kvedeadams)   -0.392      0.194   -2.02   0.0566 .  
+Sort(KvedeC)        0.692      0.194    3.57   0.0019 ** 
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+s: 0.548 on 20 degrees of freedom
+Multiple R-squared: 0.483,
+Adjusted R-squared: 0.405 
+F-statistic: 6.23 on 3 and 20 DF,  p-value: 0.00367 </code></pre>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1"><span class="kw">Anova</span>(LinearModel<span class="fl">.1</span>, <span class="dt">type =</span> <span class="st">&quot;III&quot;</span>)</a></code></pre></div>
+<pre><code>Anova Table (Type III tests)
+
+Response: REF
+            Sum Sq Df  F value Pr(&gt;F)    
+(Intercept)   3375  1 11255.86 &lt;2e-16 ***
+Sort             6  3     6.23 0.0037 ** 
+Residuals        6 20                    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p><strong>Table 1c:</strong> Tukey test results for exercise 1d.</p>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1"><span class="kw">simple.glht</span>(LinearModel<span class="fl">.1</span>, <span class="st">&quot;Sort&quot;</span>)</a></code></pre></div>
+<pre><code>
+     Simultaneous Confidence Intervals and Tests for General Linear Hypotheses
+
+Multiple Comparisons of Means: Tukey Contrasts
+
+
+Fit: lm(formula = REF ~ Sort, data = Pear2011)
+
+Quantile = 2.8 
+Minimum significant difference = 0.885
+95% confidence level
+ 
+Linear Hypotheses:
+                      Lower Center  Upper Std.Err t value  P(&gt;t)   
+KvedeA-kvedeadams    -0.285  0.600  1.485   0.316    1.90 0.2604   
+KvedeA-KvedeC        -1.368 -0.483  0.402   0.316   -1.53 0.4398   
+KvedeA-Pyrodwarf     -0.168  0.717  1.602   0.316    2.27 0.1397   
+kvedeadams-KvedeC    -1.968 -1.083 -0.198   0.316   -3.43 0.0131 * 
+kvedeadams-Pyrodwarf -0.768  0.117  1.002   0.316    0.37 0.9823   
+KvedeC-Pyrodwarf      0.315  1.200  2.085   0.316    3.80 0.0057 **
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+(Adjusted p values reported -- single-step method)</code></pre>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1"><span class="kw">cld</span>(<span class="kw">simple.glht</span>(LinearModel<span class="fl">.1</span>,<span class="st">&#39;Sort&#39;</span>, <span class="dt">level =</span> <span class="fl">0.95</span>))</a></code></pre></div>
+<pre><code>Tukey&#39;s HSD
+Alpha: 0.05
+
+           Mean G1 G2
+KvedeC     12.6  A   
+KvedeA     12.1  A  B
+kvedeadams 11.5     B
+Pyrodwarf  11.3     B</code></pre>
+<p><strong>Table 2:</strong> R output for exercise 2</p>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1">Pear<span class="op">$</span>Year &lt;-<span class="st"> </span><span class="kw">as.factor</span>(Pear<span class="op">$</span>Year)</a>
+<a class="sourceLine" id="cb345-2" data-line-number="2">LinearModel<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(REF <span class="op">~</span><span class="st"> </span>Sort <span class="op">*</span><span class="st"> </span><span class="kw">r</span>(Year), <span class="dt">data =</span> Pear)</a>
+<a class="sourceLine" id="cb345-3" data-line-number="3"><span class="kw">Anova</span>(LinearModel<span class="fl">.2</span>, <span class="dt">type =</span> <span class="st">&quot;III&quot;</span>)</a></code></pre></div>
+<pre><code>Analysis of variance (unrestricted model)
+Response: REF
+          Mean Sq Sum Sq Df F value Pr(&gt;F)
+Sort         3.10   9.31  3   12.12 0.0059
+Year         2.24   4.47  2    8.73 0.0167
+Sort:Year    0.26   1.54  6    0.77 0.5956
+Residuals    0.33  19.92 60       -      -
+
+            Err.term(s) Err.df  VC(SS)
+1 Sort              (3)      6   fixed
+2 Year              (3)      6  0.0825
+3 Sort:Year         (4)     60 -0.0127
+4 Residuals           -      -  0.3321
+(VC = variance component)
+
+          Expected mean squares
+Sort      (4) + 6 (3) + 18 Q[1]
+Year      (4) + 6 (3) + 24 (2) 
+Sort:Year (4) + 6 (3)          
+Residuals (4)                  </code></pre>
+<p><strong>Table 3a :</strong> Data for exercise 3</p>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1">Reindeer</a></code></pre></div>
+<pre><code>   steps calf   site
+1     19    0 Inland
+2     23    0 Inland
+3     15    0 Inland
+4     16    0 Inland
+5     17    1 Inland
+6     16    1 Inland
+7     14    1 Inland
+8     10    1 Inland
+9     12    1 Inland
+10    13    1 Inland
+11    21    0  Coast
+12    20    0  Coast
+13    26    0  Coast
+14    25    0  Coast
+15    17    0  Coast
+16    18    0  Coast
+17    17    1  Coast
+18    12    1  Coast
+19    21    1  Coast
+20    19    1  Coast</code></pre>
+<p><strong>Table 3b:</strong> Output from R Commander for exercise 3a</p>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1">GLM<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">glm</span>(steps <span class="op">~</span><span class="st"> </span>calf, <span class="dt">family =</span> <span class="kw">poisson</span>(log), <span class="dt">data =</span> Reindeer)</a>
+<a class="sourceLine" id="cb349-2" data-line-number="2">GLM<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">glm</span>(steps <span class="op">~</span><span class="st"> </span>calf <span class="op">*</span><span class="st"> </span>site, <span class="dt">family =</span> <span class="kw">poisson</span>(log), <span class="dt">data =</span> Reindeer)</a>
+<a class="sourceLine" id="cb349-3" data-line-number="3"><span class="kw">summary</span>(GLM<span class="fl">.1</span>)</a></code></pre></div>
+<pre><code>
+Call:
+glm(formula = steps ~ calf, family = poisson(log), data = Reindeer)
+
+Deviance Residuals: 
+   Min      1Q  Median      3Q     Max  
+-1.399  -0.724  -0.113   0.523   1.433  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)   2.9957     0.0707   42.37   &lt;2e-16 ***
+calf(1)      -0.2810     0.1078   -2.61   0.0091 ** 
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 20.314  on 19  degrees of freedom
+Residual deviance: 13.451  on 18  degrees of freedom
+AIC: 111.1
+
+Number of Fisher Scoring iterations: 4</code></pre>
+<p><strong>Table 3c:</strong> Deviance test for exercise 3c</p>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1"><span class="kw">anova</span>(GLM<span class="fl">.1</span>, GLM<span class="fl">.2</span>, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>)</a></code></pre></div>
+<pre><code>Analysis of Deviance Table
+
+Model 1: steps ~ calf
+Model 2: steps ~ calf * site
+  Resid. Df Resid. Dev Df Deviance Pr(&gt;Chi)
+1        18       13.4                     
+2        16       10.4  2     3.04     0.22</code></pre>
+<p><strong>Table 4a :</strong> Beer liking data for 9 women</p>
+<pre><code>    K1 K2 K3 K4 K5 K6 K7 K8 K9
+A1   3  1  3  1  5  7  2  1  4
+A2   6  5  7  5  3  5  4  5  6
+A3   6  6  3  2  2  2  7  6  6
+SL1  6  6  4  3  2  5  5  1  6
+SL2  5  2  6  2  3  5  2  6  2
+SL3  5  2  7  2  6  7  4  7  5
+L1   4  5  7  4  5  4  6  6  4
+L2   5  6  5  5  5  3  5  5  6
+L3   5  6  6  3  6  3  6  7  5</code></pre>
+<p><strong>Table 4b:</strong> Euclidian distance matrix before clustering (top), and after step 1 of single linkage (bottom). Note that “L1/L3” denotes the cluster of L1 and L3.</p>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1"><span class="kw">dist</span>(dta)</a></code></pre></div>
+<pre><code>       A1    A2    A3   SL1   SL2   SL3    L1    L2
+A2   9.43                                          
+A3  11.09  6.78                                    
+SL1  8.06  5.66  6.32                              
+SL2  7.21  6.40  8.77  8.54                        
+SL3  8.00  6.08  9.22  9.22  5.29                  
+L1   9.59  4.36  6.56  7.42  6.32  5.48            
+L2   9.70  3.87  5.39  5.92  7.75  7.21  3.74      
+L3  10.58  5.39  5.57  7.94  7.48  6.16  2.83  3.46</code></pre>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">hclust</span>(<span class="kw">dist</span>(dta), <span class="dt">method =</span> <span class="st">&quot;single&quot;</span>), </a>
+<a class="sourceLine" id="cb356-2" data-line-number="2">     <span class="dt">main =</span> <span class="st">&quot;Cluster Dendrogram for Solution HClust.12&quot;</span>,</a>
+<a class="sourceLine" id="cb356-3" data-line-number="3">     <span class="dt">sub =</span> <span class="st">&quot;Method=single, Distance=euclidian&quot;</span>,</a>
+<a class="sourceLine" id="cb356-4" data-line-number="4">     <span class="dt">xlab =</span> <span class="st">&quot;Observation Number in dataset female.beer&quot;</span>)</a></code></pre></div>
+<div class="figure"><span id="fig:unnamed-chunk-224"></span>
+<img src="STAT340-2018_files/figure-html4/unnamed-chunk-224-1.svg" alt="Dendrogram from single linkage clustering of female beer liking scores" width="672" />
+<p class="caption">
+Figure 7: Dendrogram from single linkage clustering of female beer liking scores
+</p>
+</div>
+
+</div>
+</div>
+<!-- </div> -->
+<script>
+  ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
+  showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
+  hideAns_btn = '<a class="hideAns-btn btn pull-right js-toolbar-action" style="display:none;">Hide Answers</a>';
+  
+  // Adding Extra Menus in Navigation
+  
+  // Adding button on before each answer:::
+  $(".ans").before(ans_btn_html);
+  $('.btn-ans').each(function(){
+    $(this).next('.ans').andSelf().wrapAll('<div class="wrap-ans"/>');
+  });
+  $('.btn-ans').click(function(){
+    $(this).siblings('.ans').toggle(400);
+  });
+  
+if ($(".ans").length > 0){
+    $('.book-header').prepend(showAns_btn, hideAns_btn);
+    $('.showAns-btn').show();
+    $('.showAns-btn').click(function(){
+      $('.btn-ans').hide(400);
+      $('.ans').show(400);
+      $('.hideAns-btn').show();
+      $(this).hide();
+      $('.hideAns-btn').click(function(){
+        $('.btn-ans').show(400);
+        $('.ans').hide(400);
+        $('.showAns-btn').show();
+        $(this).hide();
+      });
+    });
+  }
+
+var chap = "week-two"
+if(window.location.href.indexOf(chap) != -1){
+  var now = new Date();
+  var release = new Date("August 21, 2016");
+  if(now < release){
+    $(".ans, .btn-ans, .showAns-btn, .hideAns-btn").hide()
+  }
+}
+
+$('.ans p:has(img)').css('text-align', 'center');
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82812028-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exam-questions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["STAT340-2018.pdf", "STAT340-2018.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

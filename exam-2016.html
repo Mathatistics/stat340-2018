@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Applied Methods in Statistics</title>
+  <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
+  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  <meta name="github-repo" content="mathatistics/stat340-2018-source" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  
+  <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
+  
+
+<meta name="author" content="Thore Egeland and Raju Rimal">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="exam-questions.html">
+<link rel="next" href="exam-2017.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113782065-1');
+</script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Applied Methods in Statistics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Practical Information</a><ul>
+<li class="chapter" data-level="" data-path="lecture-and-exercise-plan.html"><a href="lecture-and-exercise-plan.html"><i class="fa fa-check"></i>Lecture and Exercise Plan</a></li>
+<li class="chapter" data-level="" data-path="reference-books.html"><a href="reference-books.html"><i class="fa fa-check"></i>Reference Books</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a><ul>
+<li class="chapter" data-level="" data-path="exercise-1-create-new-project.html"><a href="exercise-1-create-new-project.html"><i class="fa fa-check"></i>Exercise 1: Create New Project</a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html"><i class="fa fa-check"></i>Exercise 2: Importing data in R</a><ul>
+<li><a href="exercise-2-importing-data-in-r.html#import-txt-or-csv">Import <code>txt</code> or <code>csv</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#import-microsoft-excel-spreadsheet"><i class="fa fa-check"></i>Import Microsoft Excel spreadsheet</a></li>
+<li><a href="exercise-2-importing-data-in-r.html#load-rdata-rda-or-rds">Load <code>rdata</code>, <code>rda</code> or <code>rds</code></a></li>
+<li class="chapter" data-level="" data-path="exercise-2-importing-data-in-r.html"><a href="exercise-2-importing-data-in-r.html#reading-data-from-clipboard-pasting-copied-data-into-an-r-object"><i class="fa fa-check"></i>Reading data from clipboard (“pasting” copied data into an R object)</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-3-exporting-data-to-a-file.html"><a href="exercise-3-exporting-data-to-a-file.html"><i class="fa fa-check"></i>Exercise 3: Exporting data to a file</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html"><i class="fa fa-check"></i>Exercise 4: Data Structure in R</a><ul>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#vector"><i class="fa fa-check"></i>Vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#matrix"><i class="fa fa-check"></i>Matrix</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#array"><i class="fa fa-check"></i>Array</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#list"><i class="fa fa-check"></i>List</a></li>
+<li class="chapter" data-level="" data-path="exercise-4-data-structure-in-r.html"><a href="exercise-4-data-structure-in-r.html#data-frame"><i class="fa fa-check"></i>Data Frame</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html"><i class="fa fa-check"></i>Exercise 5: Exploring the data</a><ul>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#structure-of-an-r-object"><i class="fa fa-check"></i>Structure of an R-object</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#accessing-elements-from-r-objects"><i class="fa fa-check"></i>Accessing elements from R-objects</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#view-data-in-rstudio"><i class="fa fa-check"></i>View Data in RStudio</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#summary-of-data"><i class="fa fa-check"></i>Summary of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#dimension-of-data"><i class="fa fa-check"></i>Dimension of data</a></li>
+<li class="chapter" data-level="" data-path="exercise-5-exploring-the-data.html"><a href="exercise-5-exploring-the-data.html#lets-practice"><i class="fa fa-check"></i>Lets Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html"><i class="fa fa-check"></i>Exercise 6: Subsets of data and logical operators</a><ul>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#logical-vector-and-index-vector"><i class="fa fa-check"></i>Logical vector and index vector</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#subsetting-data-frame"><i class="fa fa-check"></i>Subsetting data frame</a></li>
+<li class="chapter" data-level="" data-path="exercise-6-subsets-of-data-and-logical-operators.html"><a href="exercise-6-subsets-of-data-and-logical-operators.html#exercise-1"><i class="fa fa-check"></i>Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html"><i class="fa fa-check"></i>Exercise 7: Graphics</a><ul>
+<li class="chapter" data-level="" data-path="exercise-7-graphics.html"><a href="exercise-7-graphics.html#spice-up-the-plot"><i class="fa fa-check"></i>Spice up the plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="regression-analysis.html"><a href="regression-analysis.html"><i class="fa fa-check"></i>Regression Analysis</a><ul>
+<li class="chapter" data-level="" data-path="least-sqaures-app.html"><a href="least-sqaures-app.html"><i class="fa fa-check"></i>Least Sqaures App</a></li>
+<li class="chapter" data-level="" data-path="dataset-birth.html"><a href="dataset-birth.html"><i class="fa fa-check"></i>Dataset: birth</a><ul>
+<li><a href="dataset-birth.html#overview-of-data"><i class="fa fa-edit"></i> Overview of data</a></li>
+<li><a href="dataset-birth.html#linear-regression"><i class="fa fa-book"></i> Linear Regression</a></li>
+<li><a href="dataset-birth.html#regression-with-categories"><i class="fa fa-book"></i> Regression with categories</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataset-bodydata.html"><a href="dataset-bodydata.html"><i class="fa fa-check"></i>Dataset: bodydata</a><ul>
+<li><a href="dataset-bodydata.html#training-samples"><i class="fa fa-book"></i> Training Samples</a></li>
+<li><a href="dataset-bodydata.html#fitting-model"><i class="fa fa-edit"></i> Fitting Model</a></li>
+<li><a href="dataset-bodydata.html#understanding-the-fitted-model"><i class="fa fa-edit"></i> Understanding the fitted Model</a></li>
+<li><a href="dataset-bodydata.html#multiple-linear-regression-and-prediction"><i class="fa fa-edit"></i> Multiple Linear Regression and Prediction</a></li>
+<li><a href="dataset-bodydata.html#extra-on-r-squared"><i class="fa fa-book"></i> Extra on R-squared</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html"><i class="fa fa-check"></i>Dataset: mtcars</a><ul>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-1-model-fitting"><i class="fa fa-check"></i>Ex-1: Model Fitting</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-2-indicator-variable"><i class="fa fa-check"></i>Ex-2: Indicator variable</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-3-comparing-models---partial-f-test"><i class="fa fa-check"></i>Ex-3: Comparing models - Partial F-test</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-4-influential-measurements"><i class="fa fa-check"></i>Ex-4: Influential measurements</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-5-model-selection"><i class="fa fa-check"></i>Ex-5: Model selection</a></li>
+<li class="chapter" data-level="" data-path="dataset-mtcars.html"><a href="dataset-mtcars.html#ex-6-model-validation"><i class="fa fa-check"></i>Ex-6: Model validation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="analysis-of-variance.html"><a href="analysis-of-variance.html"><i class="fa fa-check"></i>Analysis of variance</a><ul>
+<li class="chapter" data-level="" data-path="chlorine-levels-in-cities.html"><a href="chlorine-levels-in-cities.html"><i class="fa fa-check"></i>Chlorine levels in cities</a></li>
+<li class="chapter" data-level="" data-path="data-from-the-nsr-education-test.html"><a href="data-from-the-nsr-education-test.html"><i class="fa fa-check"></i>Data from the NSR education test</a></li>
+<li class="chapter" data-level="" data-path="barley-data.html"><a href="barley-data.html"><i class="fa fa-check"></i>Barley Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multivariate-analysis-pca.html"><a href="multivariate-analysis-pca.html"><i class="fa fa-check"></i>Multivariate Analysis (PCA)</a><ul>
+<li class="chapter" data-level="" data-path="track-and-field-data.html"><a href="track-and-field-data.html"><i class="fa fa-check"></i>Track and Field data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="multivariate-analysis-pcr-pls.html"><a href="multivariate-analysis-pcr-pls.html"><i class="fa fa-check"></i>Multivariate Analysis (PCR, PLS)</a><ul>
+<li class="chapter" data-level="" data-path="prediction-of-cow-milk-percentage.html"><a href="prediction-of-cow-milk-percentage.html"><i class="fa fa-check"></i>Prediction of cow milk percentage</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="discrimination-and-classification.html"><a href="discrimination-and-classification.html"><i class="fa fa-check"></i>Discrimination and classification</a><ul>
+<li class="chapter" data-level="" data-path="iris-dataset.html"><a href="iris-dataset.html"><i class="fa fa-check"></i>Iris Dataset</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="generalized-linear-model.html"><a href="generalized-linear-model.html"><i class="fa fa-check"></i>Generalized Linear Model</a><ul>
+<li class="chapter" data-level="" data-path="species-data.html"><a href="species-data.html"><i class="fa fa-check"></i>Species Data</a></li>
+<li class="chapter" data-level="" data-path="taxonomy-data.html"><a href="taxonomy-data.html"><i class="fa fa-check"></i>Taxonomy Data</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="random-effect-model.html"><a href="random-effect-model.html"><i class="fa fa-check"></i>Random Effect Model</a><ul>
+<li class="chapter" data-level="" data-path="litter-sizes.html"><a href="litter-sizes.html"><i class="fa fa-check"></i>Litter sizes</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="mixed-effect-model.html"><a href="mixed-effect-model.html"><i class="fa fa-check"></i>Mixed Effect Model</a><ul>
+<li class="chapter" data-level="" data-path="exercises-and-diet.html"><a href="exercises-and-diet.html"><i class="fa fa-check"></i>Exercises and Diet</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exam-questions.html"><a href="exam-questions.html"><i class="fa fa-check"></i>Exam Questions</a><ul>
+<li class="chapter" data-level="" data-path="exam-2016.html"><a href="exam-2016.html"><i class="fa fa-check"></i>Exam 2016</a><ul>
+<li class="chapter" data-level="" data-path="exam-2016.html"><a href="exam-2016.html#exercise-1-1"><i class="fa fa-check"></i>Exercise 1</a></li>
+<li class="chapter" data-level="" data-path="exam-2016.html"><a href="exam-2016.html#exersise-2"><i class="fa fa-check"></i>Exersise 2</a></li>
+<li class="chapter" data-level="" data-path="exam-2016.html"><a href="exam-2016.html#exercise-3"><i class="fa fa-check"></i>Exercise 3</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html"><i class="fa fa-check"></i>Exam 2017</a><ul>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html#exercise-1-2"><i class="fa fa-check"></i>Exercise 1</a></li>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html#exercise-2"><i class="fa fa-check"></i>Exercise 2</a></li>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html#exercise-3-1"><i class="fa fa-check"></i>Exercise 3</a></li>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html#exercise-4"><i class="fa fa-check"></i>Exercise 4</a></li>
+<li class="chapter" data-level="" data-path="exam-2017.html"><a href="exam-2017.html#appendix-to-exam-stat340"><i class="fa fa-check"></i>Appendix to exam STAT340</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a name="title" href="javascript:void(0)"><b>Lecturer:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/thore.egeland" target="blank">Thore Egeland</a></li></ul></li>
+<li><a name="title" href="javascript:void(0)"><b>Assistent Teachers:</b></a><ul>
+<li><a href="https://www.nmbu.no/ans/raju.rimal" target="blank">Raju Rimal</a></li></ul></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Applied Methods in Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exam-2016" class="section level2">
+<h2>Exam 2016</h2>
+<div id="exercise-1-1" class="section level3">
+<h3>Exercise 1</h3>
+<p>A medical study was conducted to test the effectiveness of three drugs (A, B and C) on patients with one out of two diseases, depression (D) or schizophrenia (S). The experiments were conducted in two different and randomly chosen hospitals (1 and 2). In each hospital there were 3 replicates (patients) for every combination of drug and disease. An analysis was run in R Studio using the mixlm-package with “sum-to-zero” restrictions on the parameters. Use the output for “drugmod1” in Table 1 as far as you find it necessary to answer the questions a) -d). One value has been replaced by “?” in the output.</p>
+<ol style="list-style-type: lower-alpha">
+<li>State the model used in the analysis and give the model assumptions.</li>
+<li>Find estimates for all model parameters.</li>
+<li>Use the fitted model to predict the effectiveness for a new patient at hospital 1 who is to be treatedwith drug A for depression. What would the predicted effect be if this patient was to be treated at another randomly chosen hospital?</li>
+<li>Give an interpretation of R2and compute its value.</li>
+</ol>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">head</span>(drugdata, <span class="dv">5</span>)</a></code></pre></div>
+<pre><code>  Effectiveness Drug Disease Hospital 
+1            14    A       D        1 
+2            10    A       D        1 
+3             6    A       D        1 
+4             8    A       S        1 
+5             4    A       S        1 </code></pre>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb336-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span>drugmod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Effectiveness <span class="op">~</span><span class="st"> </span>Drug <span class="op">+</span><span class="st"> </span>Disease <span class="op">+</span><span class="st"> </span><span class="kw">r</span>(Hospital),  </a>
+<a class="sourceLine" id="cb336-2" data-line-number="2">                 <span class="dt">data=</span>drugdata) </a>
+<a class="sourceLine" id="cb336-3" data-line-number="3"><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(drugmod1) </a></code></pre></div>
+<pre><code>Call: 
+lm(formula = Effectiveness ~ Drug + Disease + r(Hospital),  
+   data = drugdata) 
+
+Coefficients: 
+             Estimate Std. Error t value Pr(&gt;|t|)     
+(Intercept)  8.27778    0.66708  12.409 1.46e-13 *** 
+Drug(A)     -0.02778    0.94339  -0.029   0.9767     
+Drug(B)     -2.19444    0.94339  -2.326   0.0267 *   
+Disease(D)   0.94444    0.66708   1.416   0.1668     
+Hospital(1) -1.38889    0.66708  -2.082   0.0457 *   
+
+s: 4.002 on 31 degrees of freedom 
+Multiple R-squared: ? 
+Adjusted R-squared: 0.2161  
+F-statistic: 3.412 on 4 and 31 DF,  p-value: 0.0201  </code></pre>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb338-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">Anova</span>(drugmod1, <span class="dt">type=</span><span class="st">&quot;III&quot;</span>) </a></code></pre></div>
+<pre><code>Analysis of variance (unrestricted model) 
+Response: Effectiveness 
+            Mean Sq Sum Sq Df F value Pr(&gt;F) 
+Drug        58.53 117.06  2    3.65 0.0376 
+Disease     32.11  32.11  1    2.00 0.1668 
+Hospital    69.44  69.44  1    4.33 0.0457 
+Residuals   16.02 496.61 31       -      - 
+
+                  Err.term(s) Err.df VC(SS) 1 
+Drug              (4)     31  fixed 2 
+Disease           (4)     31  fixed 3 
+Hospital          (4)     31   2.97 4 
+Residuals           -      -  16.02 
+(VC = variance component) </code></pre>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb340-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">summary</span>(drugmod2) </a></code></pre></div>
+<pre><code>
+Call:lm(formula = Effectiveness ~ Drug + Disease + Drug:Disease +  
+        r(Hospital), data = drug) 
+
+Coefficients: 
+                    Estimate Std. Error t value Pr(&gt;|t|)     
+(Intercept)         8.33333    0.44132  18.883  &lt; 2e-16 *** 
+Drug(A)            -0.08333    0.62446  -0.133  0.89476     
+Drug(B)            -1.83333    0.62446  -2.936  0.00645 **  
+Disease(D)          0.77778    0.44156   1.761  0.08871 .   
+Hospital(1)        -1.33333    0.44156  -3.020  0.00524 **  
+Drug(A):Disease(D)  1.97222    0.62446   3.158  0.00369 **  
+Drug(B):Disease(D) -4.11111    0.62446  -6.583 3.26e-07 *** 
+
+s: 2.648 on 29 degrees of freedom 
+Multiple R-squared: 0.7001, 
+Adjusted R-squared: 0.638  
+F-statistic: 11.28 on 6 and 29 DF,  p-value: 1.727e-06 </code></pre>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb342-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">Anova</span>(drugmod2, <span class="dt">type=</span><span class="st">&quot;III&quot;</span>) </a></code></pre></div>
+<pre><code>Analysis of variance (unrestricted model) 
+Response: Effectiveness 
+
+               Mean Sq Sum Sq Df F value Pr(&gt;F) 
+Drug           58.53 117.06  2    8.34 0.0014 
+Disease        32.11  32.11  1    4.57 0.0410 
+Hospital       69.44  69.44  1    9.89 0.0038 
+Drug:Disease  146.53 293.06  2   20.88 0.0000 
+Residuals       7.02 203.56 29       -      - 
+
+              Err.term(s) Err.df VC(SS) 1 
+Drug                 (5)     29  fixed 2 
+Disease              (5)     29  fixed 3 
+Hospital             (5)     29   3.47 4 
+Drug:Disease         (5)     29  fixed 5 
+Residuals              -      -   7.02 
+(VC = variance component)</code></pre>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb344-1" data-line-number="1"><span class="op">&gt;</span><span class="st"> </span><span class="kw">anova</span>(drugmod1, drugmod2) </a></code></pre></div>
+<pre><code>Analysis of Variance Table 
+
+Model 1: Effectiveness ~ Drug + Disease + Hospital 
+Model 2: Effectiveness ~ Drug + Disease + Hospital + Drug:Disease 
+
+  Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)     
+1     31 496.61                                   
+2     29 203.33  2    293.28 20.914 2.381e-06 *** </code></pre>
+</div>
+<div id="exersise-2" class="section level3">
+<h3>Exersise 2</h3>
+<p>n Figure 3 above you can see the frequencies of letters (plus space and special characters) in a single poem by William Shakespeare. You can see that he, for instance, uses the letters “e” and “t” a lot. Other poets may use the letters by other frequencies. We have gathered such frequency data from 23 poems in total; 8 by William Blake, 7 by T.S. Eliot and 8 by William Shakespeare. The letter frequencies are here considered as variables describing the poetry of these three poets.</p>
+<p>In Table 3 the first 4 rows and the first 5 columns of the “poetry” data set are shown. In addition, a principal component analysis was conducted with a summary shown for the first 5 components. Loadings-and scores plots for PC1 vs PC2 are shown in Figure 4.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Give a shortgeneral description of the method of Principal Component Analysis (PCA). You may use the poetry data example for illustration, if needed.</li>
+<li>We now turn to the PCA of the poetry data. What portion of the total variability in the po-etry data is captured jointly by the two first components? And how much is captured jointly by components 3 and 4?</li>
+<li>Based on Figure 4 give an interpretation of the two first principal components. Select two variables that you think would be good variables for discriminating between the three au-thors and explain why.</li>
+</ol>
+</div>
+<div id="exercise-3" class="section level3">
+<h3>Exercise 3</h3>
+<ol style="list-style-type: lower-alpha">
+<li><p>First, a linear discriminant analysis (LDA) was conductedusing PC1 and PC2 as predic-tors. Some output from R is given in the table below. Use the output to classify the six test samples to either Shakespeare, Eliot or Blake.</p></li>
+<li><p>Write up a confusion matrix for the test classification with true author as rows andclassi-fied authors as columns. Compute the test error rate. An alternative analysis was conducted using a multinomial logistic regression model. The analysis and output is given below.</p></li>
+<li><p>Define pBlake as the probability that a poem with observed scores PC1 and PC2 is written by William Blake. Write up an expression for the estimated pBlakebased on the output above. What is the posterior probability of a poem being written by Blake if the observed scores for both PC1 and PC2 are equal to 0?</p></li>
+</ol>
+
+</div>
+</div>
+<script>
+  ans_btn_html = '<a class = "btn-ans"><span class="label label-success no-print">&lt;ANS/&gt;</span></a>';
+  showAns_btn = '<a class="showAns-btn btn pull-right js-toolbar-action">Show Answers</a>';
+  hideAns_btn = '<a class="hideAns-btn btn pull-right js-toolbar-action" style="display:none;">Hide Answers</a>';
+  
+  // Adding Extra Menus in Navigation
+  
+  // Adding button on before each answer:::
+  $(".ans").before(ans_btn_html);
+  $('.btn-ans').each(function(){
+    $(this).next('.ans').andSelf().wrapAll('<div class="wrap-ans"/>');
+  });
+  $('.btn-ans').click(function(){
+    $(this).siblings('.ans').toggle(400);
+  });
+  
+if ($(".ans").length > 0){
+    $('.book-header').prepend(showAns_btn, hideAns_btn);
+    $('.showAns-btn').show();
+    $('.showAns-btn').click(function(){
+      $('.btn-ans').hide(400);
+      $('.ans').show(400);
+      $('.hideAns-btn').show();
+      $(this).hide();
+      $('.hideAns-btn').click(function(){
+        $('.btn-ans').show(400);
+        $('.ans').hide(400);
+        $('.showAns-btn').show();
+        $(this).hide();
+      });
+    });
+  }
+
+var chap = "week-two"
+if(window.location.href.indexOf(chap) != -1){
+  var now = new Date();
+  var release = new Date("August 21, 2016");
+  if(now < release){
+    $(".ans, .btn-ans, .showAns-btn, .hideAns-btn").hide()
+  }
+}
+
+$('.ans p:has(img)').css('text-align', 'center');
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82812028-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exam-questions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exam-2017.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["STAT340-2018.pdf", "STAT340-2018.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
