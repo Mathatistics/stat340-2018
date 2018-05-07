@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 504.00 360.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    line, polyline, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<text transform='translate(76.98,109.33) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='14.68px' lengthAdjust='spacingAndGlyphs'>A1</text>
+<text transform='translate(124.98,176.95) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='21.35px' lengthAdjust='spacingAndGlyphs'>SL1</text>
+<text transform='translate(172.98,191.28) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='21.35px' lengthAdjust='spacingAndGlyphs'>SL2</text>
+<text transform='translate(220.98,191.28) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='21.35px' lengthAdjust='spacingAndGlyphs'>SL3</text>
+<polyline points='170.40,159.93 170.40,142.74 218.40,142.74 218.40,159.93 ' style='stroke-width: 0.75;' />
+<text transform='translate(268.98,180.93) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='14.68px' lengthAdjust='spacingAndGlyphs'>A3</text>
+<text transform='translate(316.98,240.23) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='14.68px' lengthAdjust='spacingAndGlyphs'>A2</text>
+<text transform='translate(364.98,254.93) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>L2</text>
+<text transform='translate(412.98,279.86) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>L1</text>
+<text transform='translate(460.98,279.86) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>L3</text>
+<polyline points='410.40,256.52 410.40,239.33 458.40,239.33 458.40,256.52 ' style='stroke-width: 0.75;' />
+<polyline points='362.40,231.59 362.40,214.40 434.40,214.40 434.40,239.33 ' style='stroke-width: 0.75;' />
+<polyline points='314.40,215.56 314.40,198.37 398.40,198.37 398.40,214.40 ' style='stroke-width: 0.75;' />
+<polyline points='266.40,156.26 266.40,139.07 356.40,139.07 356.40,198.37 ' style='stroke-width: 0.75;' />
+<polyline points='194.40,142.74 194.40,135.46 311.40,135.46 311.40,139.07 ' style='stroke-width: 0.75;' />
+<polyline points='122.40,145.60 122.40,128.42 252.90,128.42 252.90,135.46 ' style='stroke-width: 0.75;' />
+<polyline points='74.40,84.65 74.40,67.47 187.65,67.47 187.65,128.42 ' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='271.82' x2='59.04' y2='59.04' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='271.82' x2='51.84' y2='271.82' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='232.60' x2='51.84' y2='232.60' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='193.39' x2='51.84' y2='193.39' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='154.17' x2='51.84' y2='154.17' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='114.96' x2='51.84' y2='114.96' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='75.75' x2='51.84' y2='75.75' style='stroke-width: 0.75;' />
+<text transform='translate(41.76,275.16) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text transform='translate(41.76,235.94) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text transform='translate(41.76,196.73) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text transform='translate(41.76,157.51) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text transform='translate(41.76,118.30) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>6</text>
+<text transform='translate(41.76,79.08) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>7</text>
+<text x='123.28' y='34.53' style='font-size: 14.40px; font-weight: bold; font-family: Arial;' textLength='286.25px' lengthAdjust='spacingAndGlyphs'>Cluster Dendrogram for Solution HClust.12</text>
+<text x='173.34' y='355.68' style='font-size: 12.00px; font-family: Arial;' textLength='186.12px' lengthAdjust='spacingAndGlyphs'>Method=single, Distance=euclidian</text>
+<text x='150.01' y='341.28' style='font-size: 12.00px; font-family: Arial;' textLength='232.79px' lengthAdjust='spacingAndGlyphs'>Observation Number in dataset female.beer</text>
+<text transform='translate(12.96,190.14) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='34.69px' lengthAdjust='spacingAndGlyphs'>Height</text>
+</svg>

@@ -260,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="plot-the-heights-versus-the-weights-for-all-observations-in-bodydata." class="section level4">
 <h4>Plot the heights versus the weights for all observations in bodydata.</h4>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">with</span>(bodydata, <span class="kw">plot</span>(<span class="dt">x =</span> Height, <span class="dt">y =</span> Weight))</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-50-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-50-1.svg" width="672" /></p>
 </div>
 <div id="spice-up-the-plot" class="section level3">
 <h3>Spice up the plot</h3>
@@ -275,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="plot-all-variables-against-each-other" class="section level4">
 <h4>Plot all variables against each other</h4>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="kw">pairs</span>(bodydata, <span class="dt">col =</span> mycolors)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-52-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-52-1.svg" width="672" /></p>
 </div>
 <div id="which-variables-seem-to-be-most-correlated-to-each-other" class="section level4">
 <h4>Which variables seem to be most correlated to each other?</h4>
@@ -316,7 +316,7 @@ Circumference  0.899 0.5448 0.3547         1.000</code></pre>
 <a class="sourceLine" id="cb73-2" data-line-number="2">      <span class="dt">lower.panel =</span> panel.smooth, </a>
 <a class="sourceLine" id="cb73-3" data-line-number="3">      <span class="dt">upper.panel =</span> panel.cor,</a>
 <a class="sourceLine" id="cb73-4" data-line-number="4">      <span class="dt">diag.panel =</span> panel.hist)</a></code></pre></div>
-<p><img src="STAT340-2018_files/figure-html4/unnamed-chunk-57-1.svg" width="672" /></p>
+<p><img src="STAT340-2018_files/figure-html/unnamed-chunk-57-1.svg" width="672" /></p>
 <p>Here the <code>panel.smooth</code> deals with the smooth line on the lower panel of <code>pairs</code> plot.</p>
 <p><strong>Note::</strong> Chapter 5 of the R book contains numerous examples of graphics.
 <strong>Note::</strong> For those interested in playing around with plots in R checkout: <a href="http://r4ds.had.co.nz/data-visualisation.html" class="uri">http://r4ds.had.co.nz/data-visualisation.html</a></p>
