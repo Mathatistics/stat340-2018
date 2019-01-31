@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Applied Methods in Statistics</title>
+  <title>Litter sizes | Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:title" content="Litter sizes | Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="mathatistics/stat340-2018-source" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  <meta name="twitter:title" content="Litter sizes | Applied Methods in Statistics" />
   
   <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
   
@@ -35,6 +35,7 @@
 <link rel="next" href="mixed-effect-model.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
 <script>
@@ -60,7 +62,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -73,13 +75,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -291,8 +291,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol></li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb312-1" data-line-number="1">mod &lt;-<span class="st"> </span><span class="kw">lmer</span>(Size <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Boar) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Farm) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Boar<span class="op">:</span>Farm), <span class="dt">data =</span> litter)</a>
-<a class="sourceLine" id="cb312-2" data-line-number="2"><span class="kw">summary</span>(mod)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">lmer</span>(Size <span class="op">~</span><span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Boar) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Farm) <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Boar<span class="op">:</span>Farm), <span class="dt">data =</span> litter)
+<span class="kw">summary</span>(mod)</code></pre>
 <pre><code>Linear mixed model fit by REML [&#39;lmerMod&#39;]
 Formula: Size ~ 1 + (1 | Boar) + (1 | Farm) + (1 | Boar:Farm)
    Data: litter
@@ -338,9 +338,9 @@ interprete the result in terms of boars and farms?</li>
 </ul>
 <div class="ans">
 <p>Model without interaction effect,</p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb314-1" data-line-number="1">mod1 &lt;-<span class="st"> </span><span class="kw">update</span>(mod, . <span class="op">~</span><span class="st"> </span>. <span class="op">-</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Boar<span class="op">:</span>Farm))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mod1 &lt;-<span class="st"> </span><span class="kw">update</span>(mod, . <span class="op">~</span><span class="st"> </span>. <span class="op">-</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Boar<span class="op">:</span>Farm))</code></pre>
 <p>Compare models with and without interaction using <code>anova</code> as,</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb315-1" data-line-number="1">(anv &lt;-<span class="st"> </span><span class="kw">anova</span>(mod1, mod))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">(anv &lt;-<span class="st"> </span><span class="kw">anova</span>(mod1, mod))</code></pre>
 <pre><code>refitting model(s) with ML (instead of REML)</code></pre>
 <pre><code>Data: litter
 Models:
@@ -360,7 +360,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </ul>
 <div class="ans">
 <p>We can obtain the coefficients corresponding to each boars as,</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb318-1" data-line-number="1"><span class="kw">coef</span>(mod)[[<span class="st">&quot;Boar&quot;</span>]]</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coef</span>(mod)[[<span class="st">&quot;Boar&quot;</span>]]</code></pre>
 <pre><code>      (Intercept)
 Boar1        7.46
 Boar2        8.19
@@ -463,7 +463,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -473,6 +473,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -490,7 +494,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

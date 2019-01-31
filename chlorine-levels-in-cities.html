@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Applied Methods in Statistics</title>
+  <title>Chlorine levels in cities | Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:title" content="Chlorine levels in cities | Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="mathatistics/stat340-2018-source" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  <meta name="twitter:title" content="Chlorine levels in cities | Applied Methods in Statistics" />
   
   <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
   
@@ -35,6 +35,7 @@
 <link rel="next" href="data-from-the-nsr-education-test.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
 <script>
@@ -60,7 +62,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -73,13 +75,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -259,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Chlorine levels in cities</h2>
 <p>Independent measurements of chlorine (ppm parts per million) were taken from 3
 large cities:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb169-1" data-line-number="1">city</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">city</code></pre>
 <pre><code>   City1 City2 City3
 1   0.46  1.21  0.44
 2   0.92 10.86  0.71
@@ -285,12 +285,12 @@ large cities:</p>
 <li>Load the <code>city.rdata</code> which is available on Canvas.</li>
 </ul>
 <p>Before analyzing the data it is best to “stack” the data into two columns, a response column <code>y</code> and a city factor column <code>city</code>. By using the <code>stack()</code> function in R you can restructure the city data by</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb171-1" data-line-number="1">citydata &lt;-<span class="st"> </span><span class="kw">stack</span>(city)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">citydata &lt;-<span class="st"> </span><span class="kw">stack</span>(city)</code></pre>
 <ul>
 <li>Use the <code>colnames()</code> function to rename the variables as <code>y</code> and <code>city</code>.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb172-1" data-line-number="1"><span class="kw">colnames</span>(citydata) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;y&quot;</span>, <span class="st">&quot;city&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">colnames</span>(citydata) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;y&quot;</span>, <span class="st">&quot;city&quot;</span>)</code></pre>
 </div>
 <ul>
 <li>Assume an ANOVA-model with chlorine as response and city as a factor. What assumptions do you make?</li>
@@ -304,7 +304,7 @@ large cities:</p>
 <li>Make a box-plot of the data. Describe the variabilities between cities and within cities.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb173-1" data-line-number="1"><span class="kw">plot</span>(y <span class="op">~</span><span class="st"> </span>city, <span class="dt">data =</span> citydata)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(y <span class="op">~</span><span class="st"> </span>city, <span class="dt">data =</span> citydata)</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-119-1.svg" width="60%" /></p>
 <p>City 1 seems to have both the lowest average chlorine levels and the smallest variability in the measurements. Cities 2 and 3 are quite similar with both higher means and variability.</p>
 </div>
@@ -312,24 +312,24 @@ large cities:</p>
 <li>Fit the model and perform a residual analysis. Comment on the model fit.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb174-1" data-line-number="1"><span class="kw">options</span>(<span class="dt">contrasts=</span><span class="kw">c</span>(<span class="st">&quot;contr.treatment&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))</a>
-<a class="sourceLine" id="cb174-2" data-line-number="2">citymod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>city, <span class="dt">data =</span> citydata)</a>
-<a class="sourceLine" id="cb174-3" data-line-number="3"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb174-4" data-line-number="4"><span class="kw">plot</span>(citymod1, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">contrasts=</span><span class="kw">c</span>(<span class="st">&quot;contr.treatment&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))
+citymod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>city, <span class="dt">data =</span> citydata)
+<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+<span class="kw">plot</span>(citymod1, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-120-1.svg" width="100%" /></p>
 <p>The residual analysis reveals two problems: 1) Non-constant variability, which was also observed in the boxplot, and 2) A skeewed and non-normal distribution for the residuals with a heavy tail to the right.</p>
 </div>
 <ul>
 <li>Make a log-transformation of <span class="math inline">\(y\)</span> to create the variable <code>logy</code>, and add the new variable to your data set by:</li>
 </ul>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb175-1" data-line-number="1">citydata<span class="op">$</span>logy &lt;-<span class="st"> </span><span class="kw">log</span>(citydata<span class="op">$</span>y)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">citydata<span class="op">$</span>logy &lt;-<span class="st"> </span><span class="kw">log</span>(citydata<span class="op">$</span>y)</code></pre>
 <ul>
 <li>Fit a new model with <code>logy</code> as response and check the model fit again.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb176-1" data-line-number="1">citymod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(logy<span class="op">~</span>city, <span class="dt">data =</span> citydata)</a>
-<a class="sourceLine" id="cb176-2" data-line-number="2"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb176-3" data-line-number="3"><span class="kw">plot</span>(citymod2, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">citymod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(logy<span class="op">~</span>city, <span class="dt">data =</span> citydata)
+<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(citymod2, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-122-1.svg" width="100%" /></p>
 <p>Both problems from the previous model appear to be corrected. We continue with this model.</p>
 </div>
@@ -338,7 +338,7 @@ large cities:</p>
 </ul>
 <div class="ans">
 <p>The ANOVA analysis using contr.treatment parametrization:</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb177-1" data-line-number="1"><span class="kw">summary</span>(citymod2)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(citymod2)</code></pre>
 <pre><code>
 Call:
 lm(formula = logy ~ city, data = citydata)
@@ -359,7 +359,7 @@ s: 1.03 on 57 degrees of freedom
 Multiple R-squared: 0.255,
 Adjusted R-squared: 0.229 
 F-statistic: 9.75 on 2 and 57 DF,  p-value: 0.000228 </code></pre>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb179-1" data-line-number="1"><span class="kw">Anova</span>(citymod2)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Anova</span>(citymod2)</code></pre>
 <pre><code>Anova Table (Type II tests)
 
 Response: logy
@@ -368,7 +368,7 @@ city        20.8  2    9.75 0.00023 ***
 Residuals   60.7 57                    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb181-1" data-line-number="1">coefs &lt;-<span class="st"> </span>citymod2<span class="op">$</span>coefficients</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">coefs &lt;-<span class="st"> </span>citymod2<span class="op">$</span>coefficients</code></pre>
 <p>We observe that <span class="math inline">\(R^2 = 0.25\)</span> indicating that there is still a lot of unexplained variability in the response. We get the following estimates for the city means of log(chlorine)-levels using this parametrization (city 1 is reference city):</p>
 <p><span class="math inline">\(\mu_1 = \mu =\)</span> -0.3</p>
 <p><span class="math inline">\(\mu_2 = \mu + \alpha_2 =\)</span> 0.93</p>
@@ -468,7 +468,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -478,6 +478,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -495,7 +499,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

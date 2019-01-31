@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Applied Methods in Statistics</title>
+  <title>Barley Data | Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:title" content="Barley Data | Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="mathatistics/stat340-2018-source" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  <meta name="twitter:title" content="Barley Data | Applied Methods in Statistics" />
   
   <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
   
@@ -35,6 +35,7 @@
 <link rel="next" href="multivariate-analysis-pca.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
 <script>
@@ -60,7 +62,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -73,13 +75,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -278,16 +278,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fit the model in R and estimate all parameters</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb190-1" data-line-number="1"><span class="kw">options</span>(<span class="dt">contrasts =</span> <span class="kw">c</span>(<span class="st">&quot;contr.sum&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))</a>
-<a class="sourceLine" id="cb190-2" data-line-number="2">mod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Yield <span class="op">~</span><span class="st"> </span>sort <span class="op">*</span><span class="st"> </span>soil, <span class="dt">data =</span> Barley)</a>
-<a class="sourceLine" id="cb190-3" data-line-number="3">summod1 &lt;-<span class="st"> </span><span class="kw">summary</span>(mod1)</a>
-<a class="sourceLine" id="cb190-4" data-line-number="4">summod1<span class="op">$</span>coef</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">contrasts =</span> <span class="kw">c</span>(<span class="st">&quot;contr.sum&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))
+mod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Yield <span class="op">~</span><span class="st"> </span>sort <span class="op">*</span><span class="st"> </span>soil, <span class="dt">data =</span> Barley)
+summod1 &lt;-<span class="st"> </span><span class="kw">summary</span>(mod1)
+summod1<span class="op">$</span>coef</code></pre>
 <pre><code>                Estimate Std. Error t value Pr(&gt;|t|)
 (Intercept)        380.9       10.1   37.55 1.70e-25
 sort(1)            -23.6       10.1   -2.33 2.73e-02
 soil(1)            -43.1       10.1   -4.25 2.14e-04
 sort(1):soil(1)     13.8       10.1    1.36 1.84e-01</code></pre>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb192-1" data-line-number="1">summod1<span class="op">$</span>sigma <span class="op">^</span><span class="st"> </span><span class="dv">2</span></a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">summod1<span class="op">$</span>sigma <span class="op">^</span><span class="st"> </span><span class="dv">2</span></code></pre>
 <pre><code>[1] 3293</code></pre>
 <p>From the model summaries we find the estimated parameters to be:</p>
 <ol style="list-style-type: decimal">
@@ -304,7 +304,7 @@ sort(1):soil(1)     13.8       10.1    1.36 1.84e-01</code></pre>
 <li>Make an interaction plot and try to conclude about the presence of interaction from the plot. How would you explain interaction effect in this example for a person with experience in agriculture, but minimal statistical experience?</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb194-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">allEffects</span>(mod1,<span class="dt">confidence.level =</span> <span class="fl">.95</span>))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">allEffects</span>(mod1,<span class="dt">confidence.level =</span> <span class="fl">.95</span>))</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-128-1.svg" width="100%" /></p>
 From the plot, it seems that a farmer can expect an increase in yield when using sort 2 instead of sort 1 for both types of soil, and there may be a higher gain of sort 2 over sort 1 for soil-type 2 than for soil type 1. If this is so, there is a so-called interaction effect of sort and soil on yield.
 </div>
@@ -312,7 +312,7 @@ From the plot, it seems that a farmer can expect an increase in yield when using
 <li>Perform a hypothesis test for the interaction effect. Conclusion?</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb195-1" data-line-number="1"><span class="kw">Anova</span>(mod1, <span class="dt">type =</span> <span class="st">&quot;III&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Anova</span>(mod1, <span class="dt">type =</span> <span class="st">&quot;III&quot;</span>)</code></pre>
 <pre><code>Anova Table (Type III tests)
 
 Response: Yield
@@ -332,8 +332,8 @@ all factors are tested as if they were the last factor to be added to the model.
 Are there any higher order significant effects? Compare the R-squared and the adjusted R-squared values. What can you conclude from these?</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb197-1" data-line-number="1">mod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(Yield <span class="op">~</span><span class="st"> </span>sort <span class="op">*</span><span class="st"> </span>soil <span class="op">*</span><span class="st"> </span>fert <span class="op">*</span><span class="st"> </span>site, <span class="dt">data =</span> Barley)</a>
-<a class="sourceLine" id="cb197-2" data-line-number="2"><span class="kw">Anova</span>(mod2, <span class="dt">type =</span> <span class="st">&quot;III&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mod2 &lt;-<span class="st"> </span><span class="kw">lm</span>(Yield <span class="op">~</span><span class="st"> </span>sort <span class="op">*</span><span class="st"> </span>soil <span class="op">*</span><span class="st"> </span>fert <span class="op">*</span><span class="st"> </span>site, <span class="dt">data =</span> Barley)
+<span class="kw">Anova</span>(mod2, <span class="dt">type =</span> <span class="st">&quot;III&quot;</span>)</code></pre>
 <pre><code>Anova Table (Type III tests)
 
 Response: Yield
@@ -357,9 +357,9 @@ sort:soil:fert:site     406  1    0.39   0.53914
 Residuals             16499 16                      
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb199-1" data-line-number="1"><span class="kw">summary</span>(mod2)<span class="op">$</span>r.squared</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod2)<span class="op">$</span>r.squared</code></pre>
 <pre><code>[1] 0.906</code></pre>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb201-1" data-line-number="1"><span class="kw">summary</span>(mod2)<span class="op">$</span>adj.r.squared</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod2)<span class="op">$</span>adj.r.squared</code></pre>
 <pre><code>[1] 0.818</code></pre>
 <p>There is only one interaction effect significant at 5% levels, namely the
 <code>sort:fert:site</code> interaction. However, the least squares estimator is prone to inflated variance estimates and difficulties in finding significance when the number of variables <code>k</code> rises compared to the number of observations <code>N</code> and if variables are highy correlated. To many variables to estimate from a limited number of observations leaves few degrees of freedom to SSE, and tests with low power. Lack of significance may be an over-fitting problem. By removing some of the least significant variables, the problem is reduced, and a reduced model with significant effects may be identified.</p>
@@ -370,8 +370,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 interactions. Perform a partial F-test with the <code>anova()</code> function to test whether site (and all its interactions with the others) should be excluded from the model (See also Exercise set 3 and Ex-3).</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb203-1" data-line-number="1">mod3 &lt;-<span class="st"> </span><span class="kw">lm</span>(Yield <span class="op">~</span><span class="st"> </span>sort <span class="op">*</span><span class="st"> </span>soil <span class="op">*</span><span class="st"> </span>fert, <span class="dt">data =</span> Barley)</a>
-<a class="sourceLine" id="cb203-2" data-line-number="2"><span class="kw">anova</span>(mod2, mod3)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mod3 &lt;-<span class="st"> </span><span class="kw">lm</span>(Yield <span class="op">~</span><span class="st"> </span>sort <span class="op">*</span><span class="st"> </span>soil <span class="op">*</span><span class="st"> </span>fert, <span class="dt">data =</span> Barley)
+<span class="kw">anova</span>(mod2, mod3)</code></pre>
 <pre><code>Analysis of Variance Table
 
 Model 1: Yield ~ sort * soil * fert * site
@@ -384,17 +384,17 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <p>The <code>anova</code> result for partial F-test shows that site is needed to a certain degree in the model. The low p-value reject the hypothesis that there is no effect of <code>site</code> on <code>Yield</code>.</p>
 </div>
 <ul>
-<li>In the <code>mixlm</code>-package there are convenient functions for performing automatic model selection by either <code>backward()</code> elimination of factors from a “full-model, by
+<li>In the <code>mixlm</code>-package there are convenient functions for performing automatic model selection by either <code>backward()</code> elimination of factors from a &quot;full-model, by
 <code>forward()</code> addition of factors from a minimal model with only intercept, or a combined <code>stepwise()</code> function which combines both forward and backward addition/elimination.</li>
 </ul>
 <p>For the backward function the least significant factor is removed from the model in each step if the p-value is larger than testlevel <code>alpha</code>. If all factors are significant at any step, the procedure stops. The elimination obeys the so-called marginality principle (hierarchy of factors) which states that any lower order effect or interaction should not be removed from the model if it is part of a higher order significant interaction. This is a good principle for practical data analysis.</p>
 <p>Try to run the <code>backward()</code> function on the model object you created above with all four factors and interactions. Use <code>alpha=0.05</code> as test level. Use the Step-information from the output to explain which factors being excluded at each step. What is the final reduced model?</p>
 <div class="ans">
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb205-1" data-line-number="1">mod4 &lt;-<span class="st"> </span><span class="kw">backward</span>(mod2, <span class="dt">alpha =</span> <span class="fl">0.05</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mod4 &lt;-<span class="st"> </span><span class="kw">backward</span>(mod2, <span class="dt">alpha =</span> <span class="fl">0.05</span>)</code></pre>
 <pre><code>Backward elimination, alpha-to-remove: 0.05
 
 Full model: Yield ~ sort * soil * fert * site
-&lt;environment: 0x7f8b5183b8e0&gt;
+&lt;environment: 0x7f938ede4740&gt;
 
                     Step   RSS AIC R2pred   Cp F value Pr(&gt;F)
 sort:soil:fert:site    1 16905 231  0.659 14.4    0.39   0.54
@@ -411,23 +411,23 @@ sort:soil:fert         5 21162 230  0.720 10.5    2.37   0.14</code></pre>
 </ul>
 <div class="ans">
 <p>The <code>backward</code> function has fitted the reduced model (her named <code>mod4</code>):</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb208-1" data-line-number="1">mod4 &lt;-<span class="st"> </span><span class="kw">lm</span>(Yield <span class="op">~</span><span class="st"> </span>sort <span class="op">+</span><span class="st"> </span>soil <span class="op">+</span><span class="st"> </span>fert <span class="op">+</span><span class="st"> </span>site <span class="op">+</span><span class="st"> </span>sort<span class="op">:</span>soil <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb208-2" data-line-number="2"><span class="st">     </span>sort<span class="op">:</span>fert <span class="op">+</span><span class="st"> </span>soil<span class="op">:</span>fert <span class="op">+</span><span class="st"> </span>sort<span class="op">:</span>site <span class="op">+</span><span class="st"> </span>fert<span class="op">:</span>site <span class="op">+</span><span class="st"> </span>sort<span class="op">:</span>fert<span class="op">:</span>site, </a>
-<a class="sourceLine" id="cb208-3" data-line-number="3">     <span class="dt">data =</span> Barley)</a>
-<a class="sourceLine" id="cb208-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb208-5" data-line-number="5"><span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb208-6" data-line-number="6"><span class="kw">plot</span>(mod4)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mod4 &lt;-<span class="st"> </span><span class="kw">lm</span>(Yield <span class="op">~</span><span class="st"> </span>sort <span class="op">+</span><span class="st"> </span>soil <span class="op">+</span><span class="st"> </span>fert <span class="op">+</span><span class="st"> </span>site <span class="op">+</span><span class="st"> </span>sort<span class="op">:</span>soil <span class="op">+</span><span class="st"> </span>
+<span class="st">     </span>sort<span class="op">:</span>fert <span class="op">+</span><span class="st"> </span>soil<span class="op">:</span>fert <span class="op">+</span><span class="st"> </span>sort<span class="op">:</span>site <span class="op">+</span><span class="st"> </span>fert<span class="op">:</span>site <span class="op">+</span><span class="st"> </span>sort<span class="op">:</span>fert<span class="op">:</span>site, 
+     <span class="dt">data =</span> Barley)
+
+<span class="kw">par</span>(<span class="dt">mfrow =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+<span class="kw">plot</span>(mod4)</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-134-1.svg" width="100%" /></p>
 <p>The residual plots give no evidence of any problems with the model assumptions.</p>
 </div>
 <ul>
 <li>Make an interaction effects plot using the following code:</li>
 </ul>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb209-1" data-line-number="1">eff &lt;-<span class="st"> </span><span class="kw">allEffects</span>(mod4, <span class="dt">confidence.level =</span> <span class="fl">.95</span>)</a>
-<a class="sourceLine" id="cb209-2" data-line-number="2"><span class="kw">plot</span>(eff[<span class="dv">3</span>])</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">eff &lt;-<span class="st"> </span><span class="kw">allEffects</span>(mod4, <span class="dt">confidence.level =</span> <span class="fl">.95</span>)
+<span class="kw">plot</span>(eff[<span class="dv">3</span>])</code></pre>
 <div class="ans">
-<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb210-1" data-line-number="1">eff &lt;-<span class="st"> </span><span class="kw">allEffects</span>(mod4, <span class="dt">confidence.level =</span> <span class="fl">.95</span>)</a>
-<a class="sourceLine" id="cb210-2" data-line-number="2"><span class="kw">plot</span>(eff[<span class="dv">3</span>])</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">eff &lt;-<span class="st"> </span><span class="kw">allEffects</span>(mod4, <span class="dt">confidence.level =</span> <span class="fl">.95</span>)
+<span class="kw">plot</span>(eff[<span class="dv">3</span>])</code></pre>
 <p><img src="STAT340-2018_files/figure-html/effectPlot-1.svg" width="100%" /></p>
 </div>
 <p>Try to explain the plot. Why do you think the interaction between sort, fertilizer and site was significant?</p>
@@ -518,7 +518,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -528,6 +528,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -545,7 +549,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

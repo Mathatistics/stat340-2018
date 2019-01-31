@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Applied Methods in Statistics</title>
+  <title>Exercise 7: Graphics | Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:title" content="Exercise 7: Graphics | Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="mathatistics/stat340-2018-source" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  <meta name="twitter:title" content="Exercise 7: Graphics | Applied Methods in Statistics" />
   
   <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
   
@@ -35,6 +35,7 @@
 <link rel="next" href="regression-analysis.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
 <script>
@@ -60,7 +62,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -73,13 +75,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -259,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Exercise 7: Graphics</h2>
 <div id="plot-the-heights-versus-the-weights-for-all-observations-in-bodydata." class="section level4">
 <h4>Plot the heights versus the weights for all observations in bodydata.</h4>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">with</span>(bodydata, <span class="kw">plot</span>(<span class="dt">x =</span> Height, <span class="dt">y =</span> Weight))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(bodydata, <span class="kw">plot</span>(<span class="dt">x =</span> Height, <span class="dt">y =</span> Weight))</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-50-1.svg" width="672" /></p>
 </div>
 <div id="spice-up-the-plot" class="section level3">
@@ -268,13 +268,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="explore-the-par-help-file" class="section level4">
 <h4>Explore the <code>?par</code> help file</h4>
 <p>Use the <code>isBoth</code> variable to create a color vector</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">mycolors &lt;-<span class="st"> </span><span class="kw">ifelse</span>((isHeavy <span class="op">&amp;</span><span class="st"> </span>isTall), <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mycolors &lt;-<span class="st"> </span><span class="kw">ifelse</span>((isHeavy <span class="op">&amp;</span><span class="st"> </span>isTall), <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>)</code></pre>
 <p>Here, <code>isHeady &amp; isTall</code> returns a logical vector. The <code>ifelse</code> function returns <code>blue</code> if <code>TRUE</code>and <code>red</code> if <code>FALSE</code> for each elements of the logical vector. The colors are then used in the plot so that all the Heavy and Tall person will be colored “blue” and rest as “red”.</p>
 <p>Use “<code>mycolors</code>” in the <code>col</code> argument of the plot function to mark the tall and heavy individuals</p>
 </div>
 <div id="plot-all-variables-against-each-other" class="section level4">
 <h4>Plot all variables against each other</h4>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="kw">pairs</span>(bodydata, <span class="dt">col =</span> mycolors)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(bodydata, <span class="dt">col =</span> mycolors)</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-52-1.svg" width="672" /></p>
 </div>
 <div id="which-variables-seem-to-be-most-correlated-to-each-other" class="section level4">
@@ -285,7 +285,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4>Which variables are least correlated to each other?</h4>
 <p><code>Age</code> and <code>Height</code> variables seems to have least correlation.</p>
 <p>Check by,</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="kw">cor</span>(bodydata)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cor</span>(bodydata)</code></pre>
 <pre><code>              Weight Height    Age Circumference
 Weight         1.000 0.7208 0.1870         0.899
 Height         0.721 1.0000 0.0482         0.545
@@ -293,29 +293,29 @@ Age            0.187 0.0482 1.0000         0.355
 Circumference  0.899 0.5448 0.3547         1.000</code></pre>
 <p>This returns the correlation matrix for the variables, and the guess made earlier true. Further, check out the help file for pairs, and the examples at the end. Try to make a pairs plot with scatter plots with smoothed lines in the lower left triangle, histograms on the diagonal, and correlation numbers in the upper right triangle.</p>
 <p>Lets first create a function which create histogram. The function will later be used in the <code>pairs</code> function to create its diagonal plots.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">panel.hist &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {</a>
-<a class="sourceLine" id="cb71-2" data-line-number="2">    usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))</a>
-<a class="sourceLine" id="cb71-3" data-line-number="3">    <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(usr[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">0</span>, <span class="fl">1.5</span>) )</a>
-<a class="sourceLine" id="cb71-4" data-line-number="4">    h &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">plot =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb71-5" data-line-number="5">    breaks &lt;-<span class="st"> </span>h<span class="op">$</span>breaks; nB &lt;-<span class="st"> </span><span class="kw">length</span>(breaks)</a>
-<a class="sourceLine" id="cb71-6" data-line-number="6">    y &lt;-<span class="st"> </span>h<span class="op">$</span>counts; y &lt;-<span class="st"> </span>y<span class="op">/</span><span class="kw">max</span>(y)</a>
-<a class="sourceLine" id="cb71-7" data-line-number="7">    <span class="kw">rect</span>(breaks[<span class="op">-</span>nB], <span class="dv">0</span>, breaks[<span class="op">-</span><span class="dv">1</span>], y, <span class="dt">col =</span> <span class="st">&quot;cyan&quot;</span>, ...)</a>
-<a class="sourceLine" id="cb71-8" data-line-number="8">}</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">panel.hist &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...) {
+    usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))
+    <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(usr[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">0</span>, <span class="fl">1.5</span>) )
+    h &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">plot =</span> <span class="ot">FALSE</span>)
+    breaks &lt;-<span class="st"> </span>h<span class="op">$</span>breaks; nB &lt;-<span class="st"> </span><span class="kw">length</span>(breaks)
+    y &lt;-<span class="st"> </span>h<span class="op">$</span>counts; y &lt;-<span class="st"> </span>y<span class="op">/</span><span class="kw">max</span>(y)
+    <span class="kw">rect</span>(breaks[<span class="op">-</span>nB], <span class="dv">0</span>, breaks[<span class="op">-</span><span class="dv">1</span>], y, <span class="dt">col =</span> <span class="st">&quot;cyan&quot;</span>, ...)
+}</code></pre>
 <p>Now, create a function that will display correlation on <code>pairs</code> plot.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">panel.cor &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">prefix =</span> <span class="st">&quot;&quot;</span>, cex.cor, ...) {</a>
-<a class="sourceLine" id="cb72-2" data-line-number="2">    usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))</a>
-<a class="sourceLine" id="cb72-3" data-line-number="3">    <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb72-4" data-line-number="4">    r &lt;-<span class="st"> </span><span class="kw">abs</span>(<span class="kw">cor</span>(x, y))</a>
-<a class="sourceLine" id="cb72-5" data-line-number="5">    txt &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">c</span>(r, <span class="fl">0.123456789</span>), <span class="dt">digits =</span> digits)[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb72-6" data-line-number="6">    txt &lt;-<span class="st"> </span><span class="kw">paste0</span>(prefix, txt)</a>
-<a class="sourceLine" id="cb72-7" data-line-number="7">    <span class="cf">if</span> (<span class="kw">missing</span>(cex.cor)) cex.cor &lt;-<span class="st"> </span><span class="fl">0.8</span> <span class="op">/</span><span class="st"> </span><span class="kw">strwidth</span>(txt)</a>
-<a class="sourceLine" id="cb72-8" data-line-number="8">    <span class="kw">text</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, txt, <span class="dt">cex =</span> cex.cor <span class="op">*</span><span class="st"> </span>r)</a>
-<a class="sourceLine" id="cb72-9" data-line-number="9">}</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">panel.cor &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, <span class="dt">digits =</span> <span class="dv">2</span>, <span class="dt">prefix =</span> <span class="st">&quot;&quot;</span>, cex.cor, ...) {
+    usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))
+    <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))
+    r &lt;-<span class="st"> </span><span class="kw">abs</span>(<span class="kw">cor</span>(x, y))
+    txt &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">c</span>(r, <span class="fl">0.123456789</span>), <span class="dt">digits =</span> digits)[<span class="dv">1</span>]
+    txt &lt;-<span class="st"> </span><span class="kw">paste0</span>(prefix, txt)
+    <span class="cf">if</span> (<span class="kw">missing</span>(cex.cor)) cex.cor &lt;-<span class="st"> </span><span class="fl">0.8</span> <span class="op">/</span><span class="st"> </span><span class="kw">strwidth</span>(txt)
+    <span class="kw">text</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, txt, <span class="dt">cex =</span> cex.cor <span class="op">*</span><span class="st"> </span>r)
+}</code></pre>
 <p>Now, the above functions are implemented on the <code>pairs</code> plot,</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="kw">pairs</span>(bodydata,</a>
-<a class="sourceLine" id="cb73-2" data-line-number="2">      <span class="dt">lower.panel =</span> panel.smooth, </a>
-<a class="sourceLine" id="cb73-3" data-line-number="3">      <span class="dt">upper.panel =</span> panel.cor,</a>
-<a class="sourceLine" id="cb73-4" data-line-number="4">      <span class="dt">diag.panel =</span> panel.hist)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(bodydata,
+      <span class="dt">lower.panel =</span> panel.smooth, 
+      <span class="dt">upper.panel =</span> panel.cor,
+      <span class="dt">diag.panel =</span> panel.hist)</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-57-1.svg" width="672" /></p>
 <p>Here the <code>panel.smooth</code> deals with the smooth line on the lower panel of <code>pairs</code> plot.</p>
 <p><strong>Note::</strong> Chapter 5 of the R book contains numerous examples of graphics.
@@ -406,7 +406,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -416,6 +416,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -433,7 +437,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

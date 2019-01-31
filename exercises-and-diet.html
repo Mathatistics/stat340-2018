@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Applied Methods in Statistics</title>
+  <title>Exercises and Diet | Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:title" content="Exercises and Diet | Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="mathatistics/stat340-2018-source" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  <meta name="twitter:title" content="Exercises and Diet | Applied Methods in Statistics" />
   
   <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
   
@@ -35,6 +35,7 @@
 <link rel="next" href="exam-questions.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
 <script>
@@ -60,7 +62,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -73,13 +75,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -260,7 +260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The data and some examples are found at <a href="https://stats.idre.ucla.edu/r/seminars/repeated-measures-analysis-with-r/">statistics.ats.ucla.edu</a></p>
 <p>The data called exer, consists of people who were randomly assigned to two different diets: low-fat and not low-fat and three different types of exercise: at rest, walking leisurely and running. Their pulse rate was measured at three different time points during their assigned exercise: at 1 minute, 15 minutes and 30 minutes.</p>
 <p>Upon downloading the data, you can load and plot the data by</p>
-<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb321-1" data-line-number="1"><span class="kw">plot</span>(exer, <span class="dt">outer =</span> <span class="ot">TRUE</span>, <span class="dt">aspect =</span> <span class="st">&quot;fill&quot;</span>, <span class="dt">key =</span> <span class="ot">NULL</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(exer, <span class="dt">outer =</span> <span class="ot">TRUE</span>, <span class="dt">aspect =</span> <span class="st">&quot;fill&quot;</span>, <span class="dt">key =</span> <span class="ot">NULL</span>)</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-203-1.svg" width="672" /></p>
 <p>You will see six plots with heading’s like <code>2:1</code> which means <code>diet=2</code> and exercises <code>type=1</code>.
 In each plot we have three repeated measurements for each of 5 people.</p>
@@ -268,9 +268,9 @@ In each plot we have three repeated measurements for each of 5 people.</p>
 <ol style="list-style-type: lower-alpha">
 <li>Below is a output from a linear model fitted to the data. State the model that has been fitted and the assumptions made. Which parametrization is used?</li>
 </ol>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb322-1" data-line-number="1"><span class="kw">options</span>(<span class="dt">contrasts =</span> <span class="kw">c</span>(<span class="st">&quot;contr.sum&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))</a>
-<a class="sourceLine" id="cb322-2" data-line-number="2">mod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(pulse <span class="op">~</span><span class="st"> </span>(time <span class="op">+</span><span class="st"> </span>diet <span class="op">+</span><span class="st"> </span>exertype) <span class="op">^</span><span class="st"> </span><span class="dv">2</span>, <span class="dt">data =</span> exer)</a>
-<a class="sourceLine" id="cb322-3" data-line-number="3"><span class="kw">summary</span>(mod1)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">contrasts =</span> <span class="kw">c</span>(<span class="st">&quot;contr.sum&quot;</span>, <span class="st">&quot;contr.poly&quot;</span>))
+mod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(pulse <span class="op">~</span><span class="st"> </span>(time <span class="op">+</span><span class="st"> </span>diet <span class="op">+</span><span class="st"> </span>exertype) <span class="op">^</span><span class="st"> </span><span class="dv">2</span>, <span class="dt">data =</span> exer)
+<span class="kw">summary</span>(mod1)</code></pre>
 <pre><code>
 Call:
 lm(formula = pulse ~ (time + diet + exertype)^2, data = exer)
@@ -298,7 +298,7 @@ s: 7.53 on 80 degrees of freedom
 Multiple R-squared: 0.769,
 Adjusted R-squared: 0.743 
 F-statistic: 29.6 on 9 and 80 DF,  p-value: &lt;2e-16 </code></pre>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb324-1" data-line-number="1"><span class="kw">anova</span>(mod1)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(mod1)</code></pre>
 <pre><code>Analysis of Variance Table
 
 Response: pulse
@@ -393,9 +393,9 @@ We see that the residuals of any given person tend to be either above or below t
 <ol start="6" style="list-style-type: lower-alpha">
 <li>Another analysis was performed as shown below. Describe the difference between mod2 and mod1. Are there any extra parameters estimated? Why is mod2 probably a more reasonable model than mod1?</li>
 </ol>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb326-1" data-line-number="1">mod2 &lt;-<span class="st"> </span><span class="kw">lme</span>(pulse <span class="op">~</span><span class="st"> </span>(time <span class="op">+</span><span class="st"> </span>diet <span class="op">+</span><span class="st"> </span>exertype) <span class="op">^</span><span class="st"> </span><span class="dv">2</span>, </a>
-<a class="sourceLine" id="cb326-2" data-line-number="2">            <span class="dt">random =</span> <span class="op">~</span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>id, <span class="dt">data =</span> exer)</a>
-<a class="sourceLine" id="cb326-3" data-line-number="3"><span class="kw">summary</span>(mod2)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mod2 &lt;-<span class="st"> </span><span class="kw">lme</span>(pulse <span class="op">~</span><span class="st"> </span>(time <span class="op">+</span><span class="st"> </span>diet <span class="op">+</span><span class="st"> </span>exertype) <span class="op">^</span><span class="st"> </span><span class="dv">2</span>, 
+            <span class="dt">random =</span> <span class="op">~</span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>id, <span class="dt">data =</span> exer)
+<span class="kw">summary</span>(mod2)</code></pre>
 <pre><code>Linear mixed-effects model fit by REML
  Data: exer 
   AIC BIC logLik
@@ -456,7 +456,7 @@ which displays the predicted random effects. The first 5 random effects are show
 with “rowname” equal to the id number of a given person. Explain what it means that person
 with id=4 has a random effect of -3.802.</li>
 </ol>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb328-1" data-line-number="1"><span class="kw">ranef</span>(mod2)[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,,drop =<span class="st"> </span>F]</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ranef</span>(mod2)[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,,drop =<span class="st"> </span>F]</code></pre>
 <pre><code>  (Intercept)
 4      -3.802
 1      -1.653
@@ -469,11 +469,11 @@ with id=4 has a random effect of -3.802.</li>
 <ol start="8" style="list-style-type: lower-alpha">
 <li>A third model was analysed by:</li>
 </ol>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb330-1" data-line-number="1"><span class="kw">library</span>(nlme)</a>
-<a class="sourceLine" id="cb330-2" data-line-number="2">mod3 &lt;-<span class="st"> </span><span class="kw">lme</span>(pulse <span class="op">~</span><span class="st"> </span>(time <span class="op">+</span><span class="st"> </span>diet <span class="op">+</span><span class="st"> </span>exertype) <span class="op">^</span><span class="st"> </span><span class="dv">2</span>, </a>
-<a class="sourceLine" id="cb330-3" data-line-number="3">            <span class="dt">random =</span> <span class="op">~</span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>id, <span class="dt">correlation =</span> <span class="kw">corAR1</span>(), </a>
-<a class="sourceLine" id="cb330-4" data-line-number="4">            <span class="dt">data =</span> exer)</a>
-<a class="sourceLine" id="cb330-5" data-line-number="5"><span class="kw">summary</span>(mod3)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nlme)
+mod3 &lt;-<span class="st"> </span><span class="kw">lme</span>(pulse <span class="op">~</span><span class="st"> </span>(time <span class="op">+</span><span class="st"> </span>diet <span class="op">+</span><span class="st"> </span>exertype) <span class="op">^</span><span class="st"> </span><span class="dv">2</span>, 
+            <span class="dt">random =</span> <span class="op">~</span><span class="dv">1</span> <span class="op">|</span><span class="st"> </span>id, <span class="dt">correlation =</span> <span class="kw">corAR1</span>(), 
+            <span class="dt">data =</span> exer)
+<span class="kw">summary</span>(mod3)</code></pre>
 <pre><code>Linear mixed-effects model fit by REML
  Data: exer 
   AIC BIC logLik
@@ -536,7 +536,7 @@ Number of Groups: 30 </code></pre>
 <ol style="list-style-type: lower-roman">
 <li>Which of mod2 and mod3 is to prefer. Explain why based on the output below.</li>
 </ol>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb332-1" data-line-number="1"><span class="kw">anova</span>(mod2, mod3)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(mod2, mod3)</code></pre>
 <pre><code>     Model df AIC BIC logLik   Test L.Ratio p-value
 mod2     1 12 610 639   -293                       
 mod3     2 13 611 642   -293 1 vs 2   0.702   0.402</code></pre>
@@ -628,7 +628,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -638,6 +638,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -655,7 +659,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Applied Methods in Statistics</title>
+  <title>Exercise 6: Subsets of data and logical operators | Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:title" content="Exercise 6: Subsets of data and logical operators | Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="mathatistics/stat340-2018-source" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  <meta name="twitter:title" content="Exercise 6: Subsets of data and logical operators | Applied Methods in Statistics" />
   
   <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
   
@@ -35,6 +35,7 @@
 <link rel="next" href="exercise-7-graphics.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
 <script>
@@ -60,7 +62,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -73,13 +75,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -261,23 +261,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>Logical vector and index vector</h3>
 <p>A lot of times we want to get a subset of data filtering rows or columns of a dataframe. For which we can perform logical test and get <code>TRUE</code> or <code>FALSE</code> as result. This vector of logical can then be used to subset the observations from a dataframe.</p>
 <p>For example, Lets extract observation from <code>bodydata</code> with Weight greater than 80. You might be wondering why following code does not work,</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">isHeavy &lt;-<span class="st"> </span>Weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span></a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">isHeavy &lt;-<span class="st"> </span>Weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span></code></pre>
 <pre><code>Error in eval(expr, envir, enclos): object &#39;Weight&#39; not found</code></pre>
 <p>But remember that, the variable <code>Weight</code> is a part of <code>bodydata</code>. We have to extract <code>Weight</code> from the <code>bodydata</code> first. In R, <code>with</code> and <code>within</code> function helps you in this respect. In the following code, <code>with</code> function goes inside <code>bodydata</code> and execute the expression <code>Weight &gt; 80</code>.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">isHeavy &lt;-<span class="st"> </span><span class="kw">with</span>(bodydata, Weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">isHeavy &lt;-<span class="st"> </span><span class="kw">with</span>(bodydata, Weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span>)</code></pre>
 <p>Here the logical vector <code>isHeavy</code> is computed by performing a logical operation on <code>Weight</code> variable within <code>bodydata</code>. The same operation can be done as,</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">isHeavy &lt;-<span class="st"> </span>bodydata<span class="op">$</span>Weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span></a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">isHeavy &lt;-<span class="st"> </span>bodydata<span class="op">$</span>Weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span></code></pre>
 <p><strong>Take a look at this variable, what is it?</strong>
 :</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="kw">head</span>(isHeavy)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(isHeavy)</code></pre>
 <pre><code>[1] FALSE  TRUE FALSE FALSE FALSE  TRUE</code></pre>
 <p>Yes, it is a vector of <code>TRUE</code> and <code>FALSE</code> with same length as <code>Weight</code>. Here the condition has compared each element of <code>Weight</code> results <code>TRUE</code> if it is greater than 80 and <code>FALSE</code> if it is less than 80.</p>
 <dl>
 <dt><strong>Identify the elements</strong></dt>
 <dd><p>We can identify which observations that are heavy by the <code>which()</code> function</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">HeavyId &lt;-<span class="st"> </span><span class="kw">which</span>(isHeavy)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">HeavyId &lt;-<span class="st"> </span><span class="kw">which</span>(isHeavy)</code></pre>
 <p>This will return a vector of row index for the observations that are heavy, i.e. greater than 80. So how many are heavy? To find the size of a vector we can use <code>length</code> function.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1"><span class="kw">length</span>(HeavyId)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(HeavyId)</code></pre>
 <pre><code>[1] 94</code></pre>
 <p>Here, 94 observations have Weight larger than 80.</p>
 </dd>
@@ -288,20 +288,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Identify who are taller than 180 and save this logical vector as an object called <code>isTall</code>.</p>
 <details class="answer">
 <p><summary><em>Answer</em></summary></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1"> isTall &lt;-<span class="st"> </span><span class="kw">with</span>(bodydata, Height <span class="op">&gt;</span><span class="st"> </span><span class="dv">180</span>) </a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"> isTall &lt;-<span class="st"> </span><span class="kw">with</span>(bodydata, Height <span class="op">&gt;</span><span class="st"> </span><span class="dv">180</span>) </code></pre>
 </details></li>
 <li><p>How many observations have height taller than 180?</p>
 <details class="answer">
 <p><summary><em>Answer</em></summary></p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"> TallId &lt;-<span class="st"> </span><span class="kw">which</span>(isTall)</a>
-<a class="sourceLine" id="cb55-2" data-line-number="2"> <span class="kw">length</span>(TallId)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"> TallId &lt;-<span class="st"> </span><span class="kw">which</span>(isTall)
+ <span class="kw">length</span>(TallId)</code></pre>
 <pre><code> [1] 76</code></pre>
 </details></li>
 <li><p>How many observations are both tall and heavy?
 Here, you can use <code>length</code> function as above to find how many person are taller than 180.</p>
 <details class="answer">
 <p><summary><em>Answer</em></summary></p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1"> isBoth &lt;-<span class="st"> </span>isHeavy <span class="op">*</span><span class="st"> </span>isTall</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"> isBoth &lt;-<span class="st"> </span>isHeavy <span class="op">*</span><span class="st"> </span>isTall</code></pre>
 <dl>
 <dt><strong>How is this computation done?</strong></dt>
 <dd>Here <code>isHeavy</code> and <code>isTall</code> contains <code>TRUE</code> and <code>FALSE</code>. The multiplication of logical operator results a logical vector with <code>TRUE</code> only if both the vectors are <code>TRUE</code> else <code>FALSE</code>.
@@ -309,7 +309,7 @@ Here, you can use <code>length</code> function as above to find how many person 
 </dl>
 <p><strong>Alternatively</strong>
 :</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1"> isBoth &lt;-<span class="st"> </span><span class="kw">which</span>(isHeavy <span class="op">&amp;</span><span class="st"> </span>isTall)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"> isBoth &lt;-<span class="st"> </span><span class="kw">which</span>(isHeavy <span class="op">&amp;</span><span class="st"> </span>isTall)</code></pre>
 The <code>&amp;</code> operator result <code>TRUE</code> if both <code>isHeavy</code> and <code>isTall</code> are <code>TRUE</code> else, <code>FALSE</code> which is same as previous.
 </details></li>
 </ol>
@@ -320,24 +320,24 @@ The <code>&amp;</code> operator result <code>TRUE</code> if both <code>isHeavy</
 <div id="example-1" class="section level4">
 <h4>Example 1</h4>
 <p>Lets create a subset of the data called <code>bodydataTallAndHeavy</code> containing only the observations for tall and heavy persons as defined by isBoth.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">bodydataTallAndHeavy &lt;-<span class="st"> </span>bodydata[isBoth, ]</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">bodydataTallAndHeavy &lt;-<span class="st"> </span>bodydata[isBoth, ]</code></pre>
 <p>For other logical tests see help file <code>?Comparison</code></p>
 </div>
 <div id="example-2" class="section level4">
 <h4>Example 2</h4>
 <p>Lets create a random subset of 50 observations. For this we first sample 50 row index randomly from all rows in <code>bodydata</code>. The <code>sample</code> function is used for the purpose. In the following code, <code>nrow(bodydata)</code> return the number of rows in <code>bodydata</code>. The <code>sample</code> function takes two argument <code>x</code> which can be a vector or a integer and <code>size</code> which is the size of the sample to be drawn.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">idx &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">nrow</span>(bodydata), <span class="dt">size =</span> <span class="dv">50</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">idx &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dt">x =</span> <span class="kw">nrow</span>(bodydata), <span class="dt">size =</span> <span class="dv">50</span>)</code></pre>
 <p>Here, 50 rows are sampled from the total number of rows and the index of the selected rows are saved on vector <code>idx</code>.</p>
 <p>Using this vector we can select the observations in <code>bodydata</code> to create a new data set called <code>bodydataRandom</code> as,</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">bodydataRandom &lt;-<span class="st"> </span>bodydata[idx, ]</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">bodydataRandom &lt;-<span class="st"> </span>bodydata[idx, ]</code></pre>
 <p>Here is the first five rows of <code>bodydataRandom</code> dataset.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="kw">head</span>(bodydataRandom, <span class="dt">n =</span> <span class="dv">5</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(bodydataRandom, <span class="dt">n =</span> <span class="dv">5</span>)</code></pre>
 <pre><code>    Weight Height Age Circumference
-423   60.0    178  23          68.3
-490   55.5    174  26          64.5
-44    72.1    175  35          77.9
-229   72.3    168  39          83.7
-208   87.3    183  26          87.6</code></pre>
+507   67.3    164  38          80.4
+405   60.4    152  45          72.9
+448   70.5    163  41          71.7
+243   79.1    179  51          85.7
+386   62.2    167  19          70.0</code></pre>
 </div>
 </div>
 <div id="exercise-1" class="section level3">
@@ -345,9 +345,9 @@ The <code>&amp;</code> operator result <code>TRUE</code> if both <code>isHeavy</
 <p>Create a subset of dataset <code>bodydata</code> including the observation with <code>Age</code> larger an 55 and <code>Circumference</code> larger than 80. Save this dataset named <code>subdata</code>.</p>
 <details class="answer">
 <p><summary><em>Answer</em></summary></p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">idx &lt;-<span class="st"> </span><span class="kw">with</span>(bodydata, Age <span class="op">&gt;</span><span class="st"> </span><span class="dv">55</span> <span class="op">&amp;</span><span class="st"> </span>Circumference <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span>)</a>
-<a class="sourceLine" id="cb64-2" data-line-number="2">subdata &lt;-<span class="st"> </span>bodydata[idx, ]</a>
-<a class="sourceLine" id="cb64-3" data-line-number="3">subdata</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">idx &lt;-<span class="st"> </span><span class="kw">with</span>(bodydata, Age <span class="op">&gt;</span><span class="st"> </span><span class="dv">55</span> <span class="op">&amp;</span><span class="st"> </span>Circumference <span class="op">&gt;</span><span class="st"> </span><span class="dv">80</span>)
+subdata &lt;-<span class="st"> </span>bodydata[idx, ]
+subdata</code></pre>
 <pre><code>    Weight Height Age Circumference
 136   76.4    185  62          94.8
 189   73.6    175  60          90.5
@@ -439,7 +439,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -449,6 +449,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -466,7 +470,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Applied Methods in Statistics</title>
+  <title>Exam 2017 | Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:title" content="Exam 2017 | Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="mathatistics/stat340-2018-source" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  <meta name="twitter:title" content="Exam 2017 | Applied Methods in Statistics" />
   
   <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
   
@@ -35,6 +35,7 @@
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
 <script>
@@ -60,7 +62,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -73,13 +75,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -257,10 +257,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="exam-2017" class="section level2">
 <h2>Exam 2017</h2>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb334-1" data-line-number="1"><span class="kw">library</span>(nlme)</a>
-<a class="sourceLine" id="cb334-2" data-line-number="2"><span class="kw">load</span>(<span class="st">&quot;_data/Pear2011.Rdata&quot;</span>)</a>
-<a class="sourceLine" id="cb334-3" data-line-number="3"><span class="kw">load</span>(<span class="st">&quot;_data/Pear.Rdata&quot;</span>)</a>
-<a class="sourceLine" id="cb334-4" data-line-number="4"><span class="kw">load</span>(<span class="st">&quot;_data/Reindeer.Rdata&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nlme)
+<span class="kw">load</span>(<span class="st">&quot;_data/Pear2011.Rdata&quot;</span>)
+<span class="kw">load</span>(<span class="st">&quot;_data/Pear.Rdata&quot;</span>)
+<span class="kw">load</span>(<span class="st">&quot;_data/Reindeer.Rdata&quot;</span>)</code></pre>
 <div id="exercise-1-1" class="section level3">
 <h3>Exercise 1</h3>
 <p>The quality of fruits are often judged by the index of refraction (REF) and measured by means of a refractometer. The REF value is connected to the amount of sugar in a liquid solution. In an experiment at Bioforsk at Ås they were monitoring the REF’s in four types of pears. The data for the year 2011 containing 6 replicates for each sort of pear are given in Table 1a in the Appendix.</p>
@@ -303,8 +303,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="appendix-to-exam-stat340" class="section level3">
 <h3>Appendix to exam STAT340</h3>
 <p><strong>Table 1a:</strong> The pear data from 2011</p>
-<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb335-1" data-line-number="1"><span class="kw">do.call</span>(cbind, <span class="kw">split</span>(Pear2011<span class="op">$</span>REF, Pear2011<span class="op">$</span>Sort)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb335-2" data-line-number="2"><span class="st">  </span><span class="kw">as.tibble</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">do.call</span>(cbind, <span class="kw">split</span>(Pear2011<span class="op">$</span>REF, Pear2011<span class="op">$</span>Sort)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">as.tibble</span>()</code></pre>
+<pre><code>Warning: `as.tibble()` is deprecated, use `as_tibble()` (but mind the new semantics).
+This warning is displayed once per session.</code></pre>
 <pre><code># A tibble: 6 x 4
   KvedeA kvedeadams KvedeC Pyrodwarf
    &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
@@ -315,8 +317,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 5   11.6       10.8   12.5      10.8
 6   12.4       11.3   11.3      11.4</code></pre>
 <p><strong>Table 1b:</strong> R Commander output for exercise 1b</p>
-<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb337-1" data-line-number="1">LinearModel<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(REF <span class="op">~</span><span class="st"> </span>Sort, <span class="dt">data =</span> Pear2011)</a>
-<a class="sourceLine" id="cb337-2" data-line-number="2"><span class="kw">summary</span>(LinearModel<span class="fl">.1</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">LinearModel<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(REF <span class="op">~</span><span class="st"> </span>Sort, <span class="dt">data =</span> Pear2011)
+<span class="kw">summary</span>(LinearModel<span class="fl">.1</span>)</code></pre>
 <pre><code>
 Call:
 lm(formula = REF ~ Sort, data = Pear2011)
@@ -338,7 +340,7 @@ s: 0.548 on 20 degrees of freedom
 Multiple R-squared: 0.483,
 Adjusted R-squared: 0.405 
 F-statistic: 6.23 on 3 and 20 DF,  p-value: 0.00367 </code></pre>
-<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb339-1" data-line-number="1"><span class="kw">Anova</span>(LinearModel<span class="fl">.1</span>, <span class="dt">type =</span> <span class="st">&quot;III&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">Anova</span>(LinearModel<span class="fl">.1</span>, <span class="dt">type =</span> <span class="st">&quot;III&quot;</span>)</code></pre>
 <pre><code>Anova Table (Type III tests)
 
 Response: REF
@@ -349,7 +351,7 @@ Residuals        6 20
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p><strong>Table 1c:</strong> Tukey test results for exercise 1d.</p>
-<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb341-1" data-line-number="1"><span class="kw">simple.glht</span>(LinearModel<span class="fl">.1</span>, <span class="st">&quot;Sort&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">simple.glht</span>(LinearModel<span class="fl">.1</span>, <span class="st">&quot;Sort&quot;</span>)</code></pre>
 <pre><code>
      Simultaneous Confidence Intervals and Tests for General Linear Hypotheses
 
@@ -373,7 +375,7 @@ KvedeC-Pyrodwarf      0.315  1.200  2.085   0.316    3.80 0.0057 **
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 (Adjusted p values reported -- single-step method)</code></pre>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb343-1" data-line-number="1"><span class="kw">cld</span>(<span class="kw">simple.glht</span>(LinearModel<span class="fl">.1</span>,<span class="st">&#39;Sort&#39;</span>, <span class="dt">level =</span> <span class="fl">0.95</span>))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cld</span>(<span class="kw">simple.glht</span>(LinearModel<span class="fl">.1</span>,<span class="st">&#39;Sort&#39;</span>, <span class="dt">level =</span> <span class="fl">0.95</span>))</code></pre>
 <pre><code>Tukey&#39;s HSD
 Alpha: 0.05
 
@@ -383,9 +385,9 @@ KvedeA     12.1  A  B
 kvedeadams 11.5     B
 Pyrodwarf  11.3     B</code></pre>
 <p><strong>Table 2:</strong> R output for exercise 2</p>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb345-1" data-line-number="1">Pear<span class="op">$</span>Year &lt;-<span class="st"> </span><span class="kw">as.factor</span>(Pear<span class="op">$</span>Year)</a>
-<a class="sourceLine" id="cb345-2" data-line-number="2">LinearModel<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(REF <span class="op">~</span><span class="st"> </span>Sort <span class="op">*</span><span class="st"> </span><span class="kw">r</span>(Year), <span class="dt">data =</span> Pear)</a>
-<a class="sourceLine" id="cb345-3" data-line-number="3"><span class="kw">Anova</span>(LinearModel<span class="fl">.2</span>, <span class="dt">type =</span> <span class="st">&quot;III&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Pear<span class="op">$</span>Year &lt;-<span class="st"> </span><span class="kw">as.factor</span>(Pear<span class="op">$</span>Year)
+LinearModel<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(REF <span class="op">~</span><span class="st"> </span>Sort <span class="op">*</span><span class="st"> </span><span class="kw">r</span>(Year), <span class="dt">data =</span> Pear)
+<span class="kw">Anova</span>(LinearModel<span class="fl">.2</span>, <span class="dt">type =</span> <span class="st">&quot;III&quot;</span>)</code></pre>
 <pre><code>Analysis of variance (unrestricted model)
 Response: REF
           Mean Sq Sum Sq Df F value Pr(&gt;F)
@@ -407,7 +409,7 @@ Year      (4) + 6 (3) + 24 (2)
 Sort:Year (4) + 6 (3)          
 Residuals (4)                  </code></pre>
 <p><strong>Table 3a :</strong> Data for exercise 3</p>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb347-1" data-line-number="1">Reindeer</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Reindeer</code></pre>
 <pre><code>   steps calf   site
 1     19    0 Inland
 2     23    0 Inland
@@ -430,9 +432,9 @@ Residuals (4)                  </code></pre>
 19    21    1  Coast
 20    19    1  Coast</code></pre>
 <p><strong>Table 3b:</strong> Output from R Commander for exercise 3a</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb349-1" data-line-number="1">GLM<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">glm</span>(steps <span class="op">~</span><span class="st"> </span>calf, <span class="dt">family =</span> <span class="kw">poisson</span>(log), <span class="dt">data =</span> Reindeer)</a>
-<a class="sourceLine" id="cb349-2" data-line-number="2">GLM<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">glm</span>(steps <span class="op">~</span><span class="st"> </span>calf <span class="op">*</span><span class="st"> </span>site, <span class="dt">family =</span> <span class="kw">poisson</span>(log), <span class="dt">data =</span> Reindeer)</a>
-<a class="sourceLine" id="cb349-3" data-line-number="3"><span class="kw">summary</span>(GLM<span class="fl">.1</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">GLM<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">glm</span>(steps <span class="op">~</span><span class="st"> </span>calf, <span class="dt">family =</span> <span class="kw">poisson</span>(log), <span class="dt">data =</span> Reindeer)
+GLM<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">glm</span>(steps <span class="op">~</span><span class="st"> </span>calf <span class="op">*</span><span class="st"> </span>site, <span class="dt">family =</span> <span class="kw">poisson</span>(log), <span class="dt">data =</span> Reindeer)
+<span class="kw">summary</span>(GLM<span class="fl">.1</span>)</code></pre>
 <pre><code>
 Call:
 glm(formula = steps ~ calf, family = poisson(log), data = Reindeer)
@@ -456,7 +458,7 @@ AIC: 111.1
 
 Number of Fisher Scoring iterations: 4</code></pre>
 <p><strong>Table 3c:</strong> Deviance test for exercise 3c</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb351-1" data-line-number="1"><span class="kw">anova</span>(GLM<span class="fl">.1</span>, GLM<span class="fl">.2</span>, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">anova</span>(GLM<span class="fl">.1</span>, GLM<span class="fl">.2</span>, <span class="dt">test =</span> <span class="st">&quot;Chisq&quot;</span>)</code></pre>
 <pre><code>Analysis of Deviance Table
 
 Model 1: steps ~ calf
@@ -476,7 +478,7 @@ L1   4  5  7  4  5  4  6  6  4
 L2   5  6  5  5  5  3  5  5  6
 L3   5  6  6  3  6  3  6  7  5</code></pre>
 <p><strong>Table 4b:</strong> Euclidian distance matrix before clustering (top), and after step 1 of single linkage (bottom). Note that “L1/L3” denotes the cluster of L1 and L3.</p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb354-1" data-line-number="1"><span class="kw">dist</span>(dta)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dist</span>(dta)</code></pre>
 <pre><code>       A1    A2    A3   SL1   SL2   SL3    L1    L2
 A2   9.43                                          
 A3  11.09  6.78                                    
@@ -486,10 +488,10 @@ SL3  8.00  6.08  9.22  9.22  5.29
 L1   9.59  4.36  6.56  7.42  6.32  5.48            
 L2   9.70  3.87  5.39  5.92  7.75  7.21  3.74      
 L3  10.58  5.39  5.57  7.94  7.48  6.16  2.83  3.46</code></pre>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">hclust</span>(<span class="kw">dist</span>(dta), <span class="dt">method =</span> <span class="st">&quot;single&quot;</span>), </a>
-<a class="sourceLine" id="cb356-2" data-line-number="2">     <span class="dt">main =</span> <span class="st">&quot;Cluster Dendrogram for Solution HClust.12&quot;</span>,</a>
-<a class="sourceLine" id="cb356-3" data-line-number="3">     <span class="dt">sub =</span> <span class="st">&quot;Method=single, Distance=euclidian&quot;</span>,</a>
-<a class="sourceLine" id="cb356-4" data-line-number="4">     <span class="dt">xlab =</span> <span class="st">&quot;Observation Number in dataset female.beer&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">hclust</span>(<span class="kw">dist</span>(dta), <span class="dt">method =</span> <span class="st">&quot;single&quot;</span>), 
+     <span class="dt">main =</span> <span class="st">&quot;Cluster Dendrogram for Solution HClust.12&quot;</span>,
+     <span class="dt">sub =</span> <span class="st">&quot;Method=single, Distance=euclidian&quot;</span>,
+     <span class="dt">xlab =</span> <span class="st">&quot;Observation Number in dataset female.beer&quot;</span>)</code></pre>
 <div class="figure"><span id="fig:unnamed-chunk-224"></span>
 <img src="STAT340-2018_files/figure-html/unnamed-chunk-224-1.svg" alt="Dendrogram from single linkage clustering of female beer liking scores" width="672" />
 <p class="caption">
@@ -581,7 +583,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -591,6 +593,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -608,7 +614,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Applied Methods in Statistics</title>
+  <title>Taxonomy Data | Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:title" content="Taxonomy Data | Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="mathatistics/stat340-2018-source" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  <meta name="twitter:title" content="Taxonomy Data | Applied Methods in Statistics" />
   
   <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
   
@@ -35,6 +35,7 @@
 <link rel="next" href="random-effect-model.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
 <script>
@@ -60,7 +62,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -73,13 +75,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -265,7 +265,7 @@ Save the model as an object called <code>mod1.multi</code>. Use summary to displ
 </ol></li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb287-1" data-line-number="1">mod1.multi &lt;-<span class="st"> </span><span class="kw">multinom</span>(Taxon <span class="op">~</span><span class="st"> </span>Sepal, <span class="dt">data =</span> taxonomy, <span class="dt">maxit =</span> <span class="dv">200</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mod1.multi &lt;-<span class="st"> </span><span class="kw">multinom</span>(Taxon <span class="op">~</span><span class="st"> </span>Sepal, <span class="dt">data =</span> taxonomy, <span class="dt">maxit =</span> <span class="dv">200</span>)</code></pre>
 <pre><code># weights:  12 (6 variable)
 initial  value 166.355323 
 iter  10 value 98.990404
@@ -280,7 +280,7 @@ iter  90 value 98.094619
 iter 100 value 98.092238
 final  value 98.092209 
 converged</code></pre>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb289-1" data-line-number="1"><span class="kw">summary</span>(mod1.multi)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod1.multi)</code></pre>
 <pre><code>Call:
 multinom(formula = Taxon ~ Sepal, data = taxonomy, maxit = 200)
 
@@ -307,11 +307,11 @@ AIC: 208 </code></pre>
 <div class="ans">
 <p>First we extract the estimated regression coefficients. Remember that for the reference level taxon the
 regression coefficients are assumed equal to zero. We therefore add a row of zeros for this taxon (here <code>taxon = 1</code>).</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1">summod1.multi &lt;-<span class="st"> </span><span class="kw">summary</span>(mod1.multi)</a>
-<a class="sourceLine" id="cb291-2" data-line-number="2">co &lt;-<span class="st"> </span>summod1.multi<span class="op">$</span>coefficients</a>
-<a class="sourceLine" id="cb291-3" data-line-number="3">co &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>),co)</a>
-<a class="sourceLine" id="cb291-4" data-line-number="4"><span class="kw">rownames</span>(co)[<span class="dv">1</span>] &lt;-<span class="st"> &quot;I&quot;</span></a>
-<a class="sourceLine" id="cb291-5" data-line-number="5">co</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">summod1.multi &lt;-<span class="st"> </span><span class="kw">summary</span>(mod1.multi)
+co &lt;-<span class="st"> </span>summod1.multi<span class="op">$</span>coefficients
+co &lt;-<span class="st"> </span><span class="kw">rbind</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>),co)
+<span class="kw">rownames</span>(co)[<span class="dv">1</span>] &lt;-<span class="st"> &quot;I&quot;</span>
+co</code></pre>
 <pre><code>    (Intercept)  Sepal
 I          0.00  0.000
 II         1.49 -0.593
@@ -331,26 +331,26 @@ interest for <code>Sepal</code>.</li>
 </ol></li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb293-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">mean</span>(taxonomy<span class="op">$</span>Sepal)</a>
-<a class="sourceLine" id="cb293-2" data-line-number="2">probs &lt;-<span class="st"> </span><span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x))</a>
-<a class="sourceLine" id="cb293-3" data-line-number="3">probs</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">mean</span>(taxonomy<span class="op">$</span>Sepal)
+probs &lt;-<span class="st"> </span><span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x))
+probs</code></pre>
 <pre><code>       I       II      III       IV 
 0.433455 0.324557 0.241505 0.000483 </code></pre>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb295-1" data-line-number="1">maxp &lt;-<span class="st"> </span><span class="kw">which.max</span>(probs)</a>
-<a class="sourceLine" id="cb295-2" data-line-number="2">maxp</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">maxp &lt;-<span class="st"> </span><span class="kw">which.max</span>(probs)
+maxp</code></pre>
 <pre><code>I 
 1 </code></pre>
 <p>We see that taxon I is the most probable with a probability equal to 0.433.</p>
 <p>Extra: The following figure shows the probabilities of each taxon for various values of <code>Sepal</code>. Remember that these probabilities are the posterior probability estimates for the class in a classification terminology. We classify to the most probable class given the observed predictor values.</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb297-1" data-line-number="1">xvector &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">by =</span> <span class="fl">0.05</span>)</a>
-<a class="sourceLine" id="cb297-2" data-line-number="2">probfunc &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
-<a class="sourceLine" id="cb297-3" data-line-number="3">    <span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x))</a>
-<a class="sourceLine" id="cb297-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb297-5" data-line-number="5">probmat &lt;-<span class="st"> </span><span class="kw">t</span>(<span class="kw">sapply</span>(xvector, probfunc))</a>
-<a class="sourceLine" id="cb297-6" data-line-number="6"><span class="kw">matplot</span>(xvector, probmat, <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, </a>
-<a class="sourceLine" id="cb297-7" data-line-number="7">        <span class="dt">main =</span> <span class="st">&quot;Posterior probabilities for taxa&quot;</span>, </a>
-<a class="sourceLine" id="cb297-8" data-line-number="8">        <span class="dt">xlab =</span> <span class="st">&quot;Sepal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Estimated posterior probability&quot;</span>)</a>
-<a class="sourceLine" id="cb297-9" data-line-number="9"><span class="kw">legend</span>(<span class="dv">6</span>, <span class="fl">0.8</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;I&quot;</span>, <span class="st">&quot;II&quot;</span>, <span class="st">&quot;III&quot;</span>, <span class="st">&quot;IV&quot;</span>), <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">xvector &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">7</span>, <span class="dt">by =</span> <span class="fl">0.05</span>)
+probfunc &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+    <span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x) <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(<span class="kw">exp</span>(co[ ,<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span>co[ ,<span class="dv">2</span>] <span class="op">*</span><span class="st"> </span>x))
+}
+probmat &lt;-<span class="st"> </span><span class="kw">t</span>(<span class="kw">sapply</span>(xvector, probfunc))
+<span class="kw">matplot</span>(xvector, probmat, <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">lwd =</span> <span class="dv">2</span>, 
+        <span class="dt">main =</span> <span class="st">&quot;Posterior probabilities for taxa&quot;</span>, 
+        <span class="dt">xlab =</span> <span class="st">&quot;Sepal&quot;</span>, <span class="dt">ylab =</span> <span class="st">&quot;Estimated posterior probability&quot;</span>)
+<span class="kw">legend</span>(<span class="dv">6</span>, <span class="fl">0.8</span>, <span class="dt">legend =</span> <span class="kw">c</span>(<span class="st">&quot;I&quot;</span>, <span class="st">&quot;II&quot;</span>, <span class="st">&quot;III&quot;</span>, <span class="st">&quot;IV&quot;</span>), <span class="dt">lty =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">lwd =</span> <span class="dv">2</span>)</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-188-1.svg" width="672" /></p>
 <p>We observe that taxon III is the most probable for <code>Sepal&lt;2.5</code>, taxon I for <code>2.5 &lt; Sepal &lt; 3.5</code> and taxon IV for <code>Sepal &gt;= 3.5</code>. Taxon 2 is the most probable taxon only for <code>Sepal</code> <span class="math inline">\(\approx\)</span> <code>2.5</code>.</p>
 </div>
@@ -360,7 +360,7 @@ interest for <code>Sepal</code>.</li>
 </ol></li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb298-1" data-line-number="1"><span class="kw">plot</span>(Sepal <span class="op">~</span><span class="st"> </span>Taxon, <span class="dt">data =</span> taxonomy)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Sepal <span class="op">~</span><span class="st"> </span>Taxon, <span class="dt">data =</span> taxonomy)</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-189-1.svg" width="672" /></p>
 <p>We see that taxon I has the median (and probably also the mean) closest to the average Sepal length which is 3.0.
 Taxa II and III are very similar, but slightly further away, hence their probabilities are a bit smaller. Taxa IV has
@@ -372,7 +372,7 @@ Sepal lengths much larger than the average and is thus the least probable taxon.
 </ol></li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb299-1" data-line-number="1"><span class="kw">predict</span>(mod1.multi,<span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">Sepal =</span> <span class="kw">mean</span>(taxonomy<span class="op">$</span>Sepal)))</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">predict</span>(mod1.multi,<span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">Sepal =</span> <span class="kw">mean</span>(taxonomy<span class="op">$</span>Sepal)))</code></pre>
 <pre><code>[1] I
 Levels: I II III IV</code></pre>
 </div>
@@ -383,17 +383,17 @@ Levels: I II III IV</code></pre>
 </ul>
 <div class="ans">
 <p>I have found two variables which are promising; <code>Leaf</code> and <code>Petiole</code>, as shown in the figures below.</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb301-1" data-line-number="1"><span class="kw">plot</span>(Leaf <span class="op">~</span><span class="st"> </span>Taxon, <span class="dt">data =</span> taxonomy)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Leaf <span class="op">~</span><span class="st"> </span>Taxon, <span class="dt">data =</span> taxonomy)</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-191-1.svg" width="672" /></p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb302-1" data-line-number="1"><span class="kw">plot</span>(Petiole <span class="op">~</span><span class="st"> </span>Taxon, <span class="dt">data =</span> taxonomy)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(Petiole <span class="op">~</span><span class="st"> </span>Taxon, <span class="dt">data =</span> taxonomy)</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-191-2.svg" width="672" /></p>
 <p><code>Leaf</code> seems to distinguish taxon III from the others, and <code>Petiole</code> may separate taxa I and II.</p>
 <p>I therefore fit a model with <code>Sepal</code>, <code>Leaf</code> and <code>Petiole</code> as predictors for taxa. This model requires
 many iterations in the estimation process. I set <code>maxit = 5000</code> to be sure. (<code>trace =FALSE</code> supresses
 a long list of convergence details)</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb303-1" data-line-number="1">mod2.multi &lt;-<span class="st"> </span><span class="kw">multinom</span>(Taxon <span class="op">~</span><span class="st"> </span>Sepal <span class="op">+</span><span class="st"> </span>Leaf <span class="op">+</span><span class="st"> </span>Petiole , <span class="dt">data =</span> taxonomy, </a>
-<a class="sourceLine" id="cb303-2" data-line-number="2">                       <span class="dt">maxit =</span> <span class="dv">5000</span>, <span class="dt">trace =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb303-3" data-line-number="3"><span class="kw">summary</span>(mod2.multi)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">mod2.multi &lt;-<span class="st"> </span><span class="kw">multinom</span>(Taxon <span class="op">~</span><span class="st"> </span>Sepal <span class="op">+</span><span class="st"> </span>Leaf <span class="op">+</span><span class="st"> </span>Petiole , <span class="dt">data =</span> taxonomy, 
+                       <span class="dt">maxit =</span> <span class="dv">5000</span>, <span class="dt">trace =</span> <span class="ot">FALSE</span>)
+<span class="kw">summary</span>(mod2.multi)</code></pre>
 <pre><code>Call:
 multinom(formula = Taxon ~ Sepal + Leaf + Petiole, data = taxonomy, 
     maxit = 5000, trace = FALSE)
@@ -419,8 +419,8 @@ as you extended <code>mod1.multi</code> to <code>mod2.multi</code>.</li>
 </ul>
 <div class="ans">
 <p>We test whether the difference in deviances between the two models is significant.</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1">dev.diff &lt;-<span class="st"> </span><span class="dv">-2</span> <span class="op">*</span><span class="st"> </span>(<span class="kw">logLik</span>(mod1.multi) <span class="op">-</span><span class="st"> </span><span class="kw">logLik</span>(mod2.multi))</a>
-<a class="sourceLine" id="cb305-2" data-line-number="2"><span class="kw">pchisq</span>(dev.diff, <span class="dv">6</span>, <span class="dt">lower =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">dev.diff &lt;-<span class="st"> </span><span class="dv">-2</span> <span class="op">*</span><span class="st"> </span>(<span class="kw">logLik</span>(mod1.multi) <span class="op">-</span><span class="st"> </span><span class="kw">logLik</span>(mod2.multi))
+<span class="kw">pchisq</span>(dev.diff, <span class="dv">6</span>, <span class="dt">lower =</span> <span class="ot">FALSE</span>)</code></pre>
 <pre><code>&#39;log Lik.&#39; 1.23e-39 (df=6)</code></pre>
 <p>The p-value indicates that <code>Leaf</code> and <code>Petiole</code> are highly significant in addition to <code>Sepal</code> as
 predictors in the model.</p>
@@ -433,8 +433,8 @@ classification performance of the multinomial model. What is the accuracy and ap
 </ol></li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1">pred.all &lt;-<span class="st"> </span><span class="kw">predict</span>(mod2.multi, <span class="dt">newdata =</span> taxonomy)</a>
-<a class="sourceLine" id="cb307-2" data-line-number="2">mixlm<span class="op">::</span><span class="kw">confusion</span>(taxonomy<span class="op">$</span>Taxon, pred.all)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">pred.all &lt;-<span class="st"> </span><span class="kw">predict</span>(mod2.multi, <span class="dt">newdata =</span> taxonomy)
+mixlm<span class="op">::</span><span class="kw">confusion</span>(taxonomy<span class="op">$</span>Taxon, pred.all)</code></pre>
 <pre><code>         True
 Predicted  I II III IV
   I       30  0   0  0
@@ -458,8 +458,8 @@ N correct/N total = 120/120 = 1</code></pre>
 </ol></li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb309-1" data-line-number="1"><span class="co">#source(&quot;CV.class.multinom.R&quot;)</span></a>
-<a class="sourceLine" id="cb309-2" data-line-number="2">CVres &lt;-<span class="st"> </span><span class="kw">CV.class.multinom</span>(mod2.multi,<span class="dt">data =</span> taxonomy, <span class="dt">trace =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#source(&quot;CV.class.multinom.R&quot;)</span>
+CVres &lt;-<span class="st"> </span><span class="kw">CV.class.multinom</span>(mod2.multi,<span class="dt">data =</span> taxonomy, <span class="dt">trace =</span> <span class="ot">FALSE</span>)</code></pre>
 <pre><code>         True
 Predicted  I II III IV
   I       28  1   1  0
@@ -562,7 +562,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -572,6 +572,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -589,7 +593,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

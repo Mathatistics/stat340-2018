@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Applied Methods in Statistics</title>
+  <title>Dataset: birth | Applied Methods in Statistics</title>
   <meta name="description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)">
-  <meta name="generator" content="bookdown 0.6.2 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Applied Methods in Statistics" />
+  <meta property="og:title" content="Dataset: birth | Applied Methods in Statistics" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="mathatistics/stat340-2018-source" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Applied Methods in Statistics" />
+  <meta name="twitter:title" content="Dataset: birth | Applied Methods in Statistics" />
   
   <meta name="twitter:description" content="This contains the weekly exercises related to Applied Methods in Statistics (STAT340)" />
   
@@ -35,6 +35,7 @@
 <link rel="next" href="dataset-bodydata.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -46,6 +47,7 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113782065-1"></script>
 <script>
@@ -60,7 +62,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -73,13 +75,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -295,7 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Take a look at the top 10 rows of the data using the <code>head()</code> function</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="kw">head</span>(birth, <span class="dt">n =</span> <span class="dv">10</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(birth, <span class="dt">n =</span> <span class="dv">10</span>)</code></pre>
 <pre><code>   LOW AGE LWT SMK  BWT
 1  YES  28 120 YES  709
 2  YES  29 130  NO 1021
@@ -312,7 +312,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>summary()</code> function to get a short summary of the variables.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">summary</span>(birth)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(birth)</code></pre>
 <pre><code>  LOW           AGE            LWT       SMK           BWT      
  NO :130   Min.   :14.0   Min.   : 80   NO :115   Min.   : 709  
  YES: 59   1st Qu.:19.0   1st Qu.:110   YES: 74   1st Qu.:2414  
@@ -337,7 +337,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>What is the average birth weight of children from non-smoking and smoking mothers?</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">tapply</span>(birth<span class="op">$</span>BWT, <span class="dt">INDEX =</span> birth<span class="op">$</span>SMK, <span class="dt">FUN =</span> mean)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tapply</span>(birth<span class="op">$</span>BWT, <span class="dt">INDEX =</span> birth<span class="op">$</span>SMK, <span class="dt">FUN =</span> mean)</code></pre>
 <pre><code>  NO  YES 
 3055 2773 </code></pre>
 <p>The function returns the mean birth weight for children of non-smoking and smoking mothers.</p>
@@ -346,7 +346,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>What is the standard deviation of birth weight of children from non-smoking and smoking mothers?</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">tapply</span>(birth<span class="op">$</span>BWT, <span class="dt">INDEX =</span> birth<span class="op">$</span>SMK, <span class="dt">FUN =</span> sd)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tapply</span>(birth<span class="op">$</span>BWT, <span class="dt">INDEX =</span> birth<span class="op">$</span>SMK, <span class="dt">FUN =</span> sd)</code></pre>
 <pre><code> NO YES 
 752 660 </code></pre>
 <p>The <code>sd()</code> function computes the sample standard deviation of a vector of observations.</p>
@@ -355,8 +355,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="linear-regression" class="section level3">
 <h3><i class="fa fa-book"></i> Linear Regression</h3>
 <p>Run a simple linear regression model with BWT as response and LWT as predictor, like this,</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1">birth1 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT, <span class="dt">data =</span> birth)</a>
-<a class="sourceLine" id="cb83-2" data-line-number="2"><span class="kw">summary</span>(birth1)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">birth1 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT, <span class="dt">data =</span> birth)
+<span class="kw">summary</span>(birth1)</code></pre>
 <pre><code>
 Call:
 lm(formula = BWT ~ LWT, data = birth)
@@ -406,8 +406,8 @@ F-statistic: 6.69 on 1 and 187 DF,  p-value: 0.0105 </code></pre>
 </ul>
 <div class="ans">
 <p>The scatter plot of LWT and BWT is,</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">plot</span>(<span class="dt">x =</span> birth<span class="op">$</span>LWT, <span class="dt">y =</span> birth<span class="op">$</span>BWT)</a>
-<a class="sourceLine" id="cb85-2" data-line-number="2"><span class="kw">abline</span>(birth1)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x =</span> birth<span class="op">$</span>LWT, <span class="dt">y =</span> birth<span class="op">$</span>BWT)
+<span class="kw">abline</span>(birth1)</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-64-1.svg" width="672" /></p>
 </div>
 <ul>
@@ -427,7 +427,7 @@ F-statistic: 6.69 on 1 and 187 DF,  p-value: 0.0105 </code></pre>
 <li>Find 95% confidence intervals for the regression coefficients of the <code>birth1</code> model</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1"><span class="kw">confint</span>(birth1)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(birth1)</code></pre>
 <pre><code>              2.5 %  97.5 %
 (Intercept) 1919.04 2820.30
 LWT            1.05    7.81</code></pre>
@@ -436,7 +436,7 @@ LWT            1.05    7.81</code></pre>
 <li>Also find 99% confidence intervals</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1"><span class="kw">confint</span>(birth1, <span class="dt">level =</span> <span class="fl">0.99</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(birth1, <span class="dt">level =</span> <span class="fl">0.99</span>)</code></pre>
 <pre><code>                0.5 %  99.5 %
 (Intercept) 1775.2097 2964.13
 LWT           -0.0287    8.89</code></pre>
@@ -456,11 +456,11 @@ LWT           -0.0287    8.89</code></pre>
 <div id="regression-with-categories" class="section level3">
 <h3><i class="fa fa-book"></i> Regression with categories</h3>
 <p>Here we will fit a separate regression for smoking and non-smoking groups. You can identify the observation numbers of the smokers by:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb90-1" data-line-number="1">smokeYes &lt;-<span class="st"> </span><span class="kw">which</span>(birth<span class="op">$</span>SMK <span class="op">==</span><span class="st"> &quot;YES&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">smokeYes &lt;-<span class="st"> </span><span class="kw">which</span>(birth<span class="op">$</span>SMK <span class="op">==</span><span class="st"> &quot;YES&quot;</span>)</code></pre>
 Fit the same model as <code>birth1</code>, but separate models for non-smokers and smokers, and call the models <code>birth2</code> and <code>birth3</code>. (Hint: select observations by the subset argument in the <code>lm</code>-function using the <code>smokeYes</code> variable.)
 <div class="ans">
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">birth2 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT, <span class="dt">data =</span> birth, <span class="dt">subset =</span> <span class="op">-</span>smokeYes)</a>
-<a class="sourceLine" id="cb91-2" data-line-number="2">birth3 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT, <span class="dt">data =</span> birth, <span class="dt">subset =</span> smokeYes)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">birth2 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT, <span class="dt">data =</span> birth, <span class="dt">subset =</span> <span class="op">-</span>smokeYes)
+birth3 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT, <span class="dt">data =</span> birth, <span class="dt">subset =</span> smokeYes)</code></pre>
 </div>
 <div id="interpreate-these-models" class="section level5">
 <h5><i class="fa fa-edit"></i> Interpreate these models</h5>
@@ -468,9 +468,9 @@ Fit the same model as <code>birth1</code>, but separate models for non-smokers a
 <li>Make a scatter plot of LWT vs BWT and add two fitted lines form the model fitted above.</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">plot</span>(<span class="dt">x =</span> birth<span class="op">$</span>LWT, <span class="dt">y =</span> birth<span class="op">$</span>BWT)</a>
-<a class="sourceLine" id="cb92-2" data-line-number="2"><span class="kw">abline</span>(birth2, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a>
-<a class="sourceLine" id="cb92-3" data-line-number="3"><span class="kw">abline</span>(birth3, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x =</span> birth<span class="op">$</span>LWT, <span class="dt">y =</span> birth<span class="op">$</span>BWT)
+<span class="kw">abline</span>(birth2, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)
+<span class="kw">abline</span>(birth3, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>)</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-69-1.svg" width="672" /></p>
 </div>
 <ul>
@@ -483,7 +483,7 @@ Fit the same model as <code>birth1</code>, but separate models for non-smokers a
 <li>Is LWT significant at a 5% level on BWT for the smokers?</li>
 </ul>
 <div class="ans">
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1"><span class="kw">summary</span>(birth3)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(birth3)</code></pre>
 <pre><code>
 Call:
 lm(formula = BWT ~ LWT, data = birth, subset = smokeYes)
@@ -527,8 +527,8 @@ From the summary of model <code>birth3</code> above, p-value corresponding to LW
 </div>
 <p>Fit the model in RStudio, call it <code>birth4</code> and comment on the results.</p>
 <div class="ans">
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1">birth4 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT <span class="op">+</span><span class="st"> </span>AGE, <span class="dt">data =</span> birth)</a>
-<a class="sourceLine" id="cb95-2" data-line-number="2"><span class="kw">summary</span>(birth4)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">birth4 &lt;-<span class="st"> </span><span class="kw">lm</span>(BWT <span class="op">~</span><span class="st"> </span>LWT <span class="op">+</span><span class="st"> </span>AGE, <span class="dt">data =</span> birth)
+<span class="kw">summary</span>(birth4)</code></pre>
 <pre><code>
 Call:
 lm(formula = BWT ~ LWT + AGE, data = birth)
@@ -557,34 +557,34 @@ F-statistic: 3.65 on 2 and 186 DF,  p-value: 0.0278 </code></pre>
 <p>Look at the presentation file Regression.Rmd from lecture 2 and produce for the <code>birth4-model</code> a similar 3D-plot as on page 15. You may need to install the R-packages: <code>rgl</code>, <code>nlme</code>, <code>mgcv</code> and <code>car</code> first. Use the figure to get an understanding of the effects of LWT and AGE on BWT.</p>
 <div id="a-3d-plot" class="section level5">
 <h5>A 3D plot</h5>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1"><span class="kw">library</span>(scatterplot3d)</a>
-<a class="sourceLine" id="cb97-2" data-line-number="2"><span class="kw">with</span>(birth, {</a>
-<a class="sourceLine" id="cb97-3" data-line-number="3">  <span class="co"># Start Plot</span></a>
-<a class="sourceLine" id="cb97-4" data-line-number="4">  plot3d &lt;-<span class="st"> </span><span class="kw">scatterplot3d</span>(LWT, AGE, BWT, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">highlight.3d =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb97-5" data-line-number="5">                          <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex.symbols =</span> <span class="fl">0.5</span>, </a>
-<a class="sourceLine" id="cb97-6" data-line-number="6">                          <span class="dt">main =</span> <span class="st">&quot;Residuals and fitted plane for model: birth4&quot;</span>,</a>
-<a class="sourceLine" id="cb97-7" data-line-number="7">                          <span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">box =</span> <span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb97-8" data-line-number="8">  <span class="co"># Add fitted plane for model birth4</span></a>
-<a class="sourceLine" id="cb97-9" data-line-number="9">  plot3d<span class="op">$</span><span class="kw">plane3d</span>(birth4, <span class="dt">col =</span> <span class="st">&quot;grey50&quot;</span>, <span class="dt">lty.box =</span> <span class="st">&quot;solid&quot;</span>, <span class="dt">polygon_args =</span> <span class="kw">list</span>(<span class="dt">bg =</span> <span class="st">&quot;lightgrey&quot;</span>))</a>
-<a class="sourceLine" id="cb97-10" data-line-number="10">  <span class="co"># True Values</span></a>
-<a class="sourceLine" id="cb97-11" data-line-number="11">  true &lt;-<span class="st"> </span>plot3d<span class="op">$</span><span class="kw">xyz.convert</span>(LWT, AGE, BWT)</a>
-<a class="sourceLine" id="cb97-12" data-line-number="12">  <span class="co"># Predicted Values</span></a>
-<a class="sourceLine" id="cb97-13" data-line-number="13">  fitted &lt;-<span class="st"> </span>plot3d<span class="op">$</span><span class="kw">xyz.convert</span>(LWT, AGE, <span class="kw">fitted</span>(birth4))</a>
-<a class="sourceLine" id="cb97-14" data-line-number="14">  <span class="co"># Is the residuals negative?</span></a>
-<a class="sourceLine" id="cb97-15" data-line-number="15">  neg_res &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(<span class="kw">resid</span>(birth4) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb97-16" data-line-number="16">  <span class="co"># Add segment for the residuals</span></a>
-<a class="sourceLine" id="cb97-17" data-line-number="17">  <span class="kw">segments</span>(true<span class="op">$</span>x, true<span class="op">$</span>y, fitted<span class="op">$</span>x, fitted<span class="op">$</span>y, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>)[neg_res])</a>
-<a class="sourceLine" id="cb97-18" data-line-number="18">})</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(scatterplot3d)
+<span class="kw">with</span>(birth, {
+  <span class="co"># Start Plot</span>
+  plot3d &lt;-<span class="st"> </span><span class="kw">scatterplot3d</span>(LWT, AGE, BWT, <span class="dt">type =</span> <span class="st">&quot;p&quot;</span>, <span class="dt">highlight.3d =</span> <span class="ot">TRUE</span>, 
+                          <span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">cex.symbols =</span> <span class="fl">0.5</span>, 
+                          <span class="dt">main =</span> <span class="st">&quot;Residuals and fitted plane for model: birth4&quot;</span>,
+                          <span class="dt">angle =</span> <span class="dv">45</span>, <span class="dt">box =</span> <span class="ot">FALSE</span>)
+  <span class="co"># Add fitted plane for model birth4</span>
+  plot3d<span class="op">$</span><span class="kw">plane3d</span>(birth4, <span class="dt">col =</span> <span class="st">&quot;grey50&quot;</span>, <span class="dt">lty.box =</span> <span class="st">&quot;solid&quot;</span>, <span class="dt">polygon_args =</span> <span class="kw">list</span>(<span class="dt">bg =</span> <span class="st">&quot;lightgrey&quot;</span>))
+  <span class="co"># True Values</span>
+  true &lt;-<span class="st"> </span>plot3d<span class="op">$</span><span class="kw">xyz.convert</span>(LWT, AGE, BWT)
+  <span class="co"># Predicted Values</span>
+  fitted &lt;-<span class="st"> </span>plot3d<span class="op">$</span><span class="kw">xyz.convert</span>(LWT, AGE, <span class="kw">fitted</span>(birth4))
+  <span class="co"># Is the residuals negative?</span>
+  neg_res &lt;-<span class="st"> </span><span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(<span class="kw">resid</span>(birth4) <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
+  <span class="co"># Add segment for the residuals</span>
+  <span class="kw">segments</span>(true<span class="op">$</span>x, true<span class="op">$</span>y, fitted<span class="op">$</span>x, fitted<span class="op">$</span>y, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;red&quot;</span>)[neg_res])
+})</code></pre>
 <p><img src="STAT340-2018_files/figure-html/unnamed-chunk-72-1.svg" width="100%" />
 <!-- ![Scatter3D](images/scatter3d.png) --></p>
 </div>
 <div id="an-interactive-3d-plot" class="section level5">
 <h5>An interactive 3D plot</h5>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb98-1" data-line-number="1"><span class="kw">library</span>(car)</a>
-<a class="sourceLine" id="cb98-2" data-line-number="2"><span class="kw">scatter3d</span>(BWT <span class="op">~</span><span class="st"> </span>LWT <span class="op">+</span><span class="st"> </span>AGE, <span class="dt">data =</span> birth, <span class="dt">axis.ticks =</span> <span class="ot">TRUE</span>, <span class="dt">revolutions =</span> <span class="dv">1</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
+<span class="kw">scatter3d</span>(BWT <span class="op">~</span><span class="st"> </span>LWT <span class="op">+</span><span class="st"> </span>AGE, <span class="dt">data =</span> birth, <span class="dt">axis.ticks =</span> <span class="ot">TRUE</span>, <span class="dt">revolutions =</span> <span class="dv">1</span>)</code></pre>
 <p><strong>For grouped: Smoking vs Non-Smoking:</strong></p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1">car<span class="op">::</span><span class="kw">scatter3d</span>(BWT <span class="op">~</span><span class="st"> </span>LWT <span class="op">+</span><span class="st"> </span>AGE, <span class="dt">data =</span> birth, <span class="dt">axis.ticks =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb99-2" data-line-number="2">               <span class="dt">revolutions =</span> <span class="dv">1</span>, <span class="dt">groups =</span> birth<span class="op">$</span>SMK)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">car<span class="op">::</span><span class="kw">scatter3d</span>(BWT <span class="op">~</span><span class="st"> </span>LWT <span class="op">+</span><span class="st"> </span>AGE, <span class="dt">data =</span> birth, <span class="dt">axis.ticks =</span> <span class="ot">TRUE</span>, 
+               <span class="dt">revolutions =</span> <span class="dv">1</span>, <span class="dt">groups =</span> birth<span class="op">$</span>SMK)</code></pre>
 </div>
 <div id="interpretation" class="section level5">
 <h5>Interpretation</h5>
@@ -679,7 +679,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -689,6 +689,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
+"link": null,
+"text": null
+},
+"history": {
 "link": null,
 "text": null
 },
@@ -706,7 +710,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;
